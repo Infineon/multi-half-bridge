@@ -1,7 +1,7 @@
 # DC-Motor-Control-TLE94112EL Library 
 <img src="https://github.com/Infineon/Assets/blob/master/Pictures/TLE94112EL_Shield.png" width="400">
 
-Library of Infineon's [DC Motor Shield with TLE94112EL for Arduino](https://www.infineon.com/cms/en/product/productType.html?productType=5546d46259d9a4bf015a369885a95505) for Arduino.
+Library of Infineon's [DC Motor Shield with TLE94112EL](https://www.infineon.com/cms/en/product/productType.html?productType=5546d46259d9a4bf015a369885a95505) for Arduino.
 
 ## Summary
 The DC motor shield is a small evaluation board equipped with TLE94112EL for use with Arduino. The TLE94112EL is capable to drive up to 6 small DC motors in parallel mode or up to 11 DC motors in cascaded mode. All outputs can drive up to 0.9A. The outputs can be used stand-alone or combined to increase driving capability up to 3.6A. The implemented integrated [TLE94112EL](https://www.infineon.com/cms/en/product/power/motor-control-and-gate-driver-ics/intelligent-motor-control-ics/multi-half-bridge-driver/TLE94112EL/productType.html?productType=5546d46254e133b4015538ca99e552a1) is a protected twelve-fold half-bridge driver designed especially for automotive motion control applications such as Heating, Ventilation and Air Conditioning (HVAC) flap DC motor control.
