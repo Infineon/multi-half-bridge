@@ -23,6 +23,15 @@ The DC motor shield is a small evaluation board equipped with TLE94112EL for use
 * Toys
 * HVAC systems
 
+## Installation
+First of all, please download this repository from GitHub by clicking on the following field in the [releases](https://github.com/Infineon/DC-Motor-Control-TLE94112EL/releases) of this repository or directly [here](https://github.com/Infineon/DC-Motor-Control-TLE94112EL/releases/download/V0.1.0/DC-Motor-Control-TLE94112EL.zip):
+
+![Download Library](https://raw.githubusercontent.com/infineon/assets/master/Pictures/DL_DC_Mot_Rel-TLE94112EL.png)
+
+To install the DC motor control library in the Arduino IDE, please go now to **Sketch** > **Include Library** > **Add .ZIP Library...** in the Arduino IDE and navigate to the downloaded .ZIP file of this repository release. The library will be installed in your Arduino sketch folder in libraries and you can select as well as include this one to your project under **Sketch** > **Include Library** > **TLE94112**.
+
+![Install Library](https://raw.githubusercontent.com/infineon/assets/master/Pictures/Library_Install_ZIP.png)
+
 ## Usage
 Please follow the example sketches in the /examples directory in this library to learn more about the usage of the library.
 
