@@ -1,0 +1,76 @@
+#######################################
+# Syntax Coloring Map For TLE94112
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Tle94112	KEYWORD1
+
+
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+end	KEYWORD2
+configHB	KEYWORD2
+configPWM	KEYWORD2
+getSysDiagnosis	KEYWORD2
+getHBOverCurrent	KEYWORD2
+getHBOpenLoad	KEYWORD2
+clearErrors	KEYWORD2
+
+
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+tle94112	KEYWORD2
+tle94112_2	KEYWORD2
+
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+TLE_HB1	LITERAL1
+TLE_HB2	LITERAL1
+TLE_HB3	LITERAL1
+TLE_HB4	LITERAL1
+TLE_HB5	LITERAL1
+TLE_HB6	LITERAL1
+TLE_HB7	LITERAL1
+TLE_HB8	LITERAL1
+TLE_HB9	LITERAL1
+TLE_HB10	LITERAL1
+TLE_HB11	LITERAL1
+TLE_HB12	LITERAL1
+
+TLE_NOPWM	LITERAL1
+TLE_PWM1	LITERAL1
+TLE_PWM2	LITERAL1
+TLE_PWM3	LITERAL1
+
+TLE_FLOATING	LITERAL1
+TLE_LOW	LITERAL1
+TLE_HIGH	LITERAL1
+
+TLE_FREQOFF	LITERAL1
+TLE_FREQ80HZ	LITERAL1
+TLE_FREQ100HZ	LITERAL1
+TLE_FREQ200HZ	LITERAL1
+
+TLE_SPI_ERROR	LITERAL1
+TLE_LOAD_ERROR	LITERAL1
+TLE_UNDER_VOLTAGE	LITERAL1
+TLE_OVER_VOLTAGE	LITERAL1
+TLE_POWER_ON_RESET	LITERAL1
+TLE_TEMP_SHUTDOWN	LITERAL1
+TLE_TEMP_WARNING	LITERAL1
+
+TLE_STATUS_OK	LITERAL1
