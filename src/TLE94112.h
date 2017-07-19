@@ -21,6 +21,14 @@
 #include "./util/tle94112_conf.h"
 
 
+#ifndef FALSE
+#define FALSE 0
+#endif
+#ifndef TRUE
+#define TRUE  1
+#endif
+
+
 /*! \brief the number of halfbridges on a TLE94112
  *
  *	\see mHalfBridges

@@ -21,7 +21,7 @@
 #define TLE94112_CMD_CLEAR			0x80;
 //standard pin assignment
 #define TLE94112_PIN_CS1			10
-#define TLE94112_PIN_CS2			12
+#define TLE94112_PIN_CS2			9
 #define TLE94112_PIN_EN				8
 #define TLE94112_CS_RISETIME		2
 

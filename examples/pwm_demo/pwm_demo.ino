@@ -7,8 +7,6 @@ void setup() {
   Serial.begin(9600);
   while(!Serial);
 
-  //LED
-  pinMode(LED1, OUTPUT);
 
   //power supply voltage should be available before tle94112.begin() is called
   delay(100);
@@ -71,8 +69,5 @@ void loop() {
   }
 
   //let LED blink to show that program is still running
-  delay(200);
-  digitalWrite(LED1, HIGH);
-  delay(200);
-  digitalWrite(LED1, LOW); 
+  delay(400);
 }
