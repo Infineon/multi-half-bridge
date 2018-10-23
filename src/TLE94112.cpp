@@ -13,7 +13,7 @@
  *	\brief This file defines functions and predefined instances from TLE94112.h
  */
 
-#include "TLE94112.h"
+#include "Tle94112.h"
 #include "./util/tle94112_conf.h"
 
 //SPI address commands
@@ -27,26 +27,23 @@
 
 #define TLE94112_STATUS_INV_MASK	(Tle94112::TLE_POWER_ON_RESET)
 
-//predefined instances
-Tle94112 tle94112(&SPI, TLE94112_PIN_CS1, TLE94112_PIN_EN);
-Tle94112 tle94112_2(&SPI, TLE94112_PIN_CS2, TLE94112_PIN_EN);
-
 
 Tle94112::Tle94112(void)
 {
-	Tle94112(&SPI, TLE94112_PIN_CS1, TLE94112_PIN_EN);
-}
-
-Tle94112::Tle94112(SPIClass *bus, uint8_t cs, uint8_t en)
-{
-	mEnabled = FALSE;
-	mBus = bus;
-	mCsPin = cs;
-	mEnPin = en;
 }
 
 void Tle94112::begin(void)
 {
+	begin(SPI, TLE94112_PIN_CS1, TLE94112_PIN_EN);
+}
+
+void Tle94112::begin(SPIClass &bus, uint8_t cs, uint8_t en)
+{
+	mEnabled = FALSE;
+	mBus = &bus;
+	mCsPin = cs;
+	mEnPin = en;
+	
 	mEnabled = TRUE;
 	mBus->begin();
 	mBus->setBitOrder(LSBFIRST); 
@@ -58,6 +55,7 @@ void Tle94112::begin(void)
 	digitalWrite(mEnPin, HIGH);
 	init();
 }
+
 
 void Tle94112::end(void)
 {
@@ -97,7 +95,7 @@ void Tle94112::configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeFW
 	reg = mHalfBridges[hb].fwReg;
 	mask = mHalfBridges[hb].fwMask;
 	shift = mHalfBridges[hb].fwShift;
-	writeReg(reg, mask, shift, pwm);
+	writeReg(reg, mask, shift, activeFW);
 }
 
 void Tle94112::configPWM(PWMChannel pwm, PWMFreq freq, uint8_t dutyCycle)
