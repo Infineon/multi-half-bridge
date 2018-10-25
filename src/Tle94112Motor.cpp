@@ -315,7 +315,10 @@ void Tle94112Motor::performSpeedStepping(int16_t start_speed,
 		for(uint16_t i=1u; i<=num_steps; i++)
 		{
 			setSpeed(start_speed + ( (i*ramp_delta_speed) / num_steps ) );
-			delay(steptime);
+			if( steptime > 0u )
+			{
+				delay(steptime);
+			}
 		}
 	}
 	else
