@@ -14,7 +14,7 @@
  */
 
 #include "tle94112_conf.h"
-#include "TLE94112.h"
+#include "Tle94112.h"
 
 
 void Tle94112::init(void)
@@ -55,6 +55,7 @@ void Tle94112::init(void)
 	mStatusRegAddresses[OP_ERROR_6_STAT]	= 0x27;
 	
 	//bit masking for all halfbridges
+	mHalfBridges[TLE_NOHB] = { HB_ACT_1_CTRL, 0x00, 0, HB_MODE_1_CTRL, 0x00, 0, FW_OL_CTRL, 0x00, 0, OP_ERROR_1_STAT, 0x00, 0, OP_ERROR_4_STAT, 0x00, 0 };
 	mHalfBridges[TLE_HB1] = { HB_ACT_1_CTRL, 0x03, 0, HB_MODE_1_CTRL, 0x03, 0, FW_OL_CTRL, 0x04, 2, OP_ERROR_1_STAT, 0x03, 0, OP_ERROR_4_STAT, 0x03, 0 };
 	mHalfBridges[TLE_HB2] = { HB_ACT_1_CTRL, 0x0C, 2, HB_MODE_1_CTRL, 0x0C, 2, FW_OL_CTRL, 0x08, 3, OP_ERROR_1_STAT, 0x0C, 2, OP_ERROR_4_STAT, 0x0C, 2 };
 	mHalfBridges[TLE_HB3] = { HB_ACT_1_CTRL, 0x30, 4, HB_MODE_1_CTRL, 0x30, 4, FW_OL_CTRL, 0x10, 4, OP_ERROR_1_STAT, 0x30, 4, OP_ERROR_4_STAT, 0x30, 4 };

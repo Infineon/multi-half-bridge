@@ -1,5 +1,5 @@
 /*
- *	Arduino library to control Infineon's DC Motor Control Shield with TLE94112
+ *	Arduino library to control Infineon's DC Motor Control Shield with Tle94112
  *
  *	The shield contains twelve independent halfbridges, 
  *	so it can drive up to 6 indipendent (+5 cascaded) bidirectional DC motor(s). 
@@ -9,7 +9,7 @@
  *	Have a look at the datasheet for more information. 
  */
  
-/*!	\file TLE94112.h
+/*!	\file Tle94112.h
  *	\brief This file has to be included in projects that use Infineon's DC Motor Control Shield with TLE94112
  */
 
@@ -20,7 +20,6 @@
 #include "SPI.h"
 #include "./util/tle94112_conf.h"
 
-
 #ifndef FALSE
 #define FALSE 0
 #endif
@@ -28,13 +27,12 @@
 #define TRUE  1
 #endif
 
-
 /*! \brief the number of halfbridges on a TLE94112
  *
  *	\see mHalfBridges
  *	\see HalfBridge
  */
-#define TLE94112_NUM_HB 			12
+#define TLE94112_NUM_HB 			13
 
 /*! \brief the number of pwm modes for a halfbridge (including no pwm)
  *
@@ -67,7 +65,7 @@ class Tle94112
 		//! \brief enum for the halfbridges on a TLE94112
 		enum HalfBridge
 		{
-			TLE_HB1 = 0, TLE_HB2, TLE_HB3, TLE_HB4, TLE_HB5, TLE_HB6, 
+			TLE_NOHB = 0, TLE_HB1, TLE_HB2, TLE_HB3, TLE_HB4, TLE_HB5, TLE_HB6, 
 			TLE_HB7, TLE_HB8, TLE_HB9, TLE_HB10, TLE_HB11, TLE_HB12
 		};
 		
@@ -106,16 +104,16 @@ class Tle94112
 		//! \brief standard constructor with default pin assignment
 		Tle94112();
 		
+		//! \brief enables and initializes the TLE94112
+		void begin(void);
+		
 		/*! \brief constructor with individual pin assignment
 		 *
-		 *	\param bus	a pointer to an SPIClass object
+		 *	\param bus	a SPIClass object
 		 *  \param cs	pin number of the CS pin
 		 * 	\param en	pin number of the ENABLE pin
 		 */
-		Tle94112(SPIClass *bus, uint8_t cs, uint8_t en);
-		
-		//! \brief enables and initializes the TLE94112
-		void begin(void);
+		void begin(SPIClass &bus, uint8_t cs, uint8_t en);
 		
 		//! \brief deactivates all outputs and disables the TLE94112
 		void end(void);
@@ -350,9 +348,5 @@ class Tle94112
 		 */
 		void clearStatusReg(uint8_t reg);
 };
-
-//predefined instances
-extern Tle94112 tle94112;
-extern Tle94112 tle94112_2;
 
 #endif
