@@ -32,7 +32,7 @@
  *	\see mHalfBridges
  *	\see HalfBridge
  */
-#define TLE94112_NUM_HB 			12
+#define TLE94112_NUM_HB 			13
 
 /*! \brief the number of pwm modes for a halfbridge (including no pwm)
  *
