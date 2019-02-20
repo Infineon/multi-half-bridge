@@ -1,6 +1,6 @@
 # DC-Motor-Control-TLE94112EL Library 
 
-[![Build Status](https://travis-ci.org/DC-Motor-Control-TLE94112EL.svg?branch=master)](https://travis-ci.org/Infineon/DC-Motor-Control-TLE94112EL)
+[![Build Status](https://travis-ci.org/Infineon/DC-Motor-Control-TLE94112EL.svg?branch=master)](https://travis-ci.org/Infineon/DC-Motor-Control-TLE94112EL)
 
 <img src="https://github.com/Infineon/Assets/blob/master/Pictures/TLE94112EL_Shield.png" width="400">
 
