@@ -13,7 +13,7 @@
  *	\brief This file defines functions and predefined instances from TLE94112.h
  */
 
-#include "Tle94112.h"
+#include "TLE94112.h"
 #include "./util/tle94112_conf.h"
 
 //SPI address commands
