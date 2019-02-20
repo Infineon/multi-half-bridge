@@ -14,7 +14,7 @@
  */
 
 #include "tle94112_conf.h"
-#include "Tle94112.h"
+#include "TLE94112.h"
 
 
 void Tle94112::init(void)
