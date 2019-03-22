@@ -57,6 +57,18 @@
  */
 #define TLE94112_NUM_STATUS_REGS	7
 
+/*! \brief Standard pin for chip select on first shield
+ */
+#define TLE94112_PIN_CS1			10
+
+/*! \brief Standard pin for chip select on second shield
+ */
+#define TLE94112_PIN_CS2			9
+
+/*! \brief Standard enable pin
+ */
+#define TLE94112_PIN_EN				8
+
 
 //!	\brief	Class that represents a TLE94112
 class Tle94112
