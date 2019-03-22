@@ -19,10 +19,7 @@
 //SPI address commands
 #define TLE94112_CMD_WRITE			0x80;
 #define TLE94112_CMD_CLEAR			0x80;
-//standard pin assignment
-#define TLE94112_PIN_CS1			10
-#define TLE94112_PIN_CS2			9
-#define TLE94112_PIN_EN				8
+
 #define TLE94112_CS_RISETIME		2
 
 #define TLE94112_STATUS_INV_MASK	(Tle94112::TLE_POWER_ON_RESET)
