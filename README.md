@@ -27,7 +27,7 @@ The DC motor shield is a small evaluation board equipped with TLE94112EL for use
 * HVAC systems
 
 ## Installation
-First of all, please download this repository from GitHub by clicking on the following field in the [releases](https://github.com/Infineon/DC-Motor-Control-TLE94112EL/releases) of this repository or directly [here](https://github.com/Infineon/DC-Motor-Control-TLE94112EL/releases/download/V1.0.1/DC-Motor-Control-TLE94112EL.zip):
+First of all, please download this repository from GitHub by clicking on the following field in the [releases](https://github.com/Infineon/DC-Motor-Control-TLE94112EL/releases) of this repository.
 
 ![Download Library](https://raw.githubusercontent.com/infineon/assets/master/Pictures/DL_DC_Mot_Rel-TLE94112EL.png)
 
