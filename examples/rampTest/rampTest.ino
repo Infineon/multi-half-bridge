@@ -1,4 +1,19 @@
-#include <Tle94112.h>
+/*!
+ * \name        rampTest
+ * \author      Infineon Technologies AG
+ * \copyright   2019 Infineon Technologies AG
+ * \version     1.4.1
+ * \brief
+ * This example to run a motor with the rampSpeed function
+ * \detail
+ * This example also demonstrats how to attach a bigger motor on 4 halfbridges with a total 
+ * current of 1.8 A. Originally designed to test Lego (R) Powerfunktions or Mindstorm motors,
+ * this sketch can be used to simply run a motor smoothly with different speeds
+ * in different directions.
+ *
+ */
+
+#include <TLE94112.h>
 #include <Tle94112Motor.h>
 /*
  ============================================================================
@@ -9,7 +24,7 @@
  ============================================================================
  */
 
-// Tle94112 Object on Shiled 1
+// Tle94112 Object on Shield 1
 Tle94112 controller1 = Tle94112();
 
 // Tle94112Motor Objects on controller1
@@ -17,7 +32,7 @@ Tle94112Motor motor1(controller1);
 
 
 void setup() {
-  Serial.begin(115200);     // Switch on comunication
+  Serial.begin(115200);     // Switch on communications
   Serial.println("Init ready");
 
   // Enable MotorController on all Shields and Motors
@@ -52,8 +67,8 @@ void loop() {
   motor1.coast();
   delay(1000);
 
-// ramp rippel forward/backward    
-  Serial.println("ramp rippel forward/backward");
+// ramp ripple forward/backward    
+  Serial.println("ramp ripple forward/backward");
   motor1.start(255);
   delay(1000);
   motor1.rampSpeed(0,5000);
@@ -105,7 +120,3 @@ void loop() {
   
 
 }
-
-
-
-

@@ -1,13 +1,30 @@
-#include <Tle94112.h>
+/*!
+ * \name        speedControl
+ * \author      Infineon Technologies AG
+ * \copyright   2019 Infineon Technologies AG
+ * \version     1.4.1
+ * \brief
+ * This example demonstrates how to control the speed of motor by using the PWM units 
+ * of the TLE94112 shield
+ * \detail
+ * Attaching a potentiometer on an analog input pin, which will than controll the 
+ * setting of the TLE94112 internal PWM unit and therefore the speed of the motor.
+ * The TLE94112 has three seperat PWM units which can be attached to any combination
+ * of halfbridges. So try out to change the TLE_PWM1 to TLE_PWM2 or TLE_PWM3 to see this.
+ * You can change the motor direction by changing the HIGH/LOW status of the halfbridges
+ * 
+ */
 
-// Tle94112 Object
+#include <TLE94112.h>
+
+//! Tle94112 Object
 Tle94112 controller = Tle94112();
 
+//! Select pins for speed and direction setings
 #define pinDir    5
 #define pinSpeed  A0
-//connect motor between halfbridge 1 and halfbridge 2
 
-
+//! connect motor between halfbridge 1 and halfbridge 2
 void setup() 
 {
   // Enable MotorController Tle94112

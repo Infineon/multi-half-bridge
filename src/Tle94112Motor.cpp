@@ -1,3 +1,43 @@
+/*!
+ * \file 		Tle94112Motor.cpp
+ * \name        Tle94112Motor.cpp - optionally include library
+ * \author      Infineon Technologies AG
+ * \copyright   2019 Infineon Technologies AG
+ * \version     1.4.1
+ * \brief 		This file can optionally be included in projects that use Infineon's 
+ * 				DC Motor Control Shield with TLE94112
+ * 				It provides a higher abstraction for controlling motors with the TLE94112 
+ * 				acting as an output driver
+ * \details
+ * The Infineon TLE94112EL DC motor controller shield is able to handle 6 motors with a max. current of 0.9 A
+ * independently and additional 5 motors cascaded. The twelve half-bridges can be arranged also together,
+ * so that 3 motors with 1.8 A current or one motor with 3.6 A can be used. Each half bridge can
+ * provide a high-Voltage (nominal 5.5-18 V) tristate output and max. input voltage of 40V. It is also
+ * capable of PWM with 3 different frequencies for controlling the speed of each motor.
+ * Have a look at the datasheet for more information.
+ *
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ *
+ * Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ * disclaimer.
+ *
+ * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
+ * disclaimer in the documentation and/or other materials provided with the distribution.
+ *
+ * Neither the name of the copyright holders nor the names of its contributors may be used to endorse or promote
+ * products derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ */
+
 #include "Tle94112Motor.h"
 
 #define TLE94112_MAX_SPEED	255
@@ -64,8 +104,7 @@ void Tle94112Motor::initConnector(Tle94112Motor::ePolarity pol,
 	}
 }
 
-void Tle94112Motor::connect(Tle94112Motor::ePolarity pol, 
-		Tle94112::HalfBridge connector)
+void Tle94112Motor::connect(Tle94112Motor::ePolarity pol, Tle94112::HalfBridge connector)
 {
 	if(mEnabled == FALSE)
 	{
@@ -97,8 +136,7 @@ void Tle94112Motor::disconnect(Tle94112::HalfBridge connector)
 	}
 }
 
-void Tle94112Motor::setPwm(Tle94112Motor::ePolarity pol, 
-		Tle94112::PWMChannel channel)
+void Tle94112Motor::setPwm(Tle94112Motor::ePolarity pol, Tle94112::PWMChannel channel)
 {
 	if(mEnabled == FALSE)
 	{
@@ -116,8 +154,7 @@ void Tle94112Motor::setPwm(Tle94112Motor::ePolarity pol,
 	}
 }
 
-void Tle94112Motor::setPwmFreq(Tle94112Motor::ePolarity pol, 
-		Tle94112::PWMFreq freq)
+void Tle94112Motor::setPwmFreq(Tle94112Motor::ePolarity pol, Tle94112::PWMFreq freq)
 {
 	if(mEnabled == FALSE)
 	{
@@ -235,24 +272,24 @@ void Tle94112Motor::setSpeed(int16_t speed)
 				mSpeed = static_cast<uint8_t>(speed);
 				for(uint8_t idx = 0u; idx < TLE94112MOTOR_MAX_CONNECTORS; idx++)
 				{
-					mDriver->configHB(mConnectors[HIGHSIDE].halfbridges[idx], 
-							Tle94112::TLE_HIGH, 
-							mConnectors[HIGHSIDE].channel, 
-							mConnectors[HIGHSIDE].active_fw);
-					mDriver->configHB(mConnectors[LOWSIDE].halfbridges[idx], 
-							Tle94112::TLE_LOW, 
-							mConnectors[LOWSIDE].channel, 
-							mConnectors[LOWSIDE].active_fw);
+					mDriver->configHB(
+								mConnectors[HIGHSIDE].halfbridges[idx], 
+								Tle94112::TLE_HIGH, 
+								mConnectors[HIGHSIDE].channel, 
+								mConnectors[HIGHSIDE].active_fw);
+					mDriver->configHB(
+								mConnectors[LOWSIDE].halfbridges[idx], 
+								Tle94112::TLE_LOW, 
+								mConnectors[LOWSIDE].channel, 
+								mConnectors[LOWSIDE].active_fw);
 				}
 			}
 		}
 		else	// speed < 0
 		{
 			mSpeed = static_cast<uint8_t>(-speed);
-			mDriver->configPWM(mConnectors[HIGHSIDE].channel, 
-					mConnectors[HIGHSIDE].freq, mSpeed);
-			mDriver->configPWM(mConnectors[LOWSIDE].channel, 
-					mConnectors[LOWSIDE].freq, mSpeed);
+			mDriver->configPWM(mConnectors[HIGHSIDE].channel, mConnectors[HIGHSIDE].freq, mSpeed);
+			mDriver->configPWM(mConnectors[LOWSIDE].channel, mConnectors[LOWSIDE].freq, mSpeed);
 			if(mMode != BACKWARD)
 			{
 				//change configuration to running backward
@@ -293,7 +330,8 @@ int16_t Tle94112Motor::getSpeed(void)
 
 uint32_t Tle94112Motor::measureSetSpeedDuration(int16_t speed, int16_t start_speed)
 {
-	if(start_speed == 0) {
+	if(start_speed == 0)
+	{
 		// changing direction is additional effort
 		// don't let this have an effect on the setSpeed duration measurement
 		start_speed = SIGNUM(speed);
@@ -309,7 +347,8 @@ void Tle94112Motor::performSpeedStepping(int16_t start_speed,
 		int16_t ramp_delta_speed, int16_t num_steps, uint16_t steptime) 
 {
 	uint32_t Timer = millis();		//!> none blocking delay
-	if(num_steps > 0) {
+	if(num_steps > 0)
+	{
 		// normal ramp loop
 		for(uint16_t i=1u; i<=num_steps; i++)
 		{
@@ -326,10 +365,12 @@ void Tle94112Motor::performSpeedStepping(int16_t start_speed,
 		setSpeed(start_speed+ramp_delta_speed);
 	}
 }
+
 void Tle94112Motor::rampSpeed(int16_t speed, uint16_t slope)
 {
 	int16_t start_speed = getSpeed();
-	if (mEnabled == TRUE && speed != start_speed) {
+	if (mEnabled == TRUE && speed != start_speed)
+	{
 		uint32_t duration = measureSetSpeedDuration(speed, start_speed);
 		//mDriver->clearErrors();
 		// calc full ramp deltas
@@ -339,7 +380,8 @@ void Tle94112Motor::rampSpeed(int16_t speed, uint16_t slope)
 		int16_t num_steps = ramp_delta_time / duration - 1;
 		uint16_t steptime = 0;
 		// correction of step deltas for very flat ramps
-		if (abs(ramp_delta_speed) < num_steps) {
+		if (abs(ramp_delta_speed) < num_steps)
+		{
 			num_steps = abs(ramp_delta_speed);
 			steptime = ramp_delta_time / abs(ramp_delta_speed) - duration;
 		}

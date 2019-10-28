@@ -6,6 +6,7 @@ sudo: required
         
 branches:
     - master
+  only:
     - tle94112
 
 env:
