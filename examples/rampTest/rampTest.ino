@@ -1,4 +1,4 @@
-#include <TLE94112.h>
+#include <Tle94112.h>
 #include <Tle94112Motor.h>
 /*
  ============================================================================
@@ -9,7 +9,7 @@
  ============================================================================
  */
 
-// Tle94112 Object on Shield 1
+// Tle94112 Object on Shiled 1
 Tle94112 controller1 = Tle94112();
 
 // Tle94112Motor Objects on controller1

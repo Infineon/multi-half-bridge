@@ -1,16 +1,37 @@
-/*
+/*!
+ * \file Tle94112.h
+ * \brief This file has to be included in projects that use Infineon's DC Motor Control Shield with TLE94112
+ *
  *	Arduino library to control Infineon's DC Motor Control Shield with Tle94112
  *
- *	The shield contains twelve independent halfbridges, 
- *	so it can drive up to 6 indipendent (+5 cascaded) bidirectional DC motor(s). 
- *	Each halfbridge provides a high-Voltage (nominal 5.5-18 V) tristate output,  
- *	which is also capable of PWM with 3 different frequencies. 
+ *	The shield contains twelve independent halfbridges,
+ *	so it can drive up to 6 independent (+5 cascaded) bidirectional DC motor(s).
+ *	Each halfbridge provides a high-Voltage (nominal 5.5-18 V) tristate output,
+ *	which is also capable of PWM with 3 different frequencies.
  *
- *	Have a look at the datasheet for more information. 
- */
- 
-/*!	\file Tle94112.h
- *	\brief This file has to be included in projects that use Infineon's DC Motor Control Shield with TLE94112
+ *	Have a look at the datasheet for more information.
+ *
+ *
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ *
+ * Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ * disclaimer.
+ *
+ * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
+ * disclaimer in the documentation and/or other materials provided with the distribution.
+ *
+ * Neither the name of the copyright holders nor the names of its contributors may be used to endorse or promote
+ * products derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
  */
 
 #ifndef TLE94112_H
@@ -57,18 +78,22 @@
  */
 #define TLE94112_NUM_STATUS_REGS	7
 
-/*! \brief Standard pin for chip select on first shield
+/*!
+ * Standard chip select pin for first TLE94112 shield
  */
 #define TLE94112_PIN_CS1			10
 
-/*! \brief Standard pin for chip select on second shield
+/*!
+ * Standard chip select pin for second TLE94112 shield
+ * To use a second shield with different CS pin you have
+ * to remove the 0 Ohm resistor R7 and solder it to R8
  */
 #define TLE94112_PIN_CS2			9
 
-/*! \brief Standard enable pin
+/*!
+ * Standard TLE94112 enable pin
  */
 #define TLE94112_PIN_EN				8
-
 
 //!	\brief	Class that represents a TLE94112
 class Tle94112

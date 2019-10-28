@@ -2,7 +2,7 @@
  *	Arduino library to control Infineon's DC Motor Control Shield with TLE94112
  *
  *	The shield contains twelve independent halfbridges, 
- *	so it can drive up to 6 indipendent (+5 cascaded) bidirectional DC motor(s). 
+ *	so it can drive up to 6 independent (+5 cascaded) bidirectional DC motor(s).
  *	Each halfbridge provides a high-Voltage (nominal 5.5-18 V) tristate output,  
  *	which is also capable of PWM with 3 different frequencies. 
  *
@@ -13,16 +13,15 @@
  *	\brief This file defines functions and predefined instances from TLE94112.h
  */
 
-#include "TLE94112.h"
+#include "Tle94112.h"
 #include "./util/tle94112_conf.h"
 
 //SPI address commands
 #define TLE94112_CMD_WRITE			0x80;
 #define TLE94112_CMD_CLEAR			0x80;
 
-#define TLE94112_CS_RISETIME		2
-
 #define TLE94112_STATUS_INV_MASK	(Tle94112::TLE_POWER_ON_RESET)
+#define TLE94112_CS_RISETIME		2
 
 
 Tle94112::Tle94112(void)

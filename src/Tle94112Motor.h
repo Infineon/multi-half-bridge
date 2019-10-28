@@ -10,7 +10,7 @@
 #ifndef TLE94112MOTOR_H
 #define TLE94112MOTOR_H
 
-#include "TLE94112.h"
+#include "Tle94112.h"
 
 
 /**

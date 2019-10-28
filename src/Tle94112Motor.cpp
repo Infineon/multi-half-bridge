@@ -125,8 +125,7 @@ void Tle94112Motor::setPwmFreq(Tle94112Motor::ePolarity pol,
 	}
 }
 
-void Tle94112Motor::setActiveFreeWheeling(Tle94112Motor::ePolarity pol, 
-		uint8_t active_fw)
+void Tle94112Motor::setActiveFreeWheeling(Tle94112Motor::ePolarity pol, uint8_t active_fw)
 {
 	if(mEnabled == FALSE)
 	{
@@ -144,9 +143,9 @@ void Tle94112Motor::coast()
 		{
 			for(uint8_t idx = 0u; idx < TLE94112MOTOR_MAX_CONNECTORS; idx++)
 			{
-				mDriver->configHB(mConnectors[pol].halfbridges[idx], 
-						Tle94112::TLE_FLOATING, 
-						mConnectors[pol].channel, 
+				mDriver->configHB(mConnectors[pol].halfbridges[idx],
+						Tle94112::TLE_FLOATING,
+						mConnectors[pol].channel,
 						mConnectors[pol].active_fw);
 			}
 		}
@@ -165,9 +164,9 @@ void Tle94112Motor::stop(uint8_t force)
 		mSpeed = force;
 		// set dutycycle depending on parameter force
 		// higher force lets the motor stop quicker
-		mDriver->configPWM(mConnectors[HIGHSIDE].channel, 
+		mDriver->configPWM(mConnectors[HIGHSIDE].channel,
 				mConnectors[HIGHSIDE].freq, force);
-		mDriver->configPWM(mConnectors[LOWSIDE].channel, 
+		mDriver->configPWM(mConnectors[LOWSIDE].channel,
 				mConnectors[LOWSIDE].freq, force);
 		//connect highside pins to low
 		for(uint8_t idx = 0u; idx < TLE94112MOTOR_MAX_CONNECTORS; idx++)
@@ -175,21 +174,21 @@ void Tle94112Motor::stop(uint8_t force)
 			Tle94112::HalfBridge hb = mConnectors[HIGHSIDE].halfbridges[idx];
 			if(hb != Tle94112::TLE_NOHB) {
 				numHighside++;
-				mDriver->configHB(hb, 
-						Tle94112::TLE_LOW, 
-						mConnectors[HIGHSIDE].channel, 
+				mDriver->configHB(hb,
+						Tle94112::TLE_LOW,
+						mConnectors[HIGHSIDE].channel,
 						mConnectors[HIGHSIDE].active_fw);
 			}
 		}
 		if(numHighside == 0u)
 		{
-			// highside is constantly connected to high. 
+			// highside is constantly connected to high.
 			// also connect lowside to high to stop motor
 			for(uint8_t idx = 0u; idx < TLE94112MOTOR_MAX_CONNECTORS; idx++)
 			{
-				mDriver->configHB(mConnectors[LOWSIDE].halfbridges[idx], 
-						Tle94112::TLE_HIGH, 
-						mConnectors[LOWSIDE].channel, 
+				mDriver->configHB(mConnectors[LOWSIDE].halfbridges[idx],
+						Tle94112::TLE_HIGH,
+						mConnectors[LOWSIDE].channel,
 						mConnectors[LOWSIDE].active_fw);
 			}
 		}
@@ -198,9 +197,9 @@ void Tle94112Motor::stop(uint8_t force)
 			// connect all motor pins to low
 			for(uint8_t idx = 0u; idx < TLE94112MOTOR_MAX_CONNECTORS; idx++)
 			{
-				mDriver->configHB(mConnectors[LOWSIDE].halfbridges[idx], 
-						Tle94112::TLE_LOW, 
-						mConnectors[LOWSIDE].channel, 
+				mDriver->configHB(mConnectors[LOWSIDE].halfbridges[idx],
+						Tle94112::TLE_LOW,
+						mConnectors[LOWSIDE].channel,
 						mConnectors[LOWSIDE].active_fw);
 			}
 		}
@@ -292,8 +291,7 @@ int16_t Tle94112Motor::getSpeed(void)
 }
 
 
-uint32_t Tle94112Motor::measureSetSpeedDuration(int16_t speed, 
-		int16_t start_speed)
+uint32_t Tle94112Motor::measureSetSpeedDuration(int16_t speed, int16_t start_speed)
 {
 	if(start_speed == 0) {
 		// changing direction is additional effort
@@ -310,14 +308,15 @@ uint32_t Tle94112Motor::measureSetSpeedDuration(int16_t speed,
 void Tle94112Motor::performSpeedStepping(int16_t start_speed, 
 		int16_t ramp_delta_speed, int16_t num_steps, uint16_t steptime) 
 {
+	uint32_t Timer = millis();		//!> none blocking delay
 	if(num_steps > 0) {
 		// normal ramp loop
 		for(uint16_t i=1u; i<=num_steps; i++)
 		{
 			setSpeed(start_speed + ( (i*ramp_delta_speed) / num_steps ) );
-			if( steptime > 0u )
+			if (steptime > 0u)
 			{
-				delay(steptime);
+				while((millis() - Timer) < steptime ){}
 			}
 		}
 	}
@@ -327,27 +326,24 @@ void Tle94112Motor::performSpeedStepping(int16_t start_speed,
 		setSpeed(start_speed+ramp_delta_speed);
 	}
 }
-
-
 void Tle94112Motor::rampSpeed(int16_t speed, uint16_t slope)
 {
 	int16_t start_speed = getSpeed();
-	if(mEnabled == TRUE && speed != start_speed)
-	{
+	if (mEnabled == TRUE && speed != start_speed) {
 		uint32_t duration = measureSetSpeedDuration(speed, start_speed);
+		//mDriver->clearErrors();
 		// calc full ramp deltas
 		int16_t ramp_delta_speed = speed - start_speed;
-		uint16_t ramp_delta_time
-				= (slope * abs(ramp_delta_speed)) / TLE94112_MAX_SPEED;
+		uint16_t ramp_delta_time = (slope * abs(ramp_delta_speed)) / TLE94112_MAX_SPEED;
 		// calc step deltas
 		int16_t num_steps = ramp_delta_time / duration - 1;
 		uint16_t steptime = 0;
 		// correction of step deltas for very flat ramps
-		if(abs(ramp_delta_speed) < num_steps)
-		{
+		if (abs(ramp_delta_speed) < num_steps) {
 			num_steps = abs(ramp_delta_speed);
 			steptime = ramp_delta_time / abs(ramp_delta_speed) - duration;
 		}
-		performSpeedStepping(start_speed, ramp_delta_speed, num_steps, steptime);
+		performSpeedStepping(start_speed, ramp_delta_speed, num_steps,steptime);
+		//mDriver->clearErrors();
 	}
 }
