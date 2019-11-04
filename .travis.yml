@@ -6,26 +6,25 @@ sudo: required
         
 branches:
     - master
-  only:
-    - tle94112
-
+  
 env:
     global:
-        - USR_NAME="Dr Olaf Filies (IFAG DES MDP PSA)"
+        - USR_NAME="OlafFilies"
         - USR_EMAIL="Olaf.Filies@infineon.com"
     matrix:
         - PLATFORMIO_CI_SRC=examples/Control2Motors 
         - PLATFORMIO_CI_SRC=examples/rampSpeedTest
         - PLATFORMIO_CI_SRC=examples/rampTest
-        - PLATFORMIO_CI_SRC=examples/speedControll
+        - PLATFORMIO_CI_SRC=examples/speedControl
 
 install:
     # build with stable core
     - pip install -U platformio
     - platformio platform install -f infineonxmc
+    - platformio platform install -f atmelavr
 
 script:
-    - platformio ci --lib="." --board=xmc1100_xmc2go --board=xmc1100_boot_kit --board=xmc4700_relax_kit --board=uno
+    - platformio ci --lib="."  --board=xmc1100_boot_kit --board=xmc4700_relax_kit --board=uno
 
 after_success:
     # only build once (after one job by checking id, however this does not work reliably)
