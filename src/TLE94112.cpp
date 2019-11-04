@@ -1,17 +1,23 @@
-/*
- *	Arduino library to control Infineon's DC Motor Control Shield with TLE94112
- *
- *	The shield contains twelve independent halfbridges, 
- *	so it can drive up to 6 indipendent (+5 cascaded) bidirectional DC motor(s). 
- *	Each halfbridge provides a high-Voltage (nominal 5.5-18 V) tristate output,  
- *	which is also capable of PWM with 3 different frequencies. 
+/*!
+ * \file 		Tle94112.cpp
+ * \name        Tle94112.cpp - Arduino library to control Infineon's DC Motor Control Shield with Tle94112
+ * \author      Infineon Technologies AG
+ * \copyright   2019 Infineon Technologies AG
+ * \version     1.4.1
+ * \brief 		This file has to be included in projects that use Infineon's DC Motor Control Shield with TLE94112      
+ * \details
+ * The Infineon TLE94112EL DC motor controller shield is able to handle 6 motors with a max. current of 0.9 A
+ * independently and additional 5 motors cascaded. The twelve half-bridges can be arranged also together,
+ * so that 3 motors with 1.8 A current or one motor with 3.6 A can be used. Each half bridge can
+ * provide a high-Voltage (nominal 5.5-18 V) tristate output and max. input voltage of 40V. It is also
+ * capable of PWM with 3 different frequencies for controlling the speed of each motor.
+ * Have a look at the datasheet for more information.
+ * 
+ * This library include the basic functions to access the half-bridges.
  *
  *	Have a look at the datasheet for more information. 
  */
- 
-/*!	\file TLE94112.cpp
- *	\brief This file defines functions and predefined instances from TLE94112.h
- */
+
 
 #include "TLE94112.h"
 #include "./util/tle94112_conf.h"
@@ -20,9 +26,8 @@
 #define TLE94112_CMD_WRITE			0x80;
 #define TLE94112_CMD_CLEAR			0x80;
 
-#define TLE94112_CS_RISETIME		2
-
 #define TLE94112_STATUS_INV_MASK	(Tle94112::TLE_POWER_ON_RESET)
+#define TLE94112_CS_RISETIME		2
 
 
 Tle94112::Tle94112(void)
@@ -52,7 +57,6 @@ void Tle94112::begin(SPIClass &bus, uint8_t cs, uint8_t en)
 	digitalWrite(mEnPin, HIGH);
 	init();
 }
-
 
 void Tle94112::end(void)
 {
