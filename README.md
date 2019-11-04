@@ -24,6 +24,8 @@ is a protected twelve-fold half-bridge driver designed especially for automotive
 * Efficient design for multi-motor applications
 * Less communication with µC through integrated PWM generator and zero clock diagnosis
 * Reducing external components to meet EMC requirements
+* The board is stackable if you change the position of a resistor, [see here](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
+* LED driver on the first half-bridge
 
 ## Target Applications:
 * Multi-motor applications
@@ -45,3 +47,5 @@ The doxygen [library documentation](https://infineon.github.io/DC-Motor-Control-
 * A PDF summarizing the features and layout of the DC motor control shield is stored on the Infineon homepage [here](https://www.infineon.com/dgdl/Infineon-DC_Motor_Control_Shield_with_TLE94112EL_UserManual-UM-v01_00-EN.pdf?fileId=5546d46259d9a4bf015a4755351304ac).
 * The datasheet for the TLE94112EL can be found here [TLE94112EL Datasheet](https://www.infineon.com/dgdl/Infineon-TLE94112EL-DS-v01_00-EN.pdf?fileId=5546d462576f347501579a2795837d3e)
 * The respective application note is located here [TLE941xy Application Note](https://www.infineon.com/dgdl/Infineon-TLE941xy-AN-v01_00-EN-AN-v01_00-EN-AN-v01_00-EN.pdf?fileId=5546d4625b62cd8a015bc8db26c831e3).
+* There is a pinout picture [Tle94112el pintout](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
+

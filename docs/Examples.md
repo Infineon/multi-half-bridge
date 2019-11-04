@@ -9,5 +9,5 @@ To run this examples use either the Arduino IDE or something similar like the [P
 
 ## DIY-projects
 * there are two Lego robots using the TLE94112 shields for controlling motors.
- * a [Lego rama driving roboter](https://www.infineon.com/cms/en/tools/landing/infineon-for-makers/diy-projects/) 
- * a [Lego six axes roboter](https://www.infineon.com/cms/en/tools/landing/infineon-for-makers/diy-projects/)
+ * a [Lego rama driving robot](https://www.infineon.com/cms/en/tools/landing/infineon-for-makers/diy-projects/) 
+ * a [Lego six axes robot](https://www.infineon.com/cms/en/tools/landing/infineon-for-makers/diy-projects/)

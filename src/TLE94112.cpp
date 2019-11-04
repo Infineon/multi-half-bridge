@@ -58,7 +58,6 @@ void Tle94112::begin(SPIClass &bus, uint8_t cs, uint8_t en)
 	init();
 }
 
-
 void Tle94112::end(void)
 {
 	mEnabled = FALSE;

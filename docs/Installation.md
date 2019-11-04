@@ -16,7 +16,7 @@ Please follow the example sketches in the /examples directory in this library to
 For proper work of the TLE94112 the following tips may help:
 * the TLE94112 works properly in the range of min 5.5V to max 40V Vbat
 * the max current on one half bridge is 0.9 A, if you need more you have to cascade more half bridges, see [manual](https://www.infineon.com/dgdl/Infineon-TLE94112EL-DS-v01_00-EN.pdf?fileId=5546d462576f347501579a2795837d3e) and pin out picture
-* the shield is stackable if you change the 0 \Omega resistor from R7/R8. There is a hack to stack a max number of three TLE94112 (please ask if you need this)
+* the shield is stackable if you change the 0 \Omega resistor from R7/R8. There is also a hack to stack a max number of three TLE94112 (please ask if you need this)
 * the first two ports can be directly used also for LEDs but with the help of right dimensioned resistors, any half bridge can be used
 for LEDs or other stuff falling in the voltage and current limits of the board
 * there is a handy [pin out picture](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
