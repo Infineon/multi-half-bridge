@@ -43,6 +43,7 @@
 
 #include "Arduino.h"
 #include "SPI.h"
+#include "Wire.h"
 #include "./util/tle94112_conf.h"
 
 #ifndef FALSE
