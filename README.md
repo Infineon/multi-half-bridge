@@ -2,12 +2,17 @@
 
 [![Build Status](https://travis-ci.org/Infineon/DC-Motor-Control-TLE94112EL.svg?branch=master)](https://travis-ci.org/Infineon/DC-Motor-Control-TLE94112EL)
 
-<img src="https://github.com/Infineon/Assets/blob/master/Pictures/TLE94112EL_Shield.png" width="400">
 
-Library of Infineon's [DC Motor Shield with TLE94112EL](https://www.infineon.com/cms/en/product/productType.html?productType=5546d46259d9a4bf015a369885a95505) for Arduino.
+<img src="https://github.com/Infineon/Assets/raw/master/Pictures/TLE94112EL_Shield.png" style="max-width:100%;" width="400">
+
+
+Library of Infineon's [DC Motor Shield with TLE94112EL](https://www.infineon.com/cms/en/product/evaluation-boards/tle94112el_shield/) for Arduino.
 
 ## Summary
-The DC motor shield is a small evaluation board equipped with TLE94112EL for use with Arduino. The TLE94112EL is capable to drive up to 6 small DC motors in parallel mode or up to 11 DC motors in cascaded mode. All outputs can drive up to 0.9A. The outputs can be used stand-alone or combined to increase driving capability up to 3.6A. The implemented integrated [TLE94112EL](https://www.infineon.com/cms/en/product/power/motor-control-and-gate-driver-ics/intelligent-motor-control-ics/multi-half-bridge-driver/TLE94112EL/productType.html?productType=5546d46254e133b4015538ca99e552a1) is a protected twelve-fold half-bridge driver designed especially for automotive motion control applications such as Heating, Ventilation and Air Conditioning (HVAC) flap DC motor control.
+The DC motor shield is a small evaluation board equipped with TLE94112EL for use with Arduino. The TLE94112EL is capable to drive up to 6
+small DC motors in parallel mode or up to 11 DC motors in cascaded mode. All outputs can drive up to 0.9A. The outputs can be used stand-alone
+or combined to increase driving capability up to 3.6A. The implemented integrated [TLE94112EL](https://www.infineon.com/cms/en/product/power/motor-control-ics/intelligent-motor-control-ics/multi-half-bridge-ics/tle94112el/)
+is a protected twelve-fold half-bridge driver designed especially for automotive motion control applications such as Heating, Ventilation and Air Conditioning (HVAC) flap DC motor control.
 
 ## Key Features and Benefits
 * Driver with 12 half-bridge outputs to drive DC motors, resistive or inductive loads
@@ -19,6 +24,8 @@ The DC motor shield is a small evaluation board equipped with TLE94112EL for use
 * Efficient design for multi-motor applications
 * Less communication with µC through integrated PWM generator and zero clock diagnosis
 * Reducing external components to meet EMC requirements
+* The board is stackable if you change the position of a resistor, [see here](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
+* LED driver on the first half-bridge
 
 ## Target Applications:
 * Multi-motor applications
@@ -27,17 +34,28 @@ The DC motor shield is a small evaluation board equipped with TLE94112EL for use
 * HVAC systems
 
 ## Installation
-First of all, please download this repository from GitHub by clicking on the following field in the [releases](https://github.com/Infineon/DC-Motor-Control-TLE94112EL/releases) of this repository or directly [here](https://github.com/Infineon/DC-Motor-Control-TLE94112EL/releases/download/V1.0.1/DC-Motor-Control-TLE94112EL.zip):
+For the description of library [installation](docs/Installation.md)
 
-![Download Library](https://raw.githubusercontent.com/infineon/assets/master/Pictures/DL_DC_Mot_Rel-TLE94112EL.png)
+## Examples
+For the description of the [examples](docs/Examples.md)
 
-To install the DC motor control library in the Arduino IDE, please go now to **Sketch** > **Include Library** > **Add .ZIP Library...** in the Arduino IDE and navigate to the downloaded .ZIP file of this repository release. The library will be installed in your Arduino sketch folder in libraries and you can select as well as include this one to your project under **Sketch** > **Include Library** > **TLE94112**.
+## Library documentation
+The doxygen [library documentation](https://infineon.github.io/DC-Motor-Control-TLE94112EL/).
 
-![Install Library](https://raw.githubusercontent.com/infineon/assets/master/Pictures/Library_Install_ZIP.png)
+## Hardware
+The evaluation board is designed to run on Arduino/Genuino and compatible headers
+Infineon's XMC1100 Boot Kit, XMC4700 Relax Kits or XMC4800 Relax Kit are fully compatible by using the
+[XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) port and this library
 
-## Usage
-Please follow the example sketches in the /examples directory in this library to learn more about the usage of the library.
+## More information and links
+* [Infineon Maker page](https://www.infineon.com/cms/en/tools/landing/infineon-for-makers/#overview)
+* [Infineon Microcontroller](https://www.infineon.com/cms/en/tools/landing/infineon-for-makers/microcontroller-boards/)
+* [Infineon Shields for Arduino](https://www.infineon.com/cms/en/tools/landing/infineon-for-makers/arduino-shields/)
+* [User Manual TLE94112EL](https://www.infineon.com/dgdl/Infineon-DC_Motor_Control_Shield_with_TLE94112EL_UserManual-UM-v01_00-EN.pdf?fileId=5546d46259d9a4bf015a4755351304ac).
+* [TLE94112EL datasheet](https://www.infineon.com/dgdl/Infineon-TLE94112EL-DS-v01_00-EN.pdf?fileId=5546d462576f347501579a2795837d3e)
+* [TLE941xy Application Note](https://www.infineon.com/dgdl/Infineon-TLE941xy-AN-v01_00-EN-AN-v01_00-EN-AN-v01_00-EN.pdf?fileId=5546d4625b62cd8a015bc8db26c831e3).
+* [Tle94112 pinout picture](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
+* [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino)
 
-## Board Information, Datasheet and Additional Information
-A PDF summarizing the features and layout of the DC motor control shield is stored on the Infineon homepage [here](https://www.infineon.com/dgdl/Infineon-DC_Motor_Control_Shield_with_TLE94112EL_UserManual-UM-v01_00-EN.pdf?fileId=5546d46259d9a4bf015a4755351304ac).
-The datasheet for the TLE94112EL can be found here [TLE94112EL Datasheet](https://www.infineon.com/dgdl/Infineon-TLE94112EL-DS-v01_00-EN.pdf?fileId=5546d462576f347501579a2795837d3e) while the respective application note is located here [TLE941xy Application Note](https://www.infineon.com/dgdl/Infineon-TLE941xy-AN-v01_00-EN-AN-v01_00-EN-AN-v01_00-EN.pdf?fileId=5546d4625b62cd8a015bc8db26c831e3).
+
+

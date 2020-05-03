@@ -1,10 +1,37 @@
-/**
- * @file Tle94112Motor.h
- * @brief This file can optionally be included in projects that use Infineon's 
- * DC Motor Control Shield with TLE94112
+/*!
+ * \file        Tle94112Motor.h
+ * \name        Tle94112Motor.h - optionally include library
+ * \author      Infineon Technologies AG
+ * \copyright   2019 Infineon Technologies AG
+ * \version     1.4.1
+ * \brief       This file can optionally be included in projects that use Infineon's 
+ *              DC Motor Control Shield with TLE94112
+ *              It provides a higher abstraction for controlling motors with the TLE94112 
+ *              acting as an output driver
+ * \details
+ * The Infineon TLE94112EL DC motor controller shield is able to handle 6 motors with a max. current of 0.9 A
+ * independently and additional 5 motors cascaded. The twelve half-bridges can be arranged also together,
+ * so that 3 motors with 1.8 A current or one motor with 3.6 A can be used. Each half bridge can
+ * provide a high-Voltage (nominal 5.5-18 V) tristate output and max. input voltage of 40V. It is also
+ * capable of PWM with 3 different frequencies for controlling the speed of each motor.
+ * Have a look at the datasheet for more information.
+ * - Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ * - Redistributions of source code must retain the above copyright notice, this list of conditions and the following
+ * disclaimer.
+ * - Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
+ * disclaimer in the documentation and/or other materials provided with the distribution.
+ * - Neither the name of the copyright holders nor the names of its contributors may be used to endorse or promote
+ * products derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * 
- * It provides a higher abstraction for controlling motors with the TLE94112 
- * acting as an output driver
  */
 
 #ifndef TLE94112MOTOR_H
@@ -94,7 +121,7 @@ public:
 	 * @brief configures most important settings for one motor connector
 	 * 
 	 * Call this function twice to setup motor configuration for both the 
-	 * + and - connector of the motor. If there is no setup for one poarity, 
+	 * + and - connector of the motor. If there is no setup for one polarity, 
 	 * the library assumes that the motor is constantly connected to + or -. 
 	 * 
 	 * @param pol Polarity of the motor connector to be configured
@@ -115,7 +142,7 @@ public:
 	 * @brief configures most important settings for one motor connector
 	 * 
 	 * Call this function twice to setup motor configuration for both the 
-	 * + and - connector of the motor. If there is no setup for one poarity, 
+	 * + and - connector of the motor. If there is no setup for one polarity, 
 	 * the library assumes that the motor is constantly connected to + or -. 
 	 * 
 	 * @param pol Polarity of the motor connector to be configured
@@ -211,8 +238,7 @@ public:
 	 * coast, run and break. Speed values greater or smaller than 0 are treated 
 	 * like -255 or 255, respectively. 
 	 * 
-	 * @param speed An integer in a range from -255 to 255 to set motor speed
-	 * 		and direction
+	 * @param speed An integer in a range from -255 to 255 to set motor speed and direction
 	 */
 	void start(int16_t speed);
 
@@ -230,8 +256,7 @@ public:
 	 * coast, run and break. Speed values greater or smaller than 0 are treated 
 	 * like -255 or 255, respectively. 
 	 * 
-	 * @param speed An integer in a range from -255 to 255 to set motor speed
-	 * 		and direction
+	 * @param speed An integer in a range from -255 to 255 to set motor speed and direction
 	 * @see start
 	 */
 	void setSpeed(int16_t speed);
@@ -264,7 +289,8 @@ private:
 	};
 
 	//! @brief struct representing one motor connector
-	typedef struct {
+	typedef struct
+	{
 		Tle94112::HalfBridge halfbridges[TLE94112MOTOR_MAX_CONNECTORS];
 		Tle94112::PWMChannel channel;
 		Tle94112::PWMFreq freq;
@@ -272,7 +298,8 @@ private:
 	} Connector_t, *Connector_p;
 
 	//! @brief array of motor connectors
-	Connector_t mConnectors[2] = {
+	Connector_t mConnectors[2] =
+	{
 		{
 			.halfbridges = {Tle94112::TLE_NOHB, 
 					Tle94112::TLE_NOHB, 
@@ -305,10 +332,27 @@ private:
 	//! @brief value of the current motor speed
 	uint8_t mSpeed;
 	
-	//! @brief private function needed by rampSpeed
+	//! 
+
+	/*
+	 * @brief private function needed by rampSpeed
+	 * 
+	 * @param speed An integer in a range from -255 to 255 to set motor speed
+	 *    and direction. Here the target speed.
+	 * @param start_speed An integer a range from -255 to 255 to set motor speed
+	 *    and direction. Here the source speed
+	 */
 	uint32_t measureSetSpeedDuration(int16_t speed, int16_t start_speed);
 
-	//! @brief private function needed by rampSpeed
+	/* @brief private function needed by rampSpeed
+	 *
+	 * @param start_speed An integer a range from -255 to 255 to set motor speed
+	 *    	and direction. Here the source speed
+	 * @param ramp_delta_speed a slope value how fast the speed change 
+	 * 		should raise or fall
+	 * @param num_steps The number of steps to raise or fall the speed
+	 * @param steptime The time to be needed for each step
+	 */
 	void performSpeedStepping(int16_t start_speed, int16_t ramp_delta_speed, 
 			int16_t num_steps, uint16_t steptime);
 };
