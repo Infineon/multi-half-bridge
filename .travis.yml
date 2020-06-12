@@ -14,7 +14,7 @@ env:
         - USR_NAME="OlafFilies"
         - USR_EMAIL="Olaf.Filies@infineon.com"
     matrix:
-        - PLATFORMIO_CI_SRC=examples/Control2Motors 
+        - PLATFORMIO_CI_SRC=examples/control2Motors 
         - PLATFORMIO_CI_SRC=examples/rampSpeedTest
         - PLATFORMIO_CI_SRC=examples/rampTest
         - PLATFORMIO_CI_SRC=examples/speedControl

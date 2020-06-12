@@ -24,7 +24,7 @@ is a protected twelve-fold half-bridge driver designed especially for automotive
 * Efficient design for multi-motor applications
 * Less communication with µC through integrated PWM generator and zero clock diagnosis
 * Reducing external components to meet EMC requirements
-* The board is stackable if you change the position of a resistor, [see here](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
+* The board is stackabel if you change the position of a resistor, [see here](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
 * LED driver on the first half-bridge
 
 ## Target Applications:
@@ -42,10 +42,34 @@ For the description of the [examples](docs/Examples.md)
 ## Library documentation
 The doxygen [library documentation](https://infineon.github.io/DC-Motor-Control-TLE94112EL/).
 
-## Hardware
-The evaluation board is designed to run on Arduino/Genuino and compatible headers
-Infineon's XMC1100 Boot Kit, XMC4700 Relax Kits or XMC4800 Relax Kit are fully compatible by using the
-[XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) port and this library
+## Hardware and platforms
+This library is designed for multiple platforms with Arduino/Genuino compatible headers and different SDKs.
+The following hardware platforms are compatible and tested:
+
+| Hardware platform | Type                | SDK                         | file marker | checked |
+|:------------------|:--------------------|:----------------------------|:------------|---------|
+| Arduino/Genuino   | Uno                 | Arduino IDE or PlatformIO   | -ino        |         |
+|                   | Uno clone           | Arduino IDE                 | -ino        |         |
+|                   | Leonardo            | Arduino IDE or PlatformIO   | -ino        |         |
+| Infineon XMC      | XMC1100 Boot Kit    | Arduino IDE or PlatformIO   | -ino        | yes     |
+|                   | XMC4700 Relax Kit   | Arduino IDE or PlatformIO   | -ino        | yes     |
+|                   | XMC4800 Relax Kit   | Arduino IDE or PlatformIO   | -ino        |         |
+| Cyprus 43xxx      | CYW43907AEVAL1F     | WICED SDK                   | -wiced      |         |
+|                   |                     |                             |             |         |
+
+See here for further information on installing this library on [different platforms](docs/Platforms.md)
+
+## Usage
+Please follow the example sketches in the /examples directory in this library to learn more about the usage of the library.
+For proper work of the TLE94112 the following tips may help:
+* the TLE94112 works properly in the range of min 5.5V to max 40V Vbat
+* the max current on one half bridge is 0.9 A, if you need more you have to cascade more half bridges, see [manual](https://www.infineon.com/dgdl/Infineon-TLE94112EL-DS-v01_00-EN.pdf?fileId=5546d462576f347501579a2795837d3e) and pin out picture
+* the shield is stackable if you change the 0 \Omega resistor from R7/R8.
+* there is also a hack to stack a max number of three TLE94112 (please ask if you need this)
+* the first two ports can be directly used also for LEDs but with the help of right dimensioned resistors, any half bridge can be used
+for LEDs or other stuff falling in the voltage and current limits of the board
+* there is a handy [pin out picture](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
+<img src="https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png" width=100%>
 
 ## More information and links
 * [Infineon Maker page](https://www.infineon.com/cms/en/tools/landing/infineon-for-makers/#overview)
@@ -56,6 +80,7 @@ Infineon's XMC1100 Boot Kit, XMC4700 Relax Kits or XMC4800 Relax Kit are fully c
 * [TLE941xy Application Note](https://www.infineon.com/dgdl/Infineon-TLE941xy-AN-v01_00-EN-AN-v01_00-EN-AN-v01_00-EN.pdf?fileId=5546d4625b62cd8a015bc8db26c831e3).
 * [Tle94112 pinout picture](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
 * [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino)
+* [WICED SDK]()
 
 
 
