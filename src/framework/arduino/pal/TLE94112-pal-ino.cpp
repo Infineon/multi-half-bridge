@@ -21,36 +21,38 @@
 #define TLE94112_STATUS_INV_MASK    (Tle94112::TLE_POWER_ON_RESET)
 #define TLE94112_CS_RISETIME        2
 
-void Tle94112::begin(void)
-{
-	begin(&SPI, TLE94112_PIN_CS1, TLE94112_PIN_EN);
-}
 
-void Tle94112::begin(void* bus, uint8_t cs, uint8_t en)
+void Tle94112::begin()
 {
-	SPIClass *mBus = reinterpret_cast<SPIClass*>(bus);
+	SPIClass *mBus = reinterpret_cast<SPIClass*>(mBus);
 
 	mEnabled = FALSE;
-	mCsPin = cs;
-	mEnPin = en;
 
-	mEnabled = TRUE;
 	mBus->begin();
 	mBus->setBitOrder(LSBFIRST);
 	mBus->setClockDivider(SPI_CLOCK_DIV16);
 	mBus->setDataMode(SPI_MODE1);
-	pinMode(mEnPin, OUTPUT);
-	pinMode(mCsPin, OUTPUT);
-	digitalWrite(mCsPin, HIGH);
-	digitalWrite(mEnPin, HIGH);
+	
+	
+	en->init();
+	en->enable();
+	cs->init();
+	cs->enable();
+	//pinMode(mEnPin, OUTPUT);
+	//pinMode(mCsPin, OUTPUT);
+	//digitalWrite(mCsPin, HIGH);
+	//digitalWrite(mEnPin, HIGH);
+	mEnabled = TRUE;
 	init();
 }
 
 void Tle94112::end(void)
 {
 	mEnabled = FALSE;
-	digitalWrite(mCsPin, HIGH);
-	digitalWrite(mEnPin, LOW);
+	en->disable();
+	cs->disable();
+	//digitalWrite(mCsPin, HIGH);
+	//digitalWrite(mEnPin, LOW);
 }
 
 void Tle94112::writeReg(uint8_t reg, uint8_t mask, uint8_t shift, uint8_t data)
@@ -63,10 +65,12 @@ void Tle94112::writeReg(uint8_t reg, uint8_t mask, uint8_t shift, uint8_t data)
 	mCtrlRegData[reg] = toWrite;
 	
 	address = address | TLE94112_CMD_WRITE
-	digitalWrite(mCsPin, LOW);
+	cs->disable();
+	//digitalWrite(mCsPin, LOW);
 	uint8_t byte0 = mBus->transfer(address);
 	uint8_t byte1 = mBus->transfer(toWrite);
-	digitalWrite(mCsPin, HIGH);
+	cs->enable();
+	//digitalWrite(mCsPin, HIGH);
 	delay(TLE94112_CS_RISETIME);
 }
 
@@ -78,12 +82,16 @@ uint8_t Tle94112::readStatusReg(uint8_t reg)
 
 uint8_t Tle94112::readStatusReg(uint8_t reg, uint8_t mask, uint8_t shift)
 {
+	SPIClass *mBus = reinterpret_cast<SPIClass*>(mBus);
+
 	uint8_t address = mStatusRegAddresses[reg];
 
-	digitalWrite(mCsPin, LOW);
-	uint8_t byte0 = SPI.transfer(address);
-	uint8_t received = SPI.transfer(0xFF); //send dummy byte while receiving
-	digitalWrite(mCsPin, HIGH); 
+	cs->disable();
+	//digitalWrite(mCsPin, LOW);
+	uint8_t byte0 = mBus->transfer(address);
+	uint8_t received = mBus->transfer(0xFF); //send dummy byte while receiving
+	cs->enable();
+	//digitalWrite(mCsPin, HIGH); 
 	delay(TLE94112_CS_RISETIME);
 
 	received = (received & mask) >> shift;
@@ -98,10 +106,12 @@ void Tle94112::clearStatusReg(uint8_t reg)
 	uint8_t address = mStatusRegAddresses[reg];
 
 	address = address | TLE94112_CMD_CLEAR;
-	digitalWrite(mCsPin, LOW);
+	cs->disable();
+	//digitalWrite(mCsPin, LOW);
 	uint8_t byte0 = mBus->transfer(address);
 	uint8_t byte1 = mBus->transfer(0); //clear register by writing 0x00
-	digitalWrite(mCsPin, HIGH);
+	cs->enable();
+	//digitalWrite(mCsPin, HIGH);
 	delay(TLE94112_CS_RISETIME);
 }
 

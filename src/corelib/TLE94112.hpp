@@ -16,7 +16,11 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include "tle94112_util.hpp"
+#include "../pal/timer.hpp"
+#include "../pal/gpio.hpp"
 
 /*! \brief the number of halfbridges on a TLE94112 (including no halfbridge)
  *
@@ -97,20 +101,19 @@ class Tle94112
 
 		//! \brief standard constructor with default pin assignment
 		Tle94112();
-		
+
+		/*! \brief constructor with individual pin assignment
+		 *
+		 * \param bus a void pointer to the object representing the SPI class
+		 * \param csPin  pin number of the CS pin
+		 */
+		Tle94112(void* bus, uint8_t csPin);
+
 		//! \brief standard destructor switches shield off
 		~Tle94112();
 
 		//! \brief enables and initializes the TLE94112
 		void begin(void);
-
-		/*! \brief constructor with individual pin assignment
-		 *
-		 * \param bus a void pointer to the object representing the SPI class
-		 * \param cs  pin number of the CS pin
-		 * \param en  pin number of the ENABLE pin
-		 */
-		void begin(void* bus, uint8_t cs, uint8_t en);
 
 		//! \brief deactivates all outputs and disables the TLE94112
 		void end(void);
@@ -204,6 +207,7 @@ class Tle94112
 		void clearErrors();
 
 	protected:
+
 		//! \brief enum for the control registers in a TLE94112
 		enum CtrlRegisters
 		{
@@ -233,12 +237,6 @@ class Tle94112
 			OP_ERROR_6_STAT
 		};
 
-		//! \brief indicates if TLE94112LE is enabled
-		uint8_t mEnabled;
-		//! \brief pin number of the CS pin
-		uint8_t mCsPin;
-		//! \brief pin number on the EN pin
-		uint8_t mEnPin;
 		//! \brief array of register locations for halfbridges
 		HalfBridge_t mHalfBridges[TLE94112_NUM_HB];
 		//! \brief array of register locations for PWM channels
@@ -343,8 +341,14 @@ class Tle94112
 		 */
 		void clearStatusReg(uint8_t reg);
 
-		//! \brief void pointer to the object representing the SPI bus
-		void *mBus;
+		
+		void   *mBus;        //<! \brief void pointer to the object representing the SPI bus
+		GPIO   *en;          //<! \brief shield enable GPIO to switch on/of
+		GPIO   *cs;          //<! \brief shield enable GPIO to switch on/of
+		Timer  *timer;       //<! \brief timer for delay settings
+
+		uint8_t mEnabled;    //<! \brief indicates if TLE94112LE is enabled
+		uint8_t mCsPin;      //<! \brief pin number of the CS pin
 
 };
 

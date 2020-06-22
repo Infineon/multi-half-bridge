@@ -26,23 +26,8 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include "../../../corelib/TLE94112.hpp"
-
-/*!
- * Standard chip select pin for first TLE94112 shield
- */
-#define TLE94112_PIN_CS1     10
-
-/*!
- * Standard chip select pin for second TLE94112 shield
- * To use a second shield with different CS pin you have
- * to remove the 0 Ohm resistor R7 and solder it to R8
- */
-#define TLE94112_PIN_CS2     9
-
-/*!
- * Standard TLE94112 enable pin
- */
-#define TLE94112_PIN_EN      8
+#include "gpio-arduino.hpp"
+#include "timer-arduino.hpp"
 
 /**
  * @brief represents a basic TLE94112
@@ -61,18 +46,8 @@ class TLE94112Ino: virtual public Tle94112
 		//! \brief enables and initializes the TLE94112
 		void begin(void);
 
-		/*! \brief constructor with individual pin assignment
-		 *
-		 * \param bus a SPIClass object
-		 * \param cs  pin number of the CS pin
-		 * \param en  pin number of the ENABLE pin
-		 */
-		//void begin(SPIClass &bus, uint8_t cs, uint8_t en);
-		void begin(void* bus, uint8_t cs, uint8_t en);
-
 		//! \brief deactivates all outputs and disables the TLE94112
 		void end(void);
-
 
 	protected:
 
@@ -127,6 +102,7 @@ class TLE94112Ino: virtual public Tle94112
 		void clearStatusReg(uint8_t reg);
 
 };
+
 /**
  * @}
  */

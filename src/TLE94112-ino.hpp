@@ -37,11 +37,20 @@
  * from the library.
  * 
  */
+
 class Tle94112Ino: public Tle94112
 {
 	public:
 		//! \brief standard constructor with default pin assignment
 		Tle94112Ino(void);
+
+		/*! \brief constructor with individual pin assignment
+		 *
+		 * \param bus a void pointer to the object representing the SPI class
+		 * \param csPin  pin number of the CS pin
+		 */
+		Tle94112Ino(void* bus, uint8_t csPin);
+
 
 };
 /** @} */

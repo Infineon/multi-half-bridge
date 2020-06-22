@@ -54,70 +54,70 @@ void setup() {
 }
 
 void loop() {
-
-  motor1.coast();
-  delay(1000);
-
-// max forward/backward
-  Serial.println("max forward/backward");
-  motor1.start(255);
-  delay(1000);
-  motor1.coast();
-  delay(1000);
-  motor1.start(-255);
-  delay(1000);
-  motor1.coast();
-  delay(1000);
-
-// ramp ripple forward/backward    
-  Serial.println("ramp ripple forward/backward");
-  motor1.start(255);
-  delay(1000);
-  motor1.rampSpeed(0,5000);
-  delay(1000);
-  motor1.start(-255);
-  delay(1000);
-  motor1.rampSpeed(0,5000);
-  delay(1000);
-
-// ramp up/down forward
-  Serial.println("ramp up/down forward");
-  motor1.start(50); // start above 0 to allow motor to start
-  motor1.rampSpeed(255,5000);
-  delay(1000);
-  motor1.rampSpeed(100,5000);
-  delay(1000);
-  motor1.rampSpeed(255,5000);
-  delay(1000);
-  motor1.rampSpeed(0,5000);
-
-// ramp up/down backward
-  Serial.println("ramp up/down backward");
-  motor1.start(50);
-  motor1.rampSpeed(-255,5000);
-  delay(1000);
-  motor1.rampSpeed(-100,5000);
-  delay(1000);
-  motor1.rampSpeed(-255,5000);
-  delay(1000);
-  motor1.rampSpeed(0,5000);
-
-// ramp transient
-  Serial.println("ramp transient");
-  motor1.rampSpeed(-255,1000);
-  delay(1000);
-  motor1.rampSpeed(255,1000);
-  delay(1000);
-  motor1.rampSpeed(-255,1000);
-  delay(1000);
-  motor1.rampSpeed(0,1000);
-  delay(1000);
-
-// stop and coast
-  Serial.println("stop and coast");
-  motor1.stop(255);
-  delay(1000);
-  motor1.coast();
-  delay(1000);
+//
+//  motor1.coast();
+//  delay(1000);
+//
+//// max forward/backward
+//  Serial.println("max forward/backward");
+//  motor1.start(255);
+//  delay(1000);
+//  motor1.coast();
+//  delay(1000);
+//  motor1.start(-255);
+//  delay(1000);
+//  motor1.coast();
+//  delay(1000);
+//
+//// ramp ripple forward/backward    
+//  Serial.println("ramp ripple forward/backward");
+//  motor1.start(255);
+//  delay(1000);
+//  motor1.rampSpeed(0,5000);
+//  delay(1000);
+//  motor1.start(-255);
+//  delay(1000);
+//  motor1.rampSpeed(0,5000);
+//  delay(1000);
+//
+//// ramp up/down forward
+//  Serial.println("ramp up/down forward");
+//  motor1.start(50); // start above 0 to allow motor to start
+//  motor1.rampSpeed(255,5000);
+//  delay(1000);
+//  motor1.rampSpeed(100,5000);
+//  delay(1000);
+//  motor1.rampSpeed(255,5000);
+//  delay(1000);
+//  motor1.rampSpeed(0,5000);
+//
+//// ramp up/down backward
+//  Serial.println("ramp up/down backward");
+//  motor1.start(50);
+//  motor1.rampSpeed(-255,5000);
+//  delay(1000);
+//  motor1.rampSpeed(-100,5000);
+//  delay(1000);
+//  motor1.rampSpeed(-255,5000);
+//  delay(1000);
+//  motor1.rampSpeed(0,5000);
+//
+//// ramp transient
+//  Serial.println("ramp transient");
+//  motor1.rampSpeed(-255,1000);
+//  delay(1000);
+//  motor1.rampSpeed(255,1000);
+//  delay(1000);
+//  motor1.rampSpeed(-255,1000);
+//  delay(1000);
+//  motor1.rampSpeed(0,1000);
+//  delay(1000);
+//
+//// stop and coast
+//  Serial.println("stop and coast");
+//  motor1.stop(255);
+//  delay(1000);
+//  motor1.coast();
+//  delay(1000);
 
 }

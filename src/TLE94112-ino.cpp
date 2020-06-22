@@ -24,6 +24,17 @@
 
 Tle94112Ino::Tle94112Ino(void):Tle94112()
 {
+	//SPIClass mBus = SPI;
+	//begin(&SPI, TLE94112_PIN_CS1, TLE94112_PIN_EN);
+	Tle94112Ino(&SPI, TLE94112_PIN_CS1);
 }
 
+Tle94112Ino::Tle94112Ino(void* bus, uint8_t csPin):Tle94112()
+{
+	mCsPin = csPin;
+	this->timer = new TimerIno();
+	this->en = new GPIOIno(TLE94112_PIN_EN, OUTPUT, GPIOIno::POSITIVE );
+	this->cs = new GPIOIno(csPin, OUTPUT, GPIOIno::POSITIVE );
+	SPIClass *mBus = reinterpret_cast<SPIClass*>(bus);
+}
 #endif /** TLE94112_FRAMEWORK **/

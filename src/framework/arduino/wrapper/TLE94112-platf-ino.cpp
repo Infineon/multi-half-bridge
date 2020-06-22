@@ -12,6 +12,11 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
 /**
+ * @addtogroup tl94112inohw
+ */
+
+
+/**
  * @}
  */
 
