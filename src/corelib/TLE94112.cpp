@@ -23,17 +23,17 @@
 
 Tle94112::Tle94112(void)
 {
-	mBus = NULL;
+	//mBus = NULL;
 	en = NULL;
 	cs = NULL;
-	timer = NULL;
+	//timer = NULL;
 }
 
 Tle94112::~Tle94112()
 {
 	en = NULL;
 	cs = NULL;
-	timer = NULL;
+	//timer = NULL;
 }
 
 void Tle94112::configHB(HalfBridge hb, HBState state, PWMChannel pwm)

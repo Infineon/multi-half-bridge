@@ -17,8 +17,6 @@
 #ifndef TLE94112MOTOR_HPP_
 #define TLE94112MOTOR_HPP_
 
-
-
 #include "TLE94112.hpp"
 
 /**

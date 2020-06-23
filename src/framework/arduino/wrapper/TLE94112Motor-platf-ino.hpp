@@ -10,6 +10,7 @@
 #ifndef TLE94112MOTOR_PLATF_INO_HPP_
 #define TLE94112MOTOR_PLATF_INO_HPP_
 
+#include "TLE94112-platf-ino.hpp"
 #include "../pal/TLE94112Motor-pal-ino.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)

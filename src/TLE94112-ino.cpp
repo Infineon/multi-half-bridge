@@ -22,19 +22,71 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
-Tle94112Ino::Tle94112Ino(void):Tle94112()
+Tle94112Ino::Tle94112Ino(void):Tle94112::Tle94112()
 {
-	//SPIClass mBus = SPI;
 	//begin(&SPI, TLE94112_PIN_CS1, TLE94112_PIN_EN);
-	Tle94112Ino(&SPI, TLE94112_PIN_CS1);
+	//Tle94112Ino(&SPI, TLE94112_PIN_CS1);
+	//this->timer = new TimerIno();
+	//this->en = new GPIOIno(TLE94112_PIN_EN, OUTPUT, GPIOIno::POSITIVE );
+	//this->cs = new GPIOIno(TLE94112_PIN_CS1, OUTPUT, GPIOIno::POSITIVE );
+	//SPIClass mBus = SPI;
+
+
+	mCsPin = TLE94112_PIN_CS1;
+	mEnPin = TLE94112_PIN_EN;
 }
 
-Tle94112Ino::Tle94112Ino(void* bus, uint8_t csPin):Tle94112()
+// Tle94112Ino::Tle94112Ino(SPIClass &bus,uint8_t csPin)
+// {
+// 	// mCsPin = csPin;
+// 	// //this->timer = new TimerIno();
+// 	// en = new GPIOIno(TLE94112_PIN_EN, OUTPUT, GPIOIno::POSITIVE );
+// 	// cs = new GPIOIno(csPin, OUTPUT, GPIOIno::POSITIVE );
+// 	// SPIClass *mBus = &SPI;
+// }
+
+void Tle94112Ino::begin(void)
 {
-	mCsPin = csPin;
-	this->timer = new TimerIno();
-	this->en = new GPIOIno(TLE94112_PIN_EN, OUTPUT, GPIOIno::POSITIVE );
-	this->cs = new GPIOIno(csPin, OUTPUT, GPIOIno::POSITIVE );
-	SPIClass *mBus = reinterpret_cast<SPIClass*>(bus);
+	begin(SPI, TLE94112_PIN_CS1);
 }
+
+void Tle94112Ino::begin(SPIClass &bus, uint8_t cs)
+{
+	// if (mBus == NULL){
+	// 	Serial.print("Null Pointer");
+	// 	return;
+	// }
+
+
+	mEnabled = FALSE;
+	mBus = &bus;
+
+	mBus->begin();
+	mBus->setBitOrder(LSBFIRST);
+	mBus->setClockDivider(SPI_CLOCK_DIV16);
+	mBus->setDataMode(SPI_MODE1);
+	
+	
+	// en->init();
+	// en->enable();
+	// cs->init();
+	// cs->enable();
+	pinMode(mEnPin, OUTPUT);
+	pinMode(mCsPin, OUTPUT);
+	digitalWrite(mCsPin, HIGH);
+	digitalWrite(mEnPin, HIGH);
+	mEnabled = TRUE;
+	init();
+}
+
+void Tle94112Ino::end(void)
+{
+	mEnabled = FALSE;
+	// en->disable();
+	// cs->disable();
+	digitalWrite(mCsPin, HIGH);
+	digitalWrite(mEnPin, LOW);
+
+}
+
 #endif /** TLE94112_FRAMEWORK **/

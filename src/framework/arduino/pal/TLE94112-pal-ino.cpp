@@ -22,55 +22,21 @@
 #define TLE94112_CS_RISETIME        2
 
 
-void Tle94112::begin()
-{
-	SPIClass *mBus = reinterpret_cast<SPIClass*>(mBus);
-
-	mEnabled = FALSE;
-
-	mBus->begin();
-	mBus->setBitOrder(LSBFIRST);
-	mBus->setClockDivider(SPI_CLOCK_DIV16);
-	mBus->setDataMode(SPI_MODE1);
-	
-	
-	en->init();
-	en->enable();
-	cs->init();
-	cs->enable();
-	//pinMode(mEnPin, OUTPUT);
-	//pinMode(mCsPin, OUTPUT);
-	//digitalWrite(mCsPin, HIGH);
-	//digitalWrite(mEnPin, HIGH);
-	mEnabled = TRUE;
-	init();
-}
-
-void Tle94112::end(void)
-{
-	mEnabled = FALSE;
-	en->disable();
-	cs->disable();
-	//digitalWrite(mCsPin, HIGH);
-	//digitalWrite(mEnPin, LOW);
-}
 
 void Tle94112::writeReg(uint8_t reg, uint8_t mask, uint8_t shift, uint8_t data)
 {
-	SPIClass *mBus = reinterpret_cast<SPIClass*>(mBus);
-
 	uint8_t address = mCtrlRegAddresses[reg];
 	uint8_t toWrite = mCtrlRegData[reg] & (~mask);
 	toWrite |= (data << shift) & mask;
 	mCtrlRegData[reg] = toWrite;
 	
 	address = address | TLE94112_CMD_WRITE
-	cs->disable();
-	//digitalWrite(mCsPin, LOW);
+	//cs->disable();
+	digitalWrite(mCsPin, LOW);
 	uint8_t byte0 = mBus->transfer(address);
 	uint8_t byte1 = mBus->transfer(toWrite);
-	cs->enable();
-	//digitalWrite(mCsPin, HIGH);
+	//cs->enable();
+	digitalWrite(mCsPin, HIGH);
 	delay(TLE94112_CS_RISETIME);
 }
 
@@ -82,16 +48,14 @@ uint8_t Tle94112::readStatusReg(uint8_t reg)
 
 uint8_t Tle94112::readStatusReg(uint8_t reg, uint8_t mask, uint8_t shift)
 {
-	SPIClass *mBus = reinterpret_cast<SPIClass*>(mBus);
-
 	uint8_t address = mStatusRegAddresses[reg];
 
-	cs->disable();
-	//digitalWrite(mCsPin, LOW);
+	//cs->disable();
+	digitalWrite(mCsPin, LOW);
 	uint8_t byte0 = mBus->transfer(address);
 	uint8_t received = mBus->transfer(0xFF); //send dummy byte while receiving
-	cs->enable();
-	//digitalWrite(mCsPin, HIGH); 
+	//cs->enable();
+	digitalWrite(mCsPin, HIGH); 
 	delay(TLE94112_CS_RISETIME);
 
 	received = (received & mask) >> shift;
@@ -101,17 +65,15 @@ uint8_t Tle94112::readStatusReg(uint8_t reg, uint8_t mask, uint8_t shift)
 
 void Tle94112::clearStatusReg(uint8_t reg)
 {
-	SPIClass *mBus = reinterpret_cast<SPIClass*>(mBus);
-
 	uint8_t address = mStatusRegAddresses[reg];
 
 	address = address | TLE94112_CMD_CLEAR;
-	cs->disable();
-	//digitalWrite(mCsPin, LOW);
+	//cs->disable();
+	digitalWrite(mCsPin, LOW);
 	uint8_t byte0 = mBus->transfer(address);
 	uint8_t byte1 = mBus->transfer(0); //clear register by writing 0x00
-	cs->enable();
-	//digitalWrite(mCsPin, HIGH);
+	//cs->enable();
+	digitalWrite(mCsPin, HIGH);
 	delay(TLE94112_CS_RISETIME);
 }
 

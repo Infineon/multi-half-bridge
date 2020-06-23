@@ -29,6 +29,11 @@
 #include "gpio-arduino.hpp"
 #include "timer-arduino.hpp"
 
+/*!
+ * Standard chip select pin for first TLE94112 shield
+ */
+#define TLE94112_PIN_CS1     10
+
 /**
  * @brief represents a basic TLE94112
  * 
@@ -41,14 +46,6 @@
  */
 class TLE94112Ino: virtual public Tle94112
 {
-	public:
-
-		//! \brief enables and initializes the TLE94112
-		void begin(void);
-
-		//! \brief deactivates all outputs and disables the TLE94112
-		void end(void);
-
 	protected:
 
 		/*! \brief writes data bits to a control register of the TLE94112

@@ -17,6 +17,7 @@
 
 #include <TLE94112-ino.hpp>
 #include <TLE94112Motor-ino.hpp>
+#include "SPI.h"
 /*
  ============================================================================
  Name        : Lego Robot III
@@ -25,9 +26,9 @@
  Description : ramping the motor speed of a high current motor
  ============================================================================
  */
-
+#define CS1     10
 // Tle94112 Object on Shield 1
-Tle94112 controller1 = Tle94112();
+Tle94112Ino controller1 = Tle94112Ino();
 
 // Tle94112Motor Objects on controller1
 Tle94112Motor motor1(controller1);
@@ -35,8 +36,8 @@ Tle94112Motor motor1(controller1);
 
 void setup() {
   Serial.begin(115200);     // Switch on communications
-  Serial.println("Init ready");
-
+  while (!Serial) {};
+ 
   // Enable MotorController on all Shields and Motors
   // Note: Required to be done before starting to configure the motor
   // controller1 is set to default CS1 pin
@@ -51,73 +52,75 @@ void setup() {
 
   // start motor1
   motor1.begin();
+
+  Serial.println("Init ready");
 }
 
 void loop() {
-//
-//  motor1.coast();
-//  delay(1000);
-//
-//// max forward/backward
-//  Serial.println("max forward/backward");
-//  motor1.start(255);
-//  delay(1000);
-//  motor1.coast();
-//  delay(1000);
-//  motor1.start(-255);
-//  delay(1000);
-//  motor1.coast();
-//  delay(1000);
-//
-//// ramp ripple forward/backward    
-//  Serial.println("ramp ripple forward/backward");
-//  motor1.start(255);
-//  delay(1000);
-//  motor1.rampSpeed(0,5000);
-//  delay(1000);
-//  motor1.start(-255);
-//  delay(1000);
-//  motor1.rampSpeed(0,5000);
-//  delay(1000);
-//
-//// ramp up/down forward
-//  Serial.println("ramp up/down forward");
-//  motor1.start(50); // start above 0 to allow motor to start
-//  motor1.rampSpeed(255,5000);
-//  delay(1000);
-//  motor1.rampSpeed(100,5000);
-//  delay(1000);
-//  motor1.rampSpeed(255,5000);
-//  delay(1000);
-//  motor1.rampSpeed(0,5000);
-//
-//// ramp up/down backward
-//  Serial.println("ramp up/down backward");
-//  motor1.start(50);
-//  motor1.rampSpeed(-255,5000);
-//  delay(1000);
-//  motor1.rampSpeed(-100,5000);
-//  delay(1000);
-//  motor1.rampSpeed(-255,5000);
-//  delay(1000);
-//  motor1.rampSpeed(0,5000);
-//
-//// ramp transient
-//  Serial.println("ramp transient");
-//  motor1.rampSpeed(-255,1000);
-//  delay(1000);
-//  motor1.rampSpeed(255,1000);
-//  delay(1000);
-//  motor1.rampSpeed(-255,1000);
-//  delay(1000);
-//  motor1.rampSpeed(0,1000);
-//  delay(1000);
-//
-//// stop and coast
-//  Serial.println("stop and coast");
-//  motor1.stop(255);
-//  delay(1000);
-//  motor1.coast();
-//  delay(1000);
+
+  motor1.coast();
+  delay(1000);
+
+// max forward/backward
+  Serial.println("max forward/backward");
+  motor1.start(255);
+  delay(1000);
+  motor1.coast();
+  delay(1000);
+  motor1.start(-255);
+  delay(1000);
+  motor1.coast();
+  delay(1000);
+
+// ramp ripple forward/backward    
+  Serial.println("ramp ripple forward/backward");
+  motor1.start(255);
+  delay(1000);
+  motor1.rampSpeed(0,5000);
+  delay(1000);
+  motor1.start(-255);
+  delay(1000);
+  motor1.rampSpeed(0,5000);
+  delay(1000);
+
+// ramp up/down forward
+  Serial.println("ramp up/down forward");
+  motor1.start(50); // start above 0 to allow motor to start
+  motor1.rampSpeed(255,5000);
+  delay(1000);
+  motor1.rampSpeed(100,5000);
+  delay(1000);
+  motor1.rampSpeed(255,5000);
+  delay(1000);
+  motor1.rampSpeed(0,5000);
+
+// ramp up/down backward
+  Serial.println("ramp up/down backward");
+  motor1.start(50);
+  motor1.rampSpeed(-255,5000);
+  delay(1000);
+  motor1.rampSpeed(-100,5000);
+  delay(1000);
+  motor1.rampSpeed(-255,5000);
+  delay(1000);
+  motor1.rampSpeed(0,5000);
+
+// ramp transient
+  Serial.println("ramp transient");
+  motor1.rampSpeed(-255,1000);
+  delay(1000);
+  motor1.rampSpeed(255,1000);
+  delay(1000);
+  motor1.rampSpeed(-255,1000);
+  delay(1000);
+  motor1.rampSpeed(0,1000);
+  delay(1000);
+
+// stop and coast
+  Serial.println("stop and coast");
+  motor1.stop(255);
+  delay(1000);
+  motor1.coast();
+  delay(1000);
 
 }
