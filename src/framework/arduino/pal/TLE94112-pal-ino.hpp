@@ -28,11 +28,7 @@
 #include "../../../corelib/TLE94112.hpp"
 #include "gpio-arduino.hpp"
 #include "timer-arduino.hpp"
-
-/*!
- * Standard chip select pin for first TLE94112 shield
- */
-#define TLE94112_PIN_CS1     10
+#include "../../../config/tle94112-conf.hpp"
 
 /**
  * @brief represents a basic TLE94112
@@ -76,11 +72,11 @@ class TLE94112Ino: virtual public Tle94112
 
 		/*! \brief reads some bits from a status register of the TLE94112
 		 *
-		 * \param reg    status register number(mapping array index / StatusRegisters constant) of the register
-		 * \param mask   mask for the bits that have to be read
-		 * \param shift  data will be shifted right by this amount after masking. This is for the bit alignment of data
+		 * \param reg   status register number(mapping array index / StatusRegisters constant) of the register
+		 * \param mask  mask for the bits that have to be read
+		 * \param shift data will be shifted right by this amount after masking. This is for the bit alignment of data
 		 *
-		 * \return  data bits that have been read (after masking and shifting)
+		 * \return data bits that have been read (after masking and shifting)
 		 *
 		 * \see StatusRegisters
 		 * \see TLE94112_NUM_STATUS_REGS
@@ -99,7 +95,6 @@ class TLE94112Ino: virtual public Tle94112
 		void clearStatusReg(uint8_t reg);
 
 };
-
 /**
  * @}
  */

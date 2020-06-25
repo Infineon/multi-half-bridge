@@ -56,10 +56,15 @@
 #define TLE94112_NUM_STATUS_REGS    7
 
 /**
- * @class HallSwitch
- * Class that represents a TLE94112
+ * @brief represents a basic TLE94112
+ * 
+ * This class provides a simple API for connecting and controlling motors.
+ * Each motor is assigned to a Tle94112 which acts as output driver. Calls to
+ * Tle94112Motor instances are mapped to calls to Tle94112. Therefore, this
+ * class does not bring new features, it does only provide further abstraction.
+ *
+ * @see Tle94112
  */
-
 class Tle94112
 {
 	public:
@@ -104,6 +109,13 @@ class Tle94112
 
 		//! \brief standard constructor with default pin assignment
 		Tle94112();
+
+		/*! \brief constructor with individual pin assignment
+		 *
+		 * \param bus a void pointer to the object representing the SPI class
+		 * \param csPin  pin number of the CS pin
+		 */
+		Tle94112(void* bus, uint8_t csPin);
 
 		//! \brief standard destructor switches shield off
 		~Tle94112();
@@ -208,6 +220,11 @@ class Tle94112
 
 		//! \brief clears all clearable error flags
 		void clearErrors();
+
+		SPIClass *mBus;      //<! \brief void pointer to the object representing the SPI bus
+		GPIO     *en;        //<! \brief shield enable GPIO to switch on/of
+		GPIO     *cs;        //<! \brief shield enable GPIO to switch on/of
+		Timer    *timer;     //<! \brief timer for delay settings
 
 	protected:
 
@@ -343,11 +360,6 @@ class Tle94112
 		 * \see mStatusRegAddresses
 		 */
 		void clearStatusReg(uint8_t reg);
-
-		SPIClass *mBus;      //<! \brief void pointer to the object representing the SPI bus
-		GPIO     *en;        //<! \brief shield enable GPIO to switch on/of
-		GPIO     *cs;        //<! \brief shield enable GPIO to switch on/of
-		//Timer  *timer;     //<! \brief timer for delay settings
 
 		uint8_t mEnabled;    //<! \brief indicates if TLE94112LE is enabled
 		uint8_t mCsPin;      //<! \brief pin number of the CS pin

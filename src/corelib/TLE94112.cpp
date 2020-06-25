@@ -14,26 +14,25 @@
 
 #include "TLE94112.hpp"
 
-//SPI address commands
-#define TLE94112_CMD_WRITE          0x80;
-#define TLE94112_CMD_CLEAR          0x80;
-
 #define TLE94112_STATUS_INV_MASK    (Tle94112::TLE_POWER_ON_RESET)
-#define TLE94112_CS_RISETIME        2
 
 Tle94112::Tle94112(void)
 {
-	//mBus = NULL;
+	mBus = NULL;
 	en = NULL;
 	cs = NULL;
-	//timer = NULL;
+	timer = NULL;
+}
+
+Tle94112::Tle94112(void* bus, uint8_t csPin)
+{
 }
 
 Tle94112::~Tle94112()
 {
 	en = NULL;
 	cs = NULL;
-	//timer = NULL;
+	timer = NULL;
 }
 
 void Tle94112::configHB(HalfBridge hb, HBState state, PWMChannel pwm)
@@ -146,5 +145,3 @@ void Tle94112::clearErrors()
 	clearStatusReg(OP_ERROR_5_STAT);
 	clearStatusReg(OP_ERROR_6_STAT);
 }
-
-

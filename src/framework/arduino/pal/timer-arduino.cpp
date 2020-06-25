@@ -16,7 +16,6 @@
  */
 TimerIno::TimerIno()
 {
-
 }
 
 /**
@@ -25,7 +24,6 @@ TimerIno::TimerIno()
  */
 TimerIno::~TimerIno()
 {
-
 }
 
 /**
@@ -107,7 +105,7 @@ TimerIno::Error_t TimerIno::stop()
  * 
  * @param[in]   timeout                 Desired timeout in ms
  * @return      TimerIno::Error_t 
- *
+ */
 TimerIno::Error_t TimerIno::delayMilli(uint32_t timeout)
 {
 	delay(timeout);

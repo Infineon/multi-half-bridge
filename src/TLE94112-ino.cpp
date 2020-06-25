@@ -22,59 +22,40 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
-Tle94112Ino::Tle94112Ino(void):Tle94112::Tle94112()
+Tle94112Ino::Tle94112Ino(void):Tle94112()
 {
-	//begin(&SPI, TLE94112_PIN_CS1, TLE94112_PIN_EN);
-	//Tle94112Ino(&SPI, TLE94112_PIN_CS1);
-	//this->timer = new TimerIno();
-	//this->en = new GPIOIno(TLE94112_PIN_EN, OUTPUT, GPIOIno::POSITIVE );
-	//this->cs = new GPIOIno(TLE94112_PIN_CS1, OUTPUT, GPIOIno::POSITIVE );
-	//SPIClass mBus = SPI;
-
-
 	mCsPin = TLE94112_PIN_CS1;
 	mEnPin = TLE94112_PIN_EN;
+	Tle94112::en = new GPIOIno(TLE94112_PIN_EN, OUTPUT, GPIOIno::POSITIVE );
+	Tle94112::timer = new TimerIno();
 }
 
-// Tle94112Ino::Tle94112Ino(SPIClass &bus,uint8_t csPin)
+// Tle94112Ino::Tle94112Ino(void* bus, uint8_t csPin):Tle94112()
 // {
-// 	// mCsPin = csPin;
-// 	// //this->timer = new TimerIno();
-// 	// en = new GPIOIno(TLE94112_PIN_EN, OUTPUT, GPIOIno::POSITIVE );
-// 	// cs = new GPIOIno(csPin, OUTPUT, GPIOIno::POSITIVE );
-// 	// SPIClass *mBus = &SPI;
 // }
+
 
 void Tle94112Ino::begin(void)
 {
 	begin(SPI, TLE94112_PIN_CS1);
 }
 
-void Tle94112Ino::begin(SPIClass &bus, uint8_t cs)
+void Tle94112Ino::begin(SPIClass &bus, uint8_t csPin)
 {
-	// if (mBus == NULL){
-	// 	Serial.print("Null Pointer");
-	// 	return;
-	// }
-
-
 	mEnabled = FALSE;
+	Tle94112::cs = new GPIOIno(csPin, OUTPUT, GPIOIno::POSITIVE );
 	mBus = &bus;
 
 	mBus->begin();
 	mBus->setBitOrder(LSBFIRST);
 	mBus->setClockDivider(SPI_CLOCK_DIV16);
 	mBus->setDataMode(SPI_MODE1);
-	
-	
-	// en->init();
-	// en->enable();
-	// cs->init();
-	// cs->enable();
-	pinMode(mEnPin, OUTPUT);
-	pinMode(mCsPin, OUTPUT);
-	digitalWrite(mCsPin, HIGH);
-	digitalWrite(mEnPin, HIGH);
+
+	Tle94112::en->init();
+	Tle94112::en->enable();
+	Tle94112::cs->init();
+	Tle94112::cs->enable();
+	Tle94112::timer->init();
 	mEnabled = TRUE;
 	init();
 }
@@ -82,11 +63,9 @@ void Tle94112Ino::begin(SPIClass &bus, uint8_t cs)
 void Tle94112Ino::end(void)
 {
 	mEnabled = FALSE;
-	// en->disable();
-	// cs->disable();
-	digitalWrite(mCsPin, HIGH);
-	digitalWrite(mEnPin, LOW);
-
+	Tle94112::en->disable();
+	Tle94112::cs->disable();
+	Tle94112::timer->stop();
 }
 
 #endif /** TLE94112_FRAMEWORK **/

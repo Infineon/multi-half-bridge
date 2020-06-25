@@ -26,9 +26,8 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
-#include "corelib/TLE94112.hpp"
-#include "corelib/TLE94112Motor.hpp"
-#include "framework/arduino/wrapper/TLE94112-platf-ino.hpp"
+ 
+#include "TLE94112-ino.hpp"
 #include "framework/arduino/wrapper/TLE94112Motor-platf-ino.hpp"
 
 /**

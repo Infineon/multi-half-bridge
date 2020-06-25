@@ -7,10 +7,10 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include <stdint.h>
-
 #ifndef TIMER_HPP_
 #define TIMER_HPP_
+
+#include <stdint.h>
 
 /**
  * @addtogroup palTimer
