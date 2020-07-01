@@ -1,9 +1,9 @@
-/** 
+/**
  * @file        gpio.hpp
  * @brief       PAL of the GPIO
  * @date        May 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
@@ -20,7 +20,7 @@
 class GPIO
 {
 	public:
-	
+
 		enum Error_t
 		{
 			OK          = 0,     /**< No error */
@@ -40,7 +40,7 @@ class GPIO
 			INT_RISING_EDGE    = 1,     /**< Interrupt on rising edge */
 		};
 		/** @} */
-		
+
 		/**
 		 * @name    Voltage level
 		 * @{
@@ -49,9 +49,9 @@ class GPIO
 		{
 			GPIO_LOW   = 0,        /**< Level low */
 			GPIO_HIGH  = 1         /**< Level high */
-		};        
-		/** @} */      
-		
+		};
+		/** @} */
+
 		/**
 		 * @name    Voltage logic
 		 * @{
@@ -70,7 +70,7 @@ class GPIO
 		 * @retval      INIT_ERROR if initialization error
 		 */
 		virtual Error_t        init        () = 0;
-		
+
 		/**
 			 * @brief       Deinitializes the GPIO
 			 * @return      GPIO error code
@@ -86,7 +86,7 @@ class GPIO
 		 * @retval      GPIO_HIGH if voltage high
 		 */
 		virtual VLevel_t       read        () = 0;
-		
+
 		/**
 		 * @brief       Writes the GPIO output voltage level
 		 * @param[in]   level  Voltage level
@@ -123,6 +123,6 @@ class GPIO
 
 };
 
-/** @} */ 
+/** @} */
 
 #endif /** GPIO_HPP_ **/

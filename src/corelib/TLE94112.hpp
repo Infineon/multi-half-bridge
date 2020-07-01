@@ -21,9 +21,8 @@
 #include "tle94112_util.hpp"
 #include "../pal/timer.hpp"
 #include "../pal/gpio.hpp"
+#include "../pal/spic.hpp"
 
-/* TODO we need this until we have a SPI class */
-#include "SPI.h"
 
 /*! \brief the number of halfbridges on a TLE94112 (including no halfbridge)
  *
@@ -57,7 +56,7 @@
 
 /**
  * @brief represents a basic TLE94112
- * 
+ *
  * This class provides a simple API for connecting and controlling motors.
  * Each motor is assigned to a Tle94112 which acts as output driver. Calls to
  * Tle94112Motor instances are mapped to calls to Tle94112. Therefore, this
@@ -115,7 +114,7 @@ class Tle94112
 		 * \param bus a void pointer to the object representing the SPI class
 		 * \param csPin  pin number of the CS pin
 		 */
-		Tle94112(void* bus, uint8_t csPin);
+		//Tle94112(void* bus, uint8_t csPin); // does not work yet
 
 		//! \brief standard destructor switches shield off
 		~Tle94112();
@@ -125,10 +124,9 @@ class Tle94112
 
 		/*! \brief constructor with individual pin assignment
 		 *
-		 * \param bus a void pointer to the object representing the SPI class
 		 * \param csPin  pin number of the CS pin
 		 */
-		void begin(SPIClass &bus, uint8_t csPin);
+		void begin(uint8_t csPin);
 
 		//! \brief deactivates all outputs and disables the TLE94112
 		void end(void);
@@ -221,7 +219,7 @@ class Tle94112
 		//! \brief clears all clearable error flags
 		void clearErrors();
 
-		SPIClass *mBus;      //<! \brief void pointer to the object representing the SPI bus
+		SPIC     *sBus;      //<! \brief SPI cover class as representation of the SPI bus
 		GPIO     *en;        //<! \brief shield enable GPIO to switch on/of
 		GPIO     *cs;        //<! \brief shield enable GPIO to switch on/of
 		Timer    *timer;     //<! \brief timer for delay settings

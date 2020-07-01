@@ -27,13 +27,18 @@ void Tle94112::writeReg(uint8_t reg, uint8_t mask, uint8_t shift, uint8_t data)
 {
 	uint8_t address = mCtrlRegAddresses[reg];
 	uint8_t toWrite = mCtrlRegData[reg] & (~mask);
+	uint8_t byte0;
+	uint8_t byte1;
+
 	toWrite |= (data << shift) & mask;
 	mCtrlRegData[reg] = toWrite;
-	
+
 	address = address | TLE94112_CMD_WRITE
 	cs->disable();
-	uint8_t byte0 = mBus->transfer(address);
-	uint8_t byte1 = mBus->transfer(toWrite);
+	sBus->transfer(address,byte0);
+	sBus->transfer(toWrite,byte1);
+	// uint8_t byte0 = mBus->transfer(address);
+	// uint8_t byte1 = mBus->transfer(toWrite);
 	cs->enable();
 	timer->delayMilli(TLE94112_CS_RISETIME);
 }
@@ -47,26 +52,34 @@ uint8_t Tle94112::readStatusReg(uint8_t reg)
 uint8_t Tle94112::readStatusReg(uint8_t reg, uint8_t mask, uint8_t shift)
 {
 	uint8_t address = mStatusRegAddresses[reg];
+	uint8_t byte0;
+	uint8_t received;
 
 	cs->disable();
-	uint8_t byte0 = mBus->transfer(address);
-	uint8_t received = mBus->transfer(0xFF); //send dummy byte while receiving
+	sBus->transfer(address,byte0);
+	sBus->transfer(0xFF,received);
+	// uint8_t byte0 = mBus->transfer(address);
+	// uint8_t received = mBus->transfer(0xFF); //send dummy byte while receiving
 	cs->enable();
 	timer->delayMilli(TLE94112_CS_RISETIME);
 
 	received = (received & mask) >> shift;
-	
+
 	return received;
 }
 
 void Tle94112::clearStatusReg(uint8_t reg)
 {
 	uint8_t address = mStatusRegAddresses[reg];
+	uint8_t byte0;
+	uint8_t byte1;
 
 	address = address | TLE94112_CMD_CLEAR;
 	cs->disable();
-	uint8_t byte0 = mBus->transfer(address);
-	uint8_t byte1 = mBus->transfer(0); //clear register by writing 0x00
+	sBus->transfer(address,byte0);
+	sBus->transfer(0,byte1);
+	// uint8_t byte0 = mBus->transfer(address);
+	// uint8_t byte1 = mBus->transfer(0); //clear register by writing 0x00
 	cs->enable();
 	timer->delayMilli(TLE94112_CS_RISETIME);
 }

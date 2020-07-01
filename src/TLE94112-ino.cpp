@@ -14,7 +14,7 @@
  * capable of PWM with 3 different frequencies for controlling the speed of each motor.
  * Have a look at the datasheet for more information.
  * - This library include the basic functions to access the half-bridges.
- * - Have a look at the datasheet for more information. 
+ * - Have a look at the datasheet for more information.
  */
 
 
@@ -28,6 +28,7 @@ Tle94112Ino::Tle94112Ino(void):Tle94112()
 	mEnPin = TLE94112_PIN_EN;
 	Tle94112::en = new GPIOIno(TLE94112_PIN_EN, OUTPUT, GPIOIno::POSITIVE );
 	Tle94112::timer = new TimerIno();
+	Tle94112::sBus = new SPICIno();
 }
 
 // Tle94112Ino::Tle94112Ino(void* bus, uint8_t csPin):Tle94112()
@@ -37,35 +38,31 @@ Tle94112Ino::Tle94112Ino(void):Tle94112()
 
 void Tle94112Ino::begin(void)
 {
-	begin(SPI, TLE94112_PIN_CS1);
+	begin(TLE94112_PIN_CS1);
 }
 
-void Tle94112Ino::begin(SPIClass &bus, uint8_t csPin)
+void Tle94112Ino::begin(uint8_t csPin)
 {
-	mEnabled = FALSE;
+	mEnabled = false;
 	Tle94112::cs = new GPIOIno(csPin, OUTPUT, GPIOIno::POSITIVE );
-	mBus = &bus;
 
-	mBus->begin();
-	mBus->setBitOrder(LSBFIRST);
-	mBus->setClockDivider(SPI_CLOCK_DIV16);
-	mBus->setDataMode(SPI_MODE1);
-
+	Tle94112::sBus->init();
 	Tle94112::en->init();
 	Tle94112::en->enable();
 	Tle94112::cs->init();
 	Tle94112::cs->enable();
 	Tle94112::timer->init();
-	mEnabled = TRUE;
+	mEnabled = true;
 	init();
 }
 
 void Tle94112Ino::end(void)
 {
-	mEnabled = FALSE;
+	mEnabled = false;
 	Tle94112::en->disable();
 	Tle94112::cs->disable();
 	Tle94112::timer->stop();
+	Tle94112::sBus->deinit();
 }
 
 #endif /** TLE94112_FRAMEWORK **/

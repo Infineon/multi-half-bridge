@@ -4,7 +4,7 @@
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
  * \version     1.5.0
- * 
+ *
  * \ref         pal_arduino
  *
  * SPDX-License-Identifier: MIT
@@ -28,11 +28,12 @@
 #include "../../../corelib/TLE94112.hpp"
 #include "gpio-arduino.hpp"
 #include "timer-arduino.hpp"
+#include "spic-arduino.hpp"
 #include "../../../config/tle94112-conf.hpp"
 
 /**
  * @brief represents a basic TLE94112
- * 
+ *
  * This class provides a simple API for connecting and controlling motors.
  * Each motor is assigned to a Tle94112 which acts as output driver. Calls to
  * Tle94112Motor instances are mapped to calls to Tle94112. Therefore, this

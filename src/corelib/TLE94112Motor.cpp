@@ -296,7 +296,7 @@ int16_t Tle94112Motor::getSpeed(void)
 void Tle94112Motor::rampSpeed(int16_t speed, uint16_t slope)
 {
 	int16_t start_speed = getSpeed();
-	if (mEnabled == TRUE && speed != start_speed)
+	if (mEnabled == true && speed != start_speed)
 	{
 		uint32_t duration = _measureSetSpeedDuration(speed, start_speed);
 		//mDriver->clearErrors();

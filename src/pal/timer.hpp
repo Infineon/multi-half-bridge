@@ -1,9 +1,9 @@
-/** 
+/**
  * @file        timer.hpp
  * @brief       Timer Platform Abstraction Layer
  * @date        May 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
@@ -60,7 +60,7 @@ class Timer
 		 * @retval      INIT_ERROR if hardware interface error
 		 */
 		virtual  Error_t         elapsed (uint32_t &elapsed) = 0;
-		
+
 		/**
 		 * @brief   Stops the timer
 		 * @return  Timer error code
@@ -68,7 +68,7 @@ class Timer
 		 * @retval  INIT_ERROR if hardware interface error
 		 */
 		virtual  Error_t         stop    () = 0;
-		
+
 		/**
 		 * @brief       Introduces a delay during the specified time
 		 * @param[in]   timeout    Delay time in milliseconds
@@ -77,7 +77,7 @@ class Timer
 		 * @retval      INIT_ERROR if hardware interface error
 		 */
 		virtual  Error_t        delayMilli (uint32_t timeout) = 0;
-		
+
 		/**
 		 * @brief       Introduces a delay during the specified time
 		 * @param[in]   timeout     Delay time in microseconds

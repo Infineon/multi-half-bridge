@@ -1,9 +1,9 @@
-/** 
+/**
  * @file        TLE94112-platf-ino.hpp
  * @brief       TLE94112 Arduino Hardware Platforms
  * @date        Mai 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
@@ -16,7 +16,7 @@
 
 /**
  * @addtogroup tl94112inohw
- *  
+ *
  * @brief Arduino Hardware Platform Pins
  */
 
@@ -37,7 +37,7 @@
  */
 #define TLE94112_PIN_EN      8
 
-/** 
+/**
  * @}
  */
 

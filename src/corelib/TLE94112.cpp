@@ -18,21 +18,22 @@
 
 Tle94112::Tle94112(void)
 {
-	mBus = NULL;
+	sBus = NULL;
 	en = NULL;
 	cs = NULL;
 	timer = NULL;
 }
 
-Tle94112::Tle94112(void* bus, uint8_t csPin)
-{
-}
+// Tle94112::Tle94112(void* bus, uint8_t csPin)
+// {
+// }
 
 Tle94112::~Tle94112()
 {
 	en = NULL;
 	cs = NULL;
 	timer = NULL;
+	sBus = NULL;
 }
 
 void Tle94112::configHB(HalfBridge hb, HBState state, PWMChannel pwm)

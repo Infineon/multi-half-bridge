@@ -1,9 +1,9 @@
-/** 
+/**
  * @file        timer-arduino.cpp
  * @brief       Arduino Timer Platform Abstraction Layer
  * @date        May 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
@@ -12,7 +12,7 @@
 
 /**
  * @brief Constructor of the Arduino Timer class
- * 
+ *
  */
 TimerIno::TimerIno()
 {
@@ -20,7 +20,7 @@ TimerIno::TimerIno()
 
 /**
  * @brief Destructor of the Arduino Timer class
- * 
+ *
  */
 TimerIno::~TimerIno()
 {
@@ -28,10 +28,10 @@ TimerIno::~TimerIno()
 
 /**
  * @brief Initialization of the Timer
- * 
+ *
  * This function is initializing the Timer and sets
  * the elapsed time to zero.
- * 
+ *
  * @return      TimerIno::Error_t
  */
 TimerIno::Error_t TimerIno::init()
@@ -42,10 +42,10 @@ TimerIno::Error_t TimerIno::init()
 
 /**
  * @brief Deinitialize the Timer
- * 
+ *
  * This function deinitialize the Timer and also
  * resets the elapsed time variable.
- * 
+ *
  * @return      TimerIno::Error_t
  */
 TimerIno::Error_t TimerIno::deinit()
@@ -56,9 +56,9 @@ TimerIno::Error_t TimerIno::deinit()
 
 /**
  * @brief Start the timer
- * 
+ *
  * This function is starting the timer.
- * 
+ *
  * @return      TimerIno::Error_t
  */
 TimerIno::Error_t TimerIno::start()
@@ -69,11 +69,11 @@ TimerIno::Error_t TimerIno::start()
 
 /**
  * @brief Calculate the elapsed time
- * 
+ *
  * This function is calculating the elapsed time since the
  * start of the timer. The value stored in the given variable
- * is in milliseconds. 
- * 
+ * is in milliseconds.
+ *
  * @param[in]   &elapsed                Address of a value where the elapsed time should be stored
  * @return      TimerIno::Error_t
  */
@@ -85,10 +85,10 @@ TimerIno::Error_t TimerIno::elapsed(uint32_t &elapsed)
 
 /**
  * @brief Stop the timer
- * 
+ *
  * This function stops the timer and resets the
  * start time variable.
- * 
+ *
  * @return      TimerIno::Error_t
  */
 TimerIno::Error_t TimerIno::stop()
@@ -99,12 +99,12 @@ TimerIno::Error_t TimerIno::stop()
 
 /**
  * @brief Time delay
- * 
+ *
  * This function is causing a desired delay of the application.
  * The input value is given in milliseconds.
- * 
+ *
  * @param[in]   timeout                 Desired timeout in ms
- * @return      TimerIno::Error_t 
+ * @return      TimerIno::Error_t
  */
 TimerIno::Error_t TimerIno::delayMilli(uint32_t timeout)
 {
@@ -114,10 +114,10 @@ TimerIno::Error_t TimerIno::delayMilli(uint32_t timeout)
 
 /**
  * @brief Time delay
- * 
+ *
  * This function is causing a desired delay of the application.
  * The input value is given in microseconds.
- * 
+ *
  * @param[in]   timeout                 Desired timeout in us
  * @return      TimerIno::Error_t
  */

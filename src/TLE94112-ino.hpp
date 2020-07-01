@@ -31,11 +31,11 @@
  * @class Tle94112Ino
  *
  * @brief represents the TLE94112 base class
- * 
+ *
  * This class provides a simple API for connecting the TLE94112 shield via SPI.
  * The 12 halfbridges, the PWM units and the registers are set and controll
  * from the library.
- * 
+ *
  */
 
 class Tle94112Ino: virtual public Tle94112
@@ -56,10 +56,9 @@ class Tle94112Ino: virtual public Tle94112
 
 		/*! \brief constructor with individual pin assignment
 		 *
-		 * \param bus a void pointer to the object representing the SPI class
 		 * \param csPin  pin number of the CS pin
 		 */
-		void begin(SPIClass &bus, uint8_t csPin);
+		void begin(uint8_t csPin);
 
 		//! \brief deactivates all outputs and disables the TLE94112
 		void end(void);
