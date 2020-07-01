@@ -1,4 +1,4 @@
-# pal/arduino platform layer for arduino
+# framework configuration layer
 
 These files define the control macros for each platform, whereas:
 * -conf.hpp defines the default framework macro with its default setting ( default for Arduino framework)

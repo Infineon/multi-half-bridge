@@ -1,6 +1,7 @@
-# pal/arduino platform layer for arduino
+# arduino platform main layer
 
-Here we have the hardware abstration layer for the hardware dependent part.
+Here we have the main abstration layer for the arduino platform. Use
+this header files in your Arduino sketch files.
 
 * gpio abstraction layer for digital gpio access
 * timer abstraction layer for the timer functions

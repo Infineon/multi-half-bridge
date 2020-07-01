@@ -1,4 +1,4 @@
-# pal/arduino platform layer for arduino
+# arduino platform layer files
 
 These files include the arduino dependent software parts of the TLE94112 library API.
 
