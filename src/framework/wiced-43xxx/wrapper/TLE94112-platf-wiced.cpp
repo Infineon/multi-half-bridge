@@ -15,16 +15,6 @@
  * @addtogroup tl94112wicedhw
  */
 
-/**
- *  TLE94112 Shield pins for CYW943907AEVAL1F Eval Kit
- */
-PlatformWICED_t TLE94112_Shield_Pins =
-{
-    .EN  = WICED_GPIO_8,
-    .CS1 = WICED_GPIO_10,
-    .CS2 = WICED_GPIO_9,
-    .CS3 = 0,
-};
 
 /**
  * @}

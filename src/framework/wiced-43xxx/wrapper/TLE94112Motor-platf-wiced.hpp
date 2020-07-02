@@ -10,11 +10,11 @@
 #ifndef TLE94112MOTOR_PLATF_WICED_HPP_
 #define TLE94112MOTOR_PLATF_WICED_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
+#include "TLE94112-platf-wiced.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
-#include "../pal/TLE94112Motor-pal-wiced.hpp"
+//#include "../pal/TLE94112Motor-pal-wiced.hpp"
 
 /**
  * @addtogroup tl94112motorwicedhw
