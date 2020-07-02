@@ -11,11 +11,10 @@
 #define TLE94112MOTOR_PLATF_INO_HPP_
 
 #include "TLE94112-platf-ino.hpp"
-#include "../../../corelib/TLE94112Motor.hpp"
-
-//#include "../pal/TLE94112Motor-pal-ino.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
+
+#include "../../../corelib/TLE94112Motor.hpp"
 
 /**
  * @addtogroup tl94112motorinohw

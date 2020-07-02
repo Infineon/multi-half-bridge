@@ -10,6 +10,10 @@
 #ifndef TIMER_ARDUINO_HPP_
 #define TIMER_ARDUINO_HPP_
 
+#include "../../../config/tle94112-conf.hpp"
+
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
+
 #include "../../../pal/timer.hpp"
 
 /**
@@ -36,4 +40,5 @@ class TimerIno: virtual public Timer
 };
 /** @} */
 
+#endif /** TLE94112_FRAMEWORK **/
 #endif /** TIMER_ARDUINO_HPP_ **/

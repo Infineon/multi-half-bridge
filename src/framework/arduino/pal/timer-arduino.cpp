@@ -7,6 +7,10 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include "../../../config/tle94112-conf.hpp"
+
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
+
 #include <Arduino.h>
 #include "timer-arduino.hpp"
 
@@ -127,3 +131,4 @@ TimerIno::Error_t TimerIno::delayMicro(uint32_t timeout)
 	return OK;
 }
 
+#endif /** TLE94112_FRAMEWORK **/

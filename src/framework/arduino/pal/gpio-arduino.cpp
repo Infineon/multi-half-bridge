@@ -7,8 +7,11 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include <Arduino.h>
 #include "gpio-arduino.hpp"
+
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
+
+#include <Arduino.h>
 
 /**
  * @brief Constructor of the Arduino GPIO class
@@ -129,6 +132,7 @@ GPIOIno::Error_t GPIOIno::disable()
 }
 
 
+#endif /** TLE94112_FRAMEWORK **/
 
 
 

@@ -9,6 +9,8 @@
 
 #include "spic-arduino.hpp"
 
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
+
 /**
  * @brief Constructor of the Arduino SPIC class
  *
@@ -64,13 +66,6 @@ SPICIno::Error_t SPICIno::deinit()
 	spi->end();
 	return OK;
 }
-/**
- * @brief transfers a data package via the spi bus
- *
- * @param data       send data
- * @return uint8_t   received data or status
- */
-
 
 /**
  * @brief transfers a data package via the spi bus
@@ -85,6 +80,7 @@ SPICIno::Error_t SPICIno::transfer(uint8_t send, uint8_t &received)
 	return OK;
 }
 
+#endif /** TLE94112_FRAMEWORK **/
 
 
 
