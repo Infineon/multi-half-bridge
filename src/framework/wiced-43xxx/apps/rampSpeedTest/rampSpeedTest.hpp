@@ -17,13 +17,12 @@
 #ifndef RAMPSPEEDTEST_HPP_
 #define RAMPSPEEDTEST_HPP_
 
-#include "../../pal/TLE94112Motor-pal-wiced.hpp"
+#include "../../wrapper/TLE94112Motor-platf-wiced.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 #include <stdlib.h>
 #include <TLE94112-platf-wiced.hpp>
-#include <TLE94112Motor-platf-wiced.hpp>
 #include <wiced.h"
 
 extern "C" void application_start();

@@ -9,6 +9,8 @@
 
 #include "spic-wiced.hpp"
 
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
+
 /**
  * @brief Constructor of the Arduino SPIC class
  *
@@ -78,6 +80,4 @@ SPICWiced::Error_t SPICWiced::transfer(uint8_t send, uint8_t &received)
 	return OK;
 }
 
-
-
-
+#endif /** TLE94112_FRAMEWORK **/
