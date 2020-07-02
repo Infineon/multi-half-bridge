@@ -29,7 +29,6 @@
 #include "gpio-arduino.hpp"
 #include "timer-arduino.hpp"
 #include "spic-arduino.hpp"
-#include "../../../config/tle94112-conf.hpp"
 
 /**
  * @brief represents a basic TLE94112
