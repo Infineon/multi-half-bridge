@@ -24,8 +24,6 @@
 
 Tle94112Ino::Tle94112Ino(void):Tle94112()
 {
-	mCsPin = TLE94112_PIN_CS1;
-	mEnPin = TLE94112_PIN_EN;
 	Tle94112::en = new GPIOIno(TLE94112_PIN_EN, OUTPUT, GPIOIno::POSITIVE );
 	Tle94112::timer = new TimerIno();
 	Tle94112::sBus = new SPICIno();

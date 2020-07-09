@@ -360,8 +360,6 @@ class Tle94112
 		void clearStatusReg(uint8_t reg);
 
 		uint8_t mEnabled;    //<! \brief indicates if TLE94112LE is enabled
-		uint8_t mCsPin;      //<! \brief pin number of the CS pin
-		uint8_t mEnPin;      //<! \brief pin number of the Enable pin
 
 };
 

@@ -37,8 +37,6 @@ void Tle94112::writeReg(uint8_t reg, uint8_t mask, uint8_t shift, uint8_t data)
 	cs->disable();
 	sBus->transfer(address,byte0);
 	sBus->transfer(toWrite,byte1);
-	// uint8_t byte0 = mBus->transfer(address);
-	// uint8_t byte1 = mBus->transfer(toWrite);
 	cs->enable();
 	timer->delayMilli(TLE94112_CS_RISETIME);
 }
@@ -58,8 +56,6 @@ uint8_t Tle94112::readStatusReg(uint8_t reg, uint8_t mask, uint8_t shift)
 	cs->disable();
 	sBus->transfer(address,byte0);
 	sBus->transfer(0xFF,received);
-	// uint8_t byte0 = mBus->transfer(address);
-	// uint8_t received = mBus->transfer(0xFF); //send dummy byte while receiving
 	cs->enable();
 	timer->delayMilli(TLE94112_CS_RISETIME);
 
@@ -78,8 +74,6 @@ void Tle94112::clearStatusReg(uint8_t reg)
 	cs->disable();
 	sBus->transfer(address,byte0);
 	sBus->transfer(0,byte1);
-	// uint8_t byte0 = mBus->transfer(address);
-	// uint8_t byte1 = mBus->transfer(0); //clear register by writing 0x00
 	cs->enable();
 	timer->delayMilli(TLE94112_CS_RISETIME);
 }

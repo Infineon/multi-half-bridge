@@ -47,22 +47,6 @@
  */
 class TLE94112Wiced: virtual public Tle94112
 {
-	public:
-
-		//! \brief enables and initializes the TLE94112
-		void begin(void);
-		
-		/*! \brief constructor with individual pin assignment
-		 *
-		 *	\param bus	a wiced_spi_device_t object
-		 *  \param cs	pin number of the CS pin
-		 * 	\param en	pin number of the ENABLE pin
-		 */
-		void begin(wiced_spi_device_t &bus, uint8_t cs, uint8_t en);
-		
-		//! \brief deactivates all outputs and disables the TLE94112
-		void end(void);
-
 	protected:
 
 		/*! \brief writes data bits to a control register of the TLE94112
@@ -114,9 +98,6 @@ class TLE94112Wiced: virtual public Tle94112
 		 * \see mStatusRegAddresses
 		 */
 		void clearStatusReg(uint8_t reg);
-
-		//! \brief pointer to the SPIClass object representing the bus
-		wiced_spi_device_t *mBus;
 
 };
 

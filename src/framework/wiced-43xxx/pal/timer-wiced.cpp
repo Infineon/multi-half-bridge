@@ -64,7 +64,7 @@ TimerWiced::Error_t TimerWiced::deinit()
  */
 TimerWiced::Error_t TimerWiced::start()
 {
-	startTime = millis();
+	wiced_time_get_time( &startTime );
 	return OK;
 }
 
@@ -80,7 +80,9 @@ TimerWiced::Error_t TimerWiced::start()
  */
 TimerWiced::Error_t TimerWiced::elapsed(uint32_t &elapsed)
 {
-	elapsed = millis() - startTime;
+	unit32_t endTime;
+	wiced_time_get_time( &endTime );
+	elapsed = startTime - startTime;
 	return OK;
 }
 
@@ -109,7 +111,7 @@ TimerWiced::Error_t TimerWiced::stop()
  */
 TimerWiced::Error_t TimerWiced::delayMilli(uint32_t timeout)
 {
-	delay(timeout);
+	wiced_rtos_delay_milliseconds( timeout );
 	return OK;
 }
 
@@ -124,7 +126,7 @@ TimerWiced::Error_t TimerWiced::delayMilli(uint32_t timeout)
  */
 TimerWiced::Error_t TimerWiced::delayMicro(uint32_t timeout)
 {
-	delayMicroseconds(timeout);
+	wiced_rtos_delay_microseconds( timeout );
 	return OK;
 }
 

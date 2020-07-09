@@ -23,9 +23,8 @@ class Timer
 
 		enum Error_t
 		{
-			OK          =  0,    /**< No error */
-			INTF_ERROR  = -1,    /**< Interface error */
-			CONF_ERROR  = -2,    /**< Configuration error */
+			OK     =  0,   /**< No error */
+			ERROR  =  1,   /**< Error */
 		};
 
 		/**

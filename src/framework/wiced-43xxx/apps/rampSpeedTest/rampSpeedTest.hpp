@@ -23,7 +23,7 @@
 
 #include <stdlib.h>
 #include <TLE94112-platf-wiced.hpp>
-#include <wiced.h"
+#include <wiced.h>
 
 extern "C" void application_start();
 

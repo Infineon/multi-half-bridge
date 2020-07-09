@@ -15,6 +15,7 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
+#include "../../../pal/gpio.hpp"
 #include <wiced_platform.h>
 
 /**

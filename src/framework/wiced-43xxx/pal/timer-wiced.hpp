@@ -15,6 +15,8 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 #include "../../../pal/timer.hpp"
+#include "wiced_time.h"
+#include "wiced_rtos.h"
 
 /**
  * @addtogroup wicedPal

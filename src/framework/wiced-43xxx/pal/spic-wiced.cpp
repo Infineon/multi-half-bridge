@@ -12,30 +12,58 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 /**
- * @brief Constructor of the Arduino SPIC class
+ * @brief Constructor of the WICED SPIC class
  *
  * This function is setting the basics for a SPIC and the default spi.
  *
  */
-SPICWiced::SPICWiced() //: lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
+SPICWiced::SPICWiced() : pin(WICED_GPIO_22), port(WICED_SPI_1)
 {
-//	spi = &SPI;
+	wiced_spi_device_t SPI = {
+		.port = port,
+		.chip_select = pin,
+		.speed = 1000000,
+		.mode = (SPI_CLOCK_RISING_EDGE | SPI_CLOCK_IDLE_LOW | SPI_NO_DMA | SPI_LSB_FIRST | SPI_CS_ACTIVE_LOW),
+		.bits = 8,
+	};
+	SPICWiced(&SPI);
 }
 
-// /**
-//  * @brief Constructor of the Arduino SPIC class
-//  *
-//  * This function is setting the basics for a SPIC. It allows to set the pin number,
-//  * mode of the pin and the logic level.
-//  *
-//  * @param[in]   pin     Number of the desired pin
-//  * @param[in]   mode    Defines the mode of the pin (INPUT, OUTPUT, etc.)
-//  * @param[in]   logic   Defines the logic level of the pin
-//  */
-// SPICWiced::SPICWiced(uint8_t pin, uint8_t mode, VLogic_t logic): pin(pin), mode(mode), logic(logic)
-// {
+/**
+ * @brief Constructor of the WICED SPIC class
+ *
+ * This function is setting the basics for a SPIC. It allows to set the
+ * SPI channel and the chipselect pin number.
+ *
+ * @param[in]   port    SPI channel to be used
+ * @param[in]   pin     Number of the desired pin
+ */
+SPICWiced::SPICWiced(wiced_spi_t port, wiced_gpio_t pin): pin(pin), port(port)
+{
+	wiced_spi_device_t SPI = {
+		.port = port,
+		.chip_select = pin,
+		.speed = 1000000,
+		.mode = (SPI_CLOCK_RISING_EDGE | SPI_CLOCK_IDLE_LOW | SPI_NO_DMA | SPI_LSB_FIRST | SPI_CS_ACTIVE_LOW),
+		.bits = 8,
+	};
+	SPICWiced(&SPI);
+}
 
-// }
+/**
+ * @brief Constructor of the WICED SPIC class
+ *
+ * This function is setting the basics for a SPIC. It allows to set the pin number,
+ * mode of the pin and the logic level.
+ *
+ * @param[in]   pin     Number of the desired pin
+ * @param[in]   mode    Defines the mode of the pin (INPUT, OUTPUT, etc.)
+ * @param[in]   logic   Defines the logic level of the pin
+ */
+SPICWiced::SPICWiced(wiced_spi_device_t *SPI)
+{
+	this->spi = SPI;
+}
 
 /**
  * @brief Initialize the SPIC
@@ -47,10 +75,7 @@ SPICWiced::SPICWiced() //: lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16
  */
 SPICWiced::Error_t SPICWiced::init()
 {
-	// spi->begin();
-	// spi->setBitOrder(this->lsb);
-	// spi->setClockDivider(this->clock);
-	// spi->setDataMode(this->mode);
+	wiced_spi_init( &spi );
 	return OK;
 }
 
@@ -63,7 +88,7 @@ SPICWiced::Error_t SPICWiced::init()
  */
 SPICWiced::Error_t SPICWiced::deinit()
 {
-	// spi->end();
+	wiced_spi_deinit( &spi );
 	return OK;
 }
 
@@ -76,7 +101,9 @@ SPICWiced::Error_t SPICWiced::deinit()
  */
 SPICWiced::Error_t SPICWiced::transfer(uint8_t send, uint8_t &received)
 {
-	// received = spi->transfer(send);
+	segment->sendBuffer = send;
+	segment->receiveBuffer = received;
+	wiced_spi_transfer(&spi, &segment, 1);
 	return OK;
 }
 

@@ -30,14 +30,23 @@
 class SPICWiced: virtual public SPIC
 {
 private:
-	uint8_t     lsb;
-	uint8_t     mode;
-	uint8_t     clock;
-	//void        *spi;
+	wiced_gpio_t         pin;
+	wiced_spi_t          port;
+	wiced_spi_device_t   *spi;
+
+	/**
+	 * @brief Definition of the SPI-Segment which contains the data for the communication
+	 */
+	platform_spi_message_segment_t segment = {
+		.tx_buffer = sendBuffer,
+		.rx_buffer = receiveBuffer,
+		.length = 2,
+	};
 
 public:
 				SPICWiced();
-				//SPICWiced(uint8_t pin, uint8_t mode, VLogic_t logic);
+				SPICWiced(wiced_spi_t port, wiced_gpio_t pin);
+				SPICWiced(wiced_spi_device_t *SPI);
 				~SPICWiced();
 	Error_t     init();
 	Error_t     deinit();
