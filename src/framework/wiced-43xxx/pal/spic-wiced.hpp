@@ -34,6 +34,9 @@ private:
 	wiced_spi_t          port;
 	wiced_spi_device_t   *spi;
 
+	uint8_t sendBuffer[2];
+	uint8_t receiveBuffer[2];
+
 	/**
 	 * @brief Definition of the SPI-Segment which contains the data for the communication
 	 */
