@@ -25,6 +25,11 @@
 #include <TLE94112-platf-wiced.hpp>
 #include <wiced.h>
 
+
+
+// Tle94112Motor Objects on controller1
+//TLE94112Motor motor(controller);
+
 extern "C" void application_start();
 
 #endif /** TLE94112_FRAMEWORK **/

@@ -12,7 +12,7 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 /**
- * @brief Constructor of the Arduino Timer class
+ * @brief Constructor of the WICED Timer class
  *
  */
 TimerWiced::TimerWiced()
@@ -20,7 +20,7 @@ TimerWiced::TimerWiced()
 }
 
 /**
- * @brief Destructor of the Arduino Timer class
+ * @brief Destructor of the WICED Timer class
  *
  */
 TimerWiced::~TimerWiced()

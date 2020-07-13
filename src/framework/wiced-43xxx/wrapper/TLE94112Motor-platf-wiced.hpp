@@ -14,8 +14,6 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
-//#include "../pal/TLE94112Motor-pal-wiced.hpp"
-
 /**
  * @addtogroup tl94112motorwicedhw
  * @{

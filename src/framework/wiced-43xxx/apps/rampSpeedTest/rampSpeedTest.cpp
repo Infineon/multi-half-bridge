@@ -20,13 +20,17 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
-void loop()
-{
-    //Nothing happens in the super loop
-}
+// Tle94112 Object on Shield 1
+Tle94112Wiced controller;
+
 
 void setup()
 {
+}
+
+void loop()
+{
+    //Nothing happens in the super loop
 }
 
 /******************************************************
