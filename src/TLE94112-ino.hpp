@@ -38,7 +38,7 @@
  *
  */
 
-class Tle94112Ino: virtual public Tle94112
+class Tle94112Ino: virtual public TLE94112Ino
 {
 	public:
 		//! \brief standard constructor with default pin assignment
@@ -49,16 +49,10 @@ class Tle94112Ino: virtual public Tle94112
 		 * \param bus a void pointer to the object representing the SPI class
 		 * \param csPin  pin number of the CS pin
 		 */
-		//Tle94112Ino(void* bus, uint8_t csPin);
+		Tle94112Ino(void* bus, uint8_t csPin);
 
 		//! \brief enables and initializes the TLE94112
 		void begin(void);
-
-		/*! \brief constructor with individual pin assignment
-		 *
-		 * \param csPin  pin number of the CS pin
-		 */
-		void begin(uint8_t csPin);
 
 		//! \brief deactivates all outputs and disables the TLE94112
 		void end(void);

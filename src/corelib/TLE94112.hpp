@@ -111,22 +111,16 @@ class Tle94112
 
 		/*! \brief constructor with individual pin assignment
 		 *
-		 * \param bus a void pointer to the object representing the SPI class
+		 * \param bus  a pointer to the object representing the SPI class
 		 * \param csPin  pin number of the CS pin
 		 */
-		//Tle94112(void* bus, uint8_t csPin); // does not work yet
+		Tle94112(void* bus, uint8_t csPin); // does not work yet
 
 		//! \brief standard destructor switches shield off
 		~Tle94112();
 
 		//! \brief enables and initializes the TLE94112
 		void begin(void);
-
-		/*! \brief constructor with individual pin assignment
-		 *
-		 * \param csPin  pin number of the CS pin
-		 */
-		void begin(uint8_t csPin);
 
 		//! \brief deactivates all outputs and disables the TLE94112
 		void end(void);

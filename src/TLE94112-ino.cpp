@@ -25,25 +25,23 @@
 Tle94112Ino::Tle94112Ino(void):Tle94112()
 {
 	Tle94112::en = new GPIOIno(TLE94112_PIN_EN, OUTPUT, GPIOIno::POSITIVE );
+	Tle94112::cs = new GPIOIno(TLE94112_PIN_CS1, OUTPUT, GPIOIno::POSITIVE );
 	Tle94112::timer = new TimerIno();
 	Tle94112::sBus = new SPICIno();
 }
 
-// Tle94112Ino::Tle94112Ino(void* bus, uint8_t csPin):Tle94112()
-// {
-// }
+Tle94112Ino::Tle94112Ino(void* bus, uint8_t csPin):Tle94112()
+{
+	Tle94112::en = new GPIOIno(TLE94112_PIN_EN, OUTPUT, GPIOIno::POSITIVE );
+	Tle94112::cs = new GPIOIno(csPin, OUTPUT, GPIOIno::POSITIVE );
+	Tle94112::timer = new TimerIno();
+	Tle94112::sBus = new SPICIno();
+}
 
 
 void Tle94112Ino::begin(void)
 {
-	begin(TLE94112_PIN_CS1);
-}
-
-void Tle94112Ino::begin(uint8_t csPin)
-{
 	mEnabled = false;
-	Tle94112::cs = new GPIOIno(csPin, OUTPUT, GPIOIno::POSITIVE );
-
 	Tle94112::sBus->init();
 	Tle94112::en->init();
 	Tle94112::en->enable();
