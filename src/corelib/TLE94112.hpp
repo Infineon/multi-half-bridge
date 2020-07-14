@@ -15,9 +15,7 @@
 #define TLE94112_HPP_
 
 #include <stdint.h>
-#include <stdbool.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include "tle94112_util.hpp"
 #include "../pal/timer.hpp"
 #include "../pal/gpio.hpp"
