@@ -19,14 +19,11 @@
  */
 SPICWiced::SPICWiced() : pin(WICED_GPIO_22), port(WICED_SPI_1)
 {
-	wiced_spi_device_t SPI = {
-		.port = port,
-		.chip_select = pin,
-		.speed = 1000000,
-		.mode = (SPI_CLOCK_RISING_EDGE | SPI_CLOCK_IDLE_LOW | SPI_NO_DMA | SPI_LSB_FIRST | SPI_CS_ACTIVE_LOW),
-		.bits = 8,
-	};
-	SPICWiced(&SPI);
+    this->spi->port = port;
+    this->spi->chip_select = pin;
+    this->spi->speed = 1000000;
+    this->spi->mode = (SPI_CLOCK_RISING_EDGE | SPI_CLOCK_IDLE_LOW | SPI_NO_DMA | SPI_LSB_FIRST | SPI_CS_ACTIVE_LOW);
+    this->spi->bits = 8;
 }
 
 /**
@@ -40,14 +37,11 @@ SPICWiced::SPICWiced() : pin(WICED_GPIO_22), port(WICED_SPI_1)
  */
 SPICWiced::SPICWiced(wiced_spi_t port, wiced_gpio_t pin): pin(pin), port(port)
 {
-	wiced_spi_device_t SPI = {
-		.port = port,
-		.chip_select = pin,
-		.speed = 1000000,
-		.mode = (SPI_CLOCK_RISING_EDGE | SPI_CLOCK_IDLE_LOW | SPI_NO_DMA | SPI_LSB_FIRST | SPI_CS_ACTIVE_LOW),
-		.bits = 8,
-	};
-	SPICWiced(&SPI);
+    this->spi->port = port;
+    this->spi->chip_select = pin;
+    this->spi->speed = 1000000;
+    this->spi->mode = (SPI_CLOCK_RISING_EDGE | SPI_CLOCK_IDLE_LOW | SPI_NO_DMA | SPI_LSB_FIRST | SPI_CS_ACTIVE_LOW);
+    this->spi->bits = 8;
 }
 
 /**
@@ -75,7 +69,7 @@ SPICWiced::SPICWiced(wiced_spi_device_t *SPI)
  */
 SPICWiced::Error_t SPICWiced::init()
 {
-	wiced_spi_init( &spi );
+	wiced_spi_init( this->spi );
 	return OK;
 }
 
@@ -88,7 +82,7 @@ SPICWiced::Error_t SPICWiced::init()
  */
 SPICWiced::Error_t SPICWiced::deinit()
 {
-	wiced_spi_deinit( &spi );
+	wiced_spi_deinit( this->spi );
 	return OK;
 }
 
@@ -101,9 +95,9 @@ SPICWiced::Error_t SPICWiced::deinit()
  */
 SPICWiced::Error_t SPICWiced::transfer(uint8_t send, uint8_t &received)
 {
-	segment->sendBuffer = send;
-	segment->receiveBuffer = received;
-	wiced_spi_transfer(&spi, &segment, 1);
+	sendBuffer[0] = send;
+	receiveBuffer[0] = received;
+	wiced_spi_transfer(this->spi, &this->segment, 1);
 	return OK;
 }
 

@@ -10,7 +10,7 @@
 #ifndef TLE94112_PLATF_WICED_HPP_
 #define TLE94112_PLATF_WICED_HPP_
 
-#include "../pal/TLE94112-pal-wiced.hpp"
+#include <TLE94112-platf-wiced.hpp>
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 

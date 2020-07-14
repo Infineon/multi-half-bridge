@@ -16,6 +16,8 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 #include "../../../pal/spic.hpp"
+#include <platform.h>
+#include <wiced_platform.h>
 
 /**
  * @addtogroup wicedPal
@@ -40,7 +42,7 @@ private:
 	/**
 	 * @brief Definition of the SPI-Segment which contains the data for the communication
 	 */
-	platform_spi_message_segment_t segment = {
+	wiced_spi_message_segment_t segment = {
 		.tx_buffer = sendBuffer,
 		.rx_buffer = receiveBuffer,
 		.length = 2,

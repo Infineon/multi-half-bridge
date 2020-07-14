@@ -78,9 +78,9 @@ TimerWiced::Error_t TimerWiced::start()
  * @param[in]   &elapsed                Address of a value where the elapsed time should be stored
  * @return      TimerWiced::Error_t
  */
-TimerWiced::Error_t TimerWiced::elapsed(uint32_t &elapsed)
+TimerWiced::Error_t TimerWiced::elapsed(wiced_time_t &elapsed)
 {
-	unit32_t endTime;
+    wiced_time_t endTime;
 	wiced_time_get_time( &endTime );
 	elapsed = startTime - startTime;
 	return OK;

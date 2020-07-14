@@ -31,7 +31,7 @@ class TimerWiced: virtual public Timer
 		Error_t init();
 		Error_t deinit();
 		Error_t start();
-		Error_t elapsed(uint32_t &elapsed);
+		Error_t elapsed(wiced_time_t &elapsed);
 		Error_t stop();
 		Error_t delayMilli(uint32_t timeout);
 		Error_t delayMicro(uint32_t timeout);

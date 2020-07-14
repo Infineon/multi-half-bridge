@@ -17,7 +17,8 @@
 #ifndef RAMPSPEEDTEST_HPP_
 #define RAMPSPEEDTEST_HPP_
 
-#include "../../wrapper/TLE94112Motor-platf-wiced.hpp"
+//#include "../../wrapper/TLE94112Motor-platf-wiced.hpp"
+#include <TLE94112Motor-platf-wiced.hpp>
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
