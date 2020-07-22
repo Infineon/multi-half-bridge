@@ -11,7 +11,7 @@
 #define TLE94112_CONF_DFL_HPP_
 
 #ifndef TLE94112_FRAMEWORK
-#error  "TLE94112 error framework undefined"     /**< TLE94112 framework must be defined in conf. or at compilation */
+#error  'TLE94112 error framework undefined'    /**< TLE94112 framework must be defined in conf. or at compilation */
 #endif
 
 #endif /** TLE94112_CONF_DFL_HPP_ **/

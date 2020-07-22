@@ -48,13 +48,13 @@ The following hardware platforms are compatible and tested:
 
 | Hardware platform | Type                | SDK                         | file marker | checked |
 |:------------------|:--------------------|:----------------------------|:------------|---------|
-| Arduino/Genuino   | Uno                 | Arduino IDE or PlatformIO   | -ino        |         |
+| Arduino/Genuino   | Uno                 | Arduino IDE or PlatformIO   | -ino        | yes     |
 |                   | Uno clone           | Arduino IDE                 | -ino        |         |
 |                   | Leonardo            | Arduino IDE or PlatformIO   | -ino        |         |
 | Infineon XMC      | XMC1100 Boot Kit    | Arduino IDE or PlatformIO   | -ino        | yes     |
 |                   | XMC4700 Relax Kit   | Arduino IDE or PlatformIO   | -ino        | yes     |
 |                   | XMC4800 Relax Kit   | Arduino IDE or PlatformIO   | -ino        |         |
-| Cyprus 43xxx      | CYW43907AEVAL1F     | WICED SDK                   | -wiced      |         |
+| Cypress 43xxx     | CYW43907AEVAL1F     | WICED SDK                   | -wiced      | yes     |
 |                   |                     |                             |             |         |
 
 See here for further information on installing this library on [different platforms](docs/Platforms.md)
@@ -81,6 +81,7 @@ for LEDs or other stuff falling in the voltage and current limits of the board
 * [Tle94112 pinout picture](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
 * [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino)
 * [WICED SDK]()
+* [Cypress Evaluation Kit CYW43907AEVAL1F](https://www.cypress.com/CYW943907AEVAL1F)
 
 
 

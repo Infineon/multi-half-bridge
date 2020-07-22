@@ -52,6 +52,8 @@ core library with only small changes in the platform dependent files.
      |       +- framework conf/conf-dfl/conf-opts hpp files
      +- corelib
      |        +- common core *.hpp/*.cpp files for all platforms
+     +- pal
+     |    +- generic platform driver
      +- framework
                 +- arduino
                 |        +- pal

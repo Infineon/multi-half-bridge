@@ -1,6 +1,6 @@
-NAME := App_TLE94112_rampSpeedTest
+NAME := App_rampSpeedTest
 
-$(NAME)_SOURCES    := rampSpeedTest.cpp
+$(NAME)_SOURCES    := rampSpeedTest.cpp \
 
 $(NAME)_INCLUDES += ./
 

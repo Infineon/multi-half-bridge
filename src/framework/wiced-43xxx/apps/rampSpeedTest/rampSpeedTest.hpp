@@ -17,19 +17,16 @@
 #ifndef RAMPSPEEDTEST_HPP_
 #define RAMPSPEEDTEST_HPP_
 
-//#include "../../wrapper/TLE94112Motor-platf-wiced.hpp"
-#include <TLE94112Motor-platf-wiced.hpp>
+#include "../../wrapper/TLE94112Motor-platf-wiced.hpp"
+//#include <TLE94112-platf-wiced.hpp>
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 #include <stdlib.h>
-#include <TLE94112-platf-wiced.hpp>
 #include <wiced.h>
-
-
-
-// Tle94112Motor Objects on controller1
-//TLE94112Motor motor(controller);
+#include <TLE94112-pal-wiced.hpp>
+#include <TLE94112.hpp>
+#include <TLE94112Motor.hpp>
 
 extern "C" void application_start();
 

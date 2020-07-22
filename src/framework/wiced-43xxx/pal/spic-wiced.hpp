@@ -11,9 +11,9 @@
 #ifndef SPIC_WICED_HPP_
 #define SPIC_WICED_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
+//#include "../../../config/tle94112-conf.hpp"
 
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
+//#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 #include "../../../pal/spic.hpp"
 #include <platform.h>
@@ -32,32 +32,31 @@
 class SPICWiced: virtual public SPIC
 {
 private:
-	wiced_gpio_t         pin;
+	wiced_gpio_t         csPin;
 	wiced_spi_t          port;
-	wiced_spi_device_t   *spi;
+	wiced_spi_device_t   spi;
 
 	uint8_t sendBuffer[2];
 	uint8_t receiveBuffer[2];
+	bool spiSetting = false;
 
-	/**
-	 * @brief Definition of the SPI-Segment which contains the data for the communication
-	 */
-	wiced_spi_message_segment_t segment = {
-		.tx_buffer = sendBuffer,
-		.rx_buffer = receiveBuffer,
-		.length = 2,
-	};
+	//* @brief Definition of the SPI-Segment which contains the data for the communication
+	wiced_spi_message_segment_t segment;
+
+	//* @brief spi GPIO setting if not used the default setting
+	wiced_spi_set_t             spi_set;
 
 public:
 				SPICWiced();
-				SPICWiced(wiced_spi_t port, wiced_gpio_t pin);
-				SPICWiced(wiced_spi_device_t *SPI);
+				SPICWiced(wiced_spi_t port, wiced_gpio_t csPin);
+				SPICWiced(wiced_spi_t port, wiced_gpio_t csPin, wiced_gpio_t misoPin, wiced_gpio_t mosiPin, wiced_gpio_t sckPin);
 				~SPICWiced();
 	Error_t     init();
 	Error_t     deinit();
 	Error_t     transfer(uint8_t send, uint8_t &received);
+
 };
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
+//#endif /** TLE94112_FRAMEWORK **/
 #endif /** SPIC_WICED_HPP_ **/

@@ -44,13 +44,7 @@ void Tle94112::configHB(HalfBridge hb, HBState state, PWMChannel pwm)
 
 void Tle94112::configHB(HalfBridge hb, HBState state, PWMChannel pwm, uint8_t activeFW)
 {
-	if(mEnabled == true)
-	{
-		configHB(static_cast<uint8_t>(hb),
-					static_cast<uint8_t>(state),
-					static_cast<uint8_t>(pwm),
-					activeFW );
-	}
+	configHB(static_cast<uint8_t>(hb),static_cast<uint8_t>(state),static_cast<uint8_t>(pwm),activeFW );
 }
 
 void Tle94112::configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeFW)
@@ -73,12 +67,7 @@ void Tle94112::configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeFW
 
 void Tle94112::configPWM(PWMChannel pwm, PWMFreq freq, uint8_t dutyCycle)
 {
-	if(mEnabled == true)
-	{
-		configPWM(static_cast<uint8_t>(pwm),
-					static_cast<uint8_t>(freq),
-					dutyCycle );
-	}
+	configPWM(static_cast<uint8_t>(pwm),static_cast<uint8_t>(freq),dutyCycle );
 }
 
 void Tle94112::configPWM(uint8_t pwm, uint8_t freq, uint8_t dutyCycle)

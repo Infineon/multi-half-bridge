@@ -14,12 +14,16 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
+#include "../../../corelib/TLE94112Motor.hpp"
+
 /**
  * @addtogroup tl94112motorwicedhw
  * @{
  */
 
-
+class Tle94112MotorWiced: virtual public Tle94112Motor
+{
+};
 /** 
  * @}
  */
