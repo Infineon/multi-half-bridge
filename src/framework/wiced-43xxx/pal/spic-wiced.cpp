@@ -9,7 +9,7 @@
 
 #include "spic-wiced.hpp"
 
-//#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 #include "wiced_rtos.h"
 #include <wiced.h>
 #include <platform.h>
@@ -50,30 +50,6 @@ SPICWiced::SPICWiced() : csPin(WICED_GPIO_22), port(WICED_SPI_0)
  *
  * This function is setting the basics for a SPIC. It allows to set the
  * SPI channel and the used GPIOs if they are different from the standard GPIOs.
- * Therefore the following adds must be inserted:
- * - <WICED_SDK>/include/wicde_platform.h
- *   typedef platform_spi_t wiced_spi_set_t;
- * - <WICED_SDK>/include/wicde_platform.h
- *   wiced_result_t wiced_spi_init_set( const wiced_spi_device_t* spi, const wiced_spi_set_t* spi_set);
- * - <WICED_SDK>/platform/MCU/wiced_platform_common.c
- *   wiced_result_t wiced_spi_init_set( const wiced_spi_device_t* spi, const wiced_spi_set_t* spi_set )
- *   {
- *      platform_spi_config_t config;
- *      platform_spi_t        set_config;
- *
- *      config.chip_select = ( spi->chip_select != WICED_GPIO_NONE ) ? &platform_gpio_pins[spi->chip_select] : NULL;
- *      config.speed       = spi->speed;
- *      config.mode        = spi->mode;
- *      config.bits        = spi->bits;
- *
- *      set_config[spi->port].pin_mosi   = spi_set->pin_mosi;
- *      set_config[spi->port].pin_miso   = spi_set->pin_miso;
- *      set_config[spi->port].pin_clock  = spi_set->pin_clock;
- *      set_config[spi->port].pin_cs     = spi_set->pin_cs;
- *
- *      return (wiced_result_t) platform_spi_init( &set_config, &config );
- *   }
- *
  *
  * @param[in] port     SPI channel to be used
  * @param[in] csPin    Number of the desired ChipSelect pin
@@ -88,11 +64,6 @@ SPICWiced::SPICWiced(wiced_spi_t port, wiced_gpio_t csPin, wiced_gpio_t misoPin,
 	this->spi.speed = 1000000;
 	this->spi.mode = (SPI_CLOCK_RISING_EDGE | SPI_CLOCK_IDLE_HIGH | SPI_NO_DMA |SPI_LSB_FIRST | SPI_CS_ACTIVE_LOW );
 	this->spi.bits = 8;
-
-//    this->spi_set.pin_mosi = mosiPin;
-//    this->spi_set.pin_miso = misoPin;
-//    this->spi_set.pin_clock = sckPin;
-//    this->spi_set.pin_cs = csPin;
 
 	this->spiSetting = true;
 }
@@ -119,12 +90,7 @@ SPICWiced::Error_t SPICWiced::init()
 	this->segment.rx_buffer = receiveBuffer;
 	this->segment.length = 1;
 
-	if (spiSetting)
-	{
-		wiced_spi_init_set( &this->spi, &this->spi_set );
-	}else{
-		wiced_spi_init( &this->spi );
-	}
+	wiced_spi_init( &this->spi );
 	return OK;
 }
 
@@ -156,4 +122,4 @@ SPICWiced::Error_t SPICWiced::transfer(uint8_t send, uint8_t &received)
 	return OK;
 }
 
-//#endif /** TLE94112_FRAMEWORK **/
+#endif /** TLE94112_FRAMEWORK **/

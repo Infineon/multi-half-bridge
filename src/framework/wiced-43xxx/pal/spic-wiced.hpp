@@ -11,9 +11,9 @@
 #ifndef SPIC_WICED_HPP_
 #define SPIC_WICED_HPP_
 
-//#include "../../../config/tle94112-conf.hpp"
+#include "../../../config/tle94112-conf.hpp"
 
-//#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 #include "../../../pal/spic.hpp"
 #include <platform.h>
@@ -43,9 +43,6 @@ private:
 	//* @brief Definition of the SPI-Segment which contains the data for the communication
 	wiced_spi_message_segment_t segment;
 
-	//* @brief spi GPIO setting if not used the default setting
-	wiced_spi_set_t             spi_set;
-
 public:
 				SPICWiced();
 				SPICWiced(wiced_spi_t port, wiced_gpio_t csPin);
@@ -58,5 +55,5 @@ public:
 };
 /** @} */
 
-//#endif /** TLE94112_FRAMEWORK **/
+#endif /** TLE94112_FRAMEWORK **/
 #endif /** SPIC_WICED_HPP_ **/
