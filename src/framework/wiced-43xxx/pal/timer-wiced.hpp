@@ -37,7 +37,7 @@ class TimerWiced: virtual public Timer
 		Error_t delayMicro(uint32_t timeout);
 
 	private:
-		uint32_t startTime;
+		wiced_time_t startTime;
 };
 /** @} */
 

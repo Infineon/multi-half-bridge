@@ -114,7 +114,7 @@ void Tle94112Motor::setPwm(Tle94112Motor::ePolarity pol, Tle94112::PWMChannel ch
 	}
 }
 
-void Tle94112Motor::setPwm(Tle94112Motor::ePolarity pol, 
+void Tle94112Motor::setPwm(Tle94112Motor::ePolarity pol,
 		Tle94112::PWMChannel channel, Tle94112::PWMFreq freq)
 {
 	if(mEnabled == false)
@@ -233,19 +233,19 @@ void Tle94112Motor::setSpeed(int16_t speed)
 			{
 				//change configuration to running forward
 				//set all outputs to HIGH-IMPEDANCE to avoid short-circuits
-				coast(); 
+				coast();
 				mMode = FORWARD;
 				mSpeed = static_cast<uint8_t>(speed);
 				for(uint8_t idx = 0u; idx < TLE94112MOTOR_MAX_CONNECTORS; idx++)
 				{
 					mDriver->configHB(
 								mConnectors[HIGHSIDE].halfbridges[idx],
-								Tle94112::TLE_HIGH, 
+								Tle94112::TLE_HIGH,
 								mConnectors[HIGHSIDE].channel,
 								mConnectors[HIGHSIDE].active_fw);
 					mDriver->configHB(
 								mConnectors[LOWSIDE].halfbridges[idx],
-								Tle94112::TLE_LOW, 
+								Tle94112::TLE_LOW,
 								mConnectors[LOWSIDE].channel,
 								mConnectors[LOWSIDE].active_fw);
 				}
@@ -302,9 +302,9 @@ void Tle94112Motor::rampSpeed(int16_t speed, uint16_t slope)
 		//mDriver->clearErrors();
 		// calc full ramp deltas
 		int16_t ramp_delta_speed = speed - start_speed;
-		uint16_t ramp_delta_time = (slope * abs(ramp_delta_speed)) / TLE94112_MAX_SPEED;
+		int16_t ramp_delta_time = slope * abs(ramp_delta_speed) / TLE94112_MAX_SPEED;
 		// calc step deltas
-		int16_t num_steps = ramp_delta_time / duration - 1;
+		int16_t num_steps = ramp_delta_time / (duration - 1);
 		uint16_t steptime = 0;
 		// correction of step deltas for very flat ramps
 		if (abs(ramp_delta_speed) < num_steps)
@@ -313,7 +313,7 @@ void Tle94112Motor::rampSpeed(int16_t speed, uint16_t slope)
 			steptime = ramp_delta_time / abs(ramp_delta_speed) - duration;
 		}
 		_performSpeedStepping(start_speed, ramp_delta_speed, num_steps,steptime);
-		//mDriver->clearErrors();
+	 	//mDriver->clearErrors();
 	}
 }
 
@@ -330,12 +330,10 @@ uint32_t Tle94112Motor::_measureSetSpeedDuration(int16_t speed, int16_t start_sp
 	mDriver->timer->start();
 	setSpeed(start_speed);
 	mDriver->timer->elapsed(elapsed);
-	
 	return elapsed;
 }
 
-void Tle94112Motor::_performSpeedStepping(int16_t start_speed,
-		int16_t ramp_delta_speed, int16_t num_steps, uint16_t steptime)
+void Tle94112Motor::_performSpeedStepping(int16_t start_speed, int16_t ramp_delta_speed, int16_t num_steps, uint16_t steptime)
 {
 	uint32_t elapsed = 0; //!> none blocking delay
 	mDriver->timer->start();

@@ -80,9 +80,9 @@ TimerWiced::Error_t TimerWiced::start()
  */
 TimerWiced::Error_t TimerWiced::elapsed(wiced_time_t &elapsed)
 {
-    wiced_time_t endTime;
+	wiced_time_t endTime;
 	wiced_time_get_time( &endTime );
-	elapsed = startTime - startTime;
+	elapsed = endTime - startTime;
 	return OK;
 }
 

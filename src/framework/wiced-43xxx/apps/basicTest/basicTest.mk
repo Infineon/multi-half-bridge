@@ -1,6 +1,6 @@
-NAME := App_control2Motors
+NAME := App_basicTest
 
-$(NAME)_SOURCES    := control2Motors.cpp
+$(NAME)_SOURCES    := basicTest.cpp \
 
 $(NAME)_INCLUDES += ./
 

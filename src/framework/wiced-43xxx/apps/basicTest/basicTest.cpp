@@ -1,13 +1,11 @@
 /*!
- * \name        rampSpeedTest
+ * \name        basicTest
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
  * \version     1.5.0
- * \brief       This example measure the rampspeed of an attached motor with the TLE94112 shield
+ * \brief       This example runs a basic controller test with one attached motor on the TLE94112 shield
  * \details
- * By attaching a motor to the TLE94112 and running a testcase scenario, we can measure the
- * optimal values for the rampSpeed function. This function allows us to smoothly start, stop,
- * raise or break the motor. It will run the motor in forward and backward direction if the motor
+ * It will run the motor in forward and backward direction if the motor
  * is able to run in both directions. Otherwise it will only run in on direction.
  *
  * \attention A free running motor ramps very different than the same motor with load attached.
@@ -17,7 +15,7 @@
  *
  */
 
-#include "rampSpeedTest.hpp"
+#include "basicTest.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 

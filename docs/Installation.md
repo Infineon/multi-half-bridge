@@ -21,3 +21,32 @@ install the [XMC-for-Arduino library from here](https://github.com/Infineon/XMC-
 
 Copy this library into your WICED SDK under /43xxx_WiFi/libraries/drivers/motor-control/TLE94112 and
 copy or link the src/framework/wiced-43xxx/apps directory into the WICED SDK apps directory.
+
+ATTENTION:
+This development release needs some changes in the WICED SDK for the SPI interface:
+
+ * <WICED_SDK>/platforms/<platform_name>/platform.h
+ * add WICED_SPI_0, to the wiced_spi_t
+```
+typedef enum
+{
+    WICED_SPI_0,
+    WICED_SPI_1,
+    WICED_SPI_2,
+    WICED_SPI_MAX, /* Denotes the total number of SPI port aliases. Not a valid SPI alias */
+} wiced_spi_t;
+```
+
+ * <WICED_SDK>/platforms/<platform_name>/platform.c
+ * add the following to the platform_spi_peripherals
+```
+[WICED_SPI_0]  =
+{
+    .port                    = BCM4390X_SPI_0,
+    .pin_mosi                = &platform_gpio_pins[WICED_GPIO_6],
+    .pin_miso                = &platform_gpio_pins[WICED_GPIO_8],
+    .pin_clock               = &platform_gpio_pins[WICED_GPIO_5],
+    .pin_cs                  = &platform_gpio_pins[WICED_GPIO_22],
+    .driver                  = &spi_bb_driver,
+},
+```
