@@ -30,5 +30,10 @@
 
 extern "C" void application_start();
 
+//! Select pins for speed and direction settings
+#define pinDir        5
+#define pinSpeed      WICED_ADC_1
+#define pinSpeedTime  WICED_MQTT_DELAY_IN_MILLISECONDS
+
 #endif /** TLE94112_FRAMEWORK **/
 #endif /* BASICTEST_HPP_ */

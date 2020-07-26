@@ -28,8 +28,31 @@
 #include <TLE94112-pal-wiced.hpp>
 #include <TLE94112.hpp>
 #include <TLE94112Motor.hpp>
+#include "wiced_rtos.h"
 
 extern "C" void application_start();
+
+// a structure with the measured values
+typedef struct {
+  int16_t startspeed;
+  int16_t endspeed;
+  uint16_t slope;
+} RampMeasurement_t, *RampMeasurement_p;
+
+// lets define an array with different tests
+#define NUM_TESTS 6
+RampMeasurement_t testcases[NUM_TESTS] = {
+  { 0,    255,  5000 },
+  { 255,  200,  10000 },
+  { 200,  0,    500 },
+  { 0,    -255, 10 },
+  { -255, 255,  3000 },
+  { 255,  0,    1000 }
+};
+
+// timer for delay settings
+Timer    *rampTimer;
+
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /* RAMPSPEEDTEST_HPP_ */

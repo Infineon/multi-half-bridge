@@ -21,18 +21,19 @@
 
 
 // Tle94112 Object on Shield 1
-Tle94112 controller1 = Tle94112();
+Tle94112 controller = Tle94112();
 
-// Tle94112Motor Objects on controller1
-Tle94112Motor motor1(controller1);
+// Tle94112Motor Objects on controller
+Tle94112Motor motor(controller);
 
+// a structure with the measured values
 typedef struct {
   int16_t startspeed;
   int16_t endspeed;
   uint16_t slope;
 } RampMeasurement_t, *RampMeasurement_p;
 
-// lets define an array with different
+// lets define an array with different tests
 #define NUM_TESTS 6
 RampMeasurement_t testcases[NUM_TESTS] = {
   { 0,    255,  5000 },
@@ -57,11 +58,11 @@ void measureRampTime(int index)
   Serial.print(expected);
   Serial.println(" ms");
 
-  motor1.setSpeed( testcases[index].startspeed );
+  motor.setSpeed( testcases[index].startspeed );
   delay(100);
 
   uint32_t duration = millis();
-  motor1.rampSpeed( testcases[index].endspeed, testcases[index].slope);
+  motor.rampSpeed( testcases[index].endspeed, testcases[index].slope);
   duration = millis() - duration;
 
   Serial.print("Measured: ");
@@ -76,18 +77,18 @@ void setup() {
 
   // Enable MotorController on all Shields and Motors
   // Note: Required to be done before starting to configure the motor
-  // controller1 is set to default CS1 pin
-  controller1.begin();
+  // controller is set to default CS1 pin
+  controller.begin();
 
   //-Motor1-high current motor between out1/out2 = HB1/HB2 and out3/out4 = HB3/HB4
 
-  // Connect motor1 to HB1/HB2 highside and HB3/HB4 lowside
+  // Connect motor to HB1/HB2 highside and HB3/HB4 lowside
   // IMPORTANT connect PWM to Lowside as higside is active Free wheeling
-  motor1.initConnector(motor1.HIGHSIDE, controller1.TLE_NOPWM, controller1.TLE_FREQ100HZ,controller1.TLE_HB1, controller1.TLE_HB2, controller1.TLE_NOHB, controller1.TLE_NOHB);
-  motor1.initConnector(motor1.LOWSIDE,  controller1.TLE_PWM1,  controller1.TLE_FREQ100HZ,controller1.TLE_HB3, controller1.TLE_HB4, controller1.TLE_NOHB, controller1.TLE_NOHB);
+  motor.initConnector(motor.HIGHSIDE, controller.TLE_NOPWM, controller.TLE_FREQ100HZ,controller.TLE_HB1, controller.TLE_HB2, controller.TLE_NOHB, controller.TLE_NOHB);
+  motor.initConnector(motor.LOWSIDE,  controller.TLE_PWM1,  controller.TLE_FREQ100HZ,controller.TLE_HB3, controller.TLE_HB4, controller.TLE_NOHB, controller.TLE_NOHB);
 
-  // start motor1
-  motor1.begin();
+  // start motor
+  motor.begin();
 }
 
 void loop() {
