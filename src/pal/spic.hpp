@@ -56,6 +56,26 @@ class SPIC
 		 */
 		virtual Error_t       transfer(uint8_t send, uint8_t &received) = 0;
 
+		// /**
+		//  * @brief           Send/receives data from SPI bus
+		//  * @param send      address or command to send 
+		//  * @param received  data from SPI bus
+		//  * @return          SPIC error code
+		//  * @retval          OK if success
+		//  * @retval          INIT_ERROR if transfer fails
+		//  */
+		// virtual Error_t       transfer16(uint16_t send, uint16_t &received) = 0;
+
+		// /**
+		//  * @brief           Send/receives data from SPI bus
+		//  * @param send      address or command to send 
+		//  * @param received  data from SPI bus
+		//  * @param numberOf  number of data in data array
+		//  * @return          SPIC error code
+		//  * @retval          OK if success
+		//  * @retval          INIT_ERROR if transfer fails
+		//  */
+		// virtual Error_t       transmit(uint8_t send, uint8_t &received, uint16_t numberOf) = 0;
 
 		Error_t checkErrorStatus();
 

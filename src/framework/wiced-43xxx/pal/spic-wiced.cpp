@@ -122,4 +122,35 @@ SPICWiced::Error_t SPICWiced::transfer(uint8_t send, uint8_t &received)
 	return OK;
 }
 
+// /**
+//  * @brief transfers a data package via the spi bus
+//  *
+//  * @param send         address and/or command to send
+//  * @param received     received data from spi bus
+//  * @return             SPICWiced::Error_t
+//  */
+// SPICWiced::Error_t SPICWiced::transfer16(uint16_t send, uint16_t &received)
+// {
+// 	sendBuffer[0] = send;
+// 	receiveBuffer[0] = received;
+// 	wiced_spi_transfer( &this->spi, &this->segment, 1);
+// 	return OK;
+// }
+
+// /**
+//  * @brief transfers a data package via the spi bus
+//  *
+//  * @param send         address and/or command to send
+//  * @param received     received data from spi bus
+//  * @param numberOf     number of segments in segment array
+//  * @return             SPICWiced::Error_t
+//  */
+// SPICWiced::Error_t SPICWiced::transmit(uint8_t send, uint8_t &received, uint16_t numberOf)
+// {
+// 	sendBuffer[0] = send;
+// 	receiveBuffer[0] = received;
+// 	//wiced_spi_transmit( &this->spi, &this->segment, numberOf );
+// 	return OK;
+// }
+
 #endif /** TLE94112_FRAMEWORK **/

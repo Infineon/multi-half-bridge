@@ -31,15 +31,15 @@ void setup()
     controller.begin();
     WPRINT_APP_INFO(("[TLE94112] : controller begin -> %u\n", 1));
 
-    pinMode(pinDir, INPUT);
+    wiced_gpio_init(pinDir, INPUT_PULL_UP);
     wiced_adc_init( pinSpeed, pinSpeedTime );
 }
 
 void loop()
 {
     // get desired direction from digital pin
-    uint8_t dir = digitalRead(pinDir);
-    if(dir == HIGH)
+    wiced_bool_t dir = wiced_gpio_input_get(pinDir);
+    if(dir == true)
     {
       controller.configHB(controller.TLE_HB1, controller.TLE_HIGH, controller.TLE_PWM1);
       controller.configHB(controller.TLE_HB2, controller.TLE_LOW, controller.TLE_NOPWM);
@@ -51,7 +51,9 @@ void loop()
     }
 
     // get desired motor speed from analog input
-    uint8_t dc = analogRead(pinSpeed) >> 2;
+    uint16_t dc; // = analogRead(pinSpeed) >> 2;
+    wiced_adc_take_sample(pinSpeed,&dc);
+    dc = dc >> 2;
 
     // update motor speed
     controller.configPWM(controller.TLE_PWM1, controller.TLE_FREQ80HZ, dc);

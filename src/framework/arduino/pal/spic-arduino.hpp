@@ -15,6 +15,7 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
+#include <stdint.h>
 #include <Arduino.h>
 #include "SPI.h"
 #include "../../../pal/spic.hpp"
@@ -44,6 +45,8 @@ public:
 	Error_t     init();
 	Error_t     deinit();
 	Error_t     transfer(uint8_t send, uint8_t &received);
+	//Error_t     transfer16(uint16_t send, uint16_t &received);
+	//Error_t     transmit(uint8_t send, uint8_t &received, uint16_t numberOf);
 };
 /** @} */
 

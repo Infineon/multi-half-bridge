@@ -1,15 +1,18 @@
-/** 
- * \name        basicTest
+
+/*!
+ * \name        speedControl
  * \author      Infineon Technologies AG
- * \copyright   2020 Infineon Technologies AG
+ * \copyright   2019 Infineon Technologies AG
  * \version     1.5.0
- * \brief       This example runs a basic controller test with one attached motor on the TLE94112 shield
+ * \brief       This example demonstrates how to control the speed of motor by using the PWM units of the TLE94112 shield
  * \details
- * It will run the motor in forward and backward direction if the motor
- * is able to run in both directions. Otherwise it will only run in on direction.
- * 
- * \attention A free running motor ramps very different than the same motor with load attached.
- * So you have to measure different scenarios.
+ * Attaching a potentiometer on an analog input pin, which will than control the
+ * setting of the TLE94112 internal PWM unit and therefore the speed of the motor.
+ * The TLE94112 has three separate PWM units which can be attached to any combination
+ * of halfbridges. So try out to change the TLE_PWM1 to TLE_PWM2 or TLE_PWM3 to see this.
+ * You can change the motor direction by changing the HIGH/LOW status of the halfbridges
+ *
+ * SPDX-License-Identifier: MIT
  *
  */
 
@@ -31,9 +34,9 @@
 extern "C" void application_start();
 
 //! Select pins for speed and direction settings
-#define pinDir        5
+#define pinDir        WICED_GPIO_12
 #define pinSpeed      WICED_ADC_1
-#define pinSpeedTime  WICED_MQTT_DELAY_IN_MILLISECONDS
+#define pinSpeedTime  2
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /* BASICTEST_HPP_ */
