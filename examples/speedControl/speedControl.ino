@@ -18,7 +18,7 @@
 #include <TLE94112-ino.hpp>
 
 //! Tle94112 Object
-Tle94112 controller = Tle94112();
+Tle94112Ino controller = Tle94112Ino();
 
 //! Select pins for speed and direction settings
 #define pinDir    5

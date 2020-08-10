@@ -15,6 +15,7 @@
  *
  */
 
+#include "../../../../config/tle94112-conf.hpp"
 #include "speedControl.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
@@ -67,21 +68,21 @@ void loop()
 
 void application_start( )
 {
-	wiced_result_t      result;
+  wiced_result_t      result;
 
-	/* Initialize the device */
-	result = wiced_init();
-	if (result != WICED_SUCCESS)
-	{
-			return;
-	}
+  /* Initialize the device */
+  result = wiced_init();
+  if (result != WICED_SUCCESS)
+  {
+    return;
+  }
 
-	setup();
+  setup();
 
-	while(1)
-	{
-			loop();
-	}
+  while(1)
+  {
+    loop();
+  }
 }
 
 #endif /** TLE94112_FRAMEWORK **/

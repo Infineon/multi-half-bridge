@@ -5,7 +5,8 @@
  * \version     1.5.0
  * \brief
  * This example demonstrates how to control two motors, their speed and direction
- * with the TLE94112 shield
+ * with the TLE94112 shield.
+ *
  * \details
  * By attaching a Tle94112 controller object to two Tle94112Motor objects, we can generate
  * an easy to handle motor object for each motor. We can easily attach this motor object
@@ -15,17 +16,18 @@
  * After that we can take the motor start, stop and setSpeed function to easily control
  * each motor.
  *
- * \attention Motors have depending on there size a very big latency until a motor has
- * fully started or is stoped to 0. Specially the time between a start and stop and vice versa
- * is much higher than higher than the processing speed of any microcontroller. This
- * is solved in this example with the delay command, but there are better solutions than that.
- * This delays are needed because a direct switch between start and stop will lead to high currents
+ * \attention Motors have depending on their size a very big latency until a motor has
+ * fully started or is stopped to 0. Specially the time between a start and stop and vice versa
+ * is much higher than the processing speed of any microcontroller. This is solved in this example
+ * with the delay command, but there are better solutions than that.
+ * These delays are needed because a direct switch between start and stop will lead to high currents
  * and the TLE94112 will signal an overcurrent.
  *
  * SPDX-License-Identifier: MIT
  *
  */
 
+#include "../../../../config/tle94112-conf.hpp"
 #include "control2Motors.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
@@ -37,7 +39,6 @@ Tle94112Wiced controller = Tle94112Wiced();
 Tle94112Motor motor1(controller);
 Tle94112Motor motor2(controller);
 
-
 void setup()
 {
     // Enable MotorController Tle94112
@@ -48,7 +49,7 @@ void setup()
 
     // Connect motor1 to HB1 and HB3
     motor1.connect(motor1.HIGHSIDE, controller.TLE_HB1);
-    motor1.connect(motor1.LOWSIDE, controller.TLE_HB3);
+    motor1.connect(motor1.LOWSIDE,  controller.TLE_HB3);
 
     // Drive HB1 with signal from PWM1
     // Note: This allows to control the speed of the motor
@@ -59,7 +60,7 @@ void setup()
 
     // Connect motor2 to HB2 and HB4
     motor2.connect(motor2.HIGHSIDE, controller.TLE_HB2);
-    motor2.connect(motor2.LOWSIDE, controller.TLE_HB4);
+    motor2.connect(motor2.LOWSIDE,  controller.TLE_HB4);
 
     // Drive HB2 with signal from PWM2
     // Note: This allows to control the speed of the motor
@@ -112,21 +113,21 @@ void loop()
 
 void application_start( )
 {
-	wiced_result_t      result;
+    wiced_result_t      result;
 
-	/* Initialize the device */
-	result = wiced_init();
-	if (result != WICED_SUCCESS)
-	{
-			return;
-	}
+    /* Initialize the device */
+    result = wiced_init();
+    if (result != WICED_SUCCESS)
+    {
+        return;
+    }
 
-	setup();
+    setup();
 
-	while(1)
-	{
-			loop();
-	}
+    while(1)
+    {
+        loop();
+    }
 }
 
 #endif /** TLE94112_FRAMEWORK **/

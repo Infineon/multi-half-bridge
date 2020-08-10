@@ -21,7 +21,6 @@
  * @{
  */
 
-
 class TimerIno: virtual public Timer
 {
 	public:

@@ -15,10 +15,9 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
-#include <stdint.h>
+#include "../../../pal/spic.hpp"
 #include <Arduino.h>
 #include "SPI.h"
-#include "../../../pal/spic.hpp"
 
 /**
  * @addtogroup arduinoPal
@@ -32,21 +31,25 @@
  */
 class SPICIno: virtual public SPIC
 {
-private:
-	uint8_t     lsb;
-	uint8_t     mode;
-	uint8_t     clock;
-	SPIClass    *spi;
+	private:
+		uint8_t     csPin;
+		uint8_t     misoPin;
+		uint8_t     mosiPin;
+		uint8_t     sckPin;
+		SPIClass    *spi;
+		uint8_t     lsb;
+		uint8_t     mode;
+		uint8_t     clock;
 
-public:
-				SPICIno();
-				//SPICIno(uint8_t pin, uint8_t mode, VLogic_t logic);
-				~SPICIno();
-	Error_t     init();
-	Error_t     deinit();
-	Error_t     transfer(uint8_t send, uint8_t &received);
-	//Error_t     transfer16(uint16_t send, uint16_t &received);
-	//Error_t     transmit(uint8_t send, uint8_t &received, uint16_t numberOf);
+	public:
+					SPICIno();
+					SPICIno(uint8_t lsb, uint8_t mode, uint8_t clock);
+					SPICIno(SPIClass &port, uint8_t csPin, uint8_t misoPin=MISO, uint8_t mosiPin=MOSI, uint8_t sckPin=SCK);
+					~SPICIno();
+		Error_t     init();
+		Error_t     deinit();
+		Error_t     transfer(uint8_t send, uint8_t &received);
+		Error_t     transfer16(uint16_t send, uint16_t &received);
 };
 /** @} */
 

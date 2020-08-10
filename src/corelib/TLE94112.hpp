@@ -212,8 +212,8 @@ class Tle94112
 		void clearErrors();
 
 		SPIC     *sBus;      //<! \brief SPI cover class as representation of the SPI bus
-		GPIO     *en;        //<! \brief shield enable GPIO to switch on/of
-		GPIO     *cs;        //<! \brief shield enable GPIO to switch on/of
+		GPIO     *en;        //<! \brief shield enable GPIO to switch shield on/of
+		GPIO     *cs;        //<! \brief shield enable GPIO to switch chipselect on/of
 		Timer    *timer;     //<! \brief timer for delay settings
 
 	protected:

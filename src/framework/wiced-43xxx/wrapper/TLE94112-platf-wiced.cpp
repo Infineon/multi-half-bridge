@@ -25,9 +25,9 @@ Tle94112Wiced::Tle94112Wiced(void):Tle94112()
 	Tle94112::sBus = new SPICWiced();
 }
 
-// Tle94112Wiced::Tle94112Wiced(void* bus, uint8_t csPin):Tle94112()
-// {
-// }
+Tle94112Wiced::Tle94112Wiced(void* bus, uint8_t csPin):Tle94112()
+{
+}
 
 
 void Tle94112Wiced::begin(void)

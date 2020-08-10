@@ -1,4 +1,4 @@
-/** 
+/**
  * \name        basicTest
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
@@ -7,22 +7,20 @@
  * \details
  * It will run the motor in forward and backward direction if the motor
  * is able to run in both directions. Otherwise it will only run in on direction.
- * 
- * \attention A free running motor ramps very different than the same motor with load attached.
- * So you have to measure different scenarios.
+ * Take this example as a first test when starting with this shield.
  *
  */
 
 #ifndef BASICTEST_HPP_
 #define BASICTEST_HPP_
 
-#include "../../wrapper/TLE94112Motor-platf-wiced.hpp"
-//#include <TLE94112-platf-wiced.hpp>
+#include "../../../../config/tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 #include <stdlib.h>
 #include <wiced.h>
+#include <TLE94112-platf-wiced.hpp>
 #include <TLE94112-pal-wiced.hpp>
 #include <TLE94112.hpp>
 #include <TLE94112Motor.hpp>

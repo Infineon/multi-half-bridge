@@ -37,7 +37,7 @@
 
 /**
  * @brief represents a motor connected to a TLE94112
- * 
+ *
  * This class provides a simple API for connecting and controlling motors.
  * Each motor is assigned to a Tle94112 which acts as output driver. Calls to
  * Tle94112Motor instances are mapped to calls to Tle94112. Therefore, this
@@ -62,7 +62,7 @@ class TLE94112Wiced: virtual public Tle94112
 		 * \see mCtrlRegData
 		 */
 		void writeReg(uint8_t reg, uint8_t mask, uint8_t shift, uint8_t data);
-		
+
 		/*! \brief	reads one byte from a status register of the TLE94112
 		 *
 		 * \param reg status register number(mapping array index / StatusRegisters constant) of the register
@@ -74,7 +74,7 @@ class TLE94112Wiced: virtual public Tle94112
 		 * \see mStatusRegAddresses
 		 */
 		uint8_t readStatusReg(uint8_t reg);
-		
+
 		/*! \brief reads some bits from a status register of the TLE94112
 		 *
 		 * \param reg   status register number(mapping array index / StatusRegisters constant) of the register
@@ -88,7 +88,7 @@ class TLE94112Wiced: virtual public Tle94112
 		 * \see mStatusRegAddresses
 		 */
 		uint8_t readStatusReg(uint8_t reg, uint8_t mask, uint8_t shift);
-		
+
 		/*! \brief clears a status register by writing 0x00 to it
 		 *
 		 * \param reg status register number(mapping array index / StatusRegisters constant) of the register

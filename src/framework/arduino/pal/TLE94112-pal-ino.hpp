@@ -44,7 +44,8 @@ class TLE94112Ino: virtual public Tle94112
 {
 	protected:
 
-		/*! \brief writes data bits to a control register of the TLE94112
+		/*!
+		 * \brief writes data bits to a control register of the TLE94112
 		 *
 		 * \param reg   control register number(mapping array index / CtrlRegisters constant) of the register
 		 * \param mask  mask for the bits that have to be written
@@ -58,7 +59,8 @@ class TLE94112Ino: virtual public Tle94112
 		 */
 		void writeReg(uint8_t reg, uint8_t mask, uint8_t shift, uint8_t data);
 
-		/*! \brief reads one byte from a status register of the TLE94112
+		/*!
+		 * \brief reads one byte from a status register of the TLE94112
 		 *
 		 * \param reg status register number(mapping array index / StatusRegisters constant) of the register
 		 *
@@ -70,7 +72,8 @@ class TLE94112Ino: virtual public Tle94112
 		 */
 		uint8_t readStatusReg(uint8_t reg);
 
-		/*! \brief reads some bits from a status register of the TLE94112
+		/*!
+		 * \brief reads some bits from a status register of the TLE94112
 		 *
 		 * \param reg   status register number(mapping array index / StatusRegisters constant) of the register
 		 * \param mask  mask for the bits that have to be read
@@ -84,7 +87,8 @@ class TLE94112Ino: virtual public Tle94112
 		 */
 		uint8_t readStatusReg(uint8_t reg, uint8_t mask, uint8_t shift);
 
-		/*! \brief clears a status register by writing 0x00 to it
+		/*!
+		 * \brief clears a status register by writing 0x00 to it
 		 *
 		 * \param reg status register number(mapping array index / StatusRegisters constant) of the register
 		 *

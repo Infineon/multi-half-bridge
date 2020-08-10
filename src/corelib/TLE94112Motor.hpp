@@ -110,12 +110,12 @@ class Tle94112Motor
 		 * + and - connector of the motor. If there is no setup for one polarity,
 		 * the library assumes that the motor is constantly connected to + or -.
 		 *
-		 * @param pol Polarity of the motor connector to be configured
-		 * @param channel PWM channel assigned to this connector
-		 * @param out1 halfbridge output 1 of 4 assigned to this connector
-		 * @param out2 halfbridge output 2 of 4 assigned to this connector
-		 * @param out3 halfbridge output 3 of 4 assigned to this connector
-		 * @param out4 halfbridge output 4 of 4 assigned to this connector
+		 * @param pol      Polarity of the motor connector to be configured
+		 * @param channel  PWM channel assigned to this connector
+		 * @param out1     halfbridge output 1 of 4 assigned to this connector
+		 * @param out2     halfbridge output 2 of 4 assigned to this connector
+		 * @param out3     halfbridge output 3 of 4 assigned to this connector
+		 * @param out4     halfbridge output 4 of 4 assigned to this connector
 		 */
 		void initConnector(Tle94112Motor::ePolarity pol,
 			Tle94112::PWMChannel channel,
@@ -131,13 +131,13 @@ class Tle94112Motor
 		 * + and - connector of the motor. If there is no setup for one polarity,
 		 * the library assumes that the motor is constantly connected to + or -.
 		 *
-		 * @param pol Polarity of the motor connector to be configured
-		 * @param channel PWM channel assigned to this connector
-		 * @param freq optional PWM frequency setting
-		 * @param out1 halfbridge output 1 of 4 assigned to this connector
-		 * @param out2 halfbridge output 2 of 4 assigned to this connector
-		 * @param out3 halfbridge output 3 of 4 assigned to this connector
-		 * @param out4 halfbridge output 4 of 4 assigned to this connector
+		 * @param pol      Polarity of the motor connector to be configured
+		 * @param channel  PWM channel assigned to this connector
+		 * @param freq     optional PWM frequency setting
+		 * @param out1     halfbridge output 1 of 4 assigned to this connector
+		 * @param out2     halfbridge output 2 of 4 assigned to this connector
+		 * @param out3     halfbridge output 3 of 4 assigned to this connector
+		 * @param out4     halfbridge output 4 of 4 assigned to this connector
 		 */
 		void initConnector(Tle94112Motor::ePolarity,
 			Tle94112::PWMChannel channel,
@@ -150,32 +150,32 @@ class Tle94112Motor
 		/**
 		 * @brief connects a single halfbridge output to a motor connector
 		 * 
-		 * @param pol Polarity of the motor connector to be configured
-		 * @param connector halfbridge output to be assigned to this motor
+		 * @param pol        Polarity of the motor connector to be configured
+		 * @param connector  halfbridge output to be assigned to this motor
 		 */
 		void connect(Tle94112Motor::ePolarity pol, Tle94112::HalfBridge connector);
 
 		/**
 		 * @brief disconnects a single halfbridge output from a motor connector
 		 *
-		 * @param connector halfbridge output to be removed from this motor
+		 * @param connector  halfbridge output to be removed from this motor
 		 */
 		void disconnect(Tle94112::HalfBridge connector);
 
 		/**
 		 * @brief Sets the PWM channel to be used for a motor connector
 		 *
-		 * @param pol Polarity of the motor connector to be configured
-		 * @param channel PWM channel to be used
+		 * @param pol      Polarity of the motor connector to be configured
+		 * @param channel  PWM channel to be used
 		 */
 		void setPwm(Tle94112Motor::ePolarity pol, Tle94112::PWMChannel channel);
 
 		/**
 		 * @brief Sets the PWM channel and frequency for a motor connector
 		 *
-		 * @param pol Polarity of the motor connector to be configured
-		 * @param channel PWM channel to be used
-		 * @param freq PWM frequency selection
+		 * @param pol      Polarity of the motor connector to be configured
+		 * @param channel  PWM channel to be used
+		 * @param freq     PWM frequency selection
 		 */
 		void setPwm(Tle94112Motor::ePolarity pol, Tle94112::PWMChannel channel,
 				Tle94112::PWMFreq freq);
@@ -183,8 +183,8 @@ class Tle94112Motor
 		/**
 		 * @brief Sets the PWM frequency for driving a motor connector
 		 *
-		 * @param pol Polarity of the motor connector to be configured
-		 * @param freq PWM frequency selection
+		 * @param pol     Polarity of the motor connector to be configured
+		 * @param freq    PWM frequency selection
 		 */
 		void setPwmFreq(Tle94112Motor::ePolarity pol, Tle94112::PWMFreq freq);
 
@@ -196,15 +196,15 @@ class Tle94112Motor
 		 * electrical problems. Do not change this setting unless you know what
 		 * you are doing.
 		 * 
-		 * @param pol Polarity of the motor connector to be configured
-		 * @param active_fw true/false to enable/disable active freewheeling
+		 * @param pol        Polarity of the motor connector to be configured
+		 * @param active_fw  true/false to enable/disable active freewheeling
 		 */
 		void setActiveFreeWheeling(Tle94112Motor::ePolarity pol, uint8_t active_fw);
 
 		/**
 		 * @brief actively breaks the motor to stop it
 		 *
-		 * @param force higher force lets the motor stop quicker, maximum is 255
+		 * @param force      higher force lets the motor stop quicker, maximum is 255
 		 */
 		void stop(uint8_t force=255);
 
@@ -224,7 +224,7 @@ class Tle94112Motor
 		 * coast, run and break. Speed values greater or smaller than 0 are treated
 		 * like -255 or 255, respectively.
 		 *
-		 * @param speed An integer in a range from -255 to 255 to set motor speed and direction
+		 * @param speed      an integer in a range from -255 to 255 to set motor speed and direction
 		 */
 		void start(int16_t speed);
 
@@ -242,7 +242,7 @@ class Tle94112Motor
 		 * coast, run and break. Speed values greater or smaller than 0 are treated
 		 * like -255 or 255, respectively.
 		 *
-		 * @param speed An integer in a range from -255 to 255 to set motor speed and direction
+		 * @param speed      an integer in a range from -255 to 255 to set motor speed and direction
 		 * @see start
 		 */
 		void setSpeed(int16_t speed);
@@ -257,8 +257,8 @@ class Tle94112Motor
 		/**
 		 * @brief function to gradually change the motors speed
 		 *
-		 * @param speed target speed
-		 * @param slope time for a full ramp from speed=0 to speed=255
+		 * @param speed    target speed
+		 * @param slope    time for a full ramp from speed=0 to speed=255
 		 */
 		void rampSpeed(int16_t speed, uint16_t slope);
 
@@ -317,25 +317,24 @@ class Tle94112Motor
 		//! @brief value of the current motor speed
 		uint8_t mSpeed;
 
-		/*
-		* @brief private function needed by rampSpeed
-		* 
-		* @param speed An integer in a range from -255 to 255 to set motor speed
-		*        and direction. Here the target speed.
-		* @param start_speed An integer a range from -255 to 255 to set motor speed
-		*        and direction. Here the source speed
-		*/
+		/**
+		 * @brief private function needed by rampSpeed
+		 * 
+		 * @param speed        integer in a range from -255 to 255 to set motor speed and direction.
+		 *                     Here the target speed.
+		 * @param start_speed  integer a range from -255 to 255 to set motor speed and direction.
+		 *                     Here the source speed
+		 */
 		uint32_t _measureSetSpeedDuration(int16_t speed, int16_t start_speed);
 
-		/* @brief private function needed by rampSpeed
-		*
-		* @param start_speed An integer a range from -255 to 255 to set motor speed
-		*        and direction. Here the source speed
-		* @param ramp_delta_speed a slope value how fast the speed change
-		*        should raise or fall
-		* @param num_steps The number of steps to raise or fall the speed
-		* @param steptime The time to be needed for each step
-		*/
+		/**
+		 * @brief private function needed by rampSpeed
+		 * @param start_speed       integer a range from -255 to 255 to set motor speed
+		 *                          and direction. Here the source speed
+		 * @param ramp_delta_speed  slope value how fast the speed change should raise or fall
+		 * @param num_steps         number of steps to raise or fall the speed
+		 * @param steptime          time to be needed for each step
+		 */
 		void _performSpeedStepping(int16_t start_speed, int16_t ramp_delta_speed, int16_t num_steps, uint16_t steptime);
 };
 

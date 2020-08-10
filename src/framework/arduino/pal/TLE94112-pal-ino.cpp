@@ -14,7 +14,7 @@
 
 #include "TLE94112-pal-ino.hpp"
 
-//SPI address commands
+/*! \brief SPI address commands */
 #define TLE94112_CMD_WRITE          0x80;
 #define TLE94112_CMD_CLEAR          0x80;
 

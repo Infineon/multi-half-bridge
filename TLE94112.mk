@@ -5,10 +5,11 @@
 # Add lib to demo or snipped to the makefile
 # variable $(NAME)_COMPONENTS += libraries/drivers/sensors
 
-NAME := Lib_tle94112
+NAME := Lib_TLE94112
 
-GLOBAL_DEFINES  := TLE94112_FRAMEWORK=TLE94112_FRMWK_WICED
-GLOBAL_INCLUDES := src/config \
+GLOBAL_DEFINES   := TLE94112_FRAMEWORK=TLE94112_FRMWK_WICED
+
+GLOBAL_INCLUDES  := src/config \
 					src/corelib \
 					src/pal \
 					src/framework/wiced-43xxx/pal \
@@ -22,6 +23,7 @@ $(NAME)_SOURCES  := src/corelib/TLE94112.cpp \
 					src/framework/wiced-43xxx/pal/gpio-wiced.cpp \
 					src/framework/wiced-43xxx/pal/timer-wiced.cpp \
 					src/framework/wiced-43xxx/pal/spic-wiced.cpp \
-					src/framework/wiced-43xxx/pal/TLE94112-pal-wiced.cpp 
+					src/framework/wiced-43xxx/pal/TLE94112-pal-wiced.cpp \
+					src/framework/wiced-43xxx/wrapper/TLE94112-platf-wiced.cpp
 
 VALID_PLATFORMS := CYW943907AEVAL1F

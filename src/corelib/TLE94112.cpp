@@ -53,12 +53,12 @@ void Tle94112::configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeFW
 	uint8_t mask = mHalfBridges[hb].stateMask;
 	uint8_t shift = mHalfBridges[hb].stateShift;
 	writeReg(reg, mask, shift, state);
-	
+
 	reg = mHalfBridges[hb].pwmReg;
 	mask = mHalfBridges[hb].pwmMask;
 	shift = mHalfBridges[hb].pwmShift;
 	writeReg(reg, mask, shift, pwm);
-	
+
 	reg = mHalfBridges[hb].fwReg;
 	mask = mHalfBridges[hb].fwMask;
 	shift = mHalfBridges[hb].fwShift;
@@ -76,7 +76,7 @@ void Tle94112::configPWM(uint8_t pwm, uint8_t freq, uint8_t dutyCycle)
 	uint8_t mask = mPwmChannels[pwm].freqMask;
 	uint8_t shift = mPwmChannels[pwm].freqShift;
 	writeReg(reg, mask, shift, freq);
-	
+
 	reg = mPwmChannels[pwm].dcReg;
 	mask = mPwmChannels[pwm].dcMask;
 	shift = mPwmChannels[pwm].dcShift;

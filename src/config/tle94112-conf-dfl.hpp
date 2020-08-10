@@ -1,9 +1,9 @@
-/** 
+/**
  * @file        tle94112-conf-dfl.hpp
  * @brief       TLE94112 Default Library Configuration
  * @date        Mai 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 

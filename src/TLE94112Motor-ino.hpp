@@ -4,7 +4,7 @@
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
  * \version     1.5.0
- * \brief       This file can optionally be included in projects that use Infineon's
+ * \brief       This file can optionally be included in projects that use an Infineon
  *              DC Motor Control Shield with TLE94112
  *              It provides a higher abstraction for controlling motors with the TLE94112
  *              acting as an output driver

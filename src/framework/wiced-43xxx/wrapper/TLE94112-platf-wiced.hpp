@@ -1,9 +1,9 @@
-/** 
+/**
  * @file        TLE94112-platf-wiced.hpp
  * @brief       TLE94112 Cypress WICED-43xxx Hardware Platforms
  * @date        Mai 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
@@ -50,7 +50,7 @@ class Tle94112Wiced: virtual public TLE94112Wiced
 		 * \param bus a void pointer to the object representing the SPI class
 		 * \param csPin  pin number of the CS pin
 		 */
-		//Tle94112Ino(uint8_t csPin);
+		Tle94112Wiced(void* bus, uint8_t csPin);
 
 		//! \brief enables and initializes the TLE94112
 		void begin(void);

@@ -1,3 +1,10 @@
+/*
+ * ##################################################################################
+ * #
+ * # Attention: this file is used for compilation checks together with
+ * # Jenkins, SonarQube and OpenShift cluster
+ * #
+ */
 pipeline {
 	agent {
 		node {
@@ -139,8 +146,8 @@ pipeline {
 	post {
 		failure {
 			mail(
-				to: 'olaf.filies@t-online.de',
-				subject: "[EYENET JENKINS] ${IFXLIB} pipeline:",
+				to: 'olaf.filies@infineon.com',
+				subject: "[EPE JENKINS] ${IFXLIB} pipeline:",
 				body: "Something during Jenkins pipeline run went wrong."
 			)
 		}

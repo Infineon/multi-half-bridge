@@ -1,3 +1,10 @@
+##################################################################################
+#
+# Attention: this file is used for compilation checks together with
+# Jenkins, SonarQube and OpenShift cluster
+# 
+
+
 /usr/local/share/arduino-1.8.10/arduino-builder -dump-prefs -logger=machine -hardware /usr/local/share/arduino-1.8.10/hardware -hardware /home/jenkins/.arduino15/packages -tools /usr/local/share/arduino-1.8.10/tools-builder -tools /usr/local/share/arduino-1.8.10/hardware/tools/avr -tools /home/jenkins/.arduino15/packages -built-in-libraries /usr/local/share/arduino-1.8.10/libraries -libraries /home/jenkins/Arduino/libraries -fqbn=Infineon:arm:XMC1100_Boot_Kit:UART=debug -ide-version=10810 -build-path /tmp/arduino_build_119384 -warnings=none -build-cache /tmp/arduino_cache_548841 -prefs=build.warn_data_percentage=75 -prefs=runtime.tools.XMCFlasher.path=/home/jenkins/.arduino15/packages/Infineon/tools/XMCFlasher/1.2.1 -prefs=runtime.tools.XMCFlasher-1.2.1.path=/home/jenkins/.arduino15/packages/Infineon/tools/XMCFlasher/1.2.1 -prefs=runtime.tools.arm-none-eabi-gcc.path=/home/jenkins/.arduino15/packages/Infineon/tools/arm-none-eabi-gcc/5.4-2016q3 -prefs=runtime.tools.arm-none-eabi-gcc-5.4-2016q3.path=/home/jenkins/.arduino15/packages/Infineon/tools/arm-none-eabi-gcc/5.4-2016q3 -verbose /home/jenkins/Arduino/libraries/Tle94112/examples/Control2Motors/Control2Motors.ino
 ##################################################################################
 #

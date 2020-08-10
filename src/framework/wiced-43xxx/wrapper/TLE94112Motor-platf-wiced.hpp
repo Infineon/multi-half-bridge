@@ -1,9 +1,9 @@
-/** 
+/**
  * @file        TLE94112Motor-platf-wiced.hpp
  * @brief       TLE94112Motor Cypress WICED-43xxx Hardware Platforms
  * @date        Mai 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
@@ -24,7 +24,7 @@
 class Tle94112MotorWiced: virtual public Tle94112Motor
 {
 };
-/** 
+/**
  * @}
  */
 

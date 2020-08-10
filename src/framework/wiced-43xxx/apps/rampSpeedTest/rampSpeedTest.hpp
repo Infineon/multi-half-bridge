@@ -7,8 +7,7 @@
  * \details
  * By attaching a motor to the TLE94112 and running a testcase scenario, we can measure the
  * optimal values for the rampSpeed function. This function allows us to smoothly start, stop,
- * raise or break the motor. It will run the motor in forward and backward direction if the motor
- * is able to run in both directions. Otherwise it will only run in on direction.
+ * raise or break the motor.
  * 
  * \attention A free running motor ramps very different than the same motor with load attached.
  * So you have to measure different scenarios.
@@ -18,13 +17,13 @@
 #ifndef RAMPSPEEDTEST_HPP_
 #define RAMPSPEEDTEST_HPP_
 
-#include "../../wrapper/TLE94112Motor-platf-wiced.hpp"
-//#include <TLE94112-platf-wiced.hpp>
+#include "../../../../config/tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 #include <stdlib.h>
 #include <wiced.h>
+#include <TLE94112-platf-wiced.hpp>
 #include <TLE94112-pal-wiced.hpp>
 #include <TLE94112.hpp>
 #include <TLE94112Motor.hpp>
@@ -49,9 +48,6 @@ RampMeasurement_t testcases[NUM_TESTS] = {
   { -255, 255,  3000 },
   { 255,  0,    1000 }
 };
-
-// timer for delay settings
-Timer    *rampTimer;
 
 
 #endif /** TLE94112_FRAMEWORK **/

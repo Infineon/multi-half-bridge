@@ -22,20 +22,47 @@ SPICIno::SPICIno() : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
 	spi = &SPI;
 }
 
-// /**
-//  * @brief Constructor of the Arduino SPIC class
-//  *
-//  * This function is setting the basics for a SPIC. It allows to set the pin number,
-//  * mode of the pin and the logic level.
-//  *
-//  * @param[in]   pin     Number of the desired pin
-//  * @param[in]   mode    Defines the mode of the pin (INPUT, OUTPUT, etc.)
-//  * @param[in]   logic   Defines the logic level of the pin
-//  */
-// SPICIno::SPICIno(uint8_t pin, uint8_t mode, VLogic_t logic): pin(pin), mode(mode), logic(logic)
-// {
+/**
+ * @brief Construct a new SPICIno::SPICIno object of the Arduino SPIC class
+ *
+ * This function is setting the basics for a SPIC. It allows to set the pin number
+ * of the chipselect pin
+ *
+ * @param port     SPI port if not default
+ * @param csPin    chipselect pin for the SPI port
+ *
+ * @attention Yet not implemented
+*/
+SPICIno::SPICIno(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
+{
+	this->lsb = lsb;
+	this->mode = mode;
+	this->clock = clock;
+	spi = &SPI;
+}
 
-// }
+/**
+ * @brief Construct a new SPICIno::SPICIno object of the Arduino SPIC class
+ *
+ * This function sets all pins for a given SPI port, allowing a free setting
+ * of the SPI interface
+ *
+ * @param port     SPI port if not default
+ * @param csPin    chipselect pin for the SPI port
+ * @param misoPin  miso pin number
+ * @param mosiPin  mosi pin number
+ * @param sckPin   systemclock pin number
+ *
+ * @attention Yet not implemented
+ */
+SPICIno::SPICIno(SPIClass &port, uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin) : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
+{
+	this->csPin = csPin;
+	this->misoPin = misoPin;
+	this->mosiPin = mosiPin;
+	this->sckPin = sckPin;
+	spi = &port;
+}
 
 /**
  * @brief Initialize the SPIC
@@ -80,37 +107,23 @@ SPICIno::Error_t SPICIno::transfer(uint8_t send, uint8_t &received)
 	return OK;
 }
 
-// /**
-//  * @brief transfers a data package via the spi bus
-//  *
-//  * @param send         address and/or command to send
-//  * @param received     received data from spi bus
-//  * @return             SPICWiced::Error_t
-//  */
-// SPICIno::Error_t SPICIno::transfer16(uint16_t send, uint16_t &received)
-// {
-// 	sendBuffer[0] = send;
-// 	receiveBuffer[0] = received;
-// 	wiced_spi_transfer( &this->spi, &this->segment, 1);
-// 	return OK;
-// }
+/**
+ * @brief transfers a data package via the spi bus with 16 bit length
+ *
+ * @param send         address and/or command to send
+ * @param received     received data from spi bus
+ * @return             SPICWiced::Error_t
+ */
+SPICIno::Error_t SPICIno::transfer16(uint16_t send, uint16_t &received)
+{
+	uint8_t data_out_msb = (uint8_t)((send >> 8) & 0xFF);
+	uint8_t data_out_lsb = (uint8_t)(send & 0xFF);
 
-// /**
-//  * @brief transfers a data package via the spi bus
-//  *
-//  * @param send         address and/or command to send
-//  * @param received     received data from spi bus
-//  * @param numberOf     number of segments in segment array
-//  * @return             SPICWiced::Error_t
-//  */
-// SPICIno::Error_t SPICIno::transmit(uint8_t send, uint8_t &received, uint16_t numberOf)
-// {
-// 	// sendBuffer[0] = send;
-// 	// receiveBuffer[0] = received;
-// 	// wiced_spi_transmit( &this->spi, &this->segment, numberOf );
-// 	// return OK;
-// }
+	uint8_t data_in_msb = spi->transfer(data_out_msb);
+	uint8_t data_in_lsb = spi->transfer(data_out_lsb);
+
+	received = (uint16_t)(((uint16_t)data_in_msb << 8) | (data_in_lsb));
+	return OK;
+}
+
 #endif /** TLE94112_FRAMEWORK **/
-
-
-

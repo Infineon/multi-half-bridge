@@ -21,7 +21,6 @@
  */
 GPIOIno::GPIOIno() : pin(0), mode(OUTPUT), logic(POSITIVE)
 {
-
 }
 
 /**
@@ -36,7 +35,6 @@ GPIOIno::GPIOIno() : pin(0), mode(OUTPUT), logic(POSITIVE)
  */
 GPIOIno::GPIOIno(uint8_t pin, uint8_t mode, VLogic_t logic): pin(pin), mode(mode), logic(logic)
 {
-
 }
 
 /**

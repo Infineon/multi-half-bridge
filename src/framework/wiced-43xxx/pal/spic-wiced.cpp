@@ -51,21 +51,40 @@ SPICWiced::SPICWiced() : csPin(WICED_GPIO_22), port(WICED_SPI_0)
  * This function is setting the basics for a SPIC. It allows to set the
  * SPI channel and the used GPIOs if they are different from the standard GPIOs.
  *
- * @param[in] port     SPI channel to be used
- * @param[in] csPin    Number of the desired ChipSelect pin
- * @param[in] misoPin  Number of the desired MISO pin
- * @param[in] mosiPin  Number of the desired MOSI pin
- * @param[in] sckPin   Number of the desired SystemClock pin
+ * @param port     SPI channel to be used
+ * @param csPin    Number of the desired ChipSelect pin
+ * 
+ * @attention Yet not implemented
  */
-SPICWiced::SPICWiced(wiced_spi_t port, wiced_gpio_t csPin, wiced_gpio_t misoPin, wiced_gpio_t mosiPin, wiced_gpio_t sckPin):csPin(csPin), port(port)
+SPICWiced::SPICWiced(wiced_spi_t port, wiced_gpio_t csPin)
 {
 	this->spi.port = port;
 	this->spi.chip_select = csPin;
 	this->spi.speed = 1000000;
-	this->spi.mode = (SPI_CLOCK_RISING_EDGE | SPI_CLOCK_IDLE_HIGH | SPI_NO_DMA |SPI_LSB_FIRST | SPI_CS_ACTIVE_LOW );
+	this->spi.mode = (SPI_CLOCK_RISING_EDGE | SPI_CLOCK_IDLE_LOW | SPI_NO_DMA | SPI_LSB_FIRST | SPI_CS_ACTIVE_LOW);
 	this->spi.bits = 8;
+}
 
-	this->spiSetting = true;
+/**
+ * @brief Construct a new SPICWiced::SPICWiced object
+ * 
+ * This function allows to set all parameters of the SPI master.
+ * 
+ * @param port     SPI channel to be used
+ * @param csPin    Number of the desired ChipSelect pin
+ * @param speed    SPI baud setting
+ * @param mode     SPI mode setting
+ * @param bits     number of bits in one command
+ * 
+ * @attention This does not set the platform_spi_peripherals structure yet
+ */
+SPICWiced::SPICWiced(wiced_spi_t port, wiced_gpio_t csPin, uint8_t speed, uint8_t mode, uint8_t bits)
+{
+	this->spi.port = port;
+	this->spi.chip_select = csPin;
+	this->spi.speed = speed;
+	this->spi.mode = mode;
+	this->spi.bits = bits;
 }
 
 /**
@@ -122,35 +141,22 @@ SPICWiced::Error_t SPICWiced::transfer(uint8_t send, uint8_t &received)
 	return OK;
 }
 
-// /**
-//  * @brief transfers a data package via the spi bus
-//  *
-//  * @param send         address and/or command to send
-//  * @param received     received data from spi bus
-//  * @return             SPICWiced::Error_t
-//  */
-// SPICWiced::Error_t SPICWiced::transfer16(uint16_t send, uint16_t &received)
-// {
-// 	sendBuffer[0] = send;
-// 	receiveBuffer[0] = received;
-// 	wiced_spi_transfer( &this->spi, &this->segment, 1);
-// 	return OK;
-// }
+/**
+ * @brief transfers a data package via the spi bus
+ *
+ * @param send         address and/or command to send as 16bit
+ * @param received     received data from spi bus as 16bit
+ * @return             SPICWiced::Error_t
+ */
+SPICWiced::Error_t SPICWiced::transfer16(uint16_t send, uint16_t &received)
+{
+	sendBuffer[0] = (uint8_t)((send >> 8) & 0xFF);
+	sendBuffer[1] = (uint8_t)(send & 0xFF);
 
-// /**
-//  * @brief transfers a data package via the spi bus
-//  *
-//  * @param send         address and/or command to send
-//  * @param received     received data from spi bus
-//  * @param numberOf     number of segments in segment array
-//  * @return             SPICWiced::Error_t
-//  */
-// SPICWiced::Error_t SPICWiced::transmit(uint8_t send, uint8_t &received, uint16_t numberOf)
-// {
-// 	sendBuffer[0] = send;
-// 	receiveBuffer[0] = received;
-// 	//wiced_spi_transmit( &this->spi, &this->segment, numberOf );
-// 	return OK;
-// }
+	wiced_spi_transfer( &this->spi, &this->segment, 2);
+	received = (uint16_t)(((uint16_t)receiveBuffer[0] << 8) | (receiveBuffer[1]));
+
+	return OK;
+}
 
 #endif /** TLE94112_FRAMEWORK **/
