@@ -28,7 +28,7 @@ env:
 
 install: 
   - pip install -U platformio
-  - platformio platform install -f infineonxmc
+  - platformio platform install -f infineonxmc@1.1.3
   - platformio platform install -f atmelavr
 
 script: 
@@ -37,6 +37,24 @@ script:
 jobs:
   include:   
     - stage: "Deploy" 
+      name: "GitHub Pages Deployment"
+      if: tag IS present
+      addons:
+        apt:
+            packages:
+            - doxygen
+            - graphviz
+            sources:
+                - ubuntu-toolchain-r-test
+      install:
+        - git clone https://github.com/Infineon/InfineonDoxyGenerator.git --branch v.0.2.1
+      script: 
+        - cd InfineonDoxyGenerator
+
+        - python doxyifx.py html
+        - python doxyifx.py release $GH_USER $GH_PASS_TOKEN
+
+    - stage: "devel" 
       name: "GitHub Pages Deployment"
       if: tag IS present
       addons:
