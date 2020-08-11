@@ -9,9 +9,9 @@ python:
 sudo: required
         
 branches:
-    - master
-    - develop
-    - /^v.*$/
+  only:
+    - gh-pages
+    - /.*/
 
 cache: pip
 
@@ -38,24 +38,6 @@ jobs:
   include:   
     - stage: "Deploy" 
       name: "GitHub Pages Deployment"
-      if: tag IS present
-      addons:
-        apt:
-            packages:
-            - doxygen
-            - graphviz
-            sources:
-                - ubuntu-toolchain-r-test
-      install:
-        - git clone https://github.com/Infineon/InfineonDoxyGenerator.git --branch v.0.2.1
-      script: 
-        - cd InfineonDoxyGenerator
-
-        - python doxyifx.py html
-        - python doxyifx.py release $GH_USER $GH_PASS_TOKEN
-
-    - stage: "devel" 
-      name: "GitHub Pages on Development"
       if: tag IS present
       addons:
         apt:
