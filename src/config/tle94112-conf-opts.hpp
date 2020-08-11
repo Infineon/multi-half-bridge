@@ -7,10 +7,16 @@
  * SPDX-License-Identifier: MIT
  */
 
+/**
+ * @addtogroup tle94112frmw
+ * @{
+ */
+
 #ifndef TLE94112_CONF_OPTS_HPP_
 #define TLE94112_CONF_OPTS_HPP_
 
 #define TLE94112_FRMWK_ARDUINO   0x00U
 #define TLE94112_FRMWK_WICED     0x01U
+/** @} */
 
 #endif /** TLE94112_CONF_OPTS_HPP_ **/

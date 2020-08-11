@@ -21,6 +21,10 @@
 #include "../pal/gpio.hpp"
 #include "../pal/spic.hpp"
 
+/**
+ * @addtogroup tle94112api
+ * @{
+ */
 
 /*! \brief the number of halfbridges on a TLE94112 (including no halfbridge)
  *
@@ -354,5 +358,6 @@ class Tle94112
 		uint8_t mEnabled;    //<! \brief indicates if TLE94112LE is enabled
 
 };
+/** @} */
 
 #endif /** TLE94112_HPP_ **/

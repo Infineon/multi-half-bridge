@@ -20,6 +20,11 @@
 #include "TLE94112.hpp"
 
 /**
+ * @addtogroup tle94112motorapi
+ * @{
+ */
+
+/**
  * @brief The maximum absolute speed value which can be set
  * 
  * @see Tle94112
@@ -337,5 +342,6 @@ class Tle94112Motor
 		 */
 		void _performSpeedStepping(int16_t start_speed, int16_t ramp_delta_speed, int16_t num_steps, uint16_t steptime);
 };
+/** @} */
 
 #endif /** TLE94112MOTOR_HPP_ **/

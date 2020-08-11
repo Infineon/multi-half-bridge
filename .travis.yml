@@ -1,14 +1,21 @@
+os:
+  - linux
+
 language: python
+
 python:
     - 3.7
 
 sudo: required
-
-cache: pip
         
 branches:
     - master
-  
+    - develop
+    - /^v.*$/
+
+cache: pip
+
+# Builds Test
 env:
     global:
         - USR_NAME="OlafFilies"
@@ -19,14 +26,34 @@ env:
         - PLATFORMIO_CI_SRC=examples/rampTest
         - PLATFORMIO_CI_SRC=examples/speedControl
 
-install:
-    # build with stable core
-    - pip install -U platformio
-    - platformio platform install -f infineonxmc
-    - platformio platform install -f atmelavr
+install: 
+  - pip install -U platformio
+  - platformio platform install -f infineonxmc
+  - platformio platform install -f atmelavr
 
-script:
-    - platformio ci --lib="."  --board=xmc1100_boot_kit --board=xmc4700_relax_kit --board=uno
+script: 
+  - platformio ci --lib="." --board=xmc1100_boot_kit --board=xmc4700_relax_kit --board=uno
+
+jobs:
+  include:   
+    - stage: "Deploy" 
+      name: "GitHub Pages Deployment"
+      if: tag IS present
+      addons:
+        apt:
+            packages:
+            - doxygen
+            - graphviz
+            sources:
+                - ubuntu-toolchain-r-test
+      install:
+        - git clone https://github.com/Infineon/InfineonDoxyGenerator.git --branch v.0.2.1
+      script: 
+        - cd InfineonDoxyGenerator
+
+        - python doxyifx.py html
+        - python doxyifx.py release $GH_USER $GH_PASS_TOKEN
+
 
 after_success:
   

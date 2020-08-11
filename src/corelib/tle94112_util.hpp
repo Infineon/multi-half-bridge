@@ -19,6 +19,11 @@
 
 #include "TLE94112.hpp"
 
+/**
+ * @addtogroup tle94112api
+ * @{
+ */
+
 //! \brief SIGNUM helper function definition
 #ifndef SIGNUM
 #define SIGNUM(x) ( (x > 0) - (x < 0) )
@@ -54,5 +59,6 @@ typedef struct
 	uint8_t dcMask;
 	uint8_t dcShift;
 } PWMchannel_t;
+/** @} */
 
 #endif /** end TLE94112_UTIL_HPP_ **/

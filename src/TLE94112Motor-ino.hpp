@@ -45,7 +45,7 @@
 class Tle94112MotorIno: public Tle94112Motor
 {
 };
+/** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
-/** @} */
 #endif /** TLE94112MOTOR_INO_HPP_ **/
