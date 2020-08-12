@@ -145,11 +145,13 @@ pipeline {
 	 */
 	post {
 		failure {
+			/*
 			mail(
-				to: 'olaf.filies@infineon.com',
+				to: '',
 				subject: "[EPE JENKINS] ${IFXLIB} pipeline:",
 				body: "Something during Jenkins pipeline run went wrong."
 			)
+			*/
 		}
 	}
 

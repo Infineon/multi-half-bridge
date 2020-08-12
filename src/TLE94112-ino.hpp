@@ -3,7 +3,7 @@
  * \name        Tle94112-ino.hpp - Arduino library to control Infineon's DC Motor Control Shield with Tle94112
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
- * \version     1.5.0
+ * \version     2.0.0
  * \brief       This is a Arduino platform file use Infineon's DC Motor Control Shield with TLE94112 with
  *              Arduino/Genuino, Infineon XMC microcontroller or compatible boards.
  * \ref         platform_ard

@@ -2,7 +2,7 @@
  * \name        basicTest
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
- * \version     1.5.0
+ * \version     2.0.0
  * \brief       This example runs a basic controller test with one attached motor on the TLE94112 shield
  * \details
  * It will run the motor in forward and backward direction if the motor

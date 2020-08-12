@@ -3,7 +3,7 @@
  * \name        TLE94112_util.hpp - automatically included configuration library
  * \author      Infineon Technologies AG
  * \copyright   2019 Infineon Technologies AG
- * \version     1.5.0
+ * \version     2.0.0
  * \brief       This file can optionally be included in projects that use Infineon's 
  *              DC Motor Control Shield with TLE94112
  *              It provides a higher abstraction for controlling motors with the TLE94112 

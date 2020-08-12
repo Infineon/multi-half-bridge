@@ -3,7 +3,7 @@
  * \name        Tle94112.hpp - basic register API
  * \author      Infineon Technologies AG
  * \copyright   2019-2020 Infineon Technologies AG
- * \version     1.5.0
+ * \version     2.0.0
  * \brief       This library includes the basic common functions to controll the TLE94112 registers
  * \ref         common
  *
@@ -116,7 +116,7 @@ class Tle94112
 		 * \param bus  a pointer to the object representing the SPI class
 		 * \param csPin  pin number of the CS pin
 		 */
-		Tle94112(void* bus, uint8_t csPin); // does not work yet
+		Tle94112(void* bus, uint8_t csPin);
 
 		//! \brief standard destructor switches shield off
 		~Tle94112();

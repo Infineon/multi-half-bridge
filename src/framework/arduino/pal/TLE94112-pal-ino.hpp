@@ -3,7 +3,7 @@
  * \name        Tle94112-pal-ino.hpp - Arduino Hardware Abstraction Layer
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
- * \version     1.5.0
+ * \version     2.0.0
  *
  * \ref         pal_arduino
  *

@@ -3,7 +3,7 @@
  * \name        Tle94112-pal-wiced.hpp - Cypress Hardware Abstraction Layer
  * \author      Infineon Technologies AG
  * \copyright   2019 Infineon Technologies AG
- * \version     1.5.0
+ * \version     2.0.0
  * \ref         pal_wiced_43xxx
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
