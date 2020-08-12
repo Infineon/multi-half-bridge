@@ -50,7 +50,7 @@ class Tle94112Ino: virtual public TLE94112Ino
 		 * \param bus    void pointer to the object representing the SPI class
 		 * \param csPin  pin number of the CS pin
 		 */
-		Tle94112Ino(void* bus, uint8_t csPin);
+		Tle94112Ino(SPIClass &bus, uint8_t csPin);
 
 		//! \brief enables and initializes the TLE94112
 		void begin(void);
