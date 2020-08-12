@@ -35,7 +35,7 @@ Tle94112Ino::Tle94112Ino(void* bus, uint8_t csPin):Tle94112()
 	Tle94112::en = new GPIOIno(TLE94112_PIN_EN, OUTPUT, GPIOIno::POSITIVE );
 	Tle94112::cs = new GPIOIno(csPin, OUTPUT, GPIOIno::POSITIVE );
 	Tle94112::timer = new TimerIno();
-	Tle94112::sBus = new SPICIno(bus,csPin);
+	Tle94112::sBus = new SPICIno(bus,csPin,MISO,MOSI,SCK);
 }
 
 void Tle94112Ino::begin(void)
