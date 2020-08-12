@@ -28,11 +28,12 @@ env:
 
 install: 
   - pip install -U platformio==4.3.4
-  - platformio platform install -f infineonxmc@1.1.4
+#  - platformio platform install -f infineonxmc@1.1.5
   - platformio platform install -f atmelavr@2.0.0
 
 script: 
-  - platformio ci --lib="." --board=xmc1100_boot_kit --board=xmc4700_relax_kit --board=uno
+  - platformio ci --lib="." --board=uno
+#  - platformio ci --lib="." --board=xmc1100_boot_kit --board=xmc4700_relax_kit --board=uno
 
 jobs:
   include:   
