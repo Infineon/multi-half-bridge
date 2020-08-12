@@ -27,7 +27,7 @@ env:
         - PLATFORMIO_CI_SRC=examples/speedControl
 
 install: 
-  - pip install -U platformio==4.1.0
+  - pip install -U platformio==4.3.4
   - platformio platform install -f infineonxmc@1.1.4
   - platformio platform install -f atmelavr@2.0.0
 
