@@ -1,11 +1,11 @@
 /*!
- * \file        Tle94112-ino.cpp
- * \name        Tle94112.in0.cpp - Arduino library to control Infineon's DC Motor Control Shield with Tle94112
+ * \file        TLE94112-ino.cpp
+ * \name        TLE94112.ino.cpp - Arduino library to control Infineon's DC Motor Control Shield with Tle94112
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
  * \version     2.0.0
+ * \ref         tle94112ino
  * \brief       This file has to be included in projects that use Infineon's DC Motor Control Shield with TLE94112
- * \ref         platform_ard
  * \details
  * The Infineon TLE94112EL DC motor controller shield is able to handle 6 motors with a max. current of 0.9 A
  * independently and additional 5 motors cascaded. The twelve half-bridges can be arranged also together,

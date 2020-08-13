@@ -5,9 +5,10 @@
 
 /** @defgroup tle94112api       Tle94112 base driver API */
 /** @defgroup tle94112motorapi  Tle94112 motor controll API */
-/** @defgroup palGPIO           Platform Abstraction Layer Interface */
-/** @defgroup palTimer          Platform Abstraction Layer Interface */
-/** @defgroup palSPIC           Platform Abstraction Layer Interface */
+/** @defgroup tle94112utilapi   Tle94112 util API */
+/** @defgroup palGPIO           Platform Abstraction Layer Interface GPIO*/
+/** @defgroup palTimer          Platform Abstraction Layer Interface TIMER*/
+/** @defgroup palSPIC           Platform Abstraction Layer Interface SPIC*/
 /** @} */
 
 /** @defgroup tle94112frmw        SW Frameworks
@@ -18,13 +19,13 @@
  *  @{
  */
 
-/** @defgroup tle94112api      TLE94112 arduino API */
-/** @defgroup tle94112motorapi TLE94112 arduino API */
-/** @defgroup tle94112inoapi   TLE94112 HW platform API */
-/** @defgroup tle94112inopal   TLE94112 HW platform PAL */
-/** @defgroup arduinoPal       PAL */
-/** @defgroup tl94112inohw     HW Platforms */
-/** @defgroup tle94112motorhw  HW Platforms */
+/** @defgroup tle94112inoapi      Arduino base API */
+/** @defgroup tle94112motorinoapi Arduino motor controll API */
+/** @defgroup tle94112inoapipal   HW platform API */
+/** @defgroup tle94112inopal      PAL Tle94112 */
+/** @defgroup arduinoPal          PAL Arduino*/
+/** @defgroup tl94112inohw        TLE94112 HW Platforms */
+/** @defgroup tle94112motorinohw  TLE94112Motor HW Platforms */
 
 /** @} */
 
@@ -32,10 +33,10 @@
  *  @{
  */
 
-/** @defgroup tle94112wicedpal       base driver PAL */
-/** @defgroup wicedPal               PAL */
-/** @defgroup tl94112wicedhw         HW base driver platforms */
-/** @defgroup tl94112motorwicedhw    HW motor controll platforms */
+/** @defgroup tle94112wicedpal       PAL Cypress 43xxx*/
+/** @defgroup wicedPal               PAL WICED */
+/** @defgroup tl94112wicedhw         TLE94112 HW Platforms */
+/** @defgroup tl94112motorwicedhw    TLE94112Motor HW Platforms */
 
 /** @} */
 /** @} */

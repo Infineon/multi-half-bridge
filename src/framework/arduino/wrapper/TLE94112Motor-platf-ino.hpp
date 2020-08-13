@@ -1,6 +1,6 @@
 /**
  * @file        TLE94112Motor-platf-ino.hpp
- * @brief       TLE94112Motor Arduino Hardware Platforms
+ * @brief       TLE94112Motor-platf-ino.hpp Arduino Hardware Platforms
  * @date        Mai 2020
  * @version     2.0.0
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG

@@ -1,10 +1,10 @@
 /*!
- * \file        Tle94112-pal-wiced.h
- * \name        Tle94112-pal-wiced.h - Cypress Hardware Abstraction Layer
+ * \file        TLE94112-pal-wiced.cpp
+ * \name        TLE94112-pal-wiced.cpp - Cypress Hardware Abstraction Layer
  * \author      Infineon Technologies AG
  * \copyright   2019 Infineon Technologies AG
  * \version     2.0.0
- * \ref         pal_wiced_43xxx
+ * \ref         wicedPal
  *
  * SPDX-License-Identifier: MIT
  *

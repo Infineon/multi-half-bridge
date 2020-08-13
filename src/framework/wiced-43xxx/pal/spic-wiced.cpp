@@ -1,5 +1,5 @@
 /**
- * @file        SPIC-arduino.hpp
+ * @file        spic-arduino.hpp
  * @brief       Arduino PAL for the SPI cover
  * @date        June 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
@@ -20,9 +20,9 @@
  * This function is setting the basics for a SPIC and the default
  * spi on Arduino which is implemented as WICED_SPI_0 by patching the following:
  *
- * - <WICED_SDK>/platforms/<platform_name>/platform.h
+ * - \<WICED_SDK\>/platforms/\<platform_name\>/platform.h
  *   add WICED_SPI_0, to the wiced_spi_t
- * - <WICED_SDK>/platforms/<platform_name>/platform.c
+ * - \<WICED_SDK\>/platforms/\<platform_name\>/platform.c
  *   add the following to the platform_spi_peripherals
  *   [WICED_SPI_0]  =
  *      {

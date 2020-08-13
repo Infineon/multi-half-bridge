@@ -1,6 +1,6 @@
 /*!
- * \file        TLE94112_conf.cpp
- * \name        TLE94112_conf.cpp - automatically included configuration library
+ * \file        tle94112_util.cpp
+ * \name        tle94112_util.cpp - automatically included configuration library
  * \author      Infineon Technologies AG
  * \copyright   2019 Infineon Technologies AG
  * \version     2.0.0
@@ -8,7 +8,7 @@
  *              DC Motor Control Shield with TLE94112
  *              It provides a higher abstraction for controlling motors with the TLE94112
  *              acting as an output driver
- * \ref         common
+ * \ref         tle94112corelib
  *
  * SPDX-License-Identifier: MIT
  *

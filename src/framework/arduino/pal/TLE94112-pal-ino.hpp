@@ -1,11 +1,10 @@
 /*!
- * \file        Tle94112-pal-ino.hpp
- * \name        Tle94112-pal-ino.hpp - Arduino Hardware Abstraction Layer
+ * \file        TLE94112-pal-ino.hpp
+ * \name        TLE94112-pal-ino.hpp - Arduino Hardware Abstraction Layer
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
  * \version     2.0.0
- *
- * \ref         pal_arduino
+ * \ref         arduinoPal
  *
  * SPDX-License-Identifier: MIT
  *
@@ -19,7 +18,7 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
 /**
- * @addtogroup tle94112inoapi
+ * @addtogroup tle94112inoapipal
  * @{
  */
 

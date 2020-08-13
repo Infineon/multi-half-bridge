@@ -1,11 +1,11 @@
 /*!
- * \file        Tle94112.hpp
- * \name        Tle94112.hpp - basic register API
+ * \file        TLE94112.hpp
+ * \name        TLE94112.hpp - basic register API
  * \author      Infineon Technologies AG
  * \copyright   2019-2020 Infineon Technologies AG
  * \version     2.0.0
  * \brief       This library includes the basic common functions to controll the TLE94112 registers
- * \ref         common
+ * \ref         tle94112corelib
  *
  * SPDX-License-Identifier: MIT
  *
@@ -173,7 +173,7 @@ class Tle94112
 
 		/*! \brief shows if errors of a specific type have occurred
 		 *
-		 * \param mask	mask to filter for a specific flag
+		 * \param mask mask to filter for a specific flag
 		 *
 		 * \return 0 if everything is ok
 		 *         non-zero value on error condition
@@ -196,7 +196,7 @@ class Tle94112
 
 		/*! \brief gets the overcurrent error flag bit for a specific halfbridge
 		 *
-		 * \param halfbridge halfbridge thats overcurrent flag will be returned
+		 * \param hb halfbridge thats overcurrent flag will be returned
 		 *
 		 * \return 1 if there HalfBridge was shut down because of an overcurrent
 		 *         0 otherwise
@@ -205,7 +205,7 @@ class Tle94112
 
 		/*! \brief gets the openload error flag bit for a specific halfbridge
 		 *
-		 * \param halfbridge halfbridge thats openload flag will be returned
+		 * \param hb halfbridge thats openload flag will be returned
 		 *
 		 * \return 1 if there HalfBridge detected an open load
 		 *         0 otherwise
@@ -288,7 +288,7 @@ class Tle94112
 		/*! \brief gets the overcurrent error flag bit for a specific halfbridge
 		 *         automatically called by the public version of getHBOverCurrent
 		 *
-		 * \param halfbridge halfbridge thats overcurrent flag will be returned
+		 * \param hb halfbridge thats overcurrent flag will be returned
 		 *
 		 * \return 1 if there HalfBridge was shut down because of an overcurrent
 		 *         0 otherwise
@@ -298,7 +298,7 @@ class Tle94112
 		/*! \brief gets the openload error flag bit for a specific halfbridge
 		 *         automatically called by the public version of getHBOpenLoad
 		 *
-		 * \param halfbridge	halfbridge thats openload flag will be returned
+		 * \param hb halfbridge thats openload flag will be returned
 		 *
 		 * \return 1 if there HalfBridge detected an open load
 		 *         0 otherwise

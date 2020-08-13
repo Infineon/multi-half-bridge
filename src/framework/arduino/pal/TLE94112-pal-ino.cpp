@@ -1,11 +1,11 @@
 /*!
- * \file        Tle94112-pal-ino.cpp
- * \name        Tle94112-pal-ino.cpp - Arduino library to control Infineon's DC Motor Control Shield with Tle94112
+ * \file        TLE94112-pal-ino.cpp
+ * \name        TLE94112-pal-ino.cpp - Arduino library to control Infineon's DC Motor Control Shield with Tle94112
  * \author      Infineon Technologies AG
  * \copyright   2019 Infineon Technologies AG
  * \version     2.0.0
  * \brief       This file has to be included in projects that use Infineon's DC Motor Control Shield with TLE94112
- * \ref         pal_arduino
+ * \ref         arduinoPal
  *
  * SPDX-License-Identifier: MIT
  *

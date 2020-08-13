@@ -1,5 +1,5 @@
 /**
- * @file        SPIC-arduino.hpp
+ * @file        spic-arduino.hpp
  * @brief       Arduino PAL for the SPI cover
  * @date        June 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
@@ -24,15 +24,13 @@ SPICIno::SPICIno() : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
 
 /**
  * @brief Construct a new SPICIno::SPICIno object of the Arduino SPIC class
- *
- * This function is setting the basics for a SPIC. It allows to set the pin number
- * of the chipselect pin
- *
- * @param port     SPI port if not default
- * @param csPin    chipselect pin for the SPI port
- *
- * @attention Yet not implemented
-*/
+ * 
+ * This function sets some basic SPI modes for the default SPI port.
+ * 
+ * @param lsb    lowside (LSB) or highside (MSB) mode
+ * @param mode   SPI mode
+ * @param clock  SPI clock divider
+ */
 SPICIno::SPICIno(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
 {
 	this->lsb = lsb;
@@ -52,8 +50,6 @@ SPICIno::SPICIno(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(LSBFIRST), mode
  * @param misoPin  miso pin number
  * @param mosiPin  mosi pin number
  * @param sckPin   systemclock pin number
- *
- * @attention Yet not implemented
  */
 SPICIno::SPICIno(SPIClass &port, uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin) : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
 {
