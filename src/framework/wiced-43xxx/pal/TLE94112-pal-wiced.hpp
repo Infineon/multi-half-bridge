@@ -24,7 +24,7 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 /**
- * @addtogroup tle94112wicedpal
+ * @addtogroup wicedPal
  * @{
  */
 

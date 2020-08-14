@@ -18,7 +18,7 @@
 #include "../../../corelib/TLE94112Motor.hpp"
 
 /**
- * @addtogroup tl94112motorinohw
+ * @addtogroup platfIno
  * @{
  */
 

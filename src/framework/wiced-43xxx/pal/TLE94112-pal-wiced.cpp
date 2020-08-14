@@ -21,10 +21,6 @@
 #define TLE94112_STATUS_INV_MASK    (Tle94112::TLE_POWER_ON_RESET)
 #define TLE94112_CS_RISETIME        2
 
-/**
- * @addtogroup tl94112wicedhw
- */
-
 void Tle94112::writeReg(uint8_t reg, uint8_t mask, uint8_t shift, uint8_t data)
 {
 	uint8_t address = mCtrlRegAddresses[reg];

@@ -18,7 +18,7 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
 /**
- * @addtogroup tle94112inoapipal
+ * @addtogroup arduinoPal
  * @{
  */
 

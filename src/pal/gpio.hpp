@@ -13,7 +13,7 @@
 #define GPIO_HPP_
 
 /**
- * @addtogroup palGPIO
+ * @addtogroup pal
  * @{
  */
 

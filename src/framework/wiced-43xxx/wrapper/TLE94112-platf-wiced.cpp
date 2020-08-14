@@ -13,10 +13,6 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
-/**
- * @addtogroup tl94112wicedhw
- * @{
- */
 Tle94112Wiced::Tle94112Wiced(void):Tle94112()
 {
 	Tle94112::en = new GPIOWiced(TLE94112_PIN_EN, OUTPUT_PUSH_PULL, GPIOWiced::POSITIVE );
@@ -56,8 +52,5 @@ void Tle94112Wiced::end(void)
 	Tle94112::timer->stop();
 	Tle94112::sBus->deinit();
 }
-/**
- * @}
- */
 
 #endif /** TLE94112_FRAMEWORK **/

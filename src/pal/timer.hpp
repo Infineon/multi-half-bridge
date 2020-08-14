@@ -13,7 +13,7 @@
 #include <stdint.h>
 
 /**
- * @addtogroup palTimer
+ * @addtogroup pal
  * @{
  */
 

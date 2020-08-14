@@ -18,7 +18,7 @@
 #include "../pal/TLE94112-pal-ino.hpp"
 
 /**
- * @addtogroup tl94112inohw
+ * @addtogroup platfIno
  * @{
  *
  * @brief Arduino Hardware Platform Pins

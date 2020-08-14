@@ -20,7 +20,7 @@
 #include "config/tle94112-conf.hpp"
 
 /**
- * @addtogroup tle94112motorinoapi
+ * @addtogroup inoApi
  * @{
  */
 

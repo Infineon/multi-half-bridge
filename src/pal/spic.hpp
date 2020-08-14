@@ -13,7 +13,7 @@
 #define SPIC_HPP_
 
 /**
- * @addtogroup palSPIC
+ * @addtogroup pal
  * @{
  */
 
