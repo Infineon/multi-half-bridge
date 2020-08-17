@@ -1,0 +1,35 @@
+/**
+ * @defgroup tle94112corelib    Core Library
+ * @{
+ */
+
+/** @defgroup tle94112api       Tle94112 base driver API */
+/** @defgroup tle94112motorapi  Tle94112 motor controll API */
+/** @defgroup tle94112utilapi   Tle94112 util API */
+/** @defgroup pal               Platform Abstraction Layer Interface */
+/** @} */
+
+/** @defgroup tle94112frmw        SW Frameworks
+ *  @{
+ */
+
+/** @defgroup tle94112ino         Arduino
+ *  @{
+ */
+
+/** @defgroup inoApi        Tle94112 Arduino API */
+/** @defgroup arduinoPal    PAL Arduino */
+/** @defgroup platfIno      Arduino HW Platforms */
+
+/** @} */
+
+/** @defgroup tle94112wiced       WICED
+ *  @{
+ */
+
+/** @defgroup wicedPal       PAL WICED */
+/** @defgroup wicedHW        43xxx HW Platforms */
+
+/** @} */
+/** @} */
+

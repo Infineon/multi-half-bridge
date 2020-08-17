@@ -4,10 +4,10 @@
 # Project related configuration options
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
-PROJECT_NAME           = "TLE94112"
-PROJECT_NUMBER         = 1.0
-PROJECT_BRIEF          = "TLE94112 DC motor control shield"
-PROJECT_LOGO           =  ./img/ifx_logo.png
+PROJECT_NAME           = ""
+PROJECT_NUMBER         = 
+PROJECT_BRIEF          = 
+PROJECT_LOGO           = 
 OUTPUT_DIRECTORY       = ./docs
 CREATE_SUBDIRS         = NO
 ALLOW_UNICODE_NAMES    = NO

@@ -8,6 +8,26 @@
 
 Library of Infineon's [DC Motor Shield with TLE94112EL](https://www.infineon.com/cms/en/product/evaluation-boards/tle94112el_shield/) for Arduino.
 
+### Supported Frameworks
+
+<table>
+    <tr>
+        <td><img src="https://github.com/infineon/DC-Motor-Control-TLE94112EL/wiki/img/arduino-logo.png" width=200></td>
+        <td><img src="https://github.com/infineon/DC-Motor-Control-TLE94112EL/wiki/img/wiced-logo.png" width=200></td>
+        <td><img src="https://github.com/infineon/DC-Motor-Control-TLE94112EL/wiki/img/cross-platform.png" width=200></td>
+    </tr>
+    <tr>
+        <td style="text-align: center"><a href="https://github.com/Infineon/DC-Motor-Control-TLE94112EL/wiki/Arduino-API">Arduino API</a></td>
+        <td style="text-align: center"><a href="https://github.com/Infineon/DC-Motor-Control-TLE94112EL/wiki/WICED-API">WICED API</a></td>
+        <td style="text-align: center"><a href="https://github.com/Infineon/DC-Motor-Control-TLE94112EL/wiki/TLE94112-API/">TLE94112 API</a><br><a href="https://github.com/Infineon/DC-Motor-Control-TLE94112EL/wiki/TLE94112Motor-API">TLE94112Motor API</a></td>
+    </tr>
+    <tr>
+        <td style="text-align: center"><a href="https://github.com/Infineon/DC-Motor-Control-TLE94112EL/wiki/Ino-Getting-Started">Getting Started</a></td>
+        <td style="text-align: center"><a href="https://github.com/Infineon/DC-Motor-Control-TLE94112EL/wiki/CW-Getting-Started">Getting Started</a></td>
+        <td style="text-align: center"><a href="https://github.com/Infineon/DC-Motor-Control-TLE94112EL/wiki/Porting-Guide">Porting Guide</a></td>
+    </tr>
+</table>
+
 ## Summary
 The DC motor shield is a small evaluation board equipped with TLE94112EL for use with Arduino. The TLE94112EL is capable to drive up to 6
 small DC motors in parallel mode or up to 11 DC motors in cascaded mode. All outputs can drive up to 0.9A. The outputs can be used stand-alone
@@ -24,7 +44,8 @@ is a protected twelve-fold half-bridge driver designed especially for automotive
 * Efficient design for multi-motor applications
 * Less communication with µC through integrated PWM generator and zero clock diagnosis
 * Reducing external components to meet EMC requirements
-* The board is stackable if you change the position of a resistor, [see here](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
+* The board can be stacked if you change the position of a resistor, [see here](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
+* The board can be stacked you change the position of a resistor, [see here](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
 * LED driver on the first half-bridge
 
 ## Target Applications:
@@ -33,19 +54,20 @@ is a protected twelve-fold half-bridge driver designed especially for automotive
 * Toys
 * HVAC systems
 
-## Installation
-For the description of library [installation](docs/Installation.md)
+## More information and links
+* [Infineon Maker page](https://www.infineon.com/cms/en/tools/landing/infineon-for-makers/#overview)
+* [Infineon Microcontroller](https://www.infineon.com/cms/en/tools/landing/infineon-for-makers/microcontroller-boards/)
+* [Infineon Shields for Arduino](https://www.infineon.com/cms/en/tools/landing/infineon-for-makers/arduino-shields/)
+* [User Manual TLE94112EL](https://www.infineon.com/dgdl/Infineon-DC_Motor_Control_Shield_with_TLE94112EL_UserManual-UM-v01_00-EN.pdf?fileId=5546d46259d9a4bf015a4755351304ac)
+* [TLE94112EL datasheet](https://www.infineon.com/dgdl/Infineon-TLE94112EL-DS-v01_00-EN.pdf?fileId=5546d462576f347501579a2795837d3e)
+* [TLE941xy Application Note](https://www.infineon.com/dgdl/Infineon-TLE941xy-AN-v01_00-EN-AN-v01_00-EN-AN-v01_00-EN.pdf?fileId=5546d4625b62cd8a015bc8db26c831e3)
+* [Tle94112 pinout picture](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
+* [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino)
+* [WICED Studio](https://community.cypress.com/community/software-forums/wiced-wifi/wiced-wifi-documentation)
+* [Cypress Evaluation Kit CYW43907AEVAL1F](https://www.cypress.com/CYW943907AEVAL1F)
 
-## Examples
-For the description of the [examples](docs/Examples.md)
+### License
 
-## Library documentation
-The doxygen [library documentation](https://infineon.github.io/DC-Motor-Control-TLE94112EL/).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-
-## Board Information, Datasheet and Additional Information
-* A PDF summarizing the features and layout of the DC motor control shield is stored on the Infineon homepage [here](https://www.infineon.com/dgdl/Infineon-DC_Motor_Control_Shield_with_TLE94112EL_UserManual-UM-v01_00-EN.pdf?fileId=5546d46259d9a4bf015a4755351304ac).
-* The datasheet for the TLE94112EL can be found here [TLE94112EL Datasheet](https://www.infineon.com/dgdl/Infineon-TLE94112EL-DS-v01_00-EN.pdf?fileId=5546d462576f347501579a2795837d3e)
-* The respective application note is located here [TLE941xy Application Note](https://www.infineon.com/dgdl/Infineon-TLE941xy-AN-v01_00-EN-AN-v01_00-EN-AN-v01_00-EN.pdf?fileId=5546d4625b62cd8a015bc8db26c831e3).
-* There is a pinout picture [Tle94112el pintout](https://raw.githubusercontent.com/infineon/assets/master/Pictures/TLE94112_Arduino_Shield_Pin_out.png)
 
