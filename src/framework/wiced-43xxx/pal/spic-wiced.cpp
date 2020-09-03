@@ -36,7 +36,7 @@
  *    which sets the Arduino header GPIOs and the bit banging driver.
  *
  */
-SPICWiced::SPICWiced() : csPin(WICED_GPIO_22), port(WICED_SPI_0)
+SPICWiced::SPICWiced() : csPin(WICED_GPIO_NONE), port(WICED_SPI_0)
 {
 	this->spi.port = port;
 	this->spi.chip_select = csPin;
