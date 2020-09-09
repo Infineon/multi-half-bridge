@@ -1,33 +1,33 @@
 /*!
- * \file        TLE94112-pal-ino.hpp
- * \name        TLE94112-pal-ino.hpp - Arduino Hardware Abstraction Layer
+ * \file        TLE94112-pal-rpi.hpp
+ * \name        TLE94112-pal-rpi.hpp - Raspberry Pi Hardware Abstraction Layer
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
- * \version     2.0.0
- * \ref         arduinoPal
+ * \version     1.0.0
+ * \ref         rpiPal
  *
  * SPDX-License-Identifier: MIT
  *
  */
 
-#ifndef TLE94112_PAL_INO_HPP_
-#define TLE94112_PAL_INO_HPP_
+#ifndef TLE94112_PAL_RPI_HPP_
+#define TLE94112_PAL_RPI_HPP_
 
 #include "../../../config/tle94112-conf.hpp"
 
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 /**
- * @addtogroup arduinoPal
+ * @addtogroup rpiPal
  * @{
  */
 
-#include <Arduino.h>
 #include <SPI.h>
 #include "../../../corelib/TLE94112.hpp"
-#include "gpio-arduino.hpp"
-#include "timer-arduino.hpp"
-#include "spic-arduino.hpp"
+#include "gpio-rpi.hpp"
+#include "timer-rpi.hpp"
+#include "spic-rpi.hpp"
+#include <wiringPi.h> 
 
 /**
  * @brief represents a basic TLE94112
@@ -39,7 +39,7 @@
  *
  * @see Tle94112
  */
-class TLE94112Ino: virtual public Tle94112
+class TLE94112Rpi: virtual public Tle94112 //TLE94112Ino in TLE94112Rpi?
 {
 	protected:
 
@@ -103,4 +103,4 @@ class TLE94112Ino: virtual public Tle94112
  */
 
 #endif /** TLE94112_FRAMEWORK **/
-#endif /** TLE94112_PAL_INO_HPP_ **/
+#endif /** TLE94112_PAL_RPI_HPP_ **/

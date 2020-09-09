@@ -1,9 +1,9 @@
 /*!
- * \file        TLE94112-pal-ino.cpp
- * \name        TLE94112-pal-ino.cpp - Arduino library to control Infineon's DC Motor Control Shield with Tle94112
+ * \file        TLE94112-pal-rpi.cpp
+ * \name        TLE94112-pal-rpi.cpp - Raspberry Pi library to control Infineon's DC Motor Control Shield with Tle94112
  * \author      Infineon Technologies AG
  * \copyright   2019 Infineon Technologies AG
- * \version     2.0.0
+ * \version     1.0.0
  * \brief       This file has to be included in projects that use Infineon's DC Motor Control Shield with TLE94112
  * \ref         arduinoPal
  *
@@ -12,7 +12,7 @@
  */
 
 
-#include "TLE94112-pal-ino.hpp"
+#include "TLE94112-pal-rpi.hpp" 
 
 /*! \brief SPI address commands */
 #define TLE94112_CMD_WRITE          0x80;

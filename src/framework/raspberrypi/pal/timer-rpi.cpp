@@ -1,7 +1,7 @@
 /**
- * @file        timer-arduino.cpp
- * @brief       Arduino Timer Platform Abstraction Layer
- * @date        May 2020
+ * @file        timer-rpi.cpp
+ * @brief       Raspberry Pi Timer Platform Abstraction Layer
+ * @date        September 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
@@ -9,16 +9,16 @@
 
 #include "../../../config/tle94112-conf.hpp"
 
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
-#include <Arduino.h>
-#include "timer-arduino.hpp"
+// #include <Arduino.h>
+#include "timer-rpi.hpp"
 
 /**
  * @brief Constructor of the Arduino Timer class
  *
  */
-TimerIno::TimerIno()
+TimerRpi::TimerRpi()
 {
 }
 
@@ -26,7 +26,7 @@ TimerIno::TimerIno()
  * @brief Destructor of the Arduino Timer class
  *
  */
-TimerIno::~TimerIno()
+TimerRpi::~TimerRpi()
 {
 }
 
@@ -36,9 +36,9 @@ TimerIno::~TimerIno()
  * This function is initializing the Timer and sets
  * the elapsed time to zero.
  *
- * @return      TimerIno::Error_t
+ * @return      TimerRpi::Error_t
  */
-TimerIno::Error_t TimerIno::init()
+TimerRpi::Error_t TimerRpi::init()
 {
 	startTime = 0;
 	return OK;
@@ -50,9 +50,9 @@ TimerIno::Error_t TimerIno::init()
  * This function deinitialize the Timer and also
  * resets the elapsed time variable.
  *
- * @return      TimerIno::Error_t
+ * @return      TimerRpi::Error_t
  */
-TimerIno::Error_t TimerIno::deinit()
+TimerRpi::Error_t TimerRpi::deinit()
 {
 	startTime = 0;
 	return OK;
@@ -63,9 +63,9 @@ TimerIno::Error_t TimerIno::deinit()
  *
  * This function is starting the timer.
  *
- * @return      TimerIno::Error_t
+ * @return      TimerRpi::Error_t
  */
-TimerIno::Error_t TimerIno::start()
+TimerRpi::Error_t TimerRpi::start()
 {
 	startTime = millis();
 	return OK;
@@ -79,9 +79,9 @@ TimerIno::Error_t TimerIno::start()
  * is in milliseconds.
  *
  * @param[in]   &elapsed                Address of a value where the elapsed time should be stored
- * @return      TimerIno::Error_t
+ * @return      TimerRpi::Error_t
  */
-TimerIno::Error_t TimerIno::elapsed(uint32_t &elapsed)
+TimerRpi::Error_t TimerRpi::elapsed(uint32_t &elapsed)
 {
 	elapsed = millis() - startTime;
 	return OK;
@@ -93,9 +93,9 @@ TimerIno::Error_t TimerIno::elapsed(uint32_t &elapsed)
  * This function stops the timer and resets the
  * start time variable.
  *
- * @return      TimerIno::Error_t
+ * @return      TimerRpi::Error_t
  */
-TimerIno::Error_t TimerIno::stop()
+TimerRpi::Error_t TimerRpi::stop()
 {
 	startTime = 0;
 	return OK;
@@ -108,9 +108,9 @@ TimerIno::Error_t TimerIno::stop()
  * The input value is given in milliseconds.
  *
  * @param[in]   timeout                 Desired timeout in ms
- * @return      TimerIno::Error_t
+ * @return      TimerRpi::Error_t
  */
-TimerIno::Error_t TimerIno::delayMilli(uint32_t timeout)
+TimerRpi::Error_t TimerRpi::delayMilli(uint32_t timeout)
 {
 	delay(timeout);
 	return OK;
@@ -123,9 +123,9 @@ TimerIno::Error_t TimerIno::delayMilli(uint32_t timeout)
  * The input value is given in microseconds.
  *
  * @param[in]   timeout                 Desired timeout in us
- * @return      TimerIno::Error_t
+ * @return      TimerRpi::Error_t
  */
-TimerIno::Error_t TimerIno::delayMicro(uint32_t timeout)
+TimerRpi::Error_t TimerRpi::delayMicro(uint32_t timeout)
 {
 	delayMicroseconds(timeout);
 	return OK;

@@ -1,29 +1,29 @@
 /**
- * @file        spic-arduino.hpp
- * @brief       Arduino PAL for the SPI cover
- * @date        June 2020
+ * @file        spic-rpi.cpp
+ * @brief       Raspberry Pi PAL for the SPI cover
+ * @date        September 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
  */
 
-#include "spic-arduino.hpp"
+#include "spic-rpi.hpp"
 
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 /**
- * @brief Constructor of the Arduino SPIC class
+ * @brief Constructor of the Raspberry Pi SPIC class
  *
  * This function is setting the basics for a SPIC and the default spi.
  *
  */
-SPICIno::SPICIno() : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
+SPICRpi::SPICRpi() : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
 {
 	spi = &SPI;
 }
 
 /**
- * @brief Construct a new SPICIno::SPICIno object of the Arduino SPIC class
+ * @brief Construct a new SPICRpi::SPICRpi object of the Raspberry Pi SPIC class
  * 
  * This function sets some basic SPI modes for the default SPI port.
  * 
@@ -31,7 +31,7 @@ SPICIno::SPICIno() : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
  * @param mode   SPI mode
  * @param clock  SPI clock divider
  */
-SPICIno::SPICIno(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
+SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
 {
 	this->lsb = lsb;
 	this->mode = mode;
@@ -40,7 +40,7 @@ SPICIno::SPICIno(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(LSBFIRST), mode
 }
 
 /**
- * @brief Construct a new SPICIno::SPICIno object of the Arduino SPIC class
+ * @brief Construct a new SPICRpi::SPICRpi object of the Raspberry Pi SPIC class
  *
  * This function sets all pins for a given SPI port, allowing a free setting
  * of the SPI interface
@@ -51,7 +51,7 @@ SPICIno::SPICIno(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(LSBFIRST), mode
  * @param mosiPin  mosi pin number
  * @param sckPin   systemclock pin number
  */
-SPICIno::SPICIno(SPIClass &port, uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin) : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
+SPICRpi::SPICRpi(SPIClass &port, uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin) : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
 {
 	this->csPin = csPin;
 	this->misoPin = misoPin;
@@ -66,12 +66,12 @@ SPICIno::SPICIno(SPIClass &port, uint8_t csPin, uint8_t misoPin, uint8_t mosiPin
  * This function is initializing the chosen spi channel
  * with the given values for lsb,clock and mode
  *
- * @return      SPICIno::Error_t
+ * @return      SPICRpi::Error_t
  */
-SPICIno::Error_t SPICIno::init()
+SPICRpi::Error_t SPICRpi::init()
 {
 	spi->begin();
-	spi->setBitOrder(this->lsb);
+	spi->setBitOrder(this->lsb); //Woher kommt das?
 	spi->setClockDivider(this->clock);
 	spi->setDataMode(this->mode);
 	return OK;
@@ -82,9 +82,9 @@ SPICIno::Error_t SPICIno::init()
  *
  * This function is deinitializing the chosen spi channel.
  *
- * @return      SPICIno::Error_t
+ * @return      SPICRpi::Error_t
  */
-SPICIno::Error_t SPICIno::deinit()
+SPICRpi::Error_t SPICRpi::deinit()
 {
 	spi->end();
 	return OK;
@@ -95,9 +95,9 @@ SPICIno::Error_t SPICIno::deinit()
  *
  * @param send         address and/or command to send
  * @param received     received data from spi bus
- * @return             SPICIno::Error_t
+ * @return             SPICRpi::Error_t
  */
-SPICIno::Error_t SPICIno::transfer(uint8_t send, uint8_t &received)
+SPICRpi::Error_t SPICRpi::transfer(uint8_t send, uint8_t &received)
 {
 	received = spi->transfer(send);
 	return OK;
@@ -110,7 +110,7 @@ SPICIno::Error_t SPICIno::transfer(uint8_t send, uint8_t &received)
  * @param received     received data from spi bus
  * @return             SPICWiced::Error_t
  */
-SPICIno::Error_t SPICIno::transfer16(uint16_t send, uint16_t &received)
+SPICRpi::Error_t SPICRpi::transfer16(uint16_t send, uint16_t &received)
 {
 	uint8_t data_out_msb = (uint8_t)((send >> 8) & 0xFF);
 	uint8_t data_out_lsb = (uint8_t)(send & 0xFF);

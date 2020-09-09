@@ -1,31 +1,31 @@
 /**
- * @file        timer-arduino.hpp
- * @brief       Arduino Timer PAL
- * @date        May 2020
+ * @file        timer-rpi.hpp
+ * @brief       Raspberry Pi Timer PAL
+ * @date        September 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef TIMER_ARDUINO_HPP_
-#define TIMER_ARDUINO_HPP_
+#ifndef TIMER_RPI_HPP_
+#define TIMER_RPI_HPP_
 
 #include "../../../config/tle94112-conf.hpp"
 
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #include "../../../pal/timer.hpp"
 
 /**
- * @addtogroup arduinoPal
+ * @addtogroup rpiPal
  * @{
  */
 
-class TimerIno: virtual public Timer
+class TimerRpi: virtual public Timer
 {
 	public:
-		TimerIno();
-		~TimerIno();
+		TimerRpi();
+		~TimerRpi();
 		Error_t init();
 		Error_t deinit();
 		Error_t start();
@@ -40,4 +40,4 @@ class TimerIno: virtual public Timer
 /** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
-#endif /** TIMER_ARDUINO_HPP_ **/
+#endif /** TIMER_RPI_HPP_ **/
