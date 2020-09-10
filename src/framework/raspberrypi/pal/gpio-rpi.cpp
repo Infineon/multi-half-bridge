@@ -8,7 +8,7 @@
  */
 
 #include "gpio-rpi.hpp"
-
+#include <wiringPiSPI.h>
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 // #include <Arduino.h>
@@ -19,7 +19,7 @@
  * This function is setting the basics for a GPIO.
  *
  */
-GPIORpi::GPIORpi() : pin(0), mode(OUTPUT), logic(POSITIVE)
+GPIORpi::GPIORpi() : pin(0), mode(OUTPUT), logic(POSITIVE) //Woher weiß ich welcher Pin? Bei Hall Switch Pin 4
 { 
 }
 
@@ -47,7 +47,7 @@ GPIORpi::GPIORpi(uint8_t pin, uint8_t mode, VLogic_t logic): pin(pin), mode(mode
 GPIORpi::Error_t GPIORpi::init()
 {
 	/* GPIORpi::Error_t err = GPIORpi::OK;
-	if (wiringPiSetup() < 0)
+	if (wiringPiSPISetup() < 0)
 	{
 		err = GPIORpi::INTF_ERROR; //gibts das in WiringPi?
 	}
@@ -63,7 +63,7 @@ GPIORpi::Error_t GPIORpi::init()
  *
  * This function is deinitializing the chosen pin.
  *
- * @return      GPIOIno::Error_t
+ * @return      GPIORpi::Error_t
  */
 GPIORpi::Error_t GPIORpi::deinit()
 {

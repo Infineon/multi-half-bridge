@@ -19,6 +19,7 @@
 // #include <Arduino.h>
 #include "SPI.h"
 #include <wiringPi.h>
+#include <wiringPiSPI.h>
 
 /**
  * @addtogroup rpiPal

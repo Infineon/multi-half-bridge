@@ -16,7 +16,7 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #include "../../../corelib/TLE94112.hpp"
-// #include <wiringPi.h>
+#include <wiringPi.h>
 /**
  * @addtogroup rpiPal
  * @{
@@ -29,7 +29,7 @@
  */
 class GPIORpi: virtual public GPIO
 {
-private:
+private: //Passen Datentypen und Definition von unused Pin notwendig?
 	uint8_t     pin;
 	uint8_t     mode;
 	VLogic_t    logic;

@@ -71,8 +71,8 @@ SPICRpi::SPICRpi(SPIClass &port, uint8_t csPin, uint8_t misoPin, uint8_t mosiPin
 SPICRpi::Error_t SPICRpi::init()
 {
 	spi->begin();
-	spi->setBitOrder(this->lsb); //Woher kommt das?
-	spi->setClockDivider(this->clock);
+	spi->setBitOrder(this->lsb); 
+	spi->setClockDivider(this->clock); 
 	spi->setDataMode(this->mode);
 	return OK;
 }

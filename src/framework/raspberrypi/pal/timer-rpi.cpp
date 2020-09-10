@@ -81,7 +81,7 @@ TimerRpi::Error_t TimerRpi::start()
  * @param[in]   &elapsed                Address of a value where the elapsed time should be stored
  * @return      TimerRpi::Error_t
  */
-TimerRpi::Error_t TimerRpi::elapsed(uint32_t &elapsed)
+TimerRpi::Error_t TimerRpi::elapsed(uint32_t &elapsed) //Geht uint32_t hier?
 {
 	elapsed = millis() - startTime;
 	return OK;
@@ -125,7 +125,7 @@ TimerRpi::Error_t TimerRpi::delayMilli(uint32_t timeout)
  * @param[in]   timeout                 Desired timeout in us
  * @return      TimerRpi::Error_t
  */
-TimerRpi::Error_t TimerRpi::delayMicro(uint32_t timeout)
+TimerRpi::Error_t TimerRpi::delayMicro(uint32_t timeout) 
 {
 	delayMicroseconds(timeout);
 	return OK;
