@@ -17,7 +17,7 @@
 
 #include "../../../pal/spic.hpp"
 // #include <Arduino.h>
-#include "SPI.h"
+// #include "SPI.h"
 #include <wiringPi.h>
 #include <wiringPiSPI.h>
 

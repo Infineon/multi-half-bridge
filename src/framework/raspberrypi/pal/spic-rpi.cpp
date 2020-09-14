@@ -70,10 +70,15 @@ SPICRpi::SPICRpi(SPIClass &port, uint8_t csPin, uint8_t misoPin, uint8_t mosiPin
  */
 SPICRpi::Error_t SPICRpi::init()
 {
-	spi->begin();
+	//Meine Vermutung: 
+	// wiringPiSPISetup (int channel, int speed);
+	
+	wiringPiSPISetup (0, 32000000);
+
+	/* spi->begin();
 	spi->setBitOrder(this->lsb); 
 	spi->setClockDivider(this->clock); 
-	spi->setDataMode(this->mode);
+	spi->setDataMode(this->mode); */
 	return OK;
 }
 
@@ -99,7 +104,7 @@ SPICRpi::Error_t SPICRpi::deinit()
  */
 SPICRpi::Error_t SPICRpi::transfer(uint8_t send, uint8_t &received)
 {
-	received = spi->transfer(send);
+	// received = spi->transfer(send); 
 	return OK;
 }
 
@@ -108,17 +113,17 @@ SPICRpi::Error_t SPICRpi::transfer(uint8_t send, uint8_t &received)
  *
  * @param send         address and/or command to send
  * @param received     received data from spi bus
- * @return             SPICWiced::Error_t
+ * @return             SPICRpi::Error_t
  */
 SPICRpi::Error_t SPICRpi::transfer16(uint16_t send, uint16_t &received)
 {
-	uint8_t data_out_msb = (uint8_t)((send >> 8) & 0xFF);
+	/* uint8_t data_out_msb = (uint8_t)((send >> 8) & 0xFF);
 	uint8_t data_out_lsb = (uint8_t)(send & 0xFF);
 
 	uint8_t data_in_msb = spi->transfer(data_out_msb);
 	uint8_t data_in_lsb = spi->transfer(data_out_lsb);
 
-	received = (uint16_t)(((uint16_t)data_in_msb << 8) | (data_in_lsb));
+	received = (uint16_t)(((uint16_t)data_in_msb << 8) | (data_in_lsb)); */
 	return OK;
 }
 
