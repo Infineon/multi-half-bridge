@@ -25,6 +25,8 @@
 .settings/
 .version
 .accepted
+.vscode
+.pio
 /build/
 /downloads/
 /packages/

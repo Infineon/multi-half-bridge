@@ -115,7 +115,7 @@ GPIORpi::Error_t GPIORpi::enable()
 	else if(this->logic == NEGATIVE){
 		digitalWrite(this->pin, GPIO_LOW);;
 	}
-	return GPIORPI::OK;
+	return GPIORpi::OK;
 }
 
 /**
