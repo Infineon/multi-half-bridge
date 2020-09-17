@@ -53,14 +53,13 @@ SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(BCM2835_SPI_BIT
  * @param mosiPin  mosi pin number
  * @param sckPin   systemclock pin number
  */
-SPICRpi::SPICRpi(uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin) : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER16)
+SPICRpi::SPICRpi(uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin) : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
 {
 	/* this->csPin = csPin;
 	this->misoPin = misoPin;
 	this->mosiPin = mosiPin;
 	this->sckPin = sckPin;
 	spi = &port; */
-	return OK;
 }
 
 /**

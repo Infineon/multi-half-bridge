@@ -12,6 +12,7 @@
 #define TLE94112_PLATF_RPI_HPP_
 
 #include "../../../config/tle94112-conf.hpp"
+#include <bcm2835.h> 
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
@@ -27,7 +28,7 @@
 /*!
  * Standard chip select pin for first TLE94112 shield
  */
-#define TLE94112_PIN_CS0     24
+#define TLE94112_PIN_CS0     8
 
 /*!
  * Standard chip select pin for second TLE94112 shield
@@ -48,4 +49,4 @@
  */
 
 #endif /** TLE94112_FRAMEWORK **/
-#endif /** TLE94112_PLATF_INO_HPP_ **/
+#endif /** TLE94112_PLATF_RPI_HPP_ **/
