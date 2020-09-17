@@ -39,7 +39,6 @@ class SPICRpi: virtual public SPIC
 		uint8_t     misoPin;
 		uint8_t     mosiPin;
 		uint8_t     sckPin;
-		SPIClass    *spi; 
 		uint8_t     lsb;
 		uint8_t     mode;
 		uint8_t     clock;
@@ -47,7 +46,7 @@ class SPICRpi: virtual public SPIC
 	public:
 					SPICRpi();
 					SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock);
-					SPICRpi(SPIClass &port, uint8_t csPin, uint8_t misoPin=MISO, uint8_t mosiPin=MOSI, uint8_t sckPin=SCK);
+					SPICRpi(uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin);
 					~SPICRpi();
 		Error_t     init();
 		Error_t     deinit();
