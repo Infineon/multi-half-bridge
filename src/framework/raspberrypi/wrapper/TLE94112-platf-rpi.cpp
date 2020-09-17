@@ -1,16 +1,16 @@
 /**
- * @file        TLE94112-platf-ino.cpp
- * @brief       TLE94112-platf-ino.cpp Arduino Hardware Platforms
- * @date        Mai 2020
- * @version     2.0.0
+ * @file        TLE94112-platf-rpi.cpp
+ * @brief       TLE94112-platf-rpi.cpp Raspberry Pi Hardware Platforms
+ * @date        September 2020
+ * @version     1.0.0
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
  */
 
-#include "TLE94112-platf-ino.hpp"
+#include "TLE94112-platf-rpi.hpp"
 
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 
 #endif /** TLE94112_FRAMEWORK **/

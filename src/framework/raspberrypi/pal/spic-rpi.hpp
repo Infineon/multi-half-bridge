@@ -20,6 +20,7 @@
 // #include "SPI.h"
 #include <wiringPi.h>
 #include <wiringPiSPI.h>
+#include <bcm2835.h> 
 
 /**
  * @addtogroup rpiPal
@@ -38,7 +39,7 @@ class SPICRpi: virtual public SPIC
 		uint8_t     misoPin;
 		uint8_t     mosiPin;
 		uint8_t     sckPin;
-		SPIClass    *spi;
+		SPIClass    *spi; 
 		uint8_t     lsb;
 		uint8_t     mode;
 		uint8_t     clock;

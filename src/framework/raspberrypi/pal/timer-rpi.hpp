@@ -11,6 +11,7 @@
 #define TIMER_RPI_HPP_
 
 #include "../../../config/tle94112-conf.hpp"
+#include <wiringPi.h>
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 

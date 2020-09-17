@@ -17,9 +17,10 @@
  * This function is setting the basics for a SPIC and the default spi.
  *
  */
-SPICRpi::SPICRpi() : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
+SPICRpi::SPICRpi() : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
 {
-	spi = &SPI;
+	// spi = &SPI;
+	
 }
 
 /**
@@ -31,12 +32,13 @@ SPICRpi::SPICRpi() : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
  * @param mode   SPI mode
  * @param clock  SPI clock divider
  */
-SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
+SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
 {
-	this->lsb = lsb;
+	/* this->lsb = lsb;
 	this->mode = mode;
 	this->clock = clock;
-	spi = &SPI;
+	spi = &SPI; */ 
+	
 }
 
 /**
@@ -51,13 +53,14 @@ SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(LSBFIRST), mode
  * @param mosiPin  mosi pin number
  * @param sckPin   systemclock pin number
  */
-SPICRpi::SPICRpi(SPIClass &port, uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin) : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
+SPICRpi::SPICRpi(SPIClass &port, uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin) : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER16)
 {
-	this->csPin = csPin;
+	/* this->csPin = csPin;
 	this->misoPin = misoPin;
 	this->mosiPin = mosiPin;
 	this->sckPin = sckPin;
-	spi = &port;
+	spi = &port; */
+	return OK;
 }
 
 /**
@@ -73,12 +76,14 @@ SPICRpi::Error_t SPICRpi::init()
 	//Meine Vermutung: 
 	// wiringPiSPISetup (int channel, int speed);
 	
-	wiringPiSPISetup (0, 32000000);
+	// wiringPiSPISetup (0, 32000000);
+
+	//Neue Vermutung:
 
 	/* spi->begin();
-	spi->setBitOrder(this->lsb); 
-	spi->setClockDivider(this->clock); 
-	spi->setDataMode(this->mode); */
+	spi->bcm2835SPIBitOrder(this->lsb); 
+	spi->bcm2835SPIClockDivider(this->clock); 
+	spi->bcm2835SPIMode(this->mode); */
 	return OK;
 }
 
@@ -91,7 +96,7 @@ SPICRpi::Error_t SPICRpi::init()
  */
 SPICRpi::Error_t SPICRpi::deinit()
 {
-	spi->end();
+	// spi->end();
 	return OK;
 }
 

@@ -22,7 +22,7 @@
  * @{
  */
 
-#include <SPI.h>
+// #include <SPI.h>
 #include "../../../corelib/TLE94112.hpp"
 #include "gpio-rpi.hpp"
 #include "timer-rpi.hpp"
@@ -39,7 +39,7 @@
  *
  * @see Tle94112
  */
-class TLE94112Rpi: virtual public Tle94112 //TLE94112Ino in TLE94112Rpi?
+class TLE94112Rpi: virtual public Tle94112 
 {
 	protected:
 
