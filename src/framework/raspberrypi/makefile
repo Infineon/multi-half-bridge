@@ -1,7 +1,7 @@
 CPPFLAGS = -DTLE94112_FRAMEWORK=TLE94112_FRMWK_RPI
 BUILDPATH = ../../../build
 
-all: examples/test
+all: examples/basicTest
 
 corelib:
 	mkdir -p $(BUILDPATH)
@@ -18,10 +18,13 @@ pal: corelib
 wrapper: pal
 	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/TLE94112-platf-rpi.o wrapper/TLE94112-platf-rpi.cpp
 
-examples/test: wrapper
-	g++ $(CPPFLAGS) -o wholepal gpio-rpi.o spic-rpi.o timer-rpi.o TLE94112-pal-rpi.o
+examples/basicTest: wrapper
+	g++ -c $(CPPFLAGS) -o ../../../build/basicTest.o examples/basicTest.cpp -Iwrapper/ -I../../corelib -Ipal
+	g++ $(CPPFLAGS) -o ../../../build/basicTest ../../../build/*.o -I/usr/local/include -L/usr/local/lib
 
 clean:
+	rm -f corelib
 	rm -f pal
-	rm -f wrapper 
+	rm -f wrapper
+	rm -f examples/basicTest
 	rm -f *.o
