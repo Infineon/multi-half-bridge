@@ -19,7 +19,7 @@
  */
 SPICRpi::SPICRpi() : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
 {
-	// spi = &SPI;
+	// spi = &SPI; //Wo liegt das SPI? Arduino spezifisch?
 	
 }
 
@@ -37,7 +37,7 @@ SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(BCM2835_SPI_BIT
 	/* this->lsb = lsb;
 	this->mode = mode;
 	this->clock = clock;
-	spi = &SPI; */ 
+	spi = &SPI; // Warum wird hier nochmal die Adresse übergeben? */ 
 	
 }
 

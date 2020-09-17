@@ -46,16 +46,16 @@ GPIORpi::GPIORpi(uint8_t pin, uint8_t mode, VLogic_t logic): pin(pin), mode(mode
  */
 GPIORpi::Error_t GPIORpi::init()
 {
-	/* GPIORpi::Error_t err = GPIORpi::OK;
-	if (wiringPiSPISetup() < 0)
+	GPIORpi::Error_t err = GPIORpi::OK;
+	if (wiringPiSetup() < 0)
 	{
 		err = GPIORpi::INTF_ERROR; //gibts das in WiringPi?
 	}
 	
 	pinMode(this->pin, this->mode);
 
-	return err;*/
-	return OK;
+	return err;
+	
 }
 
 /**

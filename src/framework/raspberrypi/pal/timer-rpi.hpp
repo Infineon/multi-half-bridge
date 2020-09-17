@@ -30,13 +30,13 @@ class TimerRpi: virtual public Timer
 		Error_t init();
 		Error_t deinit();
 		Error_t start();
-		Error_t elapsed(uint32_t &elapsed); //Richtiger Datentyp?
+		Error_t elapsed(uint32_t &elapsed); 
 		Error_t stop();
 		Error_t delayMilli(uint32_t timeout);
 		Error_t delayMicro(uint32_t timeout);
 
 	private:
-		uint32_t startTime; //Richtiger Datentyp?
+		uint32_t startTime; 
 };
 /** @} */
 
