@@ -20,11 +20,7 @@ wrapper: pal
 
 examples/basicTest: wrapper
 	g++ -c $(CPPFLAGS) -o ../../../build/basicTest.o examples/basicTest.cpp -Iwrapper/ -I../../corelib -Ipal
-	g++ $(CPPFLAGS) -o ../../../build/basicTest ../../../build/*.o -I/usr/local/include -L/usr/local/lib
+	g++ $(CPPFLAGS) -o ../../../build/basicTest ../../../build/*.o -I/usr/local/include -L/usr/local/lib -lwiringPi
 
 clean:
-	rm -f corelib
-	rm -f pal
-	rm -f wrapper
-	rm -f examples/basicTest
-	rm -f *.o
+	rm -f rm -f ../../../build/*
