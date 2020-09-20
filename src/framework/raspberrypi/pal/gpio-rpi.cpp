@@ -8,7 +8,6 @@
  */
 
 #include "gpio-rpi.hpp"
-#include <wiringPiSPI.h>
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 // #include <Arduino.h>

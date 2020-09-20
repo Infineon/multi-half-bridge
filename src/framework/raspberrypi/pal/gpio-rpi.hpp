@@ -17,6 +17,7 @@
 
 #include "../../../corelib/TLE94112.hpp"
 #include <wiringPi.h>
+#include <wiringPiSPI.h>
 /**
  * @addtogroup rpiPal
  * @{
