@@ -74,8 +74,11 @@ SPICRpi::Error_t SPICRpi::init()
 {
 	//Meine Vermutung: 
 	// wiringPiSPISetup (int channel, int speed);
+	+
 	
-	// wiringPiSPISetup (0, 32000000);
+	
+	
+		// wiringPiSPISetup (0, 32000000);
 
 	//Neue Vermutung:
 
