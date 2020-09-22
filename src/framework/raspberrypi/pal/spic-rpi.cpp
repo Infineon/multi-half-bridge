@@ -19,7 +19,10 @@
  */
 SPICRpi::SPICRpi() : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
 {
-	// spi = &SPI; //Wo liegt das SPI? Arduino spezifisch?
+	/*this->spi.chip_select = csPin;
+	// this->spi.speed = 1000000;
+	this->spi.mode = (SPI_CLOCK_RISING_EDGE | SPI_CLOCK_IDLE_LOW | SPI_NO_DMA | SPI_LSB_FIRST | SPI_CS_ACTIVE_LOW);
+	this->spi.bits = 8;*/
 	
 }
 
@@ -78,7 +81,7 @@ SPICRpi::Error_t SPICRpi::init()
 	
 	
 	
-		// wiringPiSPISetup (0, 32000000);
+		wiringPiSPISetup (0, 32000000);
 
 	//Neue Vermutung:
 
