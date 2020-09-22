@@ -23,4 +23,4 @@ examples/basicTest: wrapper
 	g++ $(CPPFLAGS) -o ../../../build/basicTest ../../../build/*.o -I/usr/local/include -L/usr/local/lib -lwiringPi
 
 clean:
-	rm -f rm -f ../../../build/*
+	rm -f ../../../build/*
