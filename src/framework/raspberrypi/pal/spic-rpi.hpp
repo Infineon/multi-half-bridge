@@ -53,6 +53,8 @@ class SPICRpi: virtual public SPIC
 		uint8_t     lsb;
 		uint8_t     mode;
 		uint8_t     clock;
+		uint8_t		channel;
+		uint8_t		speed; 
 
 	public:
 					SPICRpi();
