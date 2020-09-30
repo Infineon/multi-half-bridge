@@ -19,10 +19,7 @@
  */
 SPICRpi::SPICRpi() : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
 {
-	/*this->spi.chip_select = csPin;
-	// this->spi.speed = 1000000;
-	this->spi.mode = (SPI_CLOCK_RISING_EDGE | SPI_CLOCK_IDLE_LOW | SPI_NO_DMA | SPI_LSB_FIRST | SPI_CS_ACTIVE_LOW);
-	this->spi.bits = 8;*/
+	
 	
 }
 
@@ -58,11 +55,11 @@ SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(BCM2835_SPI_BIT
  */
 SPICRpi::SPICRpi(uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin) : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
 {
-	/* this->csPin = csPin;
-	this->misoPin = misoPin;
-	this->mosiPin = mosiPin;
-	this->sckPin = sckPin;
-	spi = &port; */
+	// this->csPin = csPin;
+	// this->misoPin = misoPin;
+	// this->mosiPin = mosiPin;
+	// this->sckPin = sckPin;
+	// spi = &port; 
 }
 
 /**
@@ -76,12 +73,8 @@ SPICRpi::SPICRpi(uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin
 SPICRpi::Error_t SPICRpi::init()
 {
 	//Meine Vermutung: 
-	wiringPiSPISetup (uint8_t channel, uint8_t speed);
-	+
 	
-	
-	
-		// wiringPiSPISetup (0, 32000000);
+	wiringPiSPISetupMode (channel, speed, mode);
 
 	//Neue Vermutung:
 
@@ -107,7 +100,7 @@ SPICRpi::Error_t SPICRpi::init()
  */
 SPICRpi::Error_t SPICRpi::deinit()
 {
-	// spi->end();
+	bcm2835_spi_end();
 	return OK;
 }
 
@@ -120,7 +113,7 @@ SPICRpi::Error_t SPICRpi::deinit()
  */
 SPICRpi::Error_t SPICRpi::transfer(uint8_t send, uint8_t &received)
 {
-	// received = spi->transfer(send); 
+	received = bcm2835_spi_transfer(send);
 	return OK;
 }
 
