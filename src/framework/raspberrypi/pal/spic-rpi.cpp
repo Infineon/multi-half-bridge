@@ -19,7 +19,7 @@
  */
 SPICRpi::SPICRpi() : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
 {
-		
+		//fehlt noch miso, mosi, sck, cs infos 
 }
 
 /**
@@ -36,7 +36,7 @@ SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(BCM2835_SPI_BIT
 	this->lsb = lsb;
 	this->mode = mode;
 	this->clock = clock;
-	
+	// fehlt noch die Übergabe der miso, mosi, sck und cs informationen -> über bcm library? Wie?
 	
 }
 
@@ -58,7 +58,7 @@ SPICRpi::SPICRpi(uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin
 	this->misoPin = misoPin;
 	this->mosiPin = mosiPin;
 	this->sckPin = sckPin;
-	
+	// fehlt noch miso, mosi, sck, cs
 }
 
 /**
