@@ -19,8 +19,7 @@
  */
 SPICRpi::SPICRpi() : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
 {
-	
-	
+		
 }
 
 /**
@@ -33,11 +32,11 @@ SPICRpi::SPICRpi() : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1
  * @param clock  SPI clock divider
  */
 SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
-{
-	/* this->lsb = lsb;
+{	
+	this->lsb = lsb;
 	this->mode = mode;
 	this->clock = clock;
-	spi = &SPI; // Warum wird hier nochmal die Adresse übergeben? */ 
+	
 	
 }
 
@@ -55,11 +54,11 @@ SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(BCM2835_SPI_BIT
  */
 SPICRpi::SPICRpi(uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin) : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
 {
-	// this->csPin = csPin;
-	// this->misoPin = misoPin;
-	// this->mosiPin = mosiPin;
-	// this->sckPin = sckPin;
-	// spi = &port; 
+	this->csPin = csPin;
+	this->misoPin = misoPin;
+	this->mosiPin = mosiPin;
+	this->sckPin = sckPin;
+	
 }
 
 /**
@@ -77,12 +76,13 @@ SPICRpi::Error_t SPICRpi::init()
 	// wiringPiSPISetupMode (channel, speed, mode);
 
 	//oder:
-
-	/* bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_LSBFIRST);      
+	
+	bcm2835_spi_begin();
+	bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_LSBFIRST);      
     bcm2835_spi_setDataMode(BCM2835_SPI_MODE1);                   
     bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_16); 	  
     bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                      
-    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW); */     
+    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);     
 
 	return OK;
 }
@@ -122,13 +122,13 @@ SPICRpi::Error_t SPICRpi::transfer(uint8_t send, uint8_t &received)
  */
 SPICRpi::Error_t SPICRpi::transfer16(uint16_t send, uint16_t &received)
 {
-	/* uint8_t data_out_msb = (uint8_t)((send >> 8) & 0xFF);
+	uint8_t data_out_msb = (uint8_t)((send >> 8) & 0xFF);
 	uint8_t data_out_lsb = (uint8_t)(send & 0xFF);
 
-	uint8_t data_in_msb = spi->transfer(data_out_msb);
-	uint8_t data_in_lsb = spi->transfer(data_out_lsb);
+	uint8_t data_in_msb = bcm2835_spi_transfer(data_out_msb);
+	uint8_t data_in_lsb = bcm2835_spi_transfer(data_out_lsb);
 
-	received = (uint16_t)(((uint16_t)data_in_msb << 8) | (data_in_lsb)); */
+	received = (uint16_t)(((uint16_t)data_in_msb << 8) | (data_in_lsb));
 	return OK;
 }
 

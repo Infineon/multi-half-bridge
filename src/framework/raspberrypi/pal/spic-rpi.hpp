@@ -38,7 +38,6 @@
  * @{
  */
 
-
 /**
  * @brief Raspberry Pi SPIC class
  *
