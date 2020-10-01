@@ -72,22 +72,18 @@ SPICRpi::SPICRpi(uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin
  */
 SPICRpi::Error_t SPICRpi::init()
 {
-	//Meine Vermutung: 
+	//Entweder 
 	
-	wiringPiSPISetupMode (channel, speed, mode);
+	// wiringPiSPISetupMode (channel, speed, mode);
 
-	//Neue Vermutung:
+	//oder:
 
 	/* bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_LSBFIRST);      
     bcm2835_spi_setDataMode(BCM2835_SPI_MODE1);                   
     bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_16); 	  
     bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                      
-    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);      */
+    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW); */     
 
-	/* spi->begin();
-	spi->bcm2835SPIBitOrder(this->lsb); 
-	spi->bcm2835SPIClockDivider(this->clock); 
-	spi->bcm2835SPIMode(this->mode); */
 	return OK;
 }
 
