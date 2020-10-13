@@ -71,7 +71,7 @@ SPICRpi::SPICRpi(uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin
  */
 SPICRpi::Error_t SPICRpi::init()
 {
-	bcm2835_init();   
+	bcm2835_spi_begin();   
 	return OK;
 }
 
