@@ -18,7 +18,7 @@
  * This function is setting the basics for a GPIO.
  *
  */
-GPIORpi::GPIORpi() : pin(0), mode(OUTPUT), logic(POSITIVE) //Woher weiß ich welcher Pin? Bei Hall Switch Pin 4
+GPIORpi::GPIORpi() : pin(0), mode(BCM2835_GPIO_FSEL_OUTP), logic(POSITIVE)
 { 
 }
 
@@ -46,12 +46,12 @@ GPIORpi::GPIORpi(uint8_t pin, uint8_t mode, VLogic_t logic): pin(pin), mode(mode
 GPIORpi::Error_t GPIORpi::init()
 {
 	GPIORpi::Error_t err = GPIORpi::OK;
-	if (wiringPiSetup() < 0)
+	if (bcm2835_init() < 0)
 	{
-		err = GPIORpi::INTF_ERROR; //gibts das in WiringPi?
+		err = GPIORpi::INTF_ERROR; 
 	}
 	
-	pinMode(this->pin, this->mode);
+	bcm2835_gpio_fsel(this->pin, this->mode);
 
 	return err;
 	
@@ -66,6 +66,7 @@ GPIORpi::Error_t GPIORpi::init()
  */
 GPIORpi::Error_t GPIORpi::deinit()
 {
+	bcm2835_close();
 	return OK;
 }
 
@@ -81,7 +82,7 @@ GPIORpi::Error_t GPIORpi::deinit()
  */
 GPIORpi::VLevel_t GPIORpi::read()
 {
-	return (VLevel_t) digitalRead(this->pin);
+	return (VLevel_t) bcm2835_gpio_lev(this->pin);
 }
 
 /**
@@ -94,7 +95,7 @@ GPIORpi::VLevel_t GPIORpi::read()
  */
 GPIORpi::Error_t GPIORpi::write(VLevel_t level)
 {
-	digitalWrite(this->pin, level);
+	bcm2835_gpio_write(this->pin, level);
 	return OK;
 }
 
@@ -109,10 +110,10 @@ GPIORpi::Error_t GPIORpi::write(VLevel_t level)
 GPIORpi::Error_t GPIORpi::enable()
 {
 	if(this->logic == POSITIVE){
-		digitalWrite(this->pin, GPIO_HIGH);
+		bcm2835_gpio_write(this->pin, GPIO_HIGH);
 	}
 	else if(this->logic == NEGATIVE){
-		digitalWrite(this->pin, GPIO_LOW);;
+		bcm2835_gpio_write(this->pin, GPIO_LOW);;
 	}
 	return GPIORpi::OK;
 }
@@ -128,10 +129,10 @@ GPIORpi::Error_t GPIORpi::enable()
 GPIORpi::Error_t GPIORpi::disable()
 {
 	if(this->logic == POSITIVE){
-		digitalWrite(this->pin, GPIO_LOW);
+		bcm2835_gpio_write(this->pin, GPIO_LOW);
 	}
 	else if(this->logic == NEGATIVE){
-		digitalWrite(this->pin, GPIO_HIGH);
+		bcm2835_gpio_write(this->pin, GPIO_HIGH);
 	}
 	return GPIORpi::OK;
 }

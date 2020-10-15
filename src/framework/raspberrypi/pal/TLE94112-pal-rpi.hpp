@@ -27,7 +27,8 @@
 #include "gpio-rpi.hpp"
 #include "timer-rpi.hpp"
 #include "spic-rpi.hpp"
-#include <wiringPi.h> 
+// #include <wiringPi.h> 
+#include <bcm2835.h>
 
 /**
  * @brief represents a basic TLE94112

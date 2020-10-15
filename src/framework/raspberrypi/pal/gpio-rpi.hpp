@@ -16,8 +16,9 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #include "../../../corelib/TLE94112.hpp"
-#include <wiringPi.h>
-#include <wiringPiSPI.h>
+// #include <wiringPi.h>
+#include <bcm2835.h>
+
 /**
  * @addtogroup rpiPal
  * @{
