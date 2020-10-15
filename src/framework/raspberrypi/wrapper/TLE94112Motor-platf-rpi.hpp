@@ -22,6 +22,9 @@
  * @{
  */
 
+class Tle94112MotorRpi: virtual public Tle94112Motor
+{
+};
 
 /**
  * @}
