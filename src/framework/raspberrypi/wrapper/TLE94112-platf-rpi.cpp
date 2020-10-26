@@ -25,7 +25,7 @@ Tle94112Rpi::Tle94112Rpi(void* bus, uint8_t csPin):Tle94112() // achtung! SPI Kl
 }
 
 
-void Tle94112Rpi::begin(void)
+void Tle94112Rpi::begin(void) //Segmentation fault
 {
 	begin(TLE94112_PIN_CS0);
 }

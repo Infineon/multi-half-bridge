@@ -13,7 +13,7 @@
 
 #include "../../../config/tle94112-conf.hpp"
 #include "../pal/TLE94112-pal-rpi.hpp"
-//#include <bcm2835.h> 
+#include <bcm2835.h> 
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
@@ -29,14 +29,14 @@
 /*!
  * Standard chip select pin for first TLE94112 shield
  */
-#define TLE94112_PIN_CS0     RPI_V2_GPIO_P1_24
+#define TLE94112_PIN_CS0     RPI_GPIO_P1_24 // RPI_V2_GPIO_P1_24 //Segmemtation fault
 
 /*!
  * Standard chip select pin for second TLE94112 shield
  * To use a second shield with different CS pin you have
  * to change the position of the Jumper
  */
-#define TLE94112_PIN_CS1     RPI_V2_GPIO_P1_26
+#define TLE94112_PIN_CS1     RPI_GPIO_P1_26 //RPI_V2_GPIO_P1_26
 #define TLE94112_PIN_CS2     RPI_V2_GPIO_P1_22
 #define TLE94112_PIN_CS3     RPI_V2_GPIO_P1_15
 
