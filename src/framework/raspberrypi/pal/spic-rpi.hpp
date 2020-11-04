@@ -30,6 +30,7 @@
 #define	bcm2835_delayMicroseconds bcm2835_delayMicroseconds_alt
 #include <bcm2835.h>
 #undef bcm2835_delayMicroseconds
+#include <cstdio>
 // #include <wiringPi.h>
 // #include <wiringPiSPI.h>
 

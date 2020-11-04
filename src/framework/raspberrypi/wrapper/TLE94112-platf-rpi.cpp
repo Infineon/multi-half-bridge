@@ -20,12 +20,12 @@ Tle94112Rpi::Tle94112Rpi(void):Tle94112()
 	Tle94112::sBus = new SPICRpi();
 }
 
-Tle94112Rpi::Tle94112Rpi(void* bus, uint8_t csPin):Tle94112() // achtung! SPI Klasse
+Tle94112Rpi::Tle94112Rpi(void* bus, uint8_t csPin):Tle94112()
 {
 }
 
 
-void Tle94112Rpi::begin(void) //Segmentation fault
+void Tle94112Rpi::begin(void)
 {
 	begin(TLE94112_PIN_CS0);
 }
@@ -40,7 +40,7 @@ void Tle94112Rpi::begin(uint8_t csPin)
 	Tle94112::cs->enable();
 	Tle94112::timer->init();
 	mEnabled = true;
-	init();
+	init(); 
 }
 
 void Tle94112Rpi::end(void)

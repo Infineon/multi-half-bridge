@@ -22,5 +22,13 @@ examples/basicTest: wrapper
 	g++ -c $(CPPFLAGS) -o ../../../build/basicTest.o examples/basicTest.cpp -Iwrapper/ -I../../corelib -Ipal
 	g++ $(CPPFLAGS) -o ../../../build/basicTest ../../../build/*.o -I/usr/local/include -L/usr/local/lib -lbcm2835
 
+examples/control2Motors: wrapper
+	g++ -c $(CPPFLAGS) -o ../../../build/control2Motors.o examples/control2Motors.cpp -Iwrapper/ -I../../corelib -Ipal
+	g++ $(CPPFLAGS) -o ../../../build/control2Motors ../../../build/*.o -I/usr/local/include -L/usr/local/lib -lbcm2835
+
+examples/rampSpeedTest: wrapper
+	g++ -c $(CPPFLAGS) -o ../../../build/rampSpeedTest.o examples/rampSpeedTest.cpp -Iwrapper/ -I../../corelib -Ipal
+	g++ $(CPPFLAGS) -o ../../../build/rampSpeedTest ../../../build/*.o -I/usr/local/include -L/usr/local/lib -lbcm2835
+
 clean:
 	rm -f ../../../build/*

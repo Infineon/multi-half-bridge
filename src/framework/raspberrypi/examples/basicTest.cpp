@@ -26,31 +26,31 @@ int main(int argc, char const *argv[])
 
   
   // Tle94112 Object on Shield 1
-printf("Test0\n");
+//printf("Test0\n");
 Tle94112Rpi controller = Tle94112Rpi();
 
 // Tle94112Motor Objects on controller
-printf("Test0.1\n");
+//printf("Test0.1\n");
 Tle94112Motor motor(controller);
-printf("Test0.2\n");
+//printf("Test0.2\n");
 
 
   // Enable MotorController on all Shields and Motors
   // Note: Required to be done before starting to configure the motor
   // controller is set to default CS0 pin
-  controller.begin(); //Segmentation fault
-  printf("Test1\n");
+  controller.begin();
+  //printf("Test1\n");
 
   // Connect a motor to HB1/HB2 highside and HB3/HB4 lowside
   // With two combined halfbridges the motor can have up to 1.8 A
   // IMPORTANT connect PWM to Lowside as higside is active Free wheeling
   motor.initConnector(motor.HIGHSIDE, controller.TLE_NOPWM, controller.TLE_HB1, controller.TLE_HB2, controller.TLE_NOHB, controller.TLE_NOHB);
-  printf("Test2\n");
+  //printf("Test2\n");
   motor.initConnector(motor.LOWSIDE,  controller.TLE_PWM1,  controller.TLE_HB3, controller.TLE_HB4, controller.TLE_NOHB, controller.TLE_NOHB);
-  printf("Test3\n");
+  //printf("Test3\n");
   // start the motor controller
   motor.begin();
-  printf("Test4\n");
+  //printf("Test4\n");
 
   // end the setup function
   printf("Init ready\n");
@@ -59,9 +59,7 @@ printf("Test0.2\n");
 
   // coast the motor
   motor.coast();
-  printf("Test5\n");
   delay(1000);
-  printf("Test6\n");
 
   // max forward/backward
   printf("max forward/backward\n");

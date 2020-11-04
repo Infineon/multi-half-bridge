@@ -46,12 +46,12 @@ GPIORpi::GPIORpi(uint8_t pin, uint8_t mode, VLogic_t logic): pin(pin), mode(mode
 GPIORpi::Error_t GPIORpi::init()
 {
 	GPIORpi::Error_t err = GPIORpi::OK;
-	if (bcm2835_init() < 0)
+	if (bcm2835_init() <= 0)
 	{
 		err = GPIORpi::INTF_ERROR; 
-	}
+	} 
 	
-	bcm2835_gpio_fsel(this->pin, this->mode);
+	 bcm2835_gpio_fsel(this->pin, this->mode);
 
 	return err;
 	
