@@ -30,5 +30,8 @@ examples/rampSpeedTest: wrapper
 	g++ -c $(CPPFLAGS) -o ../../../build/rampSpeedTest.o examples/rampSpeedTest.cpp -Iwrapper/ -I../../corelib -Ipal
 	g++ $(CPPFLAGS) -o ../../../build/rampSpeedTest ../../../build/*.o -I/usr/local/include -L/usr/local/lib -lbcm2835
 
+examples/speedControl: wrapper
+g++ -c $(CPPFLAGS) -o ../../../build/speedControl.o examples/speedControl.cpp -Iwrapper/ -I../../corelib -Ipal
+	g++ $(CPPFLAGS) -o ../../../build/speedControl ../../../build/*.o -I/usr/local/include -L/usr/local/lib -lbcm2835
 clean:
 	rm -f ../../../build/*
