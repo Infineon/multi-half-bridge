@@ -10,7 +10,6 @@
 #include "gpio-rpi.hpp"
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
-// #include <Arduino.h>
 
 /**
  * @brief Constructor of the Raspberry Pi GPIO class
