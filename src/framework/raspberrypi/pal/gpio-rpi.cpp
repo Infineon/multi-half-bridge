@@ -14,7 +14,7 @@
 /**
  * @brief Constructor of the Raspberry Pi GPIO class
  *
- * This function is setting the basics for a GPIO.
+ * This function sets the basics for a GPIO.
  *
  */
 GPIORpi::GPIORpi() : pin(0), mode(BCM2835_GPIO_FSEL_OUTP), logic(POSITIVE)
@@ -24,7 +24,7 @@ GPIORpi::GPIORpi() : pin(0), mode(BCM2835_GPIO_FSEL_OUTP), logic(POSITIVE)
 /**
  * @brief Constructor of the Raspberry Pi GPIO class
  *
- * This function is setting the basics for a GPIO. It allows to set the pin number,
+ * This function sets the basics for a GPIO. It allows to set the pin number,
  * mode of the pin and the logic level.
  *
  * @param[in]   pin     Number of the desired pin
@@ -38,7 +38,7 @@ GPIORpi::GPIORpi(uint8_t pin, uint8_t mode, VLogic_t logic): pin(pin), mode(mode
 /**
  * @brief Initialize the GPIO
  *
- * This function is initializing the chosen pin.
+ * This function initializes the chosen pin.
  *
  * @return      GPIORpi::Error_t
  */
@@ -59,7 +59,7 @@ GPIORpi::Error_t GPIORpi::init()
 /**
  * @brief Deinitialize the GPIO
  *
- * This function is deinitializing the chosen pin.
+ * This function deinitializes the chosen pin.
  *
  * @return      GPIORpi::Error_t
  */
@@ -101,7 +101,7 @@ GPIORpi::Error_t GPIORpi::write(VLevel_t level)
 /**
  * @brief Enable the GPIO
  *
- * This functions enable the chosen pin. Depending on the chosen logic of the pin
+ * This function enables the chosen pin. Depending on the chosen logic of the pin
  * it sets the right logic level of the pin.
  *
  * @return      GPIORpi::Error_t
@@ -120,7 +120,7 @@ GPIORpi::Error_t GPIORpi::enable()
 /**
  * @brief Disable the GPIO
  *
- * This functions disables the chosen pin. Depending on the chosen logic of the pin
+ * This function disables the chosen pin. Depending on the chosen logic of the pin
  * it sets the right logic level of the pin.
  *
  * @return      GPIOIno::Error_t

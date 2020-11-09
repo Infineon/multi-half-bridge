@@ -11,7 +11,6 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
-// #include <Arduino.h>
 #include "timer-rpi.hpp"
 
 /**
@@ -33,7 +32,7 @@ TimerRpi::~TimerRpi()
 /**
  * @brief Initialization of the Timer
  *
- * This function is initializing the Timer and sets
+ * This function initializes the Timer and sets
  * the elapsed time to zero.
  *
  * @return      TimerRpi::Error_t
@@ -47,8 +46,8 @@ TimerRpi::Error_t TimerRpi::init()
 /**
  * @brief Deinitialize the Timer
  *
- * This function deinitialize the Timer and also
- * resets the elapsed time variable.
+ * This function deinitializes the Timer and also
+ * resets the elapsed time to variable.
  *
  * @return      TimerRpi::Error_t
  */
@@ -61,7 +60,7 @@ TimerRpi::Error_t TimerRpi::deinit()
 /**
  * @brief Start the timer
  *
- * This function is starting the timer.
+ * This function starts the timer.
  *
  * @return      TimerRpi::Error_t
  */
@@ -74,7 +73,7 @@ TimerRpi::Error_t TimerRpi::start()
 /**
  * @brief Calculate the elapsed time
  *
- * This function is calculating the elapsed time since the
+ * This function calculates the elapsed time since the
  * start of the timer. The value stored in the given variable
  * is in milliseconds.
  *
@@ -104,7 +103,7 @@ TimerRpi::Error_t TimerRpi::stop()
 /**
  * @brief Time delay
  *
- * This function is causing a desired delay of the application.
+ * This function causes a desired delay of the application.
  * The input value is given in milliseconds.
  *
  * @param[in]   timeout                 Desired timeout in ms
@@ -119,7 +118,7 @@ TimerRpi::Error_t TimerRpi::delayMilli(uint32_t timeout)
 /**
  * @brief Time delay
  *
- * This function is causing a desired delay of the application.
+ * This function causes a desired delay of the application.
  * The input value is given in microseconds.
  *
  * @param[in]   timeout                 Desired timeout in us
