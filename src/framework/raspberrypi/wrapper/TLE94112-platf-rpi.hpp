@@ -57,7 +57,7 @@ class Tle94112Rpi: virtual public TLE94112Rpi
 		 * \param bus    void pointer to the object representing the SPI class
 		 * \param csPin  pin number of the CS pin
 		 */
-		Tle94112Rpi(void* bus, uint8_t csPin); //void* bus -> auf SPI Class, die nicht existiert
+		Tle94112Rpi(void* bus, uint8_t csPin);
 
 		//! \brief enables and initializes the TLE94112
 		void begin(void);
