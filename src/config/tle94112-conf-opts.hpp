@@ -17,6 +17,7 @@
 
 #define TLE94112_FRMWK_ARDUINO   0x00U
 #define TLE94112_FRMWK_WICED     0x01U
+#define TLE94112_FRMWK_RPI       0x02U
 /** @} */
 
 #endif /** TLE94112_CONF_OPTS_HPP_ **/
