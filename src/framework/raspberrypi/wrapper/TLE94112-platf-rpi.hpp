@@ -9,7 +9,7 @@
  */
 
 #ifndef TLE94112_PLATF_RPI_HPP_
-#define TLE94112_PLATF_RPI_HPP_
+#define TLE94112_PLATF_RPI_HPP_ 
 
 #include "../../../config/tle94112-conf.hpp"
 #include "../pal/TLE94112-pal-rpi.hpp"
