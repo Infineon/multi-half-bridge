@@ -59,6 +59,13 @@ class Tle94112Rpi: virtual public TLE94112Rpi
 		 */
 		Tle94112Rpi(void* bus, uint8_t csPin);
 
+		/*!
+		 * \brief constructor with individual pin assignment
+		 *
+		 * \param csPin  pin number of the CS pin
+		 */
+		Tle94112Rpi(uint8_t csPin);
+
 		//! \brief enables and initializes the TLE94112
 		void begin(void);
 

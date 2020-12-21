@@ -1,7 +1,7 @@
 CPPFLAGS = -DTLE94112_FRAMEWORK=TLE94112_FRMWK_RPI
 BUILDPATH = ../../../build
 
-.PHONY: all corelib pal wrapper examples/basicTest examples/control2Motors examples/rampSpeedTest
+.PHONY: all corelib pal wrapper examples/basicTest examples/control2Motors examples/rampSpeedTest examples/controlwith2HATs
 
 all: examples/basicTest
 
@@ -32,5 +32,8 @@ examples/rampSpeedTest: wrapper
 	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/rampSpeedTest.o examples/rampSpeedTest.cpp -Iwrapper/ -I../../corelib -Ipal
 	g++ $(CPPFLAGS) -o $(BUILDPATH)/rampSpeedTest $(BUILDPATH)/*.o -I/usr/local/include -L/usr/local/lib -lbcm2835
 
+examples/controlwith2HATs: wrapper
+	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/controlwith2HATs.o examples/controlwith2HATs.cpp -Iwrapper/ -I../../corelib -Ipal
+	g++ $(CPPFLAGS) -o $(BUILDPATH)/controlwith2HATs $(BUILDPATH)/*.o -I/usr/local/include -L/usr/local/lib -lbcm2835
 clean:
 	rm -f $(BUILDPATH)/*

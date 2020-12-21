@@ -24,6 +24,13 @@ Tle94112Rpi::Tle94112Rpi(void* bus, uint8_t csPin):Tle94112()
 {
 }
 
+Tle94112Rpi::Tle94112Rpi(uint8_t csPin):Tle94112()
+{
+	Tle94112::en = new GPIORpi(TLE94112_PIN_EN,  BCM2835_GPIO_FSEL_OUTP, GPIORpi::POSITIVE );
+	Tle94112::cs = new GPIORpi(csPin,  BCM2835_GPIO_FSEL_OUTP, GPIORpi::POSITIVE );
+	Tle94112::timer = new TimerRpi();
+	Tle94112::sBus = new SPICRpi();
+}
 
 void Tle94112Rpi::begin(void)
 {
