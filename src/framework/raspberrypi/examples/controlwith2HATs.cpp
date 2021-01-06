@@ -23,79 +23,47 @@
 
 int main(int argc, char const *argv[])
 {
-
   
-  // Tle94112 Object on Shield 1
-Tle94112Rpi controller1 = Tle94112Rpi();
-Tle94112Rpi controller2 = Tle94112Rpi(TLE94112_PIN_CS1);
+    // Tle94112 Object for HATs 1 (CS0, default) and 2 (CS1)
+    Tle94112Rpi controller1 = Tle94112Rpi();
+    Tle94112Rpi controller2 = Tle94112Rpi(TLE94112_PIN_CS1);
 
-// Tle94112Motor Objects
-Tle94112Motor motor1(controller2);
-Tle94112Motor motor2(controller1);
+    // Tle94112Motor Objects
+    Tle94112Motor motor1(controller1);
+    Tle94112Motor motor2(controller2);
 
-    // Enable MotorController Tle94112
-    // Note: Required to be done before starting to configure the motor
-    printf("Controller setup\n");
+    // Connect motor1 to HB1 and HB5 of controller 1
+    motor1.connect(motor1.HIGHSIDE, controller1.TLE_HB1);
+    motor1.connect(motor1.LOWSIDE,  controller1.TLE_HB5);
+
+    // Connect motor2 to HB1 and HB5 of controller 2
+    motor2.connect(motor2.HIGHSIDE, controller2.TLE_HB1);
+    motor2.connect(motor2.LOWSIDE,  controller2.TLE_HB5);
+
+    // Begin SPI communication with controller 1
     controller1.begin();
-    controller2.begin();
-    printf("Controller begin\n");
 
-    // Connect motor1 to HB1 and HB5
-    motor1.connect(motor1.HIGHSIDE, controller2.TLE_HB1);
-    motor1.connect(motor1.LOWSIDE,  controller2.TLE_HB5);
-
-    motor2.connect(motor2.HIGHSIDE, controller1.TLE_HB1);
-    motor2.connect(motor2.LOWSIDE,  controller1.TLE_HB5);
-
-    // Drive HB1 with signal from PWM1
-    // Note: This allows to control the speed of the motor
-    motor1.setPwm(motor1.HIGHSIDE, controller2.TLE_PWM1);
-    motor2.setPwm(motor2.HIGHSIDE, controller1.TLE_PWM1);
-    // Set PWM Frequency, default is 80 Hz
-    motor1.setPwmFreq(motor1.HIGHSIDE, controller2.TLE_FREQ100HZ);
-    motor2.setPwmFreq(motor2.HIGHSIDE, controller1.TLE_FREQ100HZ);
-    // Connect motor2 to HB2 and HB4
-
-
-    // Drive HB2 with signal from PWM2
-    // Note: This allows to control the speed of the motor
-
-    //when configuration is done, call begin to start operating the motors
-    printf("Motor begin\n");
+    // Run motor1
+    printf("Run motor1...\n");
     motor1.begin();
+    motor1.start(1);
+
+    delay(2000);
+
+    // Begin SPI communication with controller 2 (ends communication with controller 1)
+    controller2.begin();
+
+    // Run motor2
+    printf("Run motor2...\n");
     motor2.begin();
-    printf("All ready\n");
+    motor2.start(1);
 
-    // start the motor1 forwards on half speed
-    motor1.start(127);
-    // start the motor2 backwards on half speed
-    motor2.start(127);
     delay(5000);
 
-    // accelerate motor1 to full speed
-    motor1.setSpeed(255);
-    // stop motor2
-    motor2.setSpeed(255);
-    delay(1000);
-
-    // reduce speed of motor1
-    motor1.setSpeed(127);
-    motor2.setSpeed(127);
-    delay(1000);
-    // let motor1 turn backwards on half speed
-    motor1.setSpeed(-127);
-    motor2.setSpeed(-127);
-    delay(5000);
-    // accelerate motor1 to full speed backwards
-    motor1.setSpeed(-255);
-    motor2.setSpeed(-255);
-    delay(5000);
-
-    // stop motor1, you can use the parameter to set the force which stops and holds them.
-    // standard and maximum is 255
-    motor1.stop(255);
-    motor2.stop(255);
-    delay(5000);
+    // Stop both motors
+    motor2.stop(1);
+    controller1.begin();
+    motor1.stop(1);
 }
 
 #endif /** TLE94112_FRAMEWORK **/
