@@ -4,7 +4,8 @@
  * @date        Mai 2020
  * @version     2.0.0
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- *
+ * @ref         tle94112wiced
+ * 
  * SPDX-License-Identifier: MIT
  */
 
@@ -18,7 +19,7 @@
 #include <wiced_platform.h>
 
 /**
- * @addtogroup wicedHW
+ * @addtogroup platfWiced
  * @{
  */
 
@@ -48,27 +49,19 @@ class Tle94112Wiced: virtual public TLE94112Wiced
 
 		/*! \brief constructor with individual pin assignment
 		 *
-		 * \param bus a void pointer to the object representing the SPI class
 		 * \param csPin  pin number of the CS pin
 		 */
-		Tle94112Wiced(void* bus, uint8_t csPin);
-
-		//! \brief enables and initializes the TLE94112
-		void begin(void);
+		Tle94112Wiced(wiced_gpio_t csPin);
 
 		/*! \brief constructor with individual pin assignment
-		 *
-		 * \param csPin  pin number of the CS pin
 		 */
-		void begin(uint8_t csPin);
+		void begin();
 
 		//! \brief deactivates all outputs and disables the TLE94112
 		void end(void);
 
 };
-/**
- * @}
- */
+/** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PLATF_WICED_HPP_ **/

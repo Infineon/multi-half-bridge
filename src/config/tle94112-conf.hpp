@@ -22,6 +22,7 @@
 #endif
 
 #include "tle94112-conf-dfl.hpp"
+
 /** @} */
 
 #endif /** TLE94112_CONF_HPP_ **/

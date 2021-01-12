@@ -1,6 +1,6 @@
 /**
  * @file        spic-arduino.hpp
- * @brief       Arduino PAL for the SPI cover
+ * @brief       WICED PAL for the SPI cover
  * @date        June 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
@@ -36,7 +36,7 @@
  *    which sets the Arduino header GPIOs and the bit banging driver.
  *
  */
-SPICWiced::SPICWiced() : csPin(WICED_GPIO_22), port(WICED_SPI_0)
+SPICWiced::SPICWiced() : csPin(WICED_GPIO_NONE), port(WICED_SPI_0)
 {
 	this->spi.port = port;
 	this->spi.chip_select = csPin;
