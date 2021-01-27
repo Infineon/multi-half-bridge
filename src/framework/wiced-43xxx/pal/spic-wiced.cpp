@@ -1,6 +1,6 @@
 /**
  * @file        spic-arduino.hpp
- * @brief       Arduino PAL for the SPI cover
+ * @brief       WICED PAL for the SPI cover
  * @date        June 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *

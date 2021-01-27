@@ -20,7 +20,7 @@
 #include "TLE94112.hpp"
 
 /**
- * @addtogroup tle94112motorapi
+ * \addtogroup tle94112motorapi
  * @{
  */
 
@@ -182,8 +182,7 @@ class Tle94112Motor
 		 * @param channel  PWM channel to be used
 		 * @param freq     PWM frequency selection
 		 */
-		void setPwm(Tle94112Motor::ePolarity pol, Tle94112::PWMChannel channel,
-				Tle94112::PWMFreq freq);
+		void setPwm(Tle94112Motor::ePolarity pol, Tle94112::PWMChannel channel, Tle94112::PWMFreq freq);
 
 		/**
 		 * @brief Sets the PWM frequency for driving a motor connector

@@ -22,6 +22,10 @@
  * @{
  *
  * @brief Arduino Hardware Platform Pins
+ * 
+ * This class provides a simple API for connecting the TLE94112 shield via SPI.
+ * The 12 halfbridges, the PWM units and the registers are set and controlled
+ * from the library.
  */
 
 /*!
@@ -41,9 +45,15 @@
  */
 #define TLE94112_PIN_EN      8
 
-/**
- * @}
- */
+class Tle94112Ino: virtual public TLE94112Ino
+{
+	public:
+		Tle94112Ino(void);
+		Tle94112Ino(uint8_t csPin);
+		void begin(void);
+		void end(void);
+};
+/** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PLATF_INO_HPP_ **/

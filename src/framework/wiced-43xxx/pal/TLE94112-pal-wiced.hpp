@@ -101,9 +101,7 @@ class TLE94112Wiced: virtual public Tle94112
 
 };
 
-/**
- * @}
- */
+/** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_WICED_HPP_ **/
