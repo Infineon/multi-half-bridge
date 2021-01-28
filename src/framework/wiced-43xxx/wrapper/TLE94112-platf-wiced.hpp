@@ -44,22 +44,10 @@ class Tle94112Wiced: virtual public TLE94112Wiced
 {
 	public:
 
-		//! \brief standard constructor with default pin assignment
 		Tle94112Wiced(void);
-
-		/*! \brief constructor with individual pin assignment
-		 *
-		 * \param csPin  pin number of the CS pin
-		 */
 		Tle94112Wiced(wiced_gpio_t csPin);
-
-		/*! \brief constructor with individual pin assignment
-		 */
 		void begin();
-
-		//! \brief deactivates all outputs and disables the TLE94112
 		void end(void);
-
 };
 /** @} */
 

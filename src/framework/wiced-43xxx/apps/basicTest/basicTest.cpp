@@ -13,7 +13,6 @@
  *
  */
 
-#include "../../../../config/tle94112-conf.hpp"
 #include "basicTest.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)

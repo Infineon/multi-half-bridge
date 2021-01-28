@@ -18,7 +18,7 @@
 #include <wiced_platform.h>
 
 /**
- * @addtogroup mtbHW
+ * @addtogroup platfMtb
  * @{
  */
 
