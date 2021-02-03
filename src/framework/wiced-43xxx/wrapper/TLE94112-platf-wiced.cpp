@@ -14,11 +14,24 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
+/**
+ * @brief Construct a new Tle94112Wiced::Tle94112 Wiced object
+ * with default pin assignment
+ */
 Tle94112Wiced::Tle94112Wiced(void):Tle94112()
 {
-	Tle94112Wiced(TLE94112_PIN_CS1);
+	Tle94112::en = new GPIOWiced(TLE94112_PIN_EN, OUTPUT_PUSH_PULL, GPIOWiced::POSITIVE );
+	Tle94112::cs = new GPIOWiced(TLE94112_PIN_CS1, OUTPUT_PUSH_PULL, GPIOWiced::POSITIVE );
+	Tle94112::timer = new TimerWiced();
+	Tle94112::sBus = new SPICWiced();
 }
 
+
+/**
+ * @brief constructor with individual pin assignment
+ *
+ * @param csPin  pin number of the CS pin
+ */
 Tle94112Wiced::Tle94112Wiced(wiced_gpio_t csPin):Tle94112()
 {
 	Tle94112::en = new GPIOWiced(TLE94112_PIN_EN, OUTPUT_PUSH_PULL, GPIOWiced::POSITIVE );
@@ -27,6 +40,10 @@ Tle94112Wiced::Tle94112Wiced(wiced_gpio_t csPin):Tle94112()
 	Tle94112::sBus = new SPICWiced();
 }
 
+/**
+ * @brief constructor with individual pin assignment
+ * 
+ */
 void Tle94112Wiced::begin(void)
 {
 	mEnabled = false;
@@ -40,6 +57,10 @@ void Tle94112Wiced::begin(void)
 	init();
 }
 
+/**
+ * @brief deactivates all outputs and disables the TLE94112
+ * 
+ */
 void Tle94112Wiced::end(void)
 {
 	mEnabled = false;

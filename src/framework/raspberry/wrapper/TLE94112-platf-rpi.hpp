@@ -1,6 +1,6 @@
 /**
- * @file        TLE94112-platf-rpi.hpp
- * @brief       TLE94112-platf-rpi.hpp Raspberry Pi Hardware Platforms
+ * @file        TLE94112-pal-rpi.hpp
+ * @brief       TLE94112-pal-rpi.hpp Raspberry Pi Hardware Platforms
  * @date        September 2020
  * @version     1.0.0
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
@@ -19,7 +19,7 @@
 #include <bcm2835.h>
 #include "../pal/TLE94112-pal-rpi.hpp"
 /**
- * @addtogroup platfRpi
+ * @addtogroup rpiPal
  * @{
  *
  * @brief Raspberry Pi Hardware Platform Pins
@@ -47,23 +47,11 @@
 class Tle94112Rpi: virtual public TLE94112Rpi
 {
 	public:
-		//! \brief standard constructor with default pin assignment
 		Tle94112Rpi(void);
-
-		/*!
-		 * \brief constructor with individual pin assignment
-		 *
-		 * \param csPin  pin number of the CS pin
-		 */
 		Tle94112Rpi(uint8_t csPin);
-
-		//! \brief enables and initializes the TLE94112
 		void begin(void);
-
-		//! \brief deactivates all outputs and disables the TLE94112
 		void end(void);
 };
-
 /** @} */
 
 #endif /** TLE94112_FRAMEWORK **/

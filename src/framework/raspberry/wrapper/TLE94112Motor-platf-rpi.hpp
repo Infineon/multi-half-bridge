@@ -19,7 +19,7 @@
 #include "../../../corelib/TLE94112Motor.hpp"
 
 /**
- * @addtogroup rpiHW
+ * @addtogroup platfRpi
  * 
  * This class provides a simple API for connecting and controlling motors.
  * Each motor is assigned to a Tle94112 which acts as output driver. Calls to
@@ -29,10 +29,9 @@
  * @{
  */
 
-class Tle94112MotorRpi: public Tle94112Motor
+class Tle94112MotorRpi: virtual public Tle94112Motor
 {
 };
-
 /** @} */
 
 #endif /** TLE94112_FRAMEWORK **/

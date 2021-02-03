@@ -18,7 +18,7 @@
 #include "../../../corelib/TLE94112Motor.hpp"
 
 /**
- * @addtogroup mtbHW
+ * @addtogroup platfMtb
  * @{
  */
 

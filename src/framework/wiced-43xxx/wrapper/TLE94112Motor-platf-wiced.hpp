@@ -29,7 +29,7 @@
  * @{
  */
 
-class Tle94112MotorWiced: public Tle94112Motor
+class Tle94112MotorWiced: virtual public Tle94112Motor
 {
 };
 
