@@ -38,7 +38,7 @@
  *
  * @see Tle94112
  */
-class TLE94112Rpi: virtual public Tle94112 
+class TLE94112Rpi: virtual public Tle94112
 {
 	protected:
 
@@ -97,9 +97,8 @@ class TLE94112Rpi: virtual public Tle94112
 		void clearStatusReg(uint8_t reg);
 
 };
-/**
- * @}
- */
+
+/**  @} */
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PAL_RPI_HPP_ **/

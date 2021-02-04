@@ -1,5 +1,5 @@
 /**
- * @file        gpio-raspberrypi.hpp
+ * @file        gpio-rpi.hpp
  * @brief       Raspberry Pi PAL for the GPIO
  * @date        September 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG

@@ -1,9 +1,13 @@
+#include "spic-rpi.hpp"
+
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
+
 #include <bcm2835.h>
 #include <stdio.h>
-#include "spic-rpi.hpp"
 // #include "SPI.h"
 
-#define EN RPI_V2_GPIO_P1_37 
+#define EN RPI_V2_GPIO_P1_37
+
 
 int main(int argc, char **argv)
 {
@@ -54,3 +58,5 @@ int main(int argc, char **argv)
     bcm2835_close();
     return 0;
 }
+
+#endif /** SPIC_RPI_HPP_ **/

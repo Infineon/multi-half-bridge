@@ -4,6 +4,7 @@
  * @date        September 2020
  * @version     1.0.0
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
+ * @ref         tle94112rpi
  *
  * SPDX-License-Identifier: MIT
  */
@@ -12,6 +13,10 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
+/**
+ * @brief Construct a new Tle94112Rpi::Tle94112Rpi object
+ * with default pin assignment
+ */
 Tle94112Rpi::Tle94112Rpi(void):Tle94112()
 {
 	Tle94112::en = new GPIORpi(TLE94112_PIN_EN,  BCM2835_GPIO_FSEL_OUTP, GPIORpi::POSITIVE );
@@ -20,10 +25,11 @@ Tle94112Rpi::Tle94112Rpi(void):Tle94112()
 	Tle94112::sBus = new SPICRpi();
 }
 
-Tle94112Rpi::Tle94112Rpi(void* bus, uint8_t csPin):Tle94112()
-{
-}
-
+/**
+ * @brief constructor with individual pin assignment
+ *
+ * @param csPin  pin number of the CS pin
+ */
 Tle94112Rpi::Tle94112Rpi(uint8_t csPin):Tle94112()
 {
 	Tle94112::en = new GPIORpi(TLE94112_PIN_EN,  BCM2835_GPIO_FSEL_OUTP, GPIORpi::POSITIVE );
@@ -32,12 +38,11 @@ Tle94112Rpi::Tle94112Rpi(uint8_t csPin):Tle94112()
 	Tle94112::sBus = new SPICRpi();
 }
 
+/**
+ * @brief enables and initializes the TLE94112
+ * 
+ */
 void Tle94112Rpi::begin(void)
-{
-	begin(TLE94112_PIN_CS0);
-}
-
-void Tle94112Rpi::begin(uint8_t csPin)
 {
 	mEnabled = false;
 	Tle94112::sBus->init();
@@ -47,9 +52,13 @@ void Tle94112Rpi::begin(uint8_t csPin)
 	Tle94112::cs->enable();
 	Tle94112::timer->init();
 	mEnabled = true;
-	init(); 
+	init();
 }
 
+/**
+ * @brief deactivates all outputs and disables the TLE94112
+ * 
+ */
 void Tle94112Rpi::end(void)
 {
 	mEnabled = false;
