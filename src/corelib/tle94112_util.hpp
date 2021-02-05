@@ -20,7 +20,7 @@
 #include "TLE94112.hpp"
 
 /**
- * @addtogroup tle94112utilapi
+ * \addtogroup tle94112utilapi
  * @{
  */
 
@@ -59,6 +59,7 @@ typedef struct
 	uint8_t dcMask;
 	uint8_t dcShift;
 } PWMchannel_t;
+
 /** @} */
 
 #endif /** end TLE94112_UTIL_HPP_ **/

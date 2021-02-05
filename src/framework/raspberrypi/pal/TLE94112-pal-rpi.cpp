@@ -12,7 +12,9 @@
  */
 
 
-#include "TLE94112-pal-rpi.hpp" 
+#include "TLE94112-pal-rpi.hpp"
+
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 /*! \brief SPI address commands */
 #define TLE94112_CMD_WRITE          0x80;
@@ -77,3 +79,5 @@ void Tle94112::clearStatusReg(uint8_t reg)
 	cs->enable();
 	timer->delayMilli(TLE94112_CS_RISETIME);
 }
+
+#endif /** TLE94112_PAL_RPI_HPP_ **/

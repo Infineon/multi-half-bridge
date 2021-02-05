@@ -1,0 +1,10 @@
+<map id="Tle94112Ino" name="Tle94112Ino">
+<area shape="rect" id="node1" title="represents the TLE94112 base class" alt="" coords="261,261,354,288"/>
+<area shape="rect" id="node2" href="$d0/d9c/classTLE94112Ino.html" title="represents a basic TLE94112" alt="" coords="258,185,357,212"/>
+<area shape="rect" id="node3" href="$de/dfb/classTle94112.html" title="represents a basic TLE94112" alt="" coords="270,109,345,136"/>
+<area shape="rect" id="node4" href="$db/d57/structPWMchannel__t.html" title="struct containing register locations for a single PWM channel" alt="" coords="5,5,116,32"/>
+<area shape="rect" id="node5" href="$d2/d75/structHalfBridge__t.html" title="SIGNUM helper function definition." alt="" coords="145,5,240,32"/>
+<area shape="rect" id="node6" href="$d7/db9/classSPIC.html" title=" " alt="" coords="273,5,328,32"/>
+<area shape="rect" id="node7" href="$d7/dde/classGPIO.html" title=" " alt="" coords="352,5,407,32"/>
+<area shape="rect" id="node8" href="$dc/dea/classTimer.html" title=" " alt="" coords="431,5,485,32"/>
+</map>

@@ -30,6 +30,7 @@
 class GPIOIno: virtual public GPIO
 {
 private:
+	#define     UNUSED_PIN    0xFF  /**< Unused pin */
 	uint8_t     pin;
 	uint8_t     mode;
 	VLogic_t    logic;
