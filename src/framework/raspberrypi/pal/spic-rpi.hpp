@@ -16,28 +16,14 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #include "../../../pal/spic.hpp"
-// #include <Arduino.h>
-// #include "SPI.h"
-/*	The following #define wrapper around the inclusion of bcm2835.h
-*	is necessary to prevent double decleration of the C function
-*	bcm2835_delayMicroseconds, because it is also defined in
-*	wiringPi.h. This solution by datenwolf is taken from:
-*	https://stackoverflow.com/a/6940389/6692732 [1]
-*	There might arise additional errors in the link process. The
-*	solution to those is not yet implemented, see [1].
-*	[1] is licensed under CC BY-SA 3.0.
-*/
-#define	bcm2835_delayMicroseconds bcm2835_delayMicroseconds_alt
 #include <bcm2835.h>
-#undef bcm2835_delayMicroseconds
-#include <wiringPi.h>
-#include <wiringPiSPI.h>
+#include <cstdio>
+
 
 /**
  * @addtogroup rpiPal
  * @{
  */
-
 
 /**
  * @brief Raspberry Pi SPIC class
@@ -53,6 +39,8 @@ class SPICRpi: virtual public SPIC
 		uint8_t     lsb;
 		uint8_t     mode;
 		uint8_t     clock;
+		uint8_t		channel;
+		uint32_t	speed; 
 
 	public:
 					SPICRpi();

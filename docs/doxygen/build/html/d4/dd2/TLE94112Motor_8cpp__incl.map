@@ -1,0 +1,11 @@
+<map id="TLE94112Motor.cpp" name="TLE94112Motor.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="105,5,243,32"/>
+<area shape="rect" id="node2" href="$de/d20/TLE94112Motor_8hpp.html" title=" " alt="" coords="105,80,243,107"/>
+<area shape="rect" id="node3" href="$de/d06/TLE94112_8hpp.html" title=" " alt="" coords="121,155,227,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="345,304,411,331"/>
+<area shape="rect" id="node5" title=" " alt="" coords="26,229,90,256"/>
+<area shape="rect" id="node6" href="$de/d1f/tle94112__util_8hpp.html" title=" " alt="" coords="114,229,234,256"/>
+<area shape="rect" id="node7" href="$df/d05/timer_8hpp.html" title="Timer Platform Abstraction Layer." alt="" coords="258,229,367,256"/>
+<area shape="rect" id="node8" href="$d1/d2c/gpio_8hpp.html" title="PAL of the GPIO." alt="" coords="391,229,495,256"/>
+<area shape="rect" id="node9" href="$d8/df0/spic_8hpp.html" title="PAL of the SPI cover." alt="" coords="519,229,623,256"/>
+</map>

@@ -10,22 +10,21 @@
 #include "gpio-rpi.hpp"
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
-// #include <Arduino.h>
 
 /**
  * @brief Constructor of the Raspberry Pi GPIO class
  *
- * This function is setting the basics for a GPIO.
+ * This function sets the basics for a GPIO.
  *
  */
-GPIORpi::GPIORpi() : pin(0), mode(OUTPUT), logic(POSITIVE) //Woher weiß ich welcher Pin? Bei Hall Switch Pin 4
+GPIORpi::GPIORpi() : pin(0), mode(BCM2835_GPIO_FSEL_OUTP), logic(POSITIVE)
 { 
 }
 
 /**
  * @brief Constructor of the Raspberry Pi GPIO class
  *
- * This function is setting the basics for a GPIO. It allows to set the pin number,
+ * This function sets the basics for a GPIO. It allows to set the pin number,
  * mode of the pin and the logic level.
  *
  * @param[in]   pin     Number of the desired pin
@@ -39,19 +38,19 @@ GPIORpi::GPIORpi(uint8_t pin, uint8_t mode, VLogic_t logic): pin(pin), mode(mode
 /**
  * @brief Initialize the GPIO
  *
- * This function is initializing the chosen pin.
+ * This function initializes the chosen pin.
  *
  * @return      GPIORpi::Error_t
  */
 GPIORpi::Error_t GPIORpi::init()
 {
 	GPIORpi::Error_t err = GPIORpi::OK;
-	if (wiringPiSetup() < 0)
+	if (bcm2835_init() <= 0)
 	{
-		err = GPIORpi::INTF_ERROR; //gibts das in WiringPi?
-	}
+		err = GPIORpi::INTF_ERROR; 
+	} 
 	
-	pinMode(this->pin, this->mode);
+	 bcm2835_gpio_fsel(this->pin, this->mode);
 
 	return err;
 	
@@ -60,12 +59,13 @@ GPIORpi::Error_t GPIORpi::init()
 /**
  * @brief Deinitialize the GPIO
  *
- * This function is deinitializing the chosen pin.
+ * This function deinitializes the chosen pin.
  *
  * @return      GPIORpi::Error_t
  */
 GPIORpi::Error_t GPIORpi::deinit()
 {
+	bcm2835_close();
 	return OK;
 }
 
@@ -81,7 +81,7 @@ GPIORpi::Error_t GPIORpi::deinit()
  */
 GPIORpi::VLevel_t GPIORpi::read()
 {
-	return (VLevel_t) digitalRead(this->pin);
+	return (VLevel_t) bcm2835_gpio_lev(this->pin);
 }
 
 /**
@@ -94,14 +94,14 @@ GPIORpi::VLevel_t GPIORpi::read()
  */
 GPIORpi::Error_t GPIORpi::write(VLevel_t level)
 {
-	digitalWrite(this->pin, level);
+	bcm2835_gpio_write(this->pin, level);
 	return OK;
 }
 
 /**
  * @brief Enable the GPIO
  *
- * This functions enable the chosen pin. Depending on the chosen logic of the pin
+ * This function enables the chosen pin. Depending on the chosen logic of the pin
  * it sets the right logic level of the pin.
  *
  * @return      GPIORpi::Error_t
@@ -109,10 +109,10 @@ GPIORpi::Error_t GPIORpi::write(VLevel_t level)
 GPIORpi::Error_t GPIORpi::enable()
 {
 	if(this->logic == POSITIVE){
-		digitalWrite(this->pin, GPIO_HIGH);
+		bcm2835_gpio_write(this->pin, GPIO_HIGH);
 	}
 	else if(this->logic == NEGATIVE){
-		digitalWrite(this->pin, GPIO_LOW);;
+		bcm2835_gpio_write(this->pin, GPIO_LOW);;
 	}
 	return GPIORpi::OK;
 }
@@ -120,7 +120,7 @@ GPIORpi::Error_t GPIORpi::enable()
 /**
  * @brief Disable the GPIO
  *
- * This functions disables the chosen pin. Depending on the chosen logic of the pin
+ * This function disables the chosen pin. Depending on the chosen logic of the pin
  * it sets the right logic level of the pin.
  *
  * @return      GPIOIno::Error_t
@@ -128,10 +128,10 @@ GPIORpi::Error_t GPIORpi::enable()
 GPIORpi::Error_t GPIORpi::disable()
 {
 	if(this->logic == POSITIVE){
-		digitalWrite(this->pin, GPIO_LOW);
+		bcm2835_gpio_write(this->pin, GPIO_LOW);
 	}
 	else if(this->logic == NEGATIVE){
-		digitalWrite(this->pin, GPIO_HIGH);
+		bcm2835_gpio_write(this->pin, GPIO_HIGH);
 	}
 	return GPIORpi::OK;
 }

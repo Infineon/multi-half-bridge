@@ -1,5 +1,5 @@
 /**
- * @file        gpio-raspberrypi.hpp
+ * @file        gpio-rpi.hpp
  * @brief       Raspberry Pi PAL for the GPIO
  * @date        September 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
@@ -16,8 +16,8 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #include "../../../corelib/TLE94112.hpp"
-#include <wiringPi.h>
-#include <wiringPiSPI.h>
+#include <bcm2835.h>
+
 /**
  * @addtogroup rpiPal
  * @{
@@ -30,7 +30,7 @@
  */
 class GPIORpi: virtual public GPIO
 {
-private: //Passen Datentypen und Definition von unused Pin notwendig?
+private:
 	uint8_t     pin;
 	uint8_t     mode;
 	VLogic_t    logic;

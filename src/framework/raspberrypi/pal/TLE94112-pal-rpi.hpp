@@ -22,24 +22,23 @@
  * @{
  */
 
-// #include <SPI.h>
 #include "../../../corelib/TLE94112.hpp"
 #include "gpio-rpi.hpp"
 #include "timer-rpi.hpp"
 #include "spic-rpi.hpp"
-#include <wiringPi.h> 
+#include <bcm2835.h>
 
 /**
  * @brief represents a basic TLE94112
  *
  * This class provides a simple API for connecting and controlling motors.
- * Each motor is assigned to a Tle94112 which acts as output driver. Calls to
- * Tle94112Motor instances are mapped to calls to Tle94112. Therefore, this
+ * Each motor is assigned to a Tle94112 which acts as an output driver. Calls to
+ * Tle94112Motor, instances are mapped to call to Tle94112. Therefore, this
  * class does not bring new features, it does only provide further abstraction.
  *
  * @see Tle94112
  */
-class TLE94112Rpi: virtual public Tle94112 
+class TLE94112Rpi: virtual public Tle94112
 {
 	protected:
 
@@ -98,9 +97,8 @@ class TLE94112Rpi: virtual public Tle94112
 		void clearStatusReg(uint8_t reg);
 
 };
-/**
- * @}
- */
+
+/**  @} */
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PAL_RPI_HPP_ **/

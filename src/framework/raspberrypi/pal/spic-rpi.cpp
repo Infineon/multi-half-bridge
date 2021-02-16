@@ -14,16 +14,12 @@
 /**
  * @brief Constructor of the Raspberry Pi SPIC class
  *
- * This function is setting the basics for a SPIC and the default spi.
+ * This function sets the basics for a SPIC and the default SPI.
  *
  */
 SPICRpi::SPICRpi() : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
 {
-	/*this->spi.chip_select = csPin;
-	// this->spi.speed = 1000000;
-	this->spi.mode = (SPI_CLOCK_RISING_EDGE | SPI_CLOCK_IDLE_LOW | SPI_NO_DMA | SPI_LSB_FIRST | SPI_CS_ACTIVE_LOW);
-	this->spi.bits = 8;*/
-	
+ 
 }
 
 /**
@@ -36,12 +32,10 @@ SPICRpi::SPICRpi() : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1
  * @param clock  SPI clock divider
  */
 SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
-{
-	/* this->lsb = lsb;
+{	
+	this->lsb = lsb;
 	this->mode = mode;
-	this->clock = clock;
-	spi = &SPI; // Warum wird hier nochmal die Adresse übergeben? */ 
-	
+	this->clock = clock;	
 }
 
 /**
@@ -58,50 +52,48 @@ SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(BCM2835_SPI_BIT
  */
 SPICRpi::SPICRpi(uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin) : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
 {
-	/* this->csPin = csPin;
+	this->csPin = csPin;
 	this->misoPin = misoPin;
 	this->mosiPin = mosiPin;
 	this->sckPin = sckPin;
-	spi = &port; */
 }
 
 /**
  * @brief Initialize the SPIC
  *
- * This function is initializing the chosen spi channel
+ * This function initializes the chosen spi channel
  * with the given values for lsb,clock and mode
  *
  * @return      SPICRpi::Error_t
  */
 SPICRpi::Error_t SPICRpi::init()
 {
-	//Meine Vermutung: 
-	// wiringPiSPISetup (int channel, int speed);
-	+
-	
-	
-	
-		wiringPiSPISetup (0, 32000000);
-
-	//Neue Vermutung:
-
-	/* spi->begin();
-	spi->bcm2835SPIBitOrder(this->lsb); 
-	spi->bcm2835SPIClockDivider(this->clock); 
-	spi->bcm2835SPIMode(this->mode); */
+	if (!bcm2835_init()) {
+			printf("init failed\n");
+			return WRITE_ERROR;
+        }
+	if (!bcm2835_spi_begin()) {
+            printf("SPI begin failed. Are you root?\n");
+            return WRITE_ERROR;
+        }
+	bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_LSBFIRST);      // The default
+	bcm2835_spi_setDataMode(BCM2835_SPI_MODE1);                   // The default
+    bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_16);    // The default
+    bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                      // The default
+    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);      // The default  
 	return OK;
 }
 
 /**
  * @brief Deinitialize the SPIC
  *
- * This function is deinitializing the chosen spi channel.
+ * This function deinitializes the chosen spi channel.
  *
  * @return      SPICRpi::Error_t
  */
 SPICRpi::Error_t SPICRpi::deinit()
 {
-	// spi->end();
+	bcm2835_spi_end();
 	return OK;
 }
 
@@ -114,7 +106,7 @@ SPICRpi::Error_t SPICRpi::deinit()
  */
 SPICRpi::Error_t SPICRpi::transfer(uint8_t send, uint8_t &received)
 {
-	// received = spi->transfer(send); 
+	received = bcm2835_spi_transfer(send);
 	return OK;
 }
 
@@ -127,13 +119,13 @@ SPICRpi::Error_t SPICRpi::transfer(uint8_t send, uint8_t &received)
  */
 SPICRpi::Error_t SPICRpi::transfer16(uint16_t send, uint16_t &received)
 {
-	/* uint8_t data_out_msb = (uint8_t)((send >> 8) & 0xFF);
+	uint8_t data_out_msb = (uint8_t)((send >> 8) & 0xFF);
 	uint8_t data_out_lsb = (uint8_t)(send & 0xFF);
 
-	uint8_t data_in_msb = spi->transfer(data_out_msb);
-	uint8_t data_in_lsb = spi->transfer(data_out_lsb);
+	uint8_t data_in_msb = bcm2835_spi_transfer(data_out_msb);
+	uint8_t data_in_lsb = bcm2835_spi_transfer(data_out_lsb);
 
-	received = (uint16_t)(((uint16_t)data_in_msb << 8) | (data_in_lsb)); */
+	received = (uint16_t)(((uint16_t)data_in_msb << 8) | (data_in_lsb));
 	return OK;
 }
 
