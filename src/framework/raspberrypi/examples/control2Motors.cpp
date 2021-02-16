@@ -25,19 +25,18 @@
  *
  */
 
-#include "../../../config/tle94112-conf.hpp"
 #include "control2Motors.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 int main(int argc, char const *argv[])
 {
-// Tle94112 Object on Shield 1
-Tle94112Rpi controller = Tle94112Rpi();
+    // Tle94112 Object on Shield 1
+    Tle94112Rpi controller = Tle94112Rpi();
 
-// Tle94112Motor Objects
-Tle94112Motor motor1(controller);
-Tle94112Motor motor2(controller);
+    // Tle94112Motor Objects
+    Tle94112Motor motor1(controller);
+    Tle94112Motor motor2(controller);
 
     // Enable MotorController Tle94112
     // Note: Required to be done before starting to configure the motor
@@ -45,9 +44,9 @@ Tle94112Motor motor2(controller);
     controller.begin();
     printf("Controller begin\n");
 
-    // Connect motor1 to HB1 and HB3
+    // Connect motor1 to HB1 and HB4
     motor1.connect(motor1.HIGHSIDE, controller.TLE_HB1);
-    motor1.connect(motor1.LOWSIDE,  controller.TLE_HB3);
+    motor1.connect(motor1.LOWSIDE,  controller.TLE_HB5);
 
     // Drive HB1 with signal from PWM1
     // Note: This allows to control the speed of the motor
@@ -56,9 +55,9 @@ Tle94112Motor motor2(controller);
     // Set PWM Frequency, default is 80 Hz
     motor1.setPwmFreq(motor1.HIGHSIDE, controller.TLE_FREQ100HZ);
 
-    // Connect motor2 to HB2 and HB4
-    motor2.connect(motor2.HIGHSIDE, controller.TLE_HB2);
-    motor2.connect(motor2.LOWSIDE,  controller.TLE_HB4);
+    // Connect motor2 to HB7 and HB9
+    motor2.connect(motor2.HIGHSIDE, controller.TLE_HB7);
+    motor2.connect(motor2.LOWSIDE,  controller.TLE_HB9);
 
     // Drive HB2 with signal from PWM2
     // Note: This allows to control the speed of the motor

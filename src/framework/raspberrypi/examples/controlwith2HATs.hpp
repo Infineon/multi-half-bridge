@@ -18,15 +18,8 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
-#include <stdlib.h>
-#include <cstdio>
 #include "../wrapper/TLE94112-platf-rpi.hpp"
 #include "../wrapper/TLE94112Motor-platf-rpi.hpp"
-#include "../pal/TLE94112-pal-rpi.hpp"
-#include "../../../corelib/TLE94112.hpp"
-#include "../../../corelib/TLE94112Motor.hpp"
-
-extern "C" void application_start();
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /* BASICTEST_HPP_ */

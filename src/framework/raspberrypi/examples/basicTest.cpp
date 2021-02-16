@@ -14,22 +14,12 @@
  *
  */
 
-#include "../../../config/tle94112-conf.hpp"
-
+#include "basicTest.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
-//#include <stdlib.h>
-// #include <cstdio>
-#include "../wrapper/TLE94112-platf-rpi.hpp"
-#include "../wrapper/TLE94112Motor-platf-rpi.hpp"
-// #include "../pal/TLE94112-pal-rpi.hpp"
-// #include "../../../corelib/TLE94112.hpp"
-// #include "../../../corelib/TLE94112Motor.hpp"
-#include "basicTest.hpp"
 int main(int argc, char const *argv[])
 {
-
   
   // Tle94112 Object on Shield 1
 Tle94112Rpi controller = Tle94112Rpi();
@@ -46,14 +36,13 @@ Tle94112Motor motor(controller);
   // Connect a motor to HB1/HB2 highside and HB3/HB4 lowside
   // With two combined halfbridges the motor can have up to 1.8 A
   // IMPORTANT connect PWM to Lowside as higside is active Free wheeling
-  motor.initConnector(motor.HIGHSIDE, controller.TLE_NOPWM, controller.TLE_HB2, controller.TLE_HB1, controller.TLE_NOHB, controller.TLE_NOHB);
-  motor.initConnector(motor.LOWSIDE,  controller.TLE_PWM1,  controller.TLE_HB4, controller.TLE_HB5, controller.TLE_NOHB, controller.TLE_NOHB);
+  motor.initConnector(motor.HIGHSIDE, controller.TLE_NOPWM, controller.TLE_HB1, controller.TLE_NOHB, controller.TLE_NOHB, controller.TLE_NOHB);
+  motor.initConnector(motor.LOWSIDE,  controller.TLE_PWM1,  controller.TLE_HB5, controller.TLE_NOHB, controller.TLE_NOHB, controller.TLE_NOHB);
+  
   // start the motor controller
   motor.begin();
 
-  // end the setup function
   printf("Init ready\n");
-
 
   // coast the motor
   motor.coast();
@@ -62,6 +51,7 @@ Tle94112Motor motor(controller);
   // max forward/backward
   printf("max forward/backward\n");
   motor.start(255);
+
   delay(1000);
   motor.coast();
   delay(1000);

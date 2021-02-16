@@ -16,11 +16,9 @@
  *
  */
 
-#include "../../../config/tle94112-conf.hpp"
 #include "rampSpeedTest.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
-
 
 // Tle94112 Object on Shield 1
 Tle94112Rpi controller = Tle94112Rpi();
@@ -54,11 +52,11 @@ int main(int argc, char const *argv[])
     // controller is set to default CS1 pin
     controller.begin();
 
-    // Connect a motor to HB1/HB2 highside and HB3/HB4 lowside
+    // Connect a motor to HB1 highside and HB5 lowside
     // With two combined halfbridges the motor can have up to 1.8 A
     // IMPORTANT connect PWM to Lowside as higside is active Free wheeling
-    motor.initConnector(motor.HIGHSIDE, controller.TLE_NOPWM, controller.TLE_FREQ100HZ,controller.TLE_HB1, controller.TLE_HB2, controller.TLE_NOHB, controller.TLE_NOHB);
-    motor.initConnector(motor.LOWSIDE,  controller.TLE_PWM1,  controller.TLE_FREQ100HZ,controller.TLE_HB3, controller.TLE_HB4, controller.TLE_NOHB, controller.TLE_NOHB);
+    motor.initConnector(motor.HIGHSIDE, controller.TLE_NOPWM, controller.TLE_FREQ100HZ, controller.TLE_HB1, controller.TLE_NOHB, controller.TLE_NOHB, controller.TLE_NOHB);
+    motor.initConnector(motor.LOWSIDE,  controller.TLE_PWM1,  controller.TLE_FREQ100HZ, controller.TLE_HB5, controller.TLE_NOHB, controller.TLE_NOHB, controller.TLE_NOHB);
 
     // start motor
     motor.begin();
@@ -68,8 +66,7 @@ int main(int argc, char const *argv[])
     {
         measureRampTime(i);
         i++;
-    }
-    
+    } 
 
 }
 
