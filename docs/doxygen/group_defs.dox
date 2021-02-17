@@ -9,43 +9,31 @@
 /** @defgroup pal               Platform Abstraction Layer Interface */
 /** @} */
 
-/**
- * @defgroup tle94112frmw      SW Frameworks
- * @{
+/** @defgroup tle94112frmw      SW Frameworks
+ *  @{
  */
 
-    /**
-    * @defgroup tle94112ino       Arduino
-    * @{
-    */
-        /** @defgroup inoApi            Tle94112 Arduino API */
-        /** @defgroup arduinoPal        PAL Arduino */
-        /** @defgroup platfIno          Arduino HW Platforms */
-    /** @} */
+/** @defgroup tle94112ino       Arduino
+ *  @{
+ */
+    /** @defgroup inoApi            Tle94112 Arduino API */
+    /** @defgroup arduinoPal        PAL Arduino */
+    /** @defgroup platfIno          Arduino HW Platforms */
+/** @} */
 
-    /**
-    * @defgroup tle94112wiced     WICED
-    * @{
-    */
-        /** @defgroup wicedPal          PAL WICED */
-        /** @defgroup platfWiced        43xxx HW Platform */
-    /** @} */
+/** @defgroup tle94112wiced     WICED
+ *  @{
+ */
+    /** @defgroup wicedPal          PAL WICED */
+    /** @defgroup platfWiced        43xxx HW Platform */
+/** @} */
 
-    /**
-    * @defgroup tle94112rpi       RaspberryPi
-    * @{
-    */
-        /** @defgroup rpiPal            PAL rPi */
-        /** @defgroup platfRpi          rPi HW Platform */
-    /** @} */
-
-    /**
-    * @defgroup tle94112mtb       ModusToolbox
-    * @{
-    */
-        /** @defgroup mtbPal            PAL mtb */
-        /** @defgroup platfMtb          mtb HW Platform */
-    /** @} */
+/** @defgroup tle94112rpi       RaspberryPi
+*  @{
+*/
+    /** @defgroup rpiPal            PAL rPi */
+    /** @defgroup rpiHW             rPi HW Platform */
+/** @} */
 
 /** @} */
 

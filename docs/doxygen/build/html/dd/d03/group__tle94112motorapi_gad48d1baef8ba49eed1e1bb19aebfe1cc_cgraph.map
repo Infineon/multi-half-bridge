@@ -1,0 +1,13 @@
+<map id="Tle94112Motor::start" name="Tle94112Motor::start">
+<area shape="rect" id="node1" title="starts the motor with a certain speed in a certain direction" alt="" coords="5,81,148,108"/>
+<area shape="rect" id="node2" href="$dd/d03/group__tle94112motorapi.html#gabac90ef723cffd42f2aac7c7ab7aafcc" title="equivalent to start()" alt="" coords="196,81,367,108"/>
+<area shape="rect" id="node3" href="$dd/d03/group__tle94112motorapi.html#gaca0d0d54d133002e724e4100c2cd3af8" title="releases the motor without driving or active breaking" alt="" coords="416,81,564,108"/>
+<area shape="rect" id="node4" href="$d5/dd0/group__tle94112api.html#gaba359ba70b241189e8f94a2285a55b0a" title="sets the output state and the PWM channel for a halfbridge (only for passive freewheeling)" alt="" coords="618,31,755,57"/>
+<area shape="rect" id="node11" href="$d5/dd0/group__tle94112api.html#gaec21a2a1434b0de208d33387c387043f" title="sets the frequency and duty cycle for a PWM channel" alt="" coords="415,132,565,159"/>
+<area shape="rect" id="node5" href="$d5/dd0/group__tle94112api.html#ga788102cec501e8d2532798c2107d0626" title="clears all clearable error flags" alt="" coords="613,81,760,108"/>
+<area shape="rect" id="node6" href="$d5/dd0/group__tle94112api.html#gad9db86ef0229b3edd760dbf4a38444ec" title="clears a status register by writing 0x00 to it" alt="" coords="808,81,981,108"/>
+<area shape="rect" id="node7" href="$d7/dde/classGPIO.html#ae2b3084845cf22ebda8d4705e9d9a40a" title="Disables the GPIO output according to the GPIO logic." alt="" coords="1036,5,1140,32"/>
+<area shape="rect" id="node8" href="$d7/db9/classSPIC.html#a870e415e4d8a62c8cd67ae0f5a3db782" title="Send/receives data from SPI bus." alt="" coords="1035,56,1141,83"/>
+<area shape="rect" id="node9" href="$d7/dde/classGPIO.html#a9fe4b4e3a68e8c4df663cc084357b460" title="Enables the GPIO output according to the GPIO logic." alt="" coords="1037,107,1139,133"/>
+<area shape="rect" id="node10" href="$dc/dea/classTimer.html#ae4d88c04713dadad65eb5e31f2bfc227" title="Introduces a delay during the specified time." alt="" coords="1029,157,1147,184"/>
+</map>

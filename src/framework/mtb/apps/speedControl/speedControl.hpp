@@ -1,4 +1,3 @@
-
 /*!
  * \name        speedControl
  * \author      Infineon Technologies AG
