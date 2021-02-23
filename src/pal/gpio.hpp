@@ -118,7 +118,7 @@ class GPIO
 
 		Error_t checkErrorStatus();
 
-		private:
+	private:
 		Error_t errorStatus;
 
 };
