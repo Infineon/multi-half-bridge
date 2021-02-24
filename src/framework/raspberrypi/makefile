@@ -35,5 +35,9 @@ examples/rampSpeedTest: wrapper
 examples/controlwith2HATs: wrapper
 	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/controlwith2HATs.o examples/controlwith2HATs.cpp -Iwrapper/ -I../../corelib -Ipal
 	g++ $(CPPFLAGS) -o $(BUILDPATH)/controlwith2HATs $(BUILDPATH)/*.o -I/usr/local/include -L/usr/local/lib -lbcm2835
+
+examples/errorDiagnosis: wrapper
+	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/errorDiagnosis.o examples/errorDiagnosis.cpp -Iwrapper/ -I../../corelib -Ipal
+	g++ $(CPPFLAGS) -o $(BUILDPATH)/errorDiagnosis $(BUILDPATH)/*.o -I/usr/local/include -L/usr/local/lib -lbcm2835
 clean:
 	rm -f $(BUILDPATH)/*
