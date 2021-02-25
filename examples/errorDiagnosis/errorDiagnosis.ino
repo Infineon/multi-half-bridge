@@ -174,7 +174,7 @@ void loop()
       uint8_t oc = controller.getHBOverCurrent((Tle94112::HalfBridge)halfBridge);
 
       // Check for an over-current error on the low-side of this half bridge
-      if (oc & controller.TLE_LOW)
+      if (oc & controller.TLE_LOWSIDE)
       {
         Serial.print("\tHB");
         Serial.print(halfBridge);
@@ -182,7 +182,7 @@ void loop()
       }
 
       // Check for an over-current error on the high-side of this half bridge
-      if (oc & controller.TLE_HIGH)
+      if (oc & controller.TLE_HIGHSIDE)
       {
         Serial.print("\tHB");
         Serial.print(halfBridge);
