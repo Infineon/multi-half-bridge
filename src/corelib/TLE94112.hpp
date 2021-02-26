@@ -88,6 +88,12 @@ class Tle94112
 			TLE_FLOATING = 0b00, TLE_LOW = 0b01, TLE_HIGH = 0b10
 		};
 
+		//! \brief enum for the overcurrent states of a halfbridge
+		enum HBOCState
+		{
+			TLE_NONE = 0b00, TLE_LOWSIDE = 0b01, TLE_HIGHSIDE = 0b10
+		};
+
 		//! \brief enum for the frequencies of a PWM channel
 		enum PWMFreq
 		{
@@ -232,7 +238,7 @@ class Tle94112
 			FW_CTRL
 		};
 
-		//! \brief enum for the control registers in a TLE94112
+		//! \brief enum for the status registers in a TLE94112
 		enum StatusRegisters
 		{
 			SYS_DIAG1 = 0,
