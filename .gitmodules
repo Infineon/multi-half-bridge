@@ -1,0 +1,4 @@
+[submodule "src/framework/raspberrypi/tools/pybind11"]
+	path = src/framework/raspberrypi/tools/pybind11
+	url = https://github.com/pybind/pybind11.git
+	branch = master
