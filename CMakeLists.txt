@@ -11,8 +11,8 @@ set(CMAKE_CXX_OUTPUT_EXTENSION_REPLACE ON)
 set(CMAKE_C_OUTPUT_EXTENSION_REPLACE ON)
 
 # Coverage Flags
-set(CMAKE_CXX_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage -DMHB_ENABLED=0 -Wswitch")
-set(CMAKE_C_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage")
+#set(CMAKE_CXX_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage -DMHB_ENABLED=0 -Wswitch")
+#set(CMAKE_C_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage")
 
 # Search for include Files
 include_directories(
