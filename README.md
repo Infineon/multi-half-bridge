@@ -1,6 +1,8 @@
-**This repository is deprecated.** Use the library available here - https://github.com/Infineon/multi-half-bridge
+# Multi Half Bridge Library
 
-# DC-Motor-Control-TLE94112EL Library 
+### for Infineon's
+- TLE94112EL 12-fold half bridge
+- TLE94112ES 12-fold half bridge
 
 [![Build Status](https://travis-ci.org/Infineon/DC-Motor-Control-TLE94112EL.svg?branch=master)](https://travis-ci.org/Infineon/DC-Motor-Control-TLE94112EL)
 
