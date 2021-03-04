@@ -30,7 +30,6 @@ set(Headers
 
 set(Sources
     src/corelib/tle94112_util.cpp
-    src/corelib/tle94112_util.cpp
     src/corelib/TLE94112.cpp
     src/corelib/TLE94112Motor.cpp
     )
