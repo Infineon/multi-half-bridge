@@ -1,6 +1,6 @@
-# DC-Motor-Control-TLE94112EL Library 
+# multi-half-bridge Library 
 
-[![Build Status](https://travis-ci.org/Infineon/DC-Motor-Control-TLE94112EL.svg?branch=master)](https://travis-ci.org/Infineon/DC-Motor-Control-TLE94112EL)
+[![Build Status](https://travis-ci.org/Infineon/multi-half-bridge.svg?branch=master)](https://travis-ci.org/Infineon/multi-half-bridge)
 
 
 <img src="https://github.com/Infineon/Assets/raw/master/Pictures/TLE94112EL_Shield.png" style="max-width:100%;" width="400">
@@ -12,19 +12,19 @@ Library of Infineon's [DC Motor Shield with TLE94112EL](https://www.infineon.com
 
 <table>
     <tr>
-        <td><img src="https://github.com/infineon/DC-Motor-Control-TLE94112EL/wiki/img/arduino-logo.png" width=200></td>
-        <td><img src="https://github.com/infineon/DC-Motor-Control-TLE94112EL/wiki/img/wiced-logo.png" width=200></td>
-        <td><img src="https://github.com/infineon/DC-Motor-Control-TLE94112EL/wiki/img/cross-platform.png" width=200></td>
+        <td><img src="https://github.com/infineon/multi-half-bridge/wiki/img/arduino-logo.png" width=200></td>
+        <td><img src="https://github.com/infineon/multi-half-bridge/wiki/img/wiced-logo.png" width=200></td>
+        <td><img src="https://github.com/infineon/multi-half-bridge/wiki/img/cross-platform.png" width=200></td>
     </tr>
     <tr>
-        <td style="text-align: center"><a href="https://github.com/Infineon/DC-Motor-Control-TLE94112EL/wiki/Arduino-API">Arduino API</a></td>
-        <td style="text-align: center"><a href="https://github.com/Infineon/DC-Motor-Control-TLE94112EL/wiki/WICED-API">WICED API</a></td>
-        <td style="text-align: center"><a href="https://github.com/Infineon/DC-Motor-Control-TLE94112EL/wiki/TLE94112-API/">TLE94112 API</a><br><a href="https://github.com/Infineon/DC-Motor-Control-TLE94112EL/wiki/TLE94112Motor-API">TLE94112Motor API</a></td>
+        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/Arduino-API">Arduino API</a></td>
+        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/WICED-API">WICED API</a></td>
+        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/TLE94112-API/">TLE94112 API</a><br><a href="https://github.com/Infineon/multi-half-bridge/wiki/TLE94112Motor-API">TLE94112Motor API</a></td>
     </tr>
     <tr>
-        <td style="text-align: center"><a href="https://github.com/Infineon/DC-Motor-Control-TLE94112EL/wiki/Ino-Getting-Started">Getting Started</a></td>
-        <td style="text-align: center"><a href="https://github.com/Infineon/DC-Motor-Control-TLE94112EL/wiki/CW-Getting-Started">Getting Started</a></td>
-        <td style="text-align: center"><a href="https://github.com/Infineon/DC-Motor-Control-TLE94112EL/wiki/Porting-Guide">Porting Guide</a></td>
+        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/Ino-Getting-Started">Getting Started</a></td>
+        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/CW-Getting-Started">Getting Started</a></td>
+        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/Porting-Guide">Porting Guide</a></td>
     </tr>
 </table>
 
