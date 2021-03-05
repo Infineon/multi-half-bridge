@@ -14,6 +14,7 @@ set(Sources
     pal/spic-rpi.cpp
     pal/timer-rpi.cpp
     pal/TLE94112-pal-rpi.cpp
+    pal/Python_import.cpp
     wrapper/TLE94112-platf-rpi.cpp
     wrapper/TLE94112-pybind.cpp
     )
@@ -22,7 +23,7 @@ set(Sources
 find_package(pybind11 REQUIRED)
 
 pybind11_add_module(multi_half_bridge_py ${Sources} ${Headers})
-
+target_link_libraries(multi_half_bridge_py PUBLIC pybind11::embed)
 # Adding RPI bcm library dependency
 find_library(bcm2835_dir NAMES  libbcm2835.a)
 message(STATUS ${bcm2835_dir})
