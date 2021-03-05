@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmulti-half-bridge-corelib.a CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.o CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.o CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.o
+/usr/bin/ranlib libmulti-half-bridge-corelib.a

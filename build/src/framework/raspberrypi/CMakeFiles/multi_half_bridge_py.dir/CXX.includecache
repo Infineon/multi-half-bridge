@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/Python_import.cpp
+pybind11/embed.h
+-
+Python_import.hpp
+/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/Python_import.hpp
+
+/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/Python_import.hpp
+inttypes.h
+-
+
