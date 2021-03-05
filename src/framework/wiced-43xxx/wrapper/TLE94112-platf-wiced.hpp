@@ -12,11 +12,12 @@
 #ifndef TLE94112_PLATF_WICED_HPP_
 #define TLE94112_PLATF_WICED_HPP_
 
-#include "../pal/TLE94112-pal-wiced.hpp"
+#include "../../../config/tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 #include <wiced_platform.h>
+#include "../../../corelib/tle94112.hpp"
 
 /**
  * @addtogroup platfWiced
@@ -40,7 +41,7 @@
  */
 #define TLE94112_PIN_EN      WICED_GPIO_36
 
-class Tle94112Wiced: virtual public TLE94112Wiced
+class Tle94112Wiced: virtual public Tle94112
 {
 	public:
 

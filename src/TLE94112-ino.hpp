@@ -1,6 +1,6 @@
 /*!
- * \file        TLE94112-ino.hpp
- * \name        TLE94112-ino.hpp - Arduino library to control Infineon's DC Motor Control Shield with Tle94112
+ * \file        tle94112-ino.hpp
+ * \name        tle94112-ino.hpp - Arduino library to control Infineon's DC Motor Control Shield with Tle94112
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
  * \ref         tle94112ino
@@ -24,8 +24,8 @@
  * @{
  */
 
-#include "corelib/TLE94112.hpp"
-#include "framework/arduino/wrapper/TLE94112-platf-ino.hpp"
+#include "corelib/tle94112.hpp"
+#include "framework/arduino/wrapper/tle94112-platf-ino.hpp"
 
 /**
  * @class Tle94112Ino

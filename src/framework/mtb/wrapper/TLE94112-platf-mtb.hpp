@@ -11,11 +11,12 @@
 #ifndef TLE94112_PLATF_MTB_HPP_
 #define TLE94112_PLATF_MTB_HPP_
 
-#include "../pal/TLE94112-pal-mtb.hpp"
+#include "../../../config/tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_MTB)
 
 #include <wiced_platform.h>
+#include "../../../corelib/tle94112.hpp"
 
 /**
  * @addtogroup platfMtb
@@ -39,7 +40,7 @@
  */
 #define TLE94112_PIN_EN      WICED_GPIO_36
 
-class Tle94112Wiced: virtual public TLE94112Wiced
+class Tle94112Wiced: virtual public TLE94112
 {
 	public:
 

@@ -15,7 +15,7 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
-#include "../pal/TLE94112-pal-ino.hpp"
+#include "../../../corelib/tle94112.hpp"
 
 /**
  * @addtogroup platfIno
@@ -45,13 +45,13 @@
  */
 #define TLE94112_PIN_EN      8
 
-class Tle94112Ino: virtual public TLE94112Ino
+class Tle94112Ino: virtual public Tle94112
 {
 	public:
 		Tle94112Ino(void);
 		Tle94112Ino(uint8_t csPin);
-		void begin(void);
-		void end(void);
+		// void begin(void);
+		// void end(void);
 };
 /** @} */
 

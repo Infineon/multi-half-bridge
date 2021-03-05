@@ -29,16 +29,15 @@ set(Headers
     )
 
 set(Sources
-    src/corelib/tle94112_util.cpp
-    src/corelib/TLE94112.cpp
-    src/corelib/TLE94112Motor.cpp
+    src/corelib/tle94112.cpp
+    src/corelib/tle94112-motor.cpp
     )
 
 # Add Library
 add_library(${mhbcore} ${Sources} ${Headers})
 
 # Add directory
-add_subdirectory(src/framework/raspberrypi)
+# add_subdirectory(src/framework/raspberrypi)
 
 # Enable Testing with CTest
 #enable_testing()

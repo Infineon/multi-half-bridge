@@ -1,3 +1,8 @@
+
+#include "tle94112-pybind.hpp"
+
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
+
 #include <pybind11/pybind11.h>
 
 #define STRINGIFY(x) #x
@@ -41,3 +46,4 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
     m.attr("__version__") = "dev";
 #endif
 }
+#endif /** TLE94112_FRAMEWORK **/

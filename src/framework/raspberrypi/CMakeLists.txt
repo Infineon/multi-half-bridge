@@ -13,9 +13,9 @@ set(Sources
     pal/gpio-rpi.cpp
     pal/spic-rpi.cpp
     pal/timer-rpi.cpp
-    pal/TLE94112-pal-rpi.cpp
-    wrapper/TLE94112-platf-rpi.cpp
-    wrapper/TLE94112-pybind.cpp
+    pal/tle94112-pal-rpi.cpp
+    wrapper/tle94112-platf-rpi.cpp
+    wrapper/tle94112-pybind.cpp
     )
 
 # add_subdirectory(tools/pybind11)
