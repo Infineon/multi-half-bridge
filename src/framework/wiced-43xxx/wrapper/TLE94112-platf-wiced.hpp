@@ -17,7 +17,6 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 #include <wiced_platform.h>
-#include "../../../corelib/tle94112.hpp"
 
 /**
  * @addtogroup platfWiced
@@ -40,17 +39,6 @@
  * Standard TLE94112 enable pin
  */
 #define TLE94112_PIN_EN      WICED_GPIO_36
-
-class Tle94112Wiced: virtual public Tle94112
-{
-	public:
-
-		Tle94112Wiced(void);
-		Tle94112Wiced(wiced_gpio_t csPin);
-		void begin();
-		void end(void);
-};
-/** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PLATF_WICED_HPP_ **/
