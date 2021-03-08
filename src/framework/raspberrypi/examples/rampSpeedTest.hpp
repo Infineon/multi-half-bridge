@@ -21,8 +21,8 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
-#include "../wrapper/TLE94112-platf-rpi.hpp"
-#include "../wrapper/TLE94112Motor-platf-rpi.hpp"
+#include "../wrapper/tle94112-rpi.hpp"
+#include "../../../corelib/tle94112-motor.hpp"
 
 // a structure with the measured values
 typedef struct {

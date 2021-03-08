@@ -22,8 +22,9 @@ class Tle94112Rpi: virtual public Tle94112
 {
 	public:
 		Tle94112Rpi(void);
-		Tle94112Rpi(uint8_t csPin);s
+		Tle94112Rpi(uint8_t csPin);
 };
 /** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
+#endif /** TLE94112_RPI_HPP_ **/
