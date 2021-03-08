@@ -25,7 +25,6 @@
  *
  */
 
-#include "../../../../config/tle94112-conf.hpp"
 #include "control2Motors.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)

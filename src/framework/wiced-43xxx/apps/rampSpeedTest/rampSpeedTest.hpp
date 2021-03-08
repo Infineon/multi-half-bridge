@@ -17,15 +17,14 @@
 #ifndef RAMPSPEEDTEST_HPP_
 #define RAMPSPEEDTEST_HPP_
 
-#include "../../../../config/tle94112-conf.hpp"
+#include "tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 #include <stdlib.h>
 #include <wiced.h>
 #include <tle94112-platf-wiced.hpp>
-#include <tle94112-pal-wiced.hpp>
-#include <tle94112.hpp>
+#include <tle94112-wiced.hpp>
 #include <tle94112-motor.hpp>
 #include "wiced_rtos.h"
 

@@ -22,5 +22,6 @@ $(NAME)_SOURCES  := src/corelib/tle94112.cpp \
 					src/framework/wiced-43xxx/pal/gpio-wiced.cpp \
 					src/framework/wiced-43xxx/pal/timer-wiced.cpp \
 					src/framework/wiced-43xxx/pal/spic-wiced.cpp \
+					src/framework/wiced-43xxx/wrapper/tle94112-wiced.cpp \
 
 VALID_PLATFORMS := CYW943907AEVAL1F

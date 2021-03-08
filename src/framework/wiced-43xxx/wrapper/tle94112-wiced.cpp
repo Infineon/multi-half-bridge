@@ -44,3 +44,5 @@ Tle94112Wiced::Tle94112Wiced(wiced_gpio_t csPin):Tle94112()
 	Tle94112::timer = new TimerWiced();
 	Tle94112::sBus = new SPICWiced();
 }
+
+#endif /** TLE94112_FRAMEWORK **/
