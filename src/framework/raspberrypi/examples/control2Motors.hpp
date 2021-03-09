@@ -32,6 +32,8 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
+#include <cstdio>
+#include <bcm2835.h>
 #include "../wrapper/tle94112-rpi.hpp"
 #include "../../../corelib/tle94112-motor.hpp"
 

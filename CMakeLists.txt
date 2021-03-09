@@ -37,7 +37,7 @@ set(Sources
 add_library(${mhbcore} ${Sources} ${Headers})
 
 # Add directory
-# add_subdirectory(src/framework/raspberrypi)
+add_subdirectory(src/framework/raspberrypi)
 
 # Enable Testing with CTest
 #enable_testing()
