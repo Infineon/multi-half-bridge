@@ -14,6 +14,9 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #include "tle94112-platf-rpi.hpp"
+#include "../pal/gpio-rpi.hpp"
+#include "../pal/spic-rpi.hpp"
+#include "../pal/timer-rpi.hpp"
 
 /**
  * @brief Construct a new Tle94112Rpi::Tle94112Rpi object

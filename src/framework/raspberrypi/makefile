@@ -16,7 +16,7 @@ pal: corelib
 	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/timer-rpi.o pal/timer-rpi.cpp
 
 wrapper: pal
-	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/tl94112-rpi.o wrapper/tl94112-rpi.cpp
+	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/tle94112-rpi.o wrapper/tle94112-rpi.cpp
 
 examples/basicTest: wrapper
 	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/basicTest.o examples/basicTest.cpp -Iwrapper/ -I../../corelib -Ipal

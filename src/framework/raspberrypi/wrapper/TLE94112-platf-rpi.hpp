@@ -44,5 +44,5 @@
  */
 #define TLE94112_PIN_EN      RPI_V2_GPIO_P1_37
 
-
+#endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PLATF_RPI_HPP_ **/

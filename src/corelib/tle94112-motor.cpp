@@ -14,7 +14,7 @@
  *
  */
 
-#include "Tle94112-motor.hpp"
+#include "tle94112-motor.hpp"
 
 #ifndef SIGNUM
 #define SIGNUM(x) ( (x > 0) - (x < 0) )
