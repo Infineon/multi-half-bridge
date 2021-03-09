@@ -66,7 +66,7 @@ TimerRpi::Error_t TimerRpi::deinit()
  */
 TimerRpi::Error_t TimerRpi::start()
 {
-	startTime = bcm2835_st_read();
+	startTime = bcm2835_st_read()/1000;
 	return OK;
 }
 
@@ -82,7 +82,7 @@ TimerRpi::Error_t TimerRpi::start()
  */
 TimerRpi::Error_t TimerRpi::elapsed(uint32_t &elapsed)
 {
-	elapsed = bcm2835_st_read() - startTime;
+	elapsed = bcm2835_st_read()/1000 - startTime;
 	return OK;
 }
 
