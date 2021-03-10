@@ -15,15 +15,13 @@ GLOBAL_INCLUDES  := src/config \
 					src/framework/wiced-43xxx/pal \
 					src/framework/wiced-43xxx/wrapper
 
-$(NAME)_SOURCES  := src/corelib/TLE94112.cpp \
-					src/corelib/TLE94112Motor.cpp \
-					src/corelib/tle94112_util.cpp \
+$(NAME)_SOURCES  := src/corelib/tle94112.cpp \
+					src/corelib/tle94112-motor.cpp \
 					src/pal/gpio.cpp \
 					src/pal/spic.cpp \
 					src/framework/wiced-43xxx/pal/gpio-wiced.cpp \
 					src/framework/wiced-43xxx/pal/timer-wiced.cpp \
 					src/framework/wiced-43xxx/pal/spic-wiced.cpp \
-					src/framework/wiced-43xxx/pal/TLE94112-pal-wiced.cpp \
-					src/framework/wiced-43xxx/wrapper/TLE94112-platf-wiced.cpp
+					src/framework/wiced-43xxx/wrapper/tle94112-wiced.cpp \
 
 VALID_PLATFORMS := CYW943907AEVAL1F

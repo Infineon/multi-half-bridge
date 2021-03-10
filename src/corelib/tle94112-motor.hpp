@@ -1,6 +1,6 @@
 /*!
- * \file        TLE94112Motor.hpp
- * \name        TLE94112Motor.hpp - optionally include motor API
+ * \file        tle94112-motor.hpp
+ * \name        tle94112-motor.hpp - optionally include motor API
  * \author      Infineon Technologies AG
  * \copyright   2019-2020 Infineon Technologies AG
  * \version     2.0.0
@@ -14,10 +14,10 @@
  *
  */
 
-#ifndef TLE94112MOTOR_HPP_
-#define TLE94112MOTOR_HPP_
+#ifndef TLE94112_MOTOR_HPP_
+#define TLE94112_MOTOR_HPP_
 
-#include "TLE94112.hpp"
+#include "tle94112.hpp"
 
 /**
  * \addtogroup tle94112motorapi

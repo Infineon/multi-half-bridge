@@ -1,6 +1,6 @@
 /*!
- * \file        TLE94112Motor.cpp
- * \name        TLE94112Motor.cpp - optionally include motor API
+ * \file        tle94112-motor.cpp
+ * \name        tle94112-motor.cpp - optionally include motor API
  * \author      Infineon Technologies AG
  * \copyright   2019-2020 Infineon Technologies AG
  * \version     2.0.0
@@ -14,7 +14,11 @@
  *
  */
 
-#include "TLE94112Motor.hpp"
+#include "tle94112-motor.hpp"
+
+#ifndef SIGNUM
+#define SIGNUM(x) ( (x > 0) - (x < 0) )
+#endif
 
 Tle94112Motor::Tle94112Motor(Tle94112 &driver)
 {
@@ -301,8 +305,10 @@ void Tle94112Motor::rampSpeed(int16_t speed, uint16_t slope)
 		// calc full ramp deltas
 		int16_t ramp_delta_speed = speed - start_speed;
 		int16_t ramp_delta_time = slope * abs(ramp_delta_speed) / TLE94112_MAX_SPEED;
+		// uint16_t ramp_delta_time = (slope * abs(ramp_delta_speed)) / TLE94112_MAX_SPEED;	// Framework implementation. Is this or the corelib (above) the right one? or the same?
 		// calc step deltas
 		int16_t num_steps = ramp_delta_time / (duration - 1);
+		// int16_t num_steps = ramp_delta_time / duration - 1;	//Framework implemnetation. Is this or the corelib (above) the right one?
 		uint16_t steptime = 0;
 		// correction of step deltas for very flat ramps
 		if (abs(ramp_delta_speed) < num_steps)
