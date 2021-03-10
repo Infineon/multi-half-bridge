@@ -1,5 +1,5 @@
 
-List of Arduino Hall public API functions:
+List of WICED Hall public API functions:
 
 ## List of the basic TLE94112 public API functions:
 
@@ -33,4 +33,4 @@ List of Arduino Hall public API functions:
 * getSpeed()
 * rampSpeed()
 
-Find the complete documentation for each of the Arduino functions and and rest of the library code structures in the [Arduino API](https://infineon.github.io/DC-Motor-Control-TLE94112EL/d5/d74/group__tle94112ino.html) Doxygen docs section.
+Find the complete documentation for each of the WICED functions and and rest of the library code structures in the [WICED API](https://infineon.github.io/multi-half-bridge/d4/d7e/group__tle94112wiced.html) Doxygen docs section.

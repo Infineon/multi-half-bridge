@@ -9,11 +9,11 @@ These installation process are conveniently described in the official Arduino [w
 
 ### Arduino IDE Library Manager
 
-Library name: ```DC-Motor-Control-TLE94112EL```
+Library name: ```multi-half-bridge```
 
 ### Arduino IDE Manual Installation
 
-Download the desired .zip library version from the repository [releases](https://github.com/Infineon/DC-Motor-Control-TLE94112EL/releases) section.
+Download the desired .zip library version from the repository [releases](https://github.com/Infineon/multi-half-bridge/releases) section.
  
 :warning: As a general recommendation, downloading directly from the master branch should be avoided. Even if it should not, it could contain incomplete or faulty code.
 

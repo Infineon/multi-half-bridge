@@ -18,10 +18,10 @@ framework = arduino
 
 lib_deps =
 # Using a library name
-DC-Motor-Control-TLE94112EL
+multi-half-bridge
 
 # Using the repository URL
-    https://github.com/Infineon/DC-Motor-Control-TLE94112EL.git#master
+    https://github.com/Infineon/multi-half-bridge.git#master
 ```
 You can also simply take the platformio.ini file from the main *TLE94112* repo. This file includes all settings for using
 this library with 

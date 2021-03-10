@@ -20,7 +20,7 @@ The PAL interfaces are implemented as C++ pure virtual classes.
 * enable()
 * disable()
 
-Find the complete specification for each function of the GPIO PAL interface in the [PAL Interface](https://infineon.github.io/DC-Motor-Control-TLE94112EL/d7/dde/classGPIO.html
+Find the complete specification for each function of the GPIO PAL interface in the [PAL Interface](https://infineon.github.io/multi-half-bridge/d7/dde/classGPIO.html
 ) Doxygen docs section.
 
 ### Timer PAL API
@@ -34,7 +34,7 @@ Find the complete specification for each function of the GPIO PAL interface in t
 * delayMilli()
 * delayMicro()
 
-Find the complete specification for each function of the Timer PAL interface in the [PAL Interface](https://infineon.github.io/DC-Motor-Control-TLE94112EL/dc/dea/classTimer.html) Doxygen docs section.
+Find the complete specification for each function of the Timer PAL interface in the [PAL Interface](https://infineon.github.io/multi-half-bridge/dc/dea/classTimer.html) Doxygen docs section.
 
 ### SPIC PAL API
 
@@ -43,5 +43,5 @@ Find the complete specification for each function of the Timer PAL interface in 
 * transfer()
 * transfer16()
 
-Find the complete specification for each function of the SPI interface in the [PAL Interface](https://infineon.github.io/DC-Motor-Control-TLE94112EL/d7/db9/classSPIC.html) Doxygen docs section.
+Find the complete specification for each function of the SPI interface in the [PAL Interface](https://infineon.github.io/multi-half-bridge/d7/db9/classSPIC.html) Doxygen docs section.
 

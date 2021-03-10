@@ -2,7 +2,7 @@
 
 The installation process described here applies for the **43xxx-Wi-Fi** platform:
 
-1. Download the .zip or tar.gz file from [releases](https://github.com/Infineon/DC-Motor-Control-TLE94112EL/releases) and extract it in the following location:
+1. Download the .zip or tar.gz file from [releases](https://github.com/Infineon/multi-half-bridge/releases) and extract it in the following location:
 
    ```
    <!-- <path_to_WICED_workspace>/WICED-Studio-6.4/43xxx_Wi-Fi/libraries/drivers/motor-control/ -->

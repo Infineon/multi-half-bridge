@@ -2,7 +2,7 @@ The *src/config* sources provides the C-macro level library configuration.
 
 Through defines configuration the different modules of the library are conditionally compiled. Thus, only the code needed is added to the binary. The main selectable parameters are:
 
-- **Software Framework**. ```#ifdef/#ifndef``` guards are added to all source files for the framework specific sources. Through of the ```#define``` parameters, the development framework can be selected. 
+- **Software Framework**. ```#ifdef/#ifnef``` guards are added to all source files for the framework specific sources. Through of the ```#define``` parameters, the development framework can be selected. 
 
 
 ## Config Files

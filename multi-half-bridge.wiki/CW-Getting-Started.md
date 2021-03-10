@@ -16,7 +16,7 @@ Micro-USB to USB A cable | use the cable included into the CYW943907AEVAL1F Eval
 ### Required Software
 
 * [WICED Studio](https://community.cypress.com/community/software-forums/wiced-wifi/wiced-wifi-documentation)
-* [TLE94112](https://github.com/Infineon/DC-Motor-Control-TLE94112EL) (v2.0.0 or higher)
+* [TLE94112](https://github.com/Infineon/multi-half-bridge) (v2.0.0 or higher)
 * for Windows: [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) Serial Terminal 
 * for Linux: [miniCom](https://help.ubuntu.com/community/Minicom)
 * this library (Installed with WICED SDK)
