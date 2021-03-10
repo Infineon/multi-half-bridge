@@ -23,10 +23,10 @@
 
 #include <stdlib.h>
 #include <wiced.h>
-#include <TLE94112-platf-wiced.hpp>
-#include <TLE94112-pal-wiced.hpp>
-#include <TLE94112.hpp>
-#include <TLE94112Motor.hpp>
+#include <tle94112-platf-wiced.hpp>
+#include <tle94112-pal-wiced.hpp>
+#include <tle94112.hpp>
+#include <tle94112-motors.hpp>
 #include "wiced_rtos.h"
 
 extern "C" void application_start();
