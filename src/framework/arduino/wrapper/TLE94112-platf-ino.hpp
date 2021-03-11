@@ -1,6 +1,7 @@
+
 /**
- * @file        TLE94112-platf-ino.hpp
- * @brief       TLE94112-platf-ino.hpp Arduino Hardware Platforms
+ * @file        tle94112-platf-ino.hpp
+ * @brief       TLE94112 Arduino Hardware Platforms
  * @date        Mai 2020
  * @version     2.0.0
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
@@ -15,12 +16,7 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
-#include "../pal/TLE94112-pal-ino.hpp"
-
-/**
- * @addtogroup platfIno
- * @{
- *
+ /**
  * @brief Arduino Hardware Platform Pins
  * 
  * This class provides a simple API for connecting the TLE94112 shield via SPI.
@@ -44,16 +40,6 @@
  * Standard TLE94112 enable pin
  */
 #define TLE94112_PIN_EN      8
-
-class Tle94112Ino: virtual public TLE94112Ino
-{
-	public:
-		Tle94112Ino(void);
-		Tle94112Ino(uint8_t csPin);
-		void begin(void);
-		void end(void);
-};
-/** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PLATF_INO_HPP_ **/

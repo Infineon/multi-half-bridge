@@ -12,7 +12,7 @@
 #ifndef TLE94112_PLATF_WICED_HPP_
 #define TLE94112_PLATF_WICED_HPP_
 
-#include "../pal/TLE94112-pal-wiced.hpp"
+#include "../../../config/tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
@@ -39,17 +39,6 @@
  * Standard TLE94112 enable pin
  */
 #define TLE94112_PIN_EN      WICED_GPIO_36
-
-class Tle94112Wiced: virtual public TLE94112Wiced
-{
-	public:
-
-		Tle94112Wiced(void);
-		Tle94112Wiced(wiced_gpio_t csPin);
-		void begin();
-		void end(void);
-};
-/** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PLATF_WICED_HPP_ **/

@@ -1,6 +1,6 @@
 /*!
- * \file        TLE94112.cpp
- * \name        TLE94112.cpp - Arduino library to control Infineon's DC Motor Control Shield with Tle94112
+ * \file        tle94112.cpp
+ * \name        tle94112.cpp - Arduino library to control Infineon's DC Motor Control Shield with Tle94112
  * \author      Infineon Technologies AG
  * \copyright   2019-2020 Infineon Technologies AG
  * \version     2.0.0
@@ -11,8 +11,7 @@
  *
  */
 
-
-#include "TLE94112.hpp"
+#include "tle94112.hpp"
 
 #define TLE94112_STATUS_INV_MASK    (Tle94112::TLE_POWER_ON_RESET)
 
@@ -24,12 +23,40 @@ Tle94112::Tle94112(void)
 	timer = NULL;
 }
 
+// Tle94112(SPIC * sBus, GPIO * cs, GPIO * en, Timer * timer)
+// :sBus(sBus), cs(cs), en(en), timer(timer)
+// {
+	
+// }
+
 Tle94112::~Tle94112()
 {
 	en = NULL;
 	cs = NULL;
 	timer = NULL;
 	sBus = NULL;
+}
+
+void Tle94112::begin(void)
+{
+	mEnabled = false;
+	Tle94112::sBus->init();
+	Tle94112::en->init();
+	Tle94112::en->enable();
+	Tle94112::cs->init();
+	Tle94112::cs->enable();
+	Tle94112::timer->init();
+	mEnabled = true;
+	init();
+}
+
+void Tle94112::end(void)
+{
+	mEnabled = false;
+	Tle94112::en->disable();
+	Tle94112::cs->disable();
+	Tle94112::timer->stop();
+	Tle94112::sBus->deinit();
 }
 
 void Tle94112::configHB(HalfBridge hb, HBState state, PWMChannel pwm)
@@ -130,4 +157,128 @@ void Tle94112::clearErrors()
 	clearStatusReg(OP_ERROR_4_STAT);
 	clearStatusReg(OP_ERROR_5_STAT);
 	clearStatusReg(OP_ERROR_6_STAT);
+}
+
+void Tle94112::init(void)
+{
+	//!< initial control register configuration
+	mCtrlRegAddresses[static_cast<int>(Tle94112::HB_ACT_1_CTRL)] = 0x03;
+	mCtrlRegData[HB_ACT_1_CTRL]         = 0;
+	mCtrlRegAddresses[HB_ACT_2_CTRL]    = 0x43;
+	mCtrlRegData[HB_ACT_2_CTRL]         = 0;
+	mCtrlRegAddresses[HB_ACT_3_CTRL]    = 0x23;
+	mCtrlRegData[HB_ACT_3_CTRL]         = 0;
+	mCtrlRegAddresses[HB_MODE_1_CTRL]   = 0x63;
+	mCtrlRegData[HB_MODE_1_CTRL]        = 0;
+	mCtrlRegAddresses[HB_MODE_2_CTRL]   = 0x13;
+	mCtrlRegData[HB_MODE_2_CTRL]        = 0;
+	mCtrlRegAddresses[HB_MODE_3_CTRL]   = 0x53;
+	mCtrlRegData[HB_MODE_3_CTRL]        = 0;
+	mCtrlRegAddresses[PWM_CH_FREQ_CTRL] = 0x33;
+	mCtrlRegData[PWM_CH_FREQ_CTRL]      = 0;
+	mCtrlRegAddresses[PWM1_DC_CTRL]     = 0x73;
+	mCtrlRegData[PWM1_DC_CTRL]          = 0;
+	mCtrlRegAddresses[PWM2_DC_CTRL]     = 0x0B;
+	mCtrlRegData[PWM2_DC_CTRL]          = 0;
+	mCtrlRegAddresses[PWM3_DC_CTRL]     = 0x4B;
+	mCtrlRegData[PWM3_DC_CTRL]          = 0;
+	mCtrlRegAddresses[FW_OL_CTRL]       = 0x2B;
+	mCtrlRegData[FW_OL_CTRL]            = 0;
+	mCtrlRegAddresses[FW_CTRL]          = 0x6B;
+	mCtrlRegData[FW_CTRL]               = 0;
+
+	//!< status register configuration
+	mStatusRegAddresses[SYS_DIAG1]       = 0x1B;
+	mStatusRegAddresses[OP_ERROR_1_STAT] = 0x5B;
+	mStatusRegAddresses[OP_ERROR_2_STAT] = 0x3B;
+	mStatusRegAddresses[OP_ERROR_3_STAT] = 0x7B;
+	mStatusRegAddresses[OP_ERROR_4_STAT] = 0x07;
+	mStatusRegAddresses[OP_ERROR_5_STAT] = 0x47;
+	mStatusRegAddresses[OP_ERROR_6_STAT] = 0x27;
+
+	//!< bit masking for all halfbridges
+	mHalfBridges[TLE_NOHB] = { HB_ACT_1_CTRL, 0x00, 0, HB_MODE_1_CTRL, 0x00, 0, FW_OL_CTRL, 0x00, 0, OP_ERROR_1_STAT, 0x00, 0, OP_ERROR_4_STAT, 0x00, 0 };
+	mHalfBridges[TLE_HB1]  = { HB_ACT_1_CTRL, 0x03, 0, HB_MODE_1_CTRL, 0x03, 0, FW_OL_CTRL, 0x04, 2, OP_ERROR_1_STAT, 0x03, 0, OP_ERROR_4_STAT, 0x03, 0 };
+	mHalfBridges[TLE_HB2]  = { HB_ACT_1_CTRL, 0x0C, 2, HB_MODE_1_CTRL, 0x0C, 2, FW_OL_CTRL, 0x08, 3, OP_ERROR_1_STAT, 0x0C, 2, OP_ERROR_4_STAT, 0x0C, 2 };
+	mHalfBridges[TLE_HB3]  = { HB_ACT_1_CTRL, 0x30, 4, HB_MODE_1_CTRL, 0x30, 4, FW_OL_CTRL, 0x10, 4, OP_ERROR_1_STAT, 0x30, 4, OP_ERROR_4_STAT, 0x30, 4 };
+	mHalfBridges[TLE_HB4]  = { HB_ACT_1_CTRL, 0xC0, 6, HB_MODE_1_CTRL, 0xC0, 6, FW_OL_CTRL, 0x20, 5, OP_ERROR_1_STAT, 0xC0, 6, OP_ERROR_4_STAT, 0xC0, 6 };
+	mHalfBridges[TLE_HB5]  = { HB_ACT_2_CTRL, 0x03, 0, HB_MODE_2_CTRL, 0x03, 0, FW_OL_CTRL, 0x40, 6, OP_ERROR_2_STAT, 0x03, 0, OP_ERROR_5_STAT, 0x03, 0 };
+	mHalfBridges[TLE_HB6]  = { HB_ACT_2_CTRL, 0x0C, 2, HB_MODE_2_CTRL, 0x0C, 2, FW_OL_CTRL, 0x80, 7, OP_ERROR_2_STAT, 0x0C, 2, OP_ERROR_5_STAT, 0x0C, 2 };
+	mHalfBridges[TLE_HB7]  = { HB_ACT_2_CTRL, 0x30, 4, HB_MODE_2_CTRL, 0x30, 4, FW_CTRL,    0x01, 0, OP_ERROR_2_STAT, 0x30, 4, OP_ERROR_5_STAT, 0x30, 4 };
+	mHalfBridges[TLE_HB8]  = { HB_ACT_2_CTRL, 0xC0, 6, HB_MODE_2_CTRL, 0xC0, 6, FW_CTRL,    0x02, 1, OP_ERROR_2_STAT, 0xC0, 6, OP_ERROR_5_STAT, 0xC0, 6 };
+	mHalfBridges[TLE_HB9]  = { HB_ACT_3_CTRL, 0x03, 0, HB_MODE_3_CTRL, 0x03, 0, FW_CTRL,    0x04, 2, OP_ERROR_3_STAT, 0x03, 0, OP_ERROR_6_STAT, 0x03, 0 };
+	mHalfBridges[TLE_HB10] = { HB_ACT_3_CTRL, 0x0C, 2, HB_MODE_3_CTRL, 0x0C, 2, FW_CTRL,    0x08, 3, OP_ERROR_3_STAT, 0x0C, 2, OP_ERROR_6_STAT, 0x0C, 2 };
+	mHalfBridges[TLE_HB11] = { HB_ACT_3_CTRL, 0x30, 4, HB_MODE_3_CTRL, 0x30, 4, FW_CTRL,    0x10, 4, OP_ERROR_3_STAT, 0x30, 4, OP_ERROR_6_STAT, 0x30, 4 };
+	mHalfBridges[TLE_HB12] = { HB_ACT_3_CTRL, 0xC0, 6, HB_MODE_3_CTRL, 0xC0, 6, FW_CTRL,    0x20, 5, OP_ERROR_3_STAT, 0xC0, 6, OP_ERROR_6_STAT, 0xC0, 6 };
+
+	//!< bit masking for all pwm channels
+	mPwmChannels[TLE_NOPWM] = { PWM_CH_FREQ_CTRL, 0x00, 0, 0, 0x00, 0}; //dummy channel for NOPWM
+	mPwmChannels[TLE_PWM1]  = { PWM_CH_FREQ_CTRL, 0x03, 0, PWM1_DC_CTRL, 0xFF, 0};
+	mPwmChannels[TLE_PWM2]  = { PWM_CH_FREQ_CTRL, 0x0C, 2, PWM2_DC_CTRL, 0xFF, 0};
+	mPwmChannels[TLE_PWM3]  = { PWM_CH_FREQ_CTRL, 0x30, 4, PWM3_DC_CTRL, 0xFF, 0};
+
+}
+
+/*! \brief SPI address commands */
+#define TLE94112_CMD_WRITE          0x80;
+#define TLE94112_CMD_CLEAR          0x80;
+
+#define TLE94112_STATUS_INV_MASK    (Tle94112::TLE_POWER_ON_RESET)
+
+/*! \brief time in milliseconds to wait for chipselect signal raised */
+#define TLE94112_CS_RISETIME        2
+
+void Tle94112::writeReg(uint8_t reg, uint8_t mask, uint8_t shift, uint8_t data)
+{
+	uint8_t address = mCtrlRegAddresses[reg];
+	uint8_t toWrite = mCtrlRegData[reg] & (~mask);
+	uint8_t byte0;
+	uint8_t byte1;
+
+	toWrite |= (data << shift) & mask;
+	mCtrlRegData[reg] = toWrite;
+
+	address = address | TLE94112_CMD_WRITE
+	cs->disable();
+	sBus->transfer(address,byte0);
+	sBus->transfer(toWrite,byte1);
+	cs->enable();
+	timer->delayMilli(TLE94112_CS_RISETIME);
+}
+
+uint8_t Tle94112::readStatusReg(uint8_t reg)
+{
+	//read the whole register
+	return readStatusReg(reg, 0xFF, 0);
+}
+
+uint8_t Tle94112::readStatusReg(uint8_t reg, uint8_t mask, uint8_t shift)
+{
+	uint8_t address = mStatusRegAddresses[reg];
+	uint8_t byte0;
+	uint8_t received;
+
+	cs->disable();
+	sBus->transfer(address,byte0);
+	sBus->transfer(0xFF,received);
+	cs->enable();
+	timer->delayMilli(TLE94112_CS_RISETIME);
+
+	received = (received & mask) >> shift;
+
+	return received;
+}
+
+void Tle94112::clearStatusReg(uint8_t reg)
+{
+	uint8_t address = mStatusRegAddresses[reg];
+	uint8_t byte0;
+	uint8_t byte1;
+
+	address = address | TLE94112_CMD_CLEAR;
+	cs->disable();
+	sBus->transfer(address,byte0);
+	sBus->transfer(0,byte1);
+	cs->enable();
+	timer->delayMilli(TLE94112_CS_RISETIME);
 }

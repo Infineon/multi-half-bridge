@@ -62,10 +62,10 @@ RM = /home/pi/.local/lib/python3.7/site-packages/cmake/data/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/Desktop/TLE94112/mhb/multi-half-bridge
+CMAKE_SOURCE_DIR = /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build
+CMAKE_BINARY_DIR = /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/multi-half-bridge-corelib.dir/depend.make
@@ -76,60 +76,45 @@ include CMakeFiles/multi-half-bridge-corelib.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/multi-half-bridge-corelib.dir/flags.make
 
-CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.o: CMakeFiles/multi-half-bridge-corelib.dir/flags.make
-CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.o: ../src/corelib/tle94112_util.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.o -c /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/corelib/tle94112_util.cpp
+CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.o: CMakeFiles/multi-half-bridge-corelib.dir/flags.make
+CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.o: ../src/corelib/tle94112.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.o"
+	/usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.o -c /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/corelib/tle94112.cpp
 
-CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/corelib/tle94112_util.cpp > CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.i
+CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.i"
+	/usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/corelib/tle94112.cpp > CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.i
 
-CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/corelib/tle94112_util.cpp -o CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.s
+CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.s"
+	/usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/corelib/tle94112.cpp -o CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.s
 
-CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.o: CMakeFiles/multi-half-bridge-corelib.dir/flags.make
-CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.o: ../src/corelib/TLE94112.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.o -c /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/corelib/TLE94112.cpp
+CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.o: CMakeFiles/multi-half-bridge-corelib.dir/flags.make
+CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.o: ../src/corelib/tle94112-motor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.o"
+	/usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.o -c /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/corelib/tle94112-motor.cpp
 
-CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/corelib/TLE94112.cpp > CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.i
+CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.i"
+	/usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/corelib/tle94112-motor.cpp > CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.i
 
-CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/corelib/TLE94112.cpp -o CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.s
-
-CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.o: CMakeFiles/multi-half-bridge-corelib.dir/flags.make
-CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.o: ../src/corelib/TLE94112Motor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.o -c /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/corelib/TLE94112Motor.cpp
-
-CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/corelib/TLE94112Motor.cpp > CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.i
-
-CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/corelib/TLE94112Motor.cpp -o CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.s
+CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.s"
+	/usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/corelib/tle94112-motor.cpp -o CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.s
 
 # Object files for target multi-half-bridge-corelib
 multi__half__bridge__corelib_OBJECTS = \
-"CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.o" \
-"CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.o" \
-"CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.o"
+"CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.o" \
+"CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.o"
 
 # External object files for target multi-half-bridge-corelib
 multi__half__bridge__corelib_EXTERNAL_OBJECTS =
 
-libmulti-half-bridge-corelib.a: CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.o
-libmulti-half-bridge-corelib.a: CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.o
-libmulti-half-bridge-corelib.a: CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.o
+libmulti-half-bridge-corelib.a: CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.o
+libmulti-half-bridge-corelib.a: CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.o
 libmulti-half-bridge-corelib.a: CMakeFiles/multi-half-bridge-corelib.dir/build.make
 libmulti-half-bridge-corelib.a: CMakeFiles/multi-half-bridge-corelib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libmulti-half-bridge-corelib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libmulti-half-bridge-corelib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/multi-half-bridge-corelib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/multi-half-bridge-corelib.dir/link.txt --verbose=$(VERBOSE)
 
@@ -143,6 +128,6 @@ CMakeFiles/multi-half-bridge-corelib.dir/clean:
 .PHONY : CMakeFiles/multi-half-bridge-corelib.dir/clean
 
 CMakeFiles/multi-half-bridge-corelib.dir/depend:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/Desktop/TLE94112/mhb/multi-half-bridge /home/pi/Desktop/TLE94112/mhb/multi-half-bridge /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles/multi-half-bridge-corelib.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles/multi-half-bridge-corelib.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/multi-half-bridge-corelib.dir/depend
 

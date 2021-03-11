@@ -67,10 +67,10 @@ RM = /home/pi/.local/lib/python3.7/site-packages/cmake/data/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/Desktop/TLE94112/mhb/multi-half-bridge
+CMAKE_SOURCE_DIR = /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build
+CMAKE_BINARY_DIR = /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,14 +99,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi//CMakeFiles/progress.marks
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/framework/raspberrypi/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles 0
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi//CMakeFiles/progress.marks
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/framework/raspberrypi/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/framework/raspberrypi/clean
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/framework/raspberrypi/clean
 .PHONY : clean
 
 # The main clean target
@@ -116,22 +116,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/framework/raspberrypi/preinstall
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/framework/raspberrypi/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/framework/raspberrypi/preinstall
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/framework/raspberrypi/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/rule:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/rule
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/rule
 .PHONY : src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/rule
 
 # Convenience name for target.
@@ -141,113 +141,83 @@ multi_half_bridge_py: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.
 
 # fast build rule for target.
 multi_half_bridge_py/fast:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build
 .PHONY : multi_half_bridge_py/fast
 
 # target to build an object file
-pal/Python_import.o:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.o
-.PHONY : pal/Python_import.o
-
-# target to preprocess a source file
-pal/Python_import.i:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.i
-.PHONY : pal/Python_import.i
-
-# target to generate assembly for a file
-pal/Python_import.s:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.s
-.PHONY : pal/Python_import.s
-
-# target to build an object file
-pal/TLE94112-pal-rpi.o:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.o
-.PHONY : pal/TLE94112-pal-rpi.o
-
-# target to preprocess a source file
-pal/TLE94112-pal-rpi.i:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.i
-.PHONY : pal/TLE94112-pal-rpi.i
-
-# target to generate assembly for a file
-pal/TLE94112-pal-rpi.s:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.s
-.PHONY : pal/TLE94112-pal-rpi.s
-
-# target to build an object file
 pal/gpio-rpi.o:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.o
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.o
 .PHONY : pal/gpio-rpi.o
 
 # target to preprocess a source file
 pal/gpio-rpi.i:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.i
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.i
 .PHONY : pal/gpio-rpi.i
 
 # target to generate assembly for a file
 pal/gpio-rpi.s:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.s
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.s
 .PHONY : pal/gpio-rpi.s
 
 # target to build an object file
 pal/spic-rpi.o:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.o
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.o
 .PHONY : pal/spic-rpi.o
 
 # target to preprocess a source file
 pal/spic-rpi.i:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.i
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.i
 .PHONY : pal/spic-rpi.i
 
 # target to generate assembly for a file
 pal/spic-rpi.s:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.s
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.s
 .PHONY : pal/spic-rpi.s
 
 # target to build an object file
 pal/timer-rpi.o:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.o
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.o
 .PHONY : pal/timer-rpi.o
 
 # target to preprocess a source file
 pal/timer-rpi.i:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.i
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.i
 .PHONY : pal/timer-rpi.i
 
 # target to generate assembly for a file
 pal/timer-rpi.s:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.s
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.s
 .PHONY : pal/timer-rpi.s
 
 # target to build an object file
-wrapper/TLE94112-platf-rpi.o:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.o
-.PHONY : wrapper/TLE94112-platf-rpi.o
+wrapper/tle94112-pybind.o:
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.o
+.PHONY : wrapper/tle94112-pybind.o
 
 # target to preprocess a source file
-wrapper/TLE94112-platf-rpi.i:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.i
-.PHONY : wrapper/TLE94112-platf-rpi.i
+wrapper/tle94112-pybind.i:
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.i
+.PHONY : wrapper/tle94112-pybind.i
 
 # target to generate assembly for a file
-wrapper/TLE94112-platf-rpi.s:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.s
-.PHONY : wrapper/TLE94112-platf-rpi.s
+wrapper/tle94112-pybind.s:
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.s
+.PHONY : wrapper/tle94112-pybind.s
 
 # target to build an object file
-wrapper/TLE94112-pybind.o:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.o
-.PHONY : wrapper/TLE94112-pybind.o
+wrapper/tle94112-rpi.o:
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.o
+.PHONY : wrapper/tle94112-rpi.o
 
 # target to preprocess a source file
-wrapper/TLE94112-pybind.i:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.i
-.PHONY : wrapper/TLE94112-pybind.i
+wrapper/tle94112-rpi.i:
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.i
+.PHONY : wrapper/tle94112-rpi.i
 
 # target to generate assembly for a file
-wrapper/TLE94112-pybind.s:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.s
-.PHONY : wrapper/TLE94112-pybind.s
+wrapper/tle94112-rpi.s:
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(MAKE) $(MAKESILENT) -f src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.s
+.PHONY : wrapper/tle94112-rpi.s
 
 # Help Target
 help:
@@ -258,12 +228,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... multi_half_bridge_py"
-	@echo "... pal/Python_import.o"
-	@echo "... pal/Python_import.i"
-	@echo "... pal/Python_import.s"
-	@echo "... pal/TLE94112-pal-rpi.o"
-	@echo "... pal/TLE94112-pal-rpi.i"
-	@echo "... pal/TLE94112-pal-rpi.s"
 	@echo "... pal/gpio-rpi.o"
 	@echo "... pal/gpio-rpi.i"
 	@echo "... pal/gpio-rpi.s"
@@ -273,12 +237,12 @@ help:
 	@echo "... pal/timer-rpi.o"
 	@echo "... pal/timer-rpi.i"
 	@echo "... pal/timer-rpi.s"
-	@echo "... wrapper/TLE94112-platf-rpi.o"
-	@echo "... wrapper/TLE94112-platf-rpi.i"
-	@echo "... wrapper/TLE94112-platf-rpi.s"
-	@echo "... wrapper/TLE94112-pybind.o"
-	@echo "... wrapper/TLE94112-pybind.i"
-	@echo "... wrapper/TLE94112-pybind.s"
+	@echo "... wrapper/tle94112-pybind.o"
+	@echo "... wrapper/tle94112-pybind.i"
+	@echo "... wrapper/tle94112-pybind.s"
+	@echo "... wrapper/tle94112-rpi.o"
+	@echo "... wrapper/tle94112-rpi.i"
+	@echo "... wrapper/tle94112-rpi.s"
 .PHONY : help
 
 
@@ -290,6 +254,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -67,10 +67,10 @@ RM = /home/pi/.local/lib/python3.7/site-packages/cmake/data/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/Desktop/TLE94112/mhb/multi-half-bridge
+CMAKE_SOURCE_DIR = /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build
+CMAKE_BINARY_DIR = /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -156,49 +156,34 @@ multi_half_bridge_py/fast:
 .PHONY : multi_half_bridge_py/fast
 
 # target to build an object file
-src/corelib/TLE94112.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.o
-.PHONY : src/corelib/TLE94112.o
+src/corelib/tle94112-motor.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.o
+.PHONY : src/corelib/tle94112-motor.o
 
 # target to preprocess a source file
-src/corelib/TLE94112.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.i
-.PHONY : src/corelib/TLE94112.i
+src/corelib/tle94112-motor.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.i
+.PHONY : src/corelib/tle94112-motor.i
 
 # target to generate assembly for a file
-src/corelib/TLE94112.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.s
-.PHONY : src/corelib/TLE94112.s
+src/corelib/tle94112-motor.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.s
+.PHONY : src/corelib/tle94112-motor.s
 
 # target to build an object file
-src/corelib/TLE94112Motor.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.o
-.PHONY : src/corelib/TLE94112Motor.o
+src/corelib/tle94112.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.o
+.PHONY : src/corelib/tle94112.o
 
 # target to preprocess a source file
-src/corelib/TLE94112Motor.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.i
-.PHONY : src/corelib/TLE94112Motor.i
+src/corelib/tle94112.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.i
+.PHONY : src/corelib/tle94112.i
 
 # target to generate assembly for a file
-src/corelib/TLE94112Motor.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.s
-.PHONY : src/corelib/TLE94112Motor.s
-
-# target to build an object file
-src/corelib/tle94112_util.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.o
-.PHONY : src/corelib/tle94112_util.o
-
-# target to preprocess a source file
-src/corelib/tle94112_util.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.i
-.PHONY : src/corelib/tle94112_util.i
-
-# target to generate assembly for a file
-src/corelib/tle94112_util.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.s
-.PHONY : src/corelib/tle94112_util.s
+src/corelib/tle94112.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/multi-half-bridge-corelib.dir/build.make CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.s
+.PHONY : src/corelib/tle94112.s
 
 # Help Target
 help:
@@ -210,15 +195,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... multi-half-bridge-corelib"
 	@echo "... multi_half_bridge_py"
-	@echo "... src/corelib/TLE94112.o"
-	@echo "... src/corelib/TLE94112.i"
-	@echo "... src/corelib/TLE94112.s"
-	@echo "... src/corelib/TLE94112Motor.o"
-	@echo "... src/corelib/TLE94112Motor.i"
-	@echo "... src/corelib/TLE94112Motor.s"
-	@echo "... src/corelib/tle94112_util.o"
-	@echo "... src/corelib/tle94112_util.i"
-	@echo "... src/corelib/tle94112_util.s"
+	@echo "... src/corelib/tle94112-motor.o"
+	@echo "... src/corelib/tle94112-motor.i"
+	@echo "... src/corelib/tle94112-motor.s"
+	@echo "... src/corelib/tle94112.o"
+	@echo "... src/corelib/tle94112.i"
+	@echo "... src/corelib/tle94112.s"
 .PHONY : help
 
 

@@ -2,7 +2,7 @@
  * \name        rampSpeedTest
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
- * \version     2.0.0
+ * \version     1.0.0
  * \brief       This example measure the rampspeed of an attached motor with the TLE94112 shield
  * \details
  * By attaching a motor to the TLE94112 and running a testcase scenario, we can measure the
@@ -28,25 +28,25 @@ Tle94112Motor motor(controller);
 
 void measureRampTime(int index)
 {
-    printf("Test: %i\n", index);
-    printf("%i -> %i", testcases[index].startspeed, testcases[index].endspeed);
+    printf("Test: %i\t", index);
+    printf("%i -> %i\t", testcases[index].startspeed, testcases[index].endspeed);
     int32_t expected = (abs(testcases[index].endspeed - testcases[index].startspeed) * (int32_t)(testcases[index].slope)) / 255;
-    printf("Expected: %i ms\n", expected);
+    printf("Expected: %d ms\n", expected);
 
-    motor.setSpeed( testcases[index].endspeed);
+    motor.setSpeed(testcases[index].startspeed);
     delay(100);
 
-    uint32_t duration = bcm2835_st_read();
+    uint32_t duration = bcm2835_st_read()/1000;
     motor.rampSpeed(testcases[index].endspeed, testcases[index].slope);
-    duration = bcm2835_st_read() - duration;
+    duration = bcm2835_st_read()/1000 - duration;
 
-    printf("Measured: %d ms\n", duration);
+    printf("Measured: %lu ms\n", duration);
 
 }
 int main(int argc, char const *argv[])
 {
     
-    printf("Init ready");
+    printf("Init ready.\n");
     // Enable MotorController on all Shields and Motors
     // Note: Required to be done before starting to configure the motor
     // controller is set to default CS1 pin

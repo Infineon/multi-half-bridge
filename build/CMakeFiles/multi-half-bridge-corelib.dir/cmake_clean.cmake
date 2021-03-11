@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.o"
-  "CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.o"
-  "CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.o"
+  "CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.o"
+  "CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.o"
   "libmulti-half-bridge-corelib.a"
   "libmulti-half-bridge-corelib.pdb"
 )

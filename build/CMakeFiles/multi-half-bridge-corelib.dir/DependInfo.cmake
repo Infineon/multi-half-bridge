@@ -4,9 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/corelib/TLE94112.cpp" "/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112.o"
-  "/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/corelib/TLE94112Motor.cpp" "/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/TLE94112Motor.o"
-  "/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/corelib/tle94112_util.cpp" "/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112_util.o"
+  "/home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/corelib/tle94112-motor.cpp" "/home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112-motor.o"
+  "/home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/corelib/tle94112.cpp" "/home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles/multi-half-bridge-corelib.dir/src/corelib/tle94112.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

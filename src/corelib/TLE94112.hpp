@@ -1,6 +1,6 @@
 /*!
- * \file        TLE94112.hpp
- * \name        TLE94112.hpp - basic register API
+ * \file        tle94112.hpp
+ * \name        tle94112.hpp - basic register API
  * \author      Infineon Technologies AG
  * \copyright   2019-2020 Infineon Technologies AG
  * \version     2.0.0
@@ -16,7 +16,7 @@
 
 #include <stdint.h>
 #include <stdlib.h>
-#include "tle94112_util.hpp"
+// #include "tle94112_util.hpp"
 #include "../pal/timer.hpp"
 #include "../pal/gpio.hpp"
 #include "../pal/spic.hpp"
@@ -116,6 +116,9 @@ class Tle94112
 
 		//! \brief standard constructor with default pin assignment
 		Tle94112();
+
+		//! \brief constructor with pal instances
+		//Tle94112(SPIC * sBus, GPIO * scs, GPIO * en, Timer * timer); 	
 
 		//! \brief standard destructor switches shield off
 		~Tle94112();
@@ -249,6 +252,38 @@ class Tle94112
 			OP_ERROR_5_STAT,
 			OP_ERROR_6_STAT
 		};
+
+		//! \brief struct containing register locations for a single halfbridge
+		typedef struct
+		{
+			uint8_t stateReg;
+			uint8_t stateMask;
+			uint8_t stateShift;
+			uint8_t pwmReg;
+			uint8_t pwmMask;
+			uint8_t pwmShift;
+			uint8_t fwReg;
+			uint8_t fwMask;
+			uint8_t fwShift;
+			uint8_t ocReg;
+			uint8_t ocMask;
+			uint8_t ocShift;
+			uint8_t olReg;
+			uint8_t olMask;
+			uint8_t olShift;
+		} HalfBridge_t;
+
+		//! \brief struct containing register locations for a single PWM channel
+		typedef struct 
+		{
+			uint8_t freqReg;
+			uint8_t freqMask;
+			uint8_t freqShift;
+			uint8_t dcReg;
+			uint8_t dcMask;
+			uint8_t dcShift;
+		} PWMchannel_t;
+
 
 		//! \brief array of register locations for halfbridges
 		HalfBridge_t mHalfBridges[TLE94112_NUM_HB];

@@ -10,7 +10,7 @@
 #ifndef TIMER_ARDUINO_HPP_
 #define TIMER_ARDUINO_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
+#include "timer-arduino.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 

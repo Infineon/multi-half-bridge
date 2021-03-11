@@ -62,10 +62,10 @@ RM = /home/pi/.local/lib/python3.7/site-packages/cmake/data/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/Desktop/TLE94112/mhb/multi-half-bridge
+CMAKE_SOURCE_DIR = /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build
+CMAKE_BINARY_DIR = /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build
 
 # Include any dependencies generated for this target.
 include src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/depend.make
@@ -78,104 +78,76 @@ include src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/flags.make
 
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.o: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/flags.make
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.o: ../src/framework/raspberrypi/pal/gpio-rpi.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.o"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.o -c /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/gpio-rpi.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.o"
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.o -c /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/pal/gpio-rpi.cpp
 
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.i"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/gpio-rpi.cpp > CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.i
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/pal/gpio-rpi.cpp > CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.i
 
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.s"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/gpio-rpi.cpp -o CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.s
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/pal/gpio-rpi.cpp -o CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.s
 
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.o: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/flags.make
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.o: ../src/framework/raspberrypi/pal/spic-rpi.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.o"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.o -c /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/spic-rpi.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.o"
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.o -c /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/pal/spic-rpi.cpp
 
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.i"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/spic-rpi.cpp > CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.i
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/pal/spic-rpi.cpp > CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.i
 
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.s"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/spic-rpi.cpp -o CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.s
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/pal/spic-rpi.cpp -o CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.s
 
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.o: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/flags.make
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.o: ../src/framework/raspberrypi/pal/timer-rpi.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.o"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.o -c /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/timer-rpi.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.o"
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.o -c /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/pal/timer-rpi.cpp
 
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.i"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/timer-rpi.cpp > CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.i
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/pal/timer-rpi.cpp > CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.i
 
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.s"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/timer-rpi.cpp -o CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.s
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/pal/timer-rpi.cpp -o CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.s
 
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.o: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/flags.make
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.o: ../src/framework/raspberrypi/pal/TLE94112-pal-rpi.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.o"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.o -c /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/TLE94112-pal-rpi.cpp
+src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.o: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/flags.make
+src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.o: ../src/framework/raspberrypi/wrapper/tle94112-rpi.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.o"
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.o -c /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/wrapper/tle94112-rpi.cpp
 
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.i"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/TLE94112-pal-rpi.cpp > CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.i
+src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.i"
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/wrapper/tle94112-rpi.cpp > CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.i
 
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.s"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/TLE94112-pal-rpi.cpp -o CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.s
+src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.s"
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/wrapper/tle94112-rpi.cpp -o CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.s
 
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.o: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/flags.make
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.o: ../src/framework/raspberrypi/pal/Python_import.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.o"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.o -c /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/Python_import.cpp
+src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.o: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/flags.make
+src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.o: ../src/framework/raspberrypi/wrapper/tle94112-pybind.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.o"
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.o -c /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/wrapper/tle94112-pybind.cpp
 
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.i"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/Python_import.cpp > CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.i
+src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.i"
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/wrapper/tle94112-pybind.cpp > CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.i
 
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.s"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/pal/Python_import.cpp -o CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.s
-
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.o: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/flags.make
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.o: ../src/framework/raspberrypi/wrapper/TLE94112-platf-rpi.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.o"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.o -c /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/wrapper/TLE94112-platf-rpi.cpp
-
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.i"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/wrapper/TLE94112-platf-rpi.cpp > CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.i
-
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.s"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/wrapper/TLE94112-platf-rpi.cpp -o CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.s
-
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.o: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/flags.make
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.o: ../src/framework/raspberrypi/wrapper/TLE94112-pybind.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.o"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.o -c /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/wrapper/TLE94112-pybind.cpp
-
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.i"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/wrapper/TLE94112-pybind.cpp > CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.i
-
-src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.s"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi/wrapper/TLE94112-pybind.cpp -o CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.s
+src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.s"
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && /usr/bin/arm-linux-gnueabihf-g++-8 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi/wrapper/tle94112-pybind.cpp -o CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.s
 
 # Object files for target multi_half_bridge_py
 multi_half_bridge_py_OBJECTS = \
 "CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.o" \
 "CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.o" \
 "CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.o" \
-"CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.o" \
-"CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.o" \
-"CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.o" \
-"CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.o"
+"CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.o" \
+"CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.o"
 
 # External object files for target multi_half_bridge_py
 multi_half_bridge_py_EXTERNAL_OBJECTS =
@@ -183,17 +155,14 @@ multi_half_bridge_py_EXTERNAL_OBJECTS =
 src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/gpio-rpi.o
 src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/spic-rpi.o
 src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/timer-rpi.o
-src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/TLE94112-pal-rpi.o
-src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/pal/Python_import.o
-src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-platf-rpi.o
-src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/TLE94112-pybind.o
+src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-rpi.o
+src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/wrapper/tle94112-pybind.o
 src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build.make
 src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so: libmulti-half-bridge-corelib.a
 src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so: /usr/local/lib/libbcm2835.a
-src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so: /usr/lib/arm-linux-gnueabihf/libpython3.7m.so
 src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so: src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX shared module multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so"
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/multi_half_bridge_py.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX shared module multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so"
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/multi_half_bridge_py.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build: src/framework/raspberrypi/multi_half_bridge_py.cpython-37m-arm-linux-gnueabihf.so
@@ -201,10 +170,10 @@ src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build: src/framewo
 .PHONY : src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/build
 
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/clean:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi && $(CMAKE_COMMAND) -P CMakeFiles/multi_half_bridge_py.dir/cmake_clean.cmake
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi && $(CMAKE_COMMAND) -P CMakeFiles/multi_half_bridge_py.dir/cmake_clean.cmake
 .PHONY : src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/clean
 
 src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/depend:
-	cd /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/Desktop/TLE94112/mhb/multi-half-bridge /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/src/framework/raspberrypi /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi /home/pi/Desktop/TLE94112/mhb/multi-half-bridge/build/src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/src/framework/raspberrypi /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi /home/pi/Desktop/TLE_PY_Frmwk/multi-half-bridge/build/src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/framework/raspberrypi/CMakeFiles/multi_half_bridge_py.dir/depend
 

@@ -15,7 +15,7 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
-#include "../../../corelib/TLE94112.hpp"
+#include "../../../pal/gpio.hpp"
 
 /**
  * @addtogroup arduinoPal

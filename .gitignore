@@ -27,7 +27,7 @@
 .accepted
 .vscode
 .pio
-
+/build/
 /downloads/
 /packages/
 

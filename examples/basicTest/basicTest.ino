@@ -13,8 +13,8 @@
  *
  */
 
-#include <TLE94112-ino.hpp>
-#include <TLE94112Motor-ino.hpp>
+#include <tle94112-ino.hpp>
+#include <tle94112-motor-ino.hpp>
 #include "SPI.h"
 
 // Tle94112 Object on Shield 1
