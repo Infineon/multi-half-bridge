@@ -1,7 +1,0 @@
-<map id="Arduino" name="Arduino">
-<area shape="rect" id="node1" href="$dc/d65/group__inoApi.html" title=" " alt="" coords="290,5,439,31"/>
-<area shape="rect" id="node2" href="$d1/d0a/group__arduinoPal.html" title=" " alt="" coords="317,55,412,80"/>
-<area shape="rect" id="node3" href="$dc/d3c/group__tle94112frmw.html" title=" " alt="" coords="5,55,125,80"/>
-<area shape="rect" id="node5" title=" " alt="" coords="173,55,240,80"/>
-<area shape="rect" id="node4" href="$d0/d9b/group__platfIno.html" title="Arduino Hardware Platform Pins." alt="" coords="288,104,441,129"/>
-</map>

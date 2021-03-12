@@ -1,8 +1,0 @@
-<map id="Tle94112::configHB" name="Tle94112::configHB">
-<area shape="rect" id="node1" title="sets the output state and the PWM channel for a halfbridge automatically called by the public version..." alt="" coords="5,81,143,108"/>
-<area shape="rect" id="node2" href="$d5/dd0/group__tle94112api.html#ga68607ddf951e75fc8dc9137881a05a3b" title="writes data bits to a control register of the TLE94112" alt="" coords="191,81,325,108"/>
-<area shape="rect" id="node3" href="$d7/dde/classGPIO.html#ae2b3084845cf22ebda8d4705e9d9a40a" title="Disables the GPIO output according to the GPIO logic." alt="" coords="380,5,484,32"/>
-<area shape="rect" id="node4" href="$d7/db9/classSPIC.html#a870e415e4d8a62c8cd67ae0f5a3db782" title="Send/receives data from SPI bus." alt="" coords="379,56,485,83"/>
-<area shape="rect" id="node5" href="$d7/dde/classGPIO.html#a9fe4b4e3a68e8c4df663cc084357b460" title="Enables the GPIO output according to the GPIO logic." alt="" coords="381,107,483,133"/>
-<area shape="rect" id="node6" href="$dc/dea/classTimer.html#ae4d88c04713dadad65eb5e31f2bfc227" title="Introduces a delay during the specified time." alt="" coords="373,157,491,184"/>
-</map>
