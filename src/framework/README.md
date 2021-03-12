@@ -6,5 +6,6 @@ in the -conf-opt list:
 
 * arduino includes the standard Arduino/Genuino code which also runs with all boards which have conversion library like Infineon XMC microcontroller
 * wiced-43xxx includes the Cypress code for 43xxx boards and the WICED SDK
+* the Cypress modus toolbox  
 
 Other frameworks are welcomed.
