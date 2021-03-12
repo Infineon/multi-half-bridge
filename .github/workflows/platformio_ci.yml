@@ -13,8 +13,7 @@ jobs:
             examples/basicTest,
             examples/control2Motors,
             examples/rampSpeedTest,
-            examples/speedControl,
-            examples/errorDiagnosis
+            examples/speedControl
         ]
 
     steps:
