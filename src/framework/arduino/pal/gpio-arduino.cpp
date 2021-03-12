@@ -16,16 +16,6 @@
 /**
  * @brief Constructor of the Arduino GPIO class
  *
- * This function is setting the basics for a GPIO.
- *
- */
-GPIOIno::GPIOIno() : pin(0), mode(OUTPUT), logic(POSITIVE)
-{
-}
-
-/**
- * @brief Constructor of the Arduino GPIO class
- *
  * This function is setting the basics for a GPIO. It allows to set the pin number,
  * mode of the pin and the logic level.
  *

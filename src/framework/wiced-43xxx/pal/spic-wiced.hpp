@@ -24,7 +24,6 @@
  * @{
  */
 
-
 /**
  * @brief Wiced SPIC class
  *

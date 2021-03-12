@@ -16,7 +16,6 @@
  * @addtogroup pal
  * @{
  */
-
 class SPIC
 {
 	public:

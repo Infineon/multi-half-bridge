@@ -23,6 +23,10 @@
  * @{
  */
 
+/**
+ * @brief WiCED timer wrapper
+ * 
+ */
 class TimerWiced: virtual public Timer
 {
 	public:

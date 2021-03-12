@@ -23,12 +23,6 @@ Tle94112::Tle94112(void)
 	timer = NULL;
 }
 
-// Tle94112(SPIC * sBus, GPIO * cs, GPIO * en, Timer * timer)
-// :sBus(sBus), cs(cs), en(en), timer(timer)
-// {
-	
-// }
-
 Tle94112::~Tle94112()
 {
 	en = NULL;

@@ -12,11 +12,12 @@
 #ifndef GPIO_HPP_
 #define GPIO_HPP_
 
+#undef GPIO /* Avoid ambiguous definition with C macros */
+
 /**
  * @addtogroup pal
  * @{
  */
-
 class GPIO
 {
 	public:

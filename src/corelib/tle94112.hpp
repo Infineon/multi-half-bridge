@@ -16,7 +16,6 @@
 
 #include <stdint.h>
 #include <stdlib.h>
-// #include "tle94112_util.hpp"
 #include "../pal/timer.hpp"
 #include "../pal/gpio.hpp"
 #include "../pal/spic.hpp"
