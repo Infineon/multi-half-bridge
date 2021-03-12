@@ -15,7 +15,7 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
-#include "../../../corelib/TLE94112.hpp"
+#include "../../../corelib/tle94112.hpp"
 #include <bcm2835.h>
 
 /**
@@ -23,6 +23,11 @@
  * @{
  */
 
+
+/**
+ * @brief Raspberry Pi GPIO class
+ *
+ */
 class GPIORpi: virtual public GPIO
 {
 private:
@@ -31,6 +36,7 @@ private:
 	VLogic_t    logic;
 
 public:
+				GPIORpi();
 				GPIORpi(uint8_t pin, uint8_t mode, VLogic_t logic);
 				~GPIORpi();
 	Error_t     init();

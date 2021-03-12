@@ -8,8 +8,18 @@
  */
 
 #include "gpio-rpi.hpp"
-
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
+
+
+/**
+ * @brief Constructor of the Raspberry Pi GPIO class
+ *
+ * This function sets the basics for a GPIO.
+ *
+ */
+GPIORpi::GPIORpi() : pin(0), mode(BCM2835_GPIO_FSEL_OUTP), logic(POSITIVE)
+{ 
+}
 
 /**
  * @brief Constructor of the Raspberry Pi GPIO class
@@ -34,7 +44,7 @@ GPIORpi::GPIORpi(uint8_t pin, uint8_t mode, VLogic_t logic): pin(pin), mode(mode
  */
 GPIORpi::Error_t GPIORpi::init()
 {
-	Error_t err = OK;
+	GPIORpi::Error_t err = GPIORpi::OK;
 	if (bcm2835_init() <= 0)
 	{
 		err = GPIORpi::INTF_ERROR; 
@@ -104,7 +114,7 @@ GPIORpi::Error_t GPIORpi::enable()
 	else if(this->logic == NEGATIVE){
 		bcm2835_gpio_write(this->pin, GPIO_LOW);;
 	}
-	return OK;
+	return GPIORpi::OK;
 }
 
 /**
@@ -123,7 +133,7 @@ GPIORpi::Error_t GPIORpi::disable()
 	else if(this->logic == NEGATIVE){
 		bcm2835_gpio_write(this->pin, GPIO_HIGH);
 	}
-	return OK;
+	return GPIORpi::OK;
 }
 
 

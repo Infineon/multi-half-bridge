@@ -22,10 +22,6 @@
  * @{
  */
 
-/**
- * @brief Timer wrapper
- * 
- */
 class TimerRpi: virtual public Timer
 {
 	public:

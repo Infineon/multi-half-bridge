@@ -19,22 +19,23 @@
  */
 SPICRpi::SPICRpi() : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
 {
+ 
 }
 
 /**
  * @brief Construct a new SPICRpi::SPICRpi object of the Raspberry Pi SPIC class
- *
+ * 
  * This function sets some basic SPI modes for the default SPI port.
- *
+ * 
  * @param lsb    lowside (LSB) or highside (MSB) mode
  * @param mode   SPI mode
  * @param clock  SPI clock divider
  */
 SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
-{
+{	
 	this->lsb = lsb;
 	this->mode = mode;
-	this->clock = clock;
+	this->clock = clock;	
 }
 
 /**
@@ -67,16 +68,19 @@ SPICRpi::SPICRpi(uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin
  */
 SPICRpi::Error_t SPICRpi::init()
 {
-	        if (!bcm2835_init()) {
-                printf("init failed\n");
-                return OK;
+	if (!bcm2835_init()) {
+			printf("init failed\n");
+			return WRITE_ERROR;
         }
-	bcm2835_spi_begin();
+	if (!bcm2835_spi_begin()) {
+            printf("SPI begin failed. Are you root?\n");
+            return WRITE_ERROR;
+        }
 	bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_LSBFIRST);      // The default
 	bcm2835_spi_setDataMode(BCM2835_SPI_MODE1);                   // The default
-    bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_16);    // The default
+    bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_32);
     bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                      // The default
-    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);      // The default
+    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);      // The default  
 	return OK;
 }
 

@@ -19,11 +19,16 @@
 #include <bcm2835.h>
 #include <cstdio>
 
+
 /**
  * @addtogroup rpiPal
  * @{
  */
 
+/**
+ * @brief Raspberry Pi SPIC class
+ *
+ */
 class SPICRpi: virtual public SPIC
 {
 	private:
