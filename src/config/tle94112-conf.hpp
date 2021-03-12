@@ -18,11 +18,10 @@
  */
 
 #ifndef TLE94112_FRAMEWORK
-#define TLE94112_FRAMEWORK     TLE94112_FRMWK_ARDUINO
+#define TLE94112_FRAMEWORK    TLE94112_FRMWK_ARDUINO
 #endif
 
 #include "tle94112-conf-dfl.hpp"
-
 /** @} */
 
 #endif /** TLE94112_CONF_HPP_ **/

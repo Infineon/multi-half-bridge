@@ -35,12 +35,20 @@
  *
  * @brief represents a motor connected to a TLE94112
  *
- * This file exists only for compatibility with the Arduino setup.
- * 
+ * This class provides a simple API for connecting and controlling motors.
+ * Each motor is assigned to a Tle94112 which acts as output driver. Calls to
+ * Tle94112Motor instances are mapped to calls to Tle94112. Therefore, this
+ * class does not bring new features, it does only provide further abstraction.
+ *
  * @see Tle94112
- */;
+ */
+class Tle94112MotorIno: public Tle94112Motor
+{
+};
 
-/** @} */
+/**
+ * @}
+ */
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112MOTOR_INO_HPP_ **/

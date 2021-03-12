@@ -22,7 +22,7 @@
 #include "../pal/spic.hpp"
 
 /**
- * \addtogroup tle94112api
+ * @addtogroup tle94112api
  * @{
  */
 
@@ -110,6 +110,13 @@ class Tle94112
 
 		//! \brief standard constructor with default pin assignment
 		Tle94112();
+
+		/*! \brief constructor with individual pin assignment
+		 *
+		 * \param bus  a pointer to the object representing the SPI class
+		 * \param csPin  pin number of the CS pin
+		 */
+		Tle94112(void* bus, uint8_t csPin);
 
 		//! \brief standard destructor switches shield off
 		~Tle94112();
@@ -209,8 +216,8 @@ class Tle94112
 		void clearErrors();
 
 		SPIC     *sBus;      //<! \brief SPI cover class as representation of the SPI bus
-		GPIO     *en;        //<! \brief shield enable GPIO to switch shield on/off
-		GPIO     *cs;        //<! \brief shield enable GPIO to switch chipselect on/off
+		GPIO     *en;        //<! \brief shield enable GPIO to switch shield on/of
+		GPIO     *cs;        //<! \brief shield enable GPIO to switch chipselect on/of
 		Timer    *timer;     //<! \brief timer for delay settings
 
 	protected:
@@ -351,7 +358,6 @@ class Tle94112
 		uint8_t mEnabled;    //<! \brief indicates if TLE94112LE is enabled
 
 };
-
 /** @} */
 
 #endif /** TLE94112_HPP_ **/

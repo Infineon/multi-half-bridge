@@ -98,7 +98,9 @@ class TLE94112Ino: virtual public Tle94112
 		void clearStatusReg(uint8_t reg);
 
 };
-/** @} */
+/**
+ * @}
+ */
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PAL_INO_HPP_ **/

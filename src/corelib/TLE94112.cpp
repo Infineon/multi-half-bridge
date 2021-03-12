@@ -24,6 +24,11 @@ Tle94112::Tle94112(void)
 	timer = NULL;
 }
 
+Tle94112::Tle94112(void* bus, uint8_t csPin)
+{
+	Tle94112();
+}
+
 Tle94112::~Tle94112()
 {
 	en = NULL;
