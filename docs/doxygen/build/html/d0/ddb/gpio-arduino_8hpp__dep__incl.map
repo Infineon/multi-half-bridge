@@ -1,0 +1,11 @@
+<map id="gpio&#45;arduino.hpp" name="gpio&#45;arduino.hpp">
+<area shape="rect" id="node1" title="Arduino PAL for the GPIO." alt="" coords="83,5,200,32"/>
+<area shape="rect" id="node2" href="$df/df8/gpio-arduino_8cpp.html" title=" " alt="" coords="5,80,123,107"/>
+<area shape="rect" id="node3" href="$d7/d8d/TLE94112-pal-ino_8hpp.html" title=" " alt="" coords="146,80,294,107"/>
+<area shape="rect" id="node4" href="$de/d28/TLE94112-pal-ino_8cpp.html" title=" " alt="" coords="58,155,206,181"/>
+<area shape="rect" id="node5" href="$dd/dd2/TLE94112-platf-ino_8hpp.html" title="TLE94112&#45;platf&#45;ino.hpp Arduino Hardware Platforms." alt="" coords="230,155,386,181"/>
+<area shape="rect" id="node6" href="$de/d14/TLE94112-platf-ino_8cpp.html" title="TLE94112&#45;platf&#45;ino.cpp Arduino Hardware Platforms." alt="" coords="57,237,213,263"/>
+<area shape="rect" id="node7" href="$dd/de9/TLE94112Motor-platf-ino_8hpp.html" title="TLE94112Motor&#45;platf&#45;ino.hpp Arduino Hardware Platforms." alt="" coords="237,229,379,271"/>
+<area shape="rect" id="node9" href="$dd/dcf/TLE94112-ino_8hpp.html" title=" " alt="" coords="403,237,530,263"/>
+<area shape="rect" id="node8" href="$de/da5/TLE94112Motor-ino_8hpp.html" title=" " alt="" coords="307,319,467,345"/>
+</map>

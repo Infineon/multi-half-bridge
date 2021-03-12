@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['sbus',['sBus',['../d5/dd0/group__tle94112api.html#ga55c3eebb728058cc480a5eb29126db07',1,'Tle94112']]],
+  ['setactivefreewheeling',['setActiveFreeWheeling',['../dd/d03/group__tle94112motorapi.html#gad5ff950460a664127930765884ac53d4',1,'Tle94112Motor']]],
+  ['setpwm',['setPwm',['../dd/d03/group__tle94112motorapi.html#ga6588d94729c70eeba112f80a8e95ebf9',1,'Tle94112Motor::setPwm(Tle94112Motor::ePolarity pol, Tle94112::PWMChannel channel)'],['../dd/d03/group__tle94112motorapi.html#ga870c02a8aac4c96364f13810d1aa4d74',1,'Tle94112Motor::setPwm(Tle94112Motor::ePolarity pol, Tle94112::PWMChannel channel, Tle94112::PWMFreq freq)']]],
+  ['setpwmfreq',['setPwmFreq',['../dd/d03/group__tle94112motorapi.html#ga0feddf7e1f7579637651f78b06d2d670',1,'Tle94112Motor']]],
+  ['setspeed',['setSpeed',['../dd/d03/group__tle94112motorapi.html#gabac90ef723cffd42f2aac7c7ab7aafcc',1,'Tle94112Motor']]],
+  ['spic',['SPIC',['../d7/db9/classSPIC.html',1,'']]],
+  ['spic_2darduino_2ecpp',['spic-arduino.cpp',['../d8/d55/spic-arduino_8cpp.html',1,'']]],
+  ['spic_2darduino_2ehpp',['spic-arduino.hpp',['../df/d2f/spic-arduino_8hpp.html',1,'']]],
+  ['spic_2dmtb_2ecpp',['spic-mtb.cpp',['../dc/d2b/spic-mtb_8cpp.html',1,'']]],
+  ['spic_2dmtb_2ehpp',['spic-mtb.hpp',['../da/dda/spic-mtb_8hpp.html',1,'']]],
+  ['spic_2drpi_2ecpp',['spic-rpi.cpp',['../db/d31/spic-rpi_8cpp.html',1,'']]],
+  ['spic_2drpi_2ehpp',['spic-rpi.hpp',['../d8/d2e/spic-rpi_8hpp.html',1,'']]],
+  ['spic_2dwiced_2ecpp',['spic-wiced.cpp',['../d4/d1b/spic-wiced_8cpp.html',1,'']]],
+  ['spic_2dwiced_2ehpp',['spic-wiced.hpp',['../da/dee/spic-wiced_8hpp.html',1,'']]],
+  ['spic_2ecpp',['spic.cpp',['../dd/d1a/spic_8cpp.html',1,'']]],
+  ['spic_2ehpp',['spic.hpp',['../d8/df0/spic_8hpp.html',1,'']]],
+  ['spicino',['SPICIno',['../de/d75/classSPICIno.html',1,'SPICIno'],['../de/d75/classSPICIno.html#a8439ac6dea65f5b36993b97d53e0800d',1,'SPICIno::SPICIno()'],['../de/d75/classSPICIno.html#a6585a037b5ac12286542ef71805b7aab',1,'SPICIno::SPICIno(uint8_t lsb, uint8_t mode, uint8_t clock)'],['../de/d75/classSPICIno.html#a86165d0a615600fdc075419bc0f23497',1,'SPICIno::SPICIno(SPIClass &amp;port, uint8_t csPin, uint8_t misoPin=MISO, uint8_t mosiPin=MOSI, uint8_t sckPin=SCK)']]],
+  ['start',['start',['../dd/d03/group__tle94112motorapi.html#gad48d1baef8ba49eed1e1bb19aebfe1cc',1,'Tle94112Motor::start()'],['../dd/d9b/classTimerIno.html#a66013d40b92ea1c9daa42e2c24281a7a',1,'TimerIno::start()'],['../dc/dea/classTimer.html#a35282728bc2a470190325982d6a2c6e0',1,'Timer::start()']]],
+  ['statemask',['stateMask',['../de/dc4/group__tle94112utilapi.html#ga6697e9a1687e5c393ce8709db14ee614',1,'HalfBridge_t']]],
+  ['statereg',['stateReg',['../de/dc4/group__tle94112utilapi.html#ga2b0ad017e7adea64f9b75790cc00573f',1,'HalfBridge_t']]],
+  ['stateshift',['stateShift',['../de/dc4/group__tle94112utilapi.html#gae4b425bdd9714d4e77d17b4203c03b38',1,'HalfBridge_t']]],
+  ['statusregisters',['StatusRegisters',['../d5/dd0/group__tle94112api.html#ga6bef089668e45d380e2f0b428026de4a',1,'Tle94112']]],
+  ['stop',['stop',['../dd/d03/group__tle94112motorapi.html#gafabaed5b84fd2a487c5567b0e161f9cf',1,'Tle94112Motor::stop()'],['../dd/d9b/classTimerIno.html#abee498b93fed9187e6d51f43cbad1491',1,'TimerIno::stop()'],['../dc/dea/classTimer.html#a8e91e17ba88138d752854a03dea2467d',1,'Timer::stop()'],['../dd/d03/group__tle94112motorapi.html#ggae37f9df93ec3e6f939b6296b32fdc210a445e6e06dd797d1dc170e92f833b8e9c',1,'Tle94112Motor::STOP()']]],
+  ['sys_5fdiag1',['SYS_DIAG1',['../d5/dd0/group__tle94112api.html#gga6bef089668e45d380e2f0b428026de4aa15eebe32a1563b10a0f114c9c468b4a9',1,'Tle94112']]],
+  ['sw_20frameworks',['SW Frameworks',['../dc/d3c/group__tle94112frmw.html',1,'']]]
+];

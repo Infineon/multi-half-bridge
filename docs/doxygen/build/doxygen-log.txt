@@ -1,0 +1,12 @@
+/home/filies/code/arduino/libraries/Tle94112/src/corelib/TLE94112.hpp:358: warning: end of file while inside a group
+
+/home/filies/code/arduino/libraries/Tle94112/src/corelib/tle94112_util.hpp:66: warning: end of file while inside a group
+
+/home/filies/code/arduino/libraries/Tle94112/src/corelib/TLE94112Motor.hpp:347: warning: end of file while inside a group
+
+/home/filies/code/arduino/libraries/Tle94112/src/framework/arduino/pal/TLE94112-pal-ino.hpp:105: warning: end of file while inside a group
+
+/home/filies/code/arduino/libraries/Tle94112/src/TLE94112-ino.hpp:43: warning: end of file while inside a group
+
+/home/filies/code/arduino/libraries/Tle94112/src/TLE94112Motor-ino.hpp:47: warning: end of file while inside a group
+
