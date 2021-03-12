@@ -1,4 +1,8 @@
-# multi-half-bridge Library 
+# Multi Half Bridge Library
+
+### for Infineon's
+- TLE94112EL 12-fold half bridge
+- TLE94112ES 12-fold half bridge
 
 <img src="https://github.com/Infineon/Assets/raw/master/Pictures/TLE94112EL_Shield.png" style="max-width:100%;" width="400">
 
