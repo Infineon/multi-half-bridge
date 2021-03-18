@@ -221,7 +221,7 @@ class Tle94112
 		GPIOC    *cs;        //<! \brief shield enable GPIO to switch chipselect on/off
 		Timer    *timer;     //<! \brief timer for delay settings
 
-	private:
+	protected:
 
 		//! \brief enum for the control registers in a TLE94112
 		enum CtrlRegisters
