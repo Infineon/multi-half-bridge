@@ -155,7 +155,7 @@ CY_APP_PATH=
 # the CY_GETLIBS_SHARED_PATH variable. The default location is one directory level 
 # above the current app directory.
 # This is used with CY_GETLIBS_SHARED_NAME variable, which specifies the directory name.
-CY_GETLIBS_SHARED_PATH=/home/filies/Documents/mtw/
+CY_GETLIBS_SHARED_PATH=/home/filies/Documents/mtw
 
 # Directory name of the shared repo location.
 #

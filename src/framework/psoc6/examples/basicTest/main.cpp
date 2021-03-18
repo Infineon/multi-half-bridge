@@ -65,8 +65,8 @@ Tle94112Psoc6hal controller = Tle94112Psoc6hal();
 Tle94112Motor motor(controller);
 
 
-void setup()
-{
+//void setup()
+//{
     // // Enable MotorController on all Shields and Motors
     // // Note: Required to be done before starting to configure the motor
     // // controller1 is set to default CS1 pin
@@ -84,10 +84,10 @@ void setup()
     // // start the motor controller
     // motor.begin();
     // WPRINT_APP_INFO(("[TLE94112] : motor begin -> %u\n", 3));
-}
-
-void loop()
-{
+//}
+//
+//void loop()
+//{
     // coast the motor
     // motor.coast();
     // wiced_rtos_delay_milliseconds(1000);
@@ -153,11 +153,28 @@ void loop()
     // wiced_rtos_delay_milliseconds(1000);
     // motor.coast();
     // wiced_rtos_delay_milliseconds(1000);
-}
+//}
 
-/******************************************************
- *               Function Definitions
- ******************************************************/
+/*******************************************************************************
+* Function Name: handle_error
+********************************************************************************
+* Summary:
+* User defined error handling function
+*
+* Parameters:
+*  void
+*
+* Return:
+*  void
+*
+*******************************************************************************/
+void handle_error(void)
+{
+     /* Disable all interrupts. */
+    __disable_irq();
+
+    CY_ASSERT(0);
+}
 
 int main(void)
 {
@@ -187,11 +204,11 @@ int main(void)
         handle_error();
     }
 
-    setup();
+    //setup();
 
     while(1)
     {
-        loop();
+        //loop();
     }
 }
 

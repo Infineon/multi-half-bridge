@@ -5,7 +5,7 @@
 # Add lib to demo or snipped to the makefile
 # variable $(NAME)_COMPONENTS += libraries/drivers/sensors
 
-NAME := Lib_TLE94112
+NAME := Lib_multi-half-bridge
 
 GLOBAL_DEFINES   := TLE94112_FRAMEWORK=TLE94112_FRMWK_WICED
 

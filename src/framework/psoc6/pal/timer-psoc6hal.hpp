@@ -15,7 +15,8 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
 
 #include "../../../pal/timer.hpp"
-#include <cyhal_system.h>
+#include "cyhal_system.h"
+#include "cyhal_timer.h"
 
 /**
  * @addtogroup mtbPal

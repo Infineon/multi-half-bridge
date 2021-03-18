@@ -41,7 +41,7 @@ TimerPsoc6hal::Error_t TimerPsoc6hal::init()
 
 	cy_rslt_t cyErr = cyhal_timer_init(&timerHandle, NC, NULL);
 	if(CY_RSLT_SUCCESS != cyErr)
-		err = INTF_ERROR;
+		err = ERROR;
 
 	return err;
 }
@@ -83,20 +83,20 @@ TimerPsoc6hal::Error_t TimerPsoc6hal::start()
 		cy_rslt_t cyErr = cyhal_timer_configure(&timerHandle, &timerConf);
 		if(CY_RSLT_SUCCESS != cyErr)
 		{
-			err = INTF_ERROR;
+			err = ERROR;
 			break;
 		}
 
 		cyErr = cyhal_timer_set_frequency(&timerHandle, 1000000);
 		if(CY_RSLT_SUCCESS != cyErr)
 		{
-			err = INTF_ERROR;
+			err = ERROR;
 			break;
 		}
 
 		cyErr = cyhal_timer_start(&timerHandle);
 		if(CY_RSLT_SUCCESS != cyErr)
-			err = INTF_ERROR;
+			err = ERROR;
 
 	} while (0);
 
@@ -133,7 +133,7 @@ TimerPsoc6hal::Error_t TimerPsoc6hal::stop()
 
 	cy_rslt_t cyErr = cyhal_timer_stop(&timerHandle);
 	if(CY_RSLT_SUCCESS != cyErr)
-		err = INTF_ERROR;
+		err = ERROR;
 
 	return err;
 }
@@ -153,7 +153,7 @@ TimerPsoc6hal::Error_t TimerPsoc6hal::delayMilli(uint32_t timeout)
 
 	cy_rslt_t cyErr = cyhal_system_delay_ms(timeout);
 	if(CY_RSLT_SUCCESS != cyErr)
-		err = INTF_ERROR;
+		err = ERROR;
 
 	return err;
 	return OK;
@@ -174,7 +174,7 @@ TimerPsoc6hal::Error_t TimerPsoc6hal::delayMicro(uint32_t timeout)
 
 	cy_rslt_t cyErr = cyhal_system_delay_ms(timeout*1000);
 	if(CY_RSLT_SUCCESS != cyErr)
-		err = INTF_ERROR;
+		err = ERROR;
 
 	return err;
 }

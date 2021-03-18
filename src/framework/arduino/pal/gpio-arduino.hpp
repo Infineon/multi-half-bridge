@@ -22,7 +22,7 @@
  * @{
  */
 
-class GPIOIno: virtual public GPIO
+class GPIOIno: virtual public GPIOC
 {
 private:
 	#define     UNUSED_PIN    0xFF  /**< Unused pin */

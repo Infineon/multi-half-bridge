@@ -10,9 +10,6 @@
 #include "spic-psoc6hal.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
-#include "mtb_rtos.h"
-#include <mtb.h>
-#include <platform.h>
 
 /**
  * @brief Constructor of the PSOC6 SPIC class
@@ -21,13 +18,12 @@
  * spi on Arduino which is implemented as PSOC6_SPI_0 by patching the following:
  *
  */
-SPICPsoc6hal::SPICPsoc6hal() : csPin(PSOC6_GPIO_NONE), port(PSOC6_SPI_0)
+SPICPsoc6hal::SPICPsoc6hal() : csPin(SPICPsoc6hal::unusedPin)
 {
-	this->spi.port = port;
-	this->spi.chip_select = csPin;
-	this->spi.speed = 1000000;
-	this->spi.mode = (SPI_CLOCK_RISING_EDGE | SPI_CLOCK_IDLE_LOW | SPI_NO_DMA | SPI_LSB_FIRST | SPI_CS_ACTIVE_LOW);
-	this->spi.bits = 8;
+	this->csPin   = csPin;
+	this->misoPin = misoPin;
+	this->mosiPin = mosiPin;
+	this->sckPin  = sckPin;
 }
 
 /**
@@ -36,18 +32,13 @@ SPICPsoc6hal::SPICPsoc6hal() : csPin(PSOC6_GPIO_NONE), port(PSOC6_SPI_0)
  * This function is setting the basics for a SPIC. It allows to set the
  * SPI channel and the used GPIOs if they are different from the standard GPIOs.
  *
- * @param port     SPI channel to be used
- * @param csPin    Number of the desired ChipSelect pin
+  * @param csPin    Number of the desired ChipSelect pin
  * 
  * @attention Yet not implemented
  */
-SPICPsoc6hal::SPICPsoc6hal(mtb_spi_t port, mtb_gpio_t csPin)
+SPICPsoc6hal::SPICPsoc6hal(cyhal_gpio_t csPin)
 {
-	this->spi.port = port;
-	this->spi.chip_select = csPin;
-	this->spi.speed = 1000000;
-	this->spi.mode = (SPI_CLOCK_RISING_EDGE | SPI_CLOCK_IDLE_LOW | SPI_NO_DMA | SPI_LSB_FIRST | SPI_CS_ACTIVE_LOW);
-	this->spi.bits = 8;
+	this->csPin = csPin;
 }
 
 /**
@@ -63,13 +54,12 @@ SPICPsoc6hal::SPICPsoc6hal(mtb_spi_t port, mtb_gpio_t csPin)
  * 
  * @attention This does not set the platform_spi_peripherals structure yet
  */
-SPICPsoc6hal::SPICPsoc6hal(mtb_spi_t port, mtb_gpio_t csPin, uint8_t speed, uint8_t mode, uint8_t bits)
+SPICPsoc6hal::SPICPsoc6hal(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t mosiPin, cyhal_gpio_t sckPin)
 {
-	this->spi.port = port;
-	this->spi.chip_select = csPin;
-	this->spi.speed = speed;
-	this->spi.mode = mode;
-	this->spi.bits = bits;
+	this->csPin   = csPin;
+	this->misoPin = misoPin;
+	this->mosiPin = mosiPin;
+	this->sckPin  = sckPin;
 }
 
 /**
@@ -90,12 +80,17 @@ SPICPsoc6hal::~SPICPsoc6hal()
  */
 SPICPsoc6hal::Error_t SPICPsoc6hal::init()
 {
-	this->segment.tx_buffer = sendBuffer;
-	this->segment.rx_buffer = receiveBuffer;
-	this->segment.length = 1;
+	Error_t err = OK;
 
-	mtb_spi_init( &this->spi );
-	return OK;
+	cy_rslt_t cyErr = cyhal_spi_init( &this->spi, this->mosiPin, this->misoPin, this->sckPin, this->csPin, NULL, 8, CYHAL_SPI_MODE_00_LSB, false);
+	if(CY_RSLT_SUCCESS != cyErr)
+		err = INTF_ERROR;
+
+	cyErr = cyhal_spi_set_frequency( &this->spi, SPI_FREQ_HZ);
+	if(CY_RSLT_SUCCESS != cyErr)
+		err = INTF_ERROR;
+
+	return err;
 }
 
 /**
@@ -107,7 +102,7 @@ SPICPsoc6hal::Error_t SPICPsoc6hal::init()
  */
 SPICPsoc6hal::Error_t SPICPsoc6hal::deinit()
 {
-	mtb_spi_deinit( &this->spi );
+	cyhal_spi_free( &this->spi );
 	return OK;
 }
 
@@ -120,9 +115,9 @@ SPICPsoc6hal::Error_t SPICPsoc6hal::deinit()
  */
 SPICPsoc6hal::Error_t SPICPsoc6hal::transfer(uint8_t send, uint8_t &received)
 {
-	sendBuffer[0] = send;
-	receiveBuffer[0] = received;
-	mtb_spi_transfer( &this->spi, &this->segment, 1);
+	// sendBuffer[0] = send;
+	// receiveBuffer[0] = received;
+	// mtb_spi_transfer( &this->spi, &this->segment, 1);
 	return OK;
 }
 
@@ -135,11 +130,11 @@ SPICPsoc6hal::Error_t SPICPsoc6hal::transfer(uint8_t send, uint8_t &received)
  */
 SPICPsoc6hal::Error_t SPICPsoc6hal::transfer16(uint16_t send, uint16_t &received)
 {
-	sendBuffer[0] = (uint8_t)((send >> 8) & 0xFF);
-	sendBuffer[1] = (uint8_t)(send & 0xFF);
+	// sendBuffer[0] = (uint8_t)((send >> 8) & 0xFF);
+	// sendBuffer[1] = (uint8_t)(send & 0xFF);
 
-	mtb_spi_transfer( &this->spi, &this->segment, 2);
-	received = (uint16_t)(((uint16_t)receiveBuffer[0] << 8) | (receiveBuffer[1]));
+	// mtb_spi_transfer( &this->spi, &this->segment, 2);
+	// received = (uint16_t)(((uint16_t)receiveBuffer[0] << 8) | (receiveBuffer[1]));
 
 	return OK;
 }

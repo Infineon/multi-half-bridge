@@ -9,7 +9,7 @@
 
 #include "gpio.hpp"
 
-GPIO::Error_t GPIO::checkErrorStatus()
+GPIOC::Error_t GPIOC::checkErrorStatus()
 {
 	return errorStatus;
 }

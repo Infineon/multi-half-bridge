@@ -9,16 +9,15 @@
 
 #include <stdint.h>
 
-#ifndef GPIO_HPP_
-#define GPIO_HPP_
+#ifndef GPIOC_HPP_
+#define GPIOC_HPP_
 
-#undef GPIO /* Avoid ambiguous definition with C macros */
 
 /**
  * @addtogroup pal
  * @{
  */
-class GPIO
+class GPIOC
 {
 	public:
 
@@ -126,4 +125,4 @@ class GPIO
 
 /** @} */
 
-#endif /** GPIO_HPP_ **/
+#endif /** GPIOC_HPP_ **/
