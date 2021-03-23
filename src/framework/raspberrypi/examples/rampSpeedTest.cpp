@@ -16,15 +16,45 @@
  *
  */
 
-#include "rampSpeedTest.hpp"
-
+/*
+ * As this library works with multiple frameworks,
+ * this part is needed to avoid trying to compile
+ * this example from other frameworks.
+ */
+#include "../../../config/tle94112-conf.hpp"
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
+
+/* Infineon library for multi half bridge */
+#include "tle94112-rpi.hpp"
+#include "tle94112-motor.hpp"
+
+/* 3rd party libraries for this example */
+#include <cstdio>
+#include <bcm2835.h>
 
 // Tle94112 Object on Shield 1
 Tle94112Rpi controller = Tle94112Rpi();
 
 // Tle94112Motor Objects on controller
 Tle94112Motor motor(controller);
+
+// a structure with the measured values
+typedef struct {
+  int16_t startspeed;
+  int16_t endspeed;
+  uint16_t slope;
+} RampMeasurement_t, *RampMeasurement_p;
+
+// lets define an array with different tests
+#define NUM_TESTS 6
+RampMeasurement_t testcases[NUM_TESTS] = {
+  { 0,    255,  5000 },
+  { 255,  200,  10000 },
+  { 200,  0,    500 },
+  { 0,    -255, 10 },
+  { -255, 255,  3000 },
+  { 255,  0,    1000 }
+};
 
 void measureRampTime(int index)
 {
