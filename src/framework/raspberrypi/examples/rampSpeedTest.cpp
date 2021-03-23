@@ -33,7 +33,7 @@
 #include <bcm2835.h>
 
 // Tle94112 Object on Shield 1
-Tle94112Rpi controller = Tle94112Rpi();
+Tle94112Rpi controller;
 
 // Tle94112Motor Objects on controller
 Tle94112Motor motor(controller);

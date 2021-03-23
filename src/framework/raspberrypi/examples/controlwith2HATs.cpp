@@ -35,8 +35,8 @@ int main(int argc, char const *argv[])
 {
   
     // Tle94112 Object for HATs 1 (CS0, default) and 2 (CS1)
-    Tle94112Rpi controller1 = Tle94112Rpi();
-    Tle94112Rpi controller2 = Tle94112Rpi(TLE94112_PIN_CS1);
+    Tle94112Rpi controller1;
+    Tle94112Rpi controller2(TLE94112_PIN_CS1);
 
     // Tle94112Motor Objects
     Tle94112Motor motor1(controller1);

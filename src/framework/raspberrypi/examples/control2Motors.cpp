@@ -44,7 +44,7 @@
 int main(int argc, char const *argv[])
 {
     // Tle94112 Object on Shield 1
-    Tle94112Rpi controller = Tle94112Rpi();
+    Tle94112Rpi controller;
 
     // Tle94112Motor Objects
     Tle94112Motor motor1(controller);
