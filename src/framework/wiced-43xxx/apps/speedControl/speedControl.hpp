@@ -19,7 +19,7 @@
 #ifndef BASICTEST_HPP_
 #define BASICTEST_HPP_
 
-#include "tle94112-conf.hpp"
+#include "../../../../config/tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
