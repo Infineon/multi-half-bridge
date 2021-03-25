@@ -1,9 +1,9 @@
 /*!
- * \name        control2Motors
+ * \name        multipleMotors
  * \author      Infineon Technologies AG
- * \copyright   2019 Infineon Technologies AG
- * \version     2.0.0
- * \brief       This example demonstrates how to control two motors, their speed and direction with the TLE94112 shield.
+ * \copyright   2021 Infineon Technologies AG
+ * \version     2.1.0
+ * \brief       This example demonstrates how to control two motors, their speed and direction with the TLE94112.
  *
  * \details
  * By attaching a Tle94112 controller object to two Tle94112Motor objects, we can generate
@@ -62,10 +62,7 @@ int main(int argc, char const *argv[])
 
     // Drive HB1 with signal from PWM1
     // Note: This allows to control the speed of the motor
-    motor1.setPwm(motor1.HIGHSIDE, controller.TLE_PWM1);
-
-    // Set PWM Frequency, default is 80 Hz
-    motor1.setPwmFreq(motor1.HIGHSIDE, controller.TLE_FREQ100HZ);
+    motor1.setPwm(motor1.LOWSIDE, controller.TLE_PWM1);
 
     // Connect motor2 to HB7 and HB9
     motor2.connect(motor2.HIGHSIDE, controller.TLE_HB7);
@@ -73,7 +70,7 @@ int main(int argc, char const *argv[])
 
     // Drive HB2 with signal from PWM2
     // Note: This allows to control the speed of the motor
-    motor2.setPwm(motor2.HIGHSIDE, controller.TLE_PWM2);
+    motor2.setPwm(motor2.LOWSIDE, controller.TLE_PWM2);
 
     //when configuration is done, call begin to start operating the motors
     printf("Motor begin\n");
@@ -81,35 +78,25 @@ int main(int argc, char const *argv[])
     motor2.begin();
     printf("All ready\n");
 
-    // start the motor1 forwards on half speed
+    // start the motor1 forward on half speed
     motor1.start(127);
-    // start the motor3 backwards on half speed
-    motor2.start(-127);
-    delay(5000);
+    delay(2000);
+    // start the motor2 forward on half speed
+    motor2.start(127);
+    delay(2000);
 
     // accelerate motor1 to full speed
     motor1.setSpeed(255);
-    // stop motor2
+    delay(2000);
+
+    // accelerate motor2 to full speed
+    motor2.setSpeed(255);
+    delay(2000);
+
+    // stop both motors
+    motor1.stop();
     motor2.stop();
-    delay(5000);
-
-    // reduce speed of motor1
-    motor1.setSpeed(127);
-    delay(1000);
-
-    // let motor1 turn backwards on half speed
-    motor1.setSpeed(-127);
-    delay(5000);
-
-    // accelerate motor1 to full speed backwards
-    motor1.setSpeed(-255);
-    delay(5000);
-
-    // stop motor1, you can use the parameter to set the force which stops and holds them.
-    // standard and maximum is 255
-    motor1.stop(255);
-    delay(5000);
-
+    
 }
 
 #endif /** TLE94112_FRAMEWORK **/
