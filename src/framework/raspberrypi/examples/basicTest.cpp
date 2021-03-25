@@ -57,7 +57,7 @@ int main(int argc, char const *argv[])
   // Switch the load on.
   motor.start(255);
 
-  delay(1000);
+  delay(3000);
 
   // Switch the load off (outputs to floating state).
   motor.coast();
