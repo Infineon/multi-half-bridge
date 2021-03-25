@@ -57,7 +57,7 @@ int main(int argc, char const *argv[])
     controller1.begin();
 
     // Run motor 1 (connected to controller 1)
-    printf("Run motor1...\n");
+    printf("Start motor on controller 1.\n");
     motor1.begin();
     motor1.start(255);
 
@@ -67,13 +67,14 @@ int main(int argc, char const *argv[])
     controller2.begin();
 
     // Run motor 2 (connected to controller 2)
-    printf("Run motor2...\n");
+    printf("Start motor on controller 2.\n");
     motor2.begin();
     motor2.start(255);
 
     delay(5000);
 
     // Stop both motors
+    printf("Stop both motors.\n");
     motor2.stop(255);
     controller1.begin();
     motor1.stop(255);

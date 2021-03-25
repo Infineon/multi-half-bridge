@@ -42,6 +42,9 @@ int main(int argc, char const *argv[])
   // controller is set to default CS0 pin.
   controller.begin();
 
+  // Clear all errors to start clean
+  controller.clearErrors();
+
   // Let the library know that a load is connected to HB1 (high side)
   // and HB5 (low side).
   motor.connect(motor.HIGHSIDE, controller.TLE_HB1);
@@ -58,7 +61,6 @@ int main(int argc, char const *argv[])
 
   // Switch the load off (outputs to floating state).
   motor.coast();
-
 }
 
 #endif /** TLE94112_FRAMEWORK **/

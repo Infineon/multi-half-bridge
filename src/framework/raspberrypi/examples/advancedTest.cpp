@@ -59,6 +59,9 @@ int main(int argc, char const *argv[])
  // controller is set to default CS0 pin
  controller.begin();
 
+ // Clear all errors to start clean
+ controller.clearErrors();
+
  // Let the library know that a load is connected to HB1 (high side)
  // and HB5 (low side).
  motor.connect(motor.HIGHSIDE, controller.TLE_HB1);
@@ -141,6 +144,5 @@ printf("- Change duty cycle to 25%%.\n");
  motor.coast();
 
  printf("\n--- END ---\n");
-
 }
 #endif /** TLE94112_FRAMEWORK **/
