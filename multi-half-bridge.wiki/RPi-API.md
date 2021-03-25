@@ -78,6 +78,20 @@ Create a connection between positive and negative motor pole. This will brake th
 motor.speed(127);
 ```
 
-Set the speed of the motor to any integer value between -255 and 255. Negative values let the motor run backward. 
+Set the speed of the motor to any integer value between -255 and 255. Negative values let the motor run backward.
+
+#### Read and understand the error registers
+```
+controller.getSysDiagnosis();
+```
+
+This command reads out the error register of the multi half bridge. Please refer to example [errorDiagnosis](RPi-Examples###errorDiagnosis) to understand the meaning of the different error flags.
+
+#### Clear error register
+```
+controller.clearErrors();
+```
+
+This method clears all error flags which are not persisting. Required to re-enable the outputs after a latching error like over-current or over-voltage shut them down. More information can be found in [this example](RPi-Examples###errorDiagnosis).
 
 Find the complete documentation in the [Raspberry Pi](https://infineon.github.io/multi-half-bridge/) Doxygen docs section.

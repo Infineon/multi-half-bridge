@@ -9,7 +9,7 @@ This example shows how to switch two half bridge outputs with minimal code. It w
 
 #### Hardware setup
 
-The TLE94112ES HAT needs to be stacked onto a [compatible](RPi-Library-Installation) Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking as shown in the picture. The HAT needs to be connected to a 5.5V to 20V DC power supply. A load (max. 0.9A) has to be connected to output 1 and 5 of the HAT.
+The TLE94112ES HAT needs to be stacked onto a [compatible](RPi-Library-Installation###Compatibility) Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking as shown in the picture. The HAT needs to be connected to a 5.5V to 20V DC power supply. A load (max. 0.9A) has to be connected to output 1 and 5 of the HAT.
 
 <img src="img/basicTest-hw-setup.png" style="max-width:100%;" width="300">
 
@@ -61,7 +61,7 @@ sudo ../../../build/basicTest
 
 #### Hardware setup
 
-The TLE94112ES HAT needs to be stacked onto a [compatible](RPi-Library-Installation) Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking as shown in the picture. The HAT needs to be connected to a 5.5V to 20V DC power supply. A bidirectional DC motor (max. 0.9A) has to be connected to output 1 and 5 of the HAT.
+The TLE94112ES HAT needs to be stacked onto a [compatible](RPi-Library-Installation###Compatibility) Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking as shown in the picture. The HAT needs to be connected to a 5.5V to 20V DC power supply. A bidirectional DC motor (max. 0.9A) has to be connected to output 1 and 5 of the HAT.
 
 <img src="img/basicTest-hw-setup.png" style="max-width:100%;" width="300">
 
@@ -100,7 +100,7 @@ This example shows how to read and understand the status registers of the TLE941
 
 #### Hardware setup
 
-The TLE94112ES HAT needs to be stacked onto a [compatible](RPi-Library-Installation) Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking as shown in the picture. The HAT needs to be connected to a 5.5V to 20V DC power supply. A load (max. 0.9A) has to be connected to output 1 and 5 of the HAT. If you want to trigger errors you be ready to create a short circuit between output 1 and output 5 or disconnect the load to get an open load error.
+The TLE94112ES HAT needs to be stacked onto a [compatible](RPi-Library-Installation###Compatibility) Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking as shown in the picture. The HAT needs to be connected to a 5.5V to 20V DC power supply. A load (max. 0.9A) has to be connected to output 1 and 5 of the HAT. If you want to trigger errors you be ready to create a short circuit between output 1 and output 5 or disconnect the load to get an open load error.
 
 <img src="img/basicTest-hw-setup.png" style="max-width:100%;" width="300">
 
@@ -142,7 +142,7 @@ This example demonstrates how to control two motors, their speed and direction w
 
 #### Hardware setup
 
-The TLE94112ES HAT needs to be stacked onto a [compatible](RPi-Library-Installation) Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking as shown in the picture. The HAT needs to be connected to a 5.5V to 20V DC power supply. A load (max. 0.9A) has to be connected to output 1 and 5 of the HAT. Another load has to be connected between output 7 and 9.
+The TLE94112ES HAT needs to be stacked onto a [compatible](RPi-Library-Installation###Compatibility) Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking as shown in the picture. The HAT needs to be connected to a 5.5V to 20V DC power supply. A load (max. 0.9A) has to be connected to output 1 and 5 of the HAT. Another load has to be connected between output 7 and 9.
 
 <img src="img/multipleMotors-hw-setup.png" style="max-width:100%;" width="300">
 
@@ -181,7 +181,7 @@ This example shows how to use multiple TLE94112 controllers simultaneously. For 
 
 #### Hardware setup
 
-Both TLE94112ES HATs need to be stacked onto a [compatible](RPi-Library-Installation) Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking on controller 1 as shown in the picture. Another jumper needs to be placed between the middle pin and CS1 on controller 2. Both HATs needs to be connected to a 5.5V to 20V DC power supply. A load (max. 0.9A) has to be connected to output 1 and 5 of both HATs.
+Both TLE94112ES HATs need to be stacked onto a [compatible](RPi-Library-Installation###Compatibility) Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking on controller 1 as shown in the picture. Another jumper needs to be placed between the middle pin and CS1 on controller 2. Both HATs needs to be connected to a 5.5V to 20V DC power supply. A load (max. 0.9A) has to be connected to output 1 and 5 of both HATs.
 
 <img src="img/multipleControllers-hw-setup.png" style="max-width:100%;" width="300">
 
