@@ -1,5 +1,23 @@
+### Compatibility
+The TLE94112ES DC Motor Control HAT in combination with this library is compatible with the following hardware platforms:
+
+| Platform | Compatible |
+| --- |:---:|
+| Raspberry Pi 4 Mod. B | :heavy_check_mark: |
+| Raspberry Pi 3 Mod. B+ | :heavy_check_mark: |
+| Raspberry Pi 3 Mod. B | :heavy_check_mark: |
+| Raspberry Pi 3 Mod. A+ | :heavy_check_mark: |
+| Raspberry Pi Zero | :heavy_check_mark: |  |
+| Raspberry Pi Zero W(H) | :heavy_check_mark: |
+| Raspberry Pi 2 Mod. B v1.2 | :heavy_check_mark: |
+| Raspberry Pi 2 Mod. B | :heavy_check_mark: |
+| Raspberry Pi 1 Mod. B+ | :heavy_check_mark: |
+| Raspberry Pi 1 Mod. B | :x: |
+| Rapsberry Pi 1 Mod. A+ | :heavy_check_mark: |
+| Raspberry Pi 1 Mod. A | :x: |
+
 ### Prerequisites
-It is assumed that you have already set up a Raspberry Pi with Raspberry Pi OS or similar and that the hardware setup is already done. If this is not the case, please refer to the [getting started page](RPi-Getting-Started).
+It is assumed that you have already set up a compatible Raspberry Pi with Raspberry Pi OS or similar and that the hardware setup is already done. If this is not the case, please refer to the [getting started page](RPi-Getting-Started).
 
 ### Required Software
 

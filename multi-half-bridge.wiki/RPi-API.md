@@ -40,7 +40,12 @@ motor.connect(motor.LOWSIDE, controller.TLE_HB5);
 motor.setPwm(motor.LOWSIDE, controller.TLE_PWM1);
 ```
 
-If you want to change the speed of your motor using PWM, you can assign one of the three PWM channels of the controller to this motor. Please always assign the PWM channel to `motor.LOWSIDE` as the high side is active free wheeling.
+#### Optional: Set PWM frequency (default is 80 Hz)
+```
+motor.setPwmFreq(motor1.LOWSIDE, controller.TLE_FREQ100HZ);
+```
+
+If you want to change the speed of your motor using PWM, you can assign one of the three PWM channels of the controller to this motor. Please always assign the PWM channel to `motor.LOWSIDE` as the high side is active free wheeling. Available PWM frequencies are 80 Hz, 100 Hz and 200 Hz.
 
 #### Initalize the motor
 ```

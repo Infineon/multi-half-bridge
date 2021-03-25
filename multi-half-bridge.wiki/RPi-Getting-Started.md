@@ -13,7 +13,7 @@ In this quick tutorial we will go through one of the C++ Multi Half Bridge examp
 Name         | Picture |
 ---          |---      |
 [DC Motor Control HAT with TLE94112ES](https://www.infineon.com/cms/en/product/evaluation-boards/tle94112es_rpi_hat) | <img src="https://github.com/Infineon/Assets/raw/master/Pictures/tle94112_hat_Raspberry_Pi.png" width=100>
-[Compatible]() Raspberry Pi |
+[Compatible](RPi-Library-Installation) Raspberry Pi |
 8GB+ microSD card for Raspberry Pi |
 5.5V - 20V power supply with > 15W |
 Compatible DC motor
