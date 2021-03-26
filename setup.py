@@ -105,12 +105,17 @@ setup(
     name="multi-half-bridge",
     version="2.2.1",
     author="Infineon Technologies",
-    description="Python Library for Raspberry Pi HAT TLE94112EL",
-    long_description="Python library for Infineons DC Motor Control Raspberry PI HAT with TLE94112EL",
+    description="Python Library for Infineon's multi half-bridge IC drivers",
+    long_description="Python library for Infineons multi half-bridge IC drivers",
+    project_urls={
+        'Source' : 'https://github.com/Infineon/multi-half-bridge',
+        'Wiki': 'https://github.com/Infineon/multi-half-bridge/wiki',
+        'IC Prodcuts Page' : 'https://www.infineon.com/cms/de/product/power/motor-control-ics/brushed-dc-motor-driver-ics/multi-half-bridge-ics/'
+    },  
     ext_modules=[CMakeExtension("multi_half_bridge_py")],
     cmdclass={"build_ext": CMakeBuild},
     license='MIT',
-    url='https://github.com/Infineon/multi-half-bridge',
+    url='https://pypi.org/project/multi-half-bridge/',
     classifiers=[
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
