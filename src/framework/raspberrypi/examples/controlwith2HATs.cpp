@@ -14,16 +14,29 @@
  *
  */
 
-#include "controlwith2HATs.hpp"
-
+/*
+ * As this library works with multiple frameworks,
+ * this part is needed to avoid trying to compile
+ * this example from other frameworks.
+ */
+#include "../../../config/tle94112-conf.hpp"
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
+
+/* Infineon library for multi half bridge */
+#include "tle94112-rpi.hpp"
+#include "tle94112-motor.hpp"
+#include "tle94112-platf-rpi.hpp"
+
+/* 3rd party libraries for this example */
+#include <cstdio>
+#include <bcm2835.h>
 
 int main(int argc, char const *argv[])
 {
   
     // Tle94112 Object for HATs 1 (CS0, default) and 2 (CS1)
-    Tle94112Rpi controller1 = Tle94112Rpi();
-    Tle94112Rpi controller2 = Tle94112Rpi(TLE94112_PIN_CS1);
+    Tle94112Rpi controller1;
+    Tle94112Rpi controller2(TLE94112_PIN_CS1);
 
     // Tle94112Motor Objects
     Tle94112Motor motor1(controller1);

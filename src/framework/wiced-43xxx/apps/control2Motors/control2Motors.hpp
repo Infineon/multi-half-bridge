@@ -28,7 +28,7 @@
 #ifndef CONTROL2MOTORS_HPP_
 #define CONTROL2MOTORS_HPP_
 
-#include "tle94112-conf.hpp"
+#include "../../../../config/tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
