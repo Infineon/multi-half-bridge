@@ -337,7 +337,7 @@ class Tle94112
 		 * \return 1 if there HalfBridge detected an open load
 		 *         0 otherwise
 		 */
-		uint8_t getHBOpenLoad(uint8_t hb);
+		uint8_t _getHBOpenLoad(uint8_t hb);
 
 		/*! \brief writes data bits to a control register of the TLE94112
 		 *
