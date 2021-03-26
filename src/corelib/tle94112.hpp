@@ -308,7 +308,7 @@ class Tle94112
 		 * \param activeFW 1 for active freewheeling
 		 *                 0 for passive freewheeling (default)
 		 */
-		void configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeFW);
+		void _configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeFW);
 
 		/*! \brief sets the frequency and duty cycle for a PWM channel
 		 *         automatically called by the public version of configPWM
@@ -317,7 +317,7 @@ class Tle94112
 		 * \param freq      selects the PWM output frequency
 		 * \param dutyCycle a value from 0 to 255 which sets the dutyCycle
 		 */
-		void configPWM(uint8_t pwm, uint8_t freq, uint8_t dutyCycle);
+		void _configPWM(uint8_t pwm, uint8_t freq, uint8_t dutyCycle);
 
 		/*! \brief gets the overcurrent error flag bit for a specific halfbridge
 		 *         automatically called by the public version of getHBOverCurrent
@@ -327,7 +327,7 @@ class Tle94112
 		 * \return 1 if there HalfBridge was shut down because of an overcurrent
 		 *         0 otherwise
 		 */
-		uint8_t getHBOverCurrent(uint8_t hb);
+		uint8_t _getHBOverCurrent(uint8_t hb);
 
 		/*! \brief gets the openload error flag bit for a specific halfbridge
 		 *         automatically called by the public version of getHBOpenLoad

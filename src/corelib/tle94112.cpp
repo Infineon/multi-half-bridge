@@ -69,7 +69,7 @@ void Tle94112::configHB(HalfBridge hb, HBState state, PWMChannel pwm, uint8_t ac
 	configHB(static_cast<uint8_t>(hb),static_cast<uint8_t>(state),static_cast<uint8_t>(pwm),activeFW );
 }
 
-void Tle94112::configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeFW)
+void Tle94112::_configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeFW)
 {
 	uint8_t reg = mHalfBridges[hb].stateReg;
 	uint8_t mask = mHalfBridges[hb].stateMask;
@@ -92,7 +92,7 @@ void Tle94112::configPWM(PWMChannel pwm, PWMFreq freq, uint8_t dutyCycle)
 	configPWM(static_cast<uint8_t>(pwm),static_cast<uint8_t>(freq),dutyCycle );
 }
 
-void Tle94112::configPWM(uint8_t pwm, uint8_t freq, uint8_t dutyCycle)
+void Tle94112::_configPWM(uint8_t pwm, uint8_t freq, uint8_t dutyCycle)
 {
 	uint8_t reg = mPwmChannels[pwm].freqReg;
 	uint8_t mask = mPwmChannels[pwm].freqMask;
@@ -127,7 +127,7 @@ uint8_t Tle94112::getHBOverCurrent(HalfBridge hb)
 	return getHBOverCurrent(static_cast<uint8_t>(hb));
 }
 
-uint8_t Tle94112::getHBOverCurrent(uint8_t hb)
+uint8_t Tle94112::_getHBOverCurrent(uint8_t hb)
 {
 	uint8_t reg = mHalfBridges[hb].ocReg;
 	uint8_t mask = mHalfBridges[hb].ocMask;
