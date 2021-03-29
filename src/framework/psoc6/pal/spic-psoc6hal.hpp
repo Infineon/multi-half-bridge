@@ -19,7 +19,7 @@
 #include "cyhal_gpio.h"
 #include "cy_pdl.h"
 #include "cyhal.h"
-
+#include "cybsp.h"
 
 /**
  * @addtogroup mtbPal
@@ -27,7 +27,6 @@
  */
 
 #define SPI_FREQ_HZ         (1000000UL)
-
 class SPICPsoc6hal: virtual public SPIC
 {
 	private:
@@ -37,13 +36,12 @@ class SPICPsoc6hal: virtual public SPIC
 		cyhal_gpio_t         sckPin;
 		cyhal_spi_t          spi;
 
-		uint8_t sendBuffer[2];
-		uint8_t receiveBuffer[2];
+		uint8_t sendBuffer[5];
+		uint8_t receiveBuffer[5];
 		bool spiSetting = false;
 
 	public:
 		SPICPsoc6hal();
-		SPICPsoc6hal(cyhal_gpio_t csPin);
 		SPICPsoc6hal(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t mosiPin, cyhal_gpio_t sckPin);
 		~SPICPsoc6hal();
 		Error_t     init();

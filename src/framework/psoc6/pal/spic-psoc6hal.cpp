@@ -14,8 +14,8 @@
 /**
  * @brief Constructor of the PSOC6 SPIC class
  *
- * This function is setting the basics for a SPIC and the default
- * spi on Arduino which is implemented as PSOC6_SPI_0 by patching the following:
+ * This function is setting the basics for a SPIC but needs
+ * default marcos for the SPI pins which are yet not available for the PSOC HAL library.
  *
  */
 SPICPsoc6hal::SPICPsoc6hal() : csPin(SPICPsoc6hal::unusedPin)
@@ -24,21 +24,6 @@ SPICPsoc6hal::SPICPsoc6hal() : csPin(SPICPsoc6hal::unusedPin)
 	this->misoPin = misoPin;
 	this->mosiPin = mosiPin;
 	this->sckPin  = sckPin;
-}
-
-/**
- * @brief Construct a new SPICPsoc6hal::SPICPsoc6hal object
- *
- * This function is setting the basics for a SPIC. It allows to set the
- * SPI channel and the used GPIOs if they are different from the standard GPIOs.
- *
-  * @param csPin    Number of the desired ChipSelect pin
- * 
- * @attention Yet not implemented
- */
-SPICPsoc6hal::SPICPsoc6hal(cyhal_gpio_t csPin)
-{
-	this->csPin = csPin;
 }
 
 /**
@@ -115,10 +100,16 @@ SPICPsoc6hal::Error_t SPICPsoc6hal::deinit()
  */
 SPICPsoc6hal::Error_t SPICPsoc6hal::transfer(uint8_t send, uint8_t &received)
 {
-	// sendBuffer[0] = send;
-	// receiveBuffer[0] = received;
-	// mtb_spi_transfer( &this->spi, &this->segment, 1);
-	return OK;
+	Error_t err = OK;
+
+	sendBuffer[0] = send;
+	receiveBuffer[0] = received;
+//	cy_rslt_t cyErr = cyhal_spi_transfer( &this->spi, sendBuffer, 1u, receiveBuffer, 1u, 0xF);
+	cy_rslt_t cyErr = cyhal_spi_transfer_async( &this->spi, sendBuffer, 2u, receiveBuffer, 1u);
+	if(CY_RSLT_SUCCESS != cyErr)
+		err = INTF_ERROR;
+
+	return err;
 }
 
 /**
@@ -130,13 +121,17 @@ SPICPsoc6hal::Error_t SPICPsoc6hal::transfer(uint8_t send, uint8_t &received)
  */
 SPICPsoc6hal::Error_t SPICPsoc6hal::transfer16(uint16_t send, uint16_t &received)
 {
-	// sendBuffer[0] = (uint8_t)((send >> 8) & 0xFF);
-	// sendBuffer[1] = (uint8_t)(send & 0xFF);
+	Error_t err = OK;
 
-	// mtb_spi_transfer( &this->spi, &this->segment, 2);
-	// received = (uint16_t)(((uint16_t)receiveBuffer[0] << 8) | (receiveBuffer[1]));
+	sendBuffer[0] = (uint8_t)((send >> 8) & 0xFF);
+	sendBuffer[1] = (uint8_t)(send & 0xFF);
 
-	return OK;
+	cy_rslt_t cyErr = cyhal_spi_transfer( &this->spi, &sendBuffer[0], 2, &receiveBuffer[0], 2, 0);
+	if(CY_RSLT_SUCCESS != cyErr)
+		err = INTF_ERROR;
+	received = (uint16_t)(((uint16_t)receiveBuffer[0] << 8) | (receiveBuffer[1]));
+
+	return err;
 }
 
 #endif /** TLE94112_FRAMEWORK **/

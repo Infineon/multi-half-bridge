@@ -25,6 +25,10 @@ GPIOPsoc6hal::GPIOPsoc6hal( cyhal_gpio_t              pin,
 							VLogic_t                  logic)
 		: pin(pin), dir(CYHAL_GPIO_DIR_OUTPUT), driveMode(CYHAL_GPIO_DRIVE_NONE), logic(GPIOC::VLogic_t::POSITIVE)
 {
+	this->pin = pin;
+	this->dir = dir;
+	this->driveMode = driveMode;
+	this->logic = logic;
 }
 
 /**
@@ -46,7 +50,7 @@ inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::init()
 {
 	Error_t err = OK;
 
-	cy_rslt_t cyErr = cyhal_gpio_init(pin, dir, driveMode, 0);
+	cy_rslt_t cyErr = cyhal_gpio_init(this->pin, this->dir, this->driveMode, 0);
 	if(CY_RSLT_SUCCESS != cyErr)
 		err = INTF_ERROR;
 
@@ -61,7 +65,7 @@ inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::init()
  */
 inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::deinit()
 {
-	cyhal_gpio_free(pin);
+	cyhal_gpio_free(this->pin);
 
 	return OK;
 }
@@ -74,7 +78,7 @@ inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::deinit()
  */
 inline GPIOPsoc6hal::VLevel_t GPIOPsoc6hal::read()
 {
-	return (VLevel_t) (VLevel_t) cyhal_gpio_read(pin);
+	return (VLevel_t) (VLevel_t) cyhal_gpio_read(this->pin);
 }
 
 /**
@@ -86,7 +90,7 @@ inline GPIOPsoc6hal::VLevel_t GPIOPsoc6hal::read()
  */
 inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::write(VLevel_t level)
 {
-	cyhal_gpio_write(pin, level);
+	cyhal_gpio_write(this->pin, level);
 
 	return OK;
 }
@@ -101,13 +105,13 @@ inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::write(VLevel_t level)
  */
 inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::enable()
 {
-	if(logic == POSITIVE)
+	if(this->logic == POSITIVE)
 	{
-		cyhal_gpio_write(pin, GPIO_HIGH);
+		cyhal_gpio_write(this->pin, GPIO_HIGH);
 	}
-	else if(logic == NEGATIVE)
+	else if(this->logic == NEGATIVE)
 	{
-		cyhal_gpio_write(pin, GPIO_LOW);
+		cyhal_gpio_write(this->pin, GPIO_LOW);
 	}
 	return OK;
 }
@@ -122,13 +126,13 @@ inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::enable()
  */
 inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::disable()
 {
-	if(logic == POSITIVE)
+	if(this->logic == POSITIVE)
 	{
-		cyhal_gpio_write(pin, GPIO_LOW);
+		cyhal_gpio_write(this->pin, GPIO_LOW);
 	}
-	else if(logic == NEGATIVE)
+	else if(this->logic == NEGATIVE)
 	{
-		cyhal_gpio_write(pin, GPIO_HIGH);
+		cyhal_gpio_write(this->pin, GPIO_HIGH);
 	}
 	return OK;
 }
