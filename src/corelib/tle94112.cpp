@@ -23,11 +23,11 @@ Tle94112::Tle94112(void)
 	timer = NULL;
 }
 
-// Tle94112(SPIC * sBus, GPIO * cs, GPIO * en, Timer * timer)
-// :sBus(sBus), cs(cs), en(en), timer(timer)
-// {
+Tle94112::Tle94112(SPIC * sBus, GPIO * cs, GPIO * en, Timer * timer)
+:sBus(sBus), cs(cs), en(en), timer(timer)
+{
 	
-// }
+}
 
 Tle94112::~Tle94112()
 {
@@ -40,12 +40,29 @@ Tle94112::~Tle94112()
 void Tle94112::begin(void)
 {
 	mEnabled = false;
-	Tle94112::sBus->init();
-	Tle94112::en->init();
-	Tle94112::en->enable();
-	Tle94112::cs->init();
-	Tle94112::cs->enable();
-	Tle94112::timer->init();
+
+	if (nullptr != sBus)
+	{
+		Tle94112::sBus->init();	
+	}
+
+	if (nullptr != en)
+	{ 
+		Tle94112::en->init();
+		Tle94112::en->enable();
+	}
+
+	if (nullptr != cs)
+	{
+		Tle94112::cs->init();
+		Tle94112::cs->enable();
+	}
+
+	if (nullptr != timer)
+	{
+		Tle94112::timer->init();
+	}
+
 	mEnabled = true;
 	init();
 }
@@ -53,10 +70,26 @@ void Tle94112::begin(void)
 void Tle94112::end(void)
 {
 	mEnabled = false;
-	Tle94112::en->disable();
-	Tle94112::cs->disable();
-	Tle94112::timer->stop();
-	Tle94112::sBus->deinit();
+	
+	if (nullptr != en)
+	{
+		Tle94112::en->disable();
+	}
+
+	if (nullptr != cs)
+	{
+		Tle94112::cs->disable();
+	}
+
+	if (nullptr != timer)
+	{
+		Tle94112::timer->stop();
+	}
+	
+	if(nullptr != sBus)
+	{
+		Tle94112::sBus->deinit();
+	}	
 }
 
 void Tle94112::configHB(HalfBridge hb, HBState state, PWMChannel pwm)

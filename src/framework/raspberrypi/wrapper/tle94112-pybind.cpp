@@ -94,7 +94,7 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
 // Wrapper for Tle94112Motor class 
     py::class_<Tle94112Motor> tle94112motor(m, "Tle94112Motor");
 
-    tle94112motor.def(py::init<Tle94112 &>())
+    tle94112motor.def(py::init<Tle94112 &>(), py::keep_alive<1, 2>())
         .def("begin", &Tle94112Motor::begin, "Begin function")
         .def("end", &Tle94112Motor::end, "End function")
         // Define function as below in case of overloaded functions
