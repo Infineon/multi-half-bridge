@@ -10,7 +10,7 @@ set(Sources
 
 # GCOV Coverage Targets 
 set(CMAKE_CXX_OUTPUT_EXTENSION_REPLACE ON)
-set(GCOV_FILES_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/multi-half-bridge.dir/src)
+set(GCOV_FILES_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/multi-half-bridge-corelib.dir/src)
 
 # Binary and Output Coverage Files
 file(GLOB_RECURSE GCOV_GNNO_GCDA_FILES ${CMAKE_BINARY_DIR}/*.gc??)
