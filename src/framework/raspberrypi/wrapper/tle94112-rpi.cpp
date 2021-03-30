@@ -22,7 +22,7 @@
  * @brief Construct a new Tle94112Rpi::Tle94112Rpi object
  * with default pin assignment
  */
-Tle94112Rpi::Tle94112Rpi(void):Tle94112()
+Tle94112Rpi::Tle94112Rpi(void)
 {
 	Tle94112::en = new GPIORpi(TLE94112_PIN_EN,  BCM2835_GPIO_FSEL_OUTP, GPIORpi::POSITIVE );
 	Tle94112::cs = new GPIORpi(TLE94112_PIN_CS0,  BCM2835_GPIO_FSEL_OUTP, GPIORpi::POSITIVE );
@@ -35,7 +35,7 @@ Tle94112Rpi::Tle94112Rpi(void):Tle94112()
  *
  * @param csPin  pin number of the CS pin
  */
-Tle94112Rpi::Tle94112Rpi(uint8_t csPin):Tle94112()
+Tle94112Rpi::Tle94112Rpi(uint8_t csPin)
 {
 	Tle94112::en = new GPIORpi(TLE94112_PIN_EN,  BCM2835_GPIO_FSEL_OUTP, GPIORpi::POSITIVE );
 	Tle94112::cs = new GPIORpi(csPin,  BCM2835_GPIO_FSEL_OUTP, GPIORpi::POSITIVE );
