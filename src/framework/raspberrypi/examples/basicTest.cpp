@@ -35,7 +35,7 @@ Tle94112Motor motor(controller);
 
   // Connect a motor to HB1/HB2 highside and HB3/HB4 lowside
   // With two combined halfbridges the motor can have up to 1.8 A
-  // IMPORTANT connect PWM to Lowside as higside is active Free wheeling
+  // IMPORTANT connect PWM to Lowside as highside is active Free wheeling
   motor.initConnector(motor.HIGHSIDE, controller.TLE_NOPWM, controller.TLE_HB1, controller.TLE_NOHB, controller.TLE_NOHB, controller.TLE_NOHB);
   motor.initConnector(motor.LOWSIDE,  controller.TLE_PWM1,  controller.TLE_HB5, controller.TLE_NOHB, controller.TLE_NOHB, controller.TLE_NOHB);
   

@@ -38,11 +38,11 @@ Tle94112::~Tle94112()
 }
 
 void Tle94112::begin(void)
-{
+{	
 	mEnabled = false;
 
 	if (nullptr != sBus)
-	{
+	{	
 		Tle94112::sBus->init();	
 	}
 

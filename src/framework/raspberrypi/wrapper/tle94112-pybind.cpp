@@ -23,13 +23,10 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
         .def("end", &Tle94112::end, "End function")
         .def("configHB", overload_cast_<Tle94112::HalfBridge,Tle94112::HBState,Tle94112::PWMChannel>()(&Tle94112::configHB), "Config-HB function")
         .def("configHB", overload_cast_<Tle94112::HalfBridge,Tle94112::HBState,Tle94112::PWMChannel, uint8_t>()(&Tle94112::configHB), "Config-HB function with active free-wheeling")
-        // .def("configHB", overload_cast_<uint8_t,uint8_t,uint8_t,uint8_t>()(&Tle94112::configHB), "Config-HB function with active free-wheeling")
-        // .def("configPWM", overload_cast_<Tle94112::PWMChannel,Tle94112::PWMFreq,uint8_t>()(&Tle94112::configHB), "Public config HB function")
-        // .def("configPWM", overload_cast_<uint8_t,uint8_t,uint8_t>()(&Tle94112::configHB), "Protected config HB function")
         .def("configPWM", &Tle94112::configPWM, "Config PWM function")
-        .def("getSysDignosis",overload_cast_<>()(&Tle94112::getSysDiagnosis), "System-Diagnosis function")
-        .def("getSysDignosis",overload_cast_<Tle94112::DiagFlag>()(&Tle94112::getSysDiagnosis), "System-Diagnosis function with mask")
-        .def("getSysDignosis",overload_cast_<uint8_t>()(&Tle94112::getSysDiagnosis), "System-Diagnosis function with mask")
+        .def("getSysDiagnosis",overload_cast_<>()(&Tle94112::getSysDiagnosis), "System-Diagnosis function")
+        .def("getSysDiagnosis",overload_cast_<Tle94112::DiagFlag>()(&Tle94112::getSysDiagnosis), "System-Diagnosis function with mask")
+        .def("getSysDiagnosis",overload_cast_<uint8_t>()(&Tle94112::getSysDiagnosis), "System-Diagnosis function with mask")
         .def("getHBOverCurrent", &Tle94112::getHBOverCurrent, "Get Half-Bridge over current")
         .def("getHBOpenload", &Tle94112::getHBOpenLoad, "Get Half-Bridge open load")
         .def("clearErrors", &Tle94112::clearErrors, "Clear errors function");
@@ -88,8 +85,9 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
         .export_values();
 
 // Wrapper for child Tle94112Rpi class
-    py::class_<Tle94112Rpi, Tle94112>(m, "Tle94112Rpi")     
-        .def(py::init<>());
+    py::class_<Tle94112Rpi, Tle94112>(m, "Tle94112Rpi", py::multiple_inheritance())     
+        .def(py::init<>())
+        .def(py::init<uint8_t>());
 
 // Wrapper for Tle94112Motor class 
     py::class_<Tle94112Motor> tle94112motor(m, "Tle94112Motor");
@@ -113,9 +111,6 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
         .def("setSpeed", &Tle94112Motor::setSpeed, "Set-Speed function")
         .def("getSpeed", &Tle94112Motor::getSpeed, "Get-Speed function")
         .def("rampSpeed", &Tle94112Motor::rampSpeed, "Ramp-Speed function");
-        // We have to check whether we need the private functions or not
-        //.def("_measureSetSpeedDuration", &Tle94112Motor::_measureSetSpeedDuration, "Measure the set speed duration")
-        //.def("_perfomSpeedStepping", &Tle94112Motor::_performSpeedStepping, "Perform-Speed-Stepping Function");
 
     py::enum_<Tle94112Motor::ePolarity>(tle94112motor, "ePolarity")
         .value("LOWSIDE", Tle94112Motor::ePolarity::LOWSIDE)

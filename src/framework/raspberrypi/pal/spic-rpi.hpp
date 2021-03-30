@@ -19,7 +19,6 @@
 #include <bcm2835.h>
 #include <cstdio>
 
-
 /**
  * @addtogroup rpiPal
  * @{
