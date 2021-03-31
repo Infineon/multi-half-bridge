@@ -31,13 +31,17 @@ set(Headers
 set(Sources
     src/corelib/tle94112.cpp
     src/corelib/tle94112-motor.cpp
+    src/pal/gpio.cpp
+    src/pal/spic.cpp
     )
 
 # Add Library
 add_library(${mhbcore} ${Sources} ${Headers})
 
 # Add directory
+if (CMAKE_HOST_UNIX)
 add_subdirectory(src/framework/raspberrypi)
+endif()
 
 # Enable Testing with CTest
 #enable_testing()

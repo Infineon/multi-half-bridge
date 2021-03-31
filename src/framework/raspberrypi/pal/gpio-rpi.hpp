@@ -38,7 +38,7 @@ private:
 public:
 				GPIORpi();
 				GPIORpi(uint8_t pin, uint8_t mode, VLogic_t logic);
-				~GPIORpi();
+				~GPIORpi(){};
 	Error_t     init();
 	Error_t     deinit();
 	VLevel_t    read();

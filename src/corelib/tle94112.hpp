@@ -21,6 +21,7 @@
 #include "../pal/gpio.hpp"
 #include "../pal/spic.hpp"
 
+
 /**
  * \addtogroup tle94112api
  * @{
@@ -118,7 +119,7 @@ class Tle94112
 		Tle94112();
 
 		//! \brief constructor with pal instances
-		//Tle94112(SPIC * sBus, GPIO * scs, GPIO * en, Timer * timer); 	
+		Tle94112(SPIC * sBus, GPIO * scs, GPIO * en, Timer * timer); 	
 
 		//! \brief standard destructor switches shield off
 		~Tle94112();
