@@ -11,7 +11,7 @@
 
 using namespace tle94112;
 
-Error_t GPIO::checkErrorStatus()
+Error_t GPIOC::checkErrorStatus()
 {
 	return errorStatus;
 }

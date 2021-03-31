@@ -23,7 +23,7 @@
  * @{
  */
 
-class GPIOMtb : virtual public GPIO
+class GPIOMtb : virtual public GPIOC
 {
 	private:
 		#define             UNUSED_PIN (mtb_gpio_t)(MTB_GPIO_51 + 1)     /**< Unused pin */

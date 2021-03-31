@@ -120,7 +120,7 @@ class Tle94112
 		Tle94112();
 
 		//! \brief constructor with pal instances
-		Tle94112(SPIC * sBus, GPIO * cs, GPIO * en, Timer * timer); 	
+		Tle94112(SPIC * sBus, GPIOC * cs, GPIOC * en, Timer * timer); 	
 
 		//! \brief standard destructor switches shield off
 		~Tle94112();
@@ -220,8 +220,8 @@ class Tle94112
 		void clearErrors();
 
 		SPIC     *sBus;      //<! \brief SPI cover class as representation of the SPI bus
-		GPIO     *cs;        //<! \brief shield enable GPIO to switch chipselect on/off
-		GPIO     *en;        //<! \brief shield enable GPIO to switch shield on/off
+		GPIOC    *cs;        //<! \brief shield enable GPIO to switch chipselect on/off
+		GPIOC    *en;        //<! \brief shield enable GPIO to switch shield on/off
 		Timer    *timer;     //<! \brief timer for delay settings
 
 	protected:

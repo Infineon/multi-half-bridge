@@ -25,8 +25,8 @@ class Tle94112_Test: public ::testing::Test
 TEST_F(Tle94112_Test, begin_Success)
 {
     MockSPIC   sbus;
-    MockGPIO   en;
-    MockGPIO   cs;
+    MockGPIOC  en;
+    MockGPIOC  cs;
     MockTimer  timer;
 
     EXPECT_CALL(sbus, init())
@@ -65,8 +65,8 @@ TEST_F(Tle94112_Test, begin_Success)
 TEST_F(Tle94112_Test, end_Success)
 {
     MockSPIC   sbus;
-    MockGPIO   en;
-    MockGPIO   cs;
+    MockGPIOC  en;
+    MockGPIOC  cs;
     MockTimer  timer;
 
     EXPECT_CALL(en, disable())
@@ -109,8 +109,8 @@ TEST_F(Tle94112_Test, end_Success)
 TEST_F(Tle94112_Test, configHB_Success)
 {
     MockSPIC   sbus;
-    MockGPIO   en;
-    MockGPIO   cs;
+    MockGPIOC  en;
+    MockGPIOC  cs;
     MockTimer  timer;
 
     EXPECT_CALL(cs, disable())
@@ -147,8 +147,8 @@ TEST_F(Tle94112_Test, configHB_Success)
 TEST_F(Tle94112_Test, configPWM_Success)
 {
     MockSPIC   sbus;
-    MockGPIO   en;
-    MockGPIO   cs;
+    MockGPIOC  en;
+    MockGPIOC  cs;
     MockTimer  timer;
 
     EXPECT_CALL(cs, disable())
@@ -183,8 +183,8 @@ TEST_F(Tle94112_Test, configPWM_Success)
 TEST_F(Tle94112_Test, getSysDiagnosis_Success)
 {
     MockSPIC   sbus;
-    MockGPIO   en;
-    MockGPIO   cs;
+    MockGPIOC  en;
+    MockGPIOC  cs;
     MockTimer  timer;
 
     EXPECT_CALL(cs, disable())
@@ -218,8 +218,8 @@ TEST_F(Tle94112_Test, getSysDiagnosis_Success)
 TEST_F(Tle94112_Test, getHBOverCurrent_Success)
 {
     MockSPIC   sbus;
-    MockGPIO   en;
-    MockGPIO   cs;
+    MockGPIOC  en;
+    MockGPIOC  cs;
     MockTimer  timer;
 
     EXPECT_CALL(cs, disable())
@@ -250,8 +250,8 @@ TEST_F(Tle94112_Test, getHBOverCurrent_Success)
 TEST_F(Tle94112_Test, getHBOpenLoad_Success)
 {
     MockSPIC   sbus;
-    MockGPIO   en;
-    MockGPIO   cs;
+    MockGPIOC  en;
+    MockGPIOC  cs;
     MockTimer  timer;
 
     EXPECT_CALL(cs, disable())
@@ -282,8 +282,8 @@ TEST_F(Tle94112_Test, getHBOpenLoad_Success)
 TEST_F(Tle94112_Test, clearErrors_Success)
 {
     MockSPIC   sbus;
-    MockGPIO   en;
-    MockGPIO   cs;
+    MockGPIOC  en;
+    MockGPIOC  cs;
     MockTimer  timer;
 
     EXPECT_CALL(cs, disable())

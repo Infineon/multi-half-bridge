@@ -9,8 +9,8 @@ class Tle94112Motor_Test: public ::testing::Test
     public:
 
         NiceMock<MockSPIC>   sbus;
-        NiceMock<MockGPIO>   en;
-        NiceMock<MockGPIO>   cs;
+        NiceMock<MockGPIOC>  en;
+        NiceMock<MockGPIOC>  cs;
         NiceMock<MockTimer>  timer;
 
         void SetUp()

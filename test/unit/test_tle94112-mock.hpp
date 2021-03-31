@@ -34,7 +34,7 @@ class MockSPIC : public SPIC
 /**
  * GPIO Mock
  */
-class MockGPIO : public GPIO
+class MockGPIOC : public GPIOC
 {
     public:
         MOCK_METHOD(Error_t,  init,             (),               (override));

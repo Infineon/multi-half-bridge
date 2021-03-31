@@ -22,7 +22,7 @@ namespace tle94112
  * @{
  */
 
-class GPIO
+class GPIOC
 {
 	public:
 
