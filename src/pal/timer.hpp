@@ -25,12 +25,6 @@ class Timer
 {
 	public:
 
-		// enum Error_t
-		// {
-		// 	OK    = 0,  /**< No error */
-		// 	ERROR = 1,  /**< Error */
-		// };
-
 		/**
 		 * @brief       Initialize the timer
 		 * @return      Timer error code

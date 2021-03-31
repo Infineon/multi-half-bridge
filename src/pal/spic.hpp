@@ -25,15 +25,6 @@ class SPIC
 {
 	public:
 
-		// enum Error_t
-		// {
-		// 	OK          = 0,     /**< No error */
-		// 	INTF_ERROR  = -1,    /**< Interface error */
-		// 	CONF_ERROR  = -2,    /**< Configuration error */
-		// 	READ_ERROR  = -3,    /**< Read error */
-		// 	WRITE_ERROR = -4,    /**< Write error */
-		// };
-
 		/**
 		 * @brief       Initializes the SPIC
 		 * @return      SPIC error code
