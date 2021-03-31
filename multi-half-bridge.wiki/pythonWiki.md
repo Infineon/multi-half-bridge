@@ -13,7 +13,7 @@ In this quick tutorial we will go through the step by step to get started with t
 Name         | Picture |
 ---          |---      |
 [DC Motor Control HAT with TLE94112ES](https://www.infineon.com/cms/en/product/evaluation-boards/tle94112es_rpi_hat) | <img src="https://github.com/Infineon/Assets/raw/master/Pictures/tle94112_hat_Raspberry_Pi.png" width=100>
-[Compatible](RPi-Library-Installation###Compatibility) Raspberry Pi |
+ Raspberry Pi |
 8GB+ microSD card for Raspberry Pi |
 5.5V - 20V power supply with > 15W |
 Compatible DC motor
@@ -57,7 +57,7 @@ Compatible DC motor
 
 The TLE94112ES HAT needs to be stacked onto a [compatible](RPi-Library-Installation###Compatibility) Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking as shown in the picture. 
 
-<img src="https://bitbucket.vih.infineon.com/projects/XFPL/repos/multi-half-bridge/browse/multi-half-bridge.wiki/img/basicTest-hw-setup.png?at=refs%2Fheads%2Ffeature%2Fdocu-update&raw=" style="max-width:100%;" width="300">
+<img src="img/basicTest-hw-setup.png" style="max-width:100%;" width="300">
 
 The [DC Motor Control HAT with TLE94112ES](https://www.infineon.com/cms/en/product/evaluation-boards/tle94112es_rpi_hat) follows the Raspberry Pi [HAT specification](https://github.com/raspberrypi/hats) and can be stacked onto any 40-pin Raspberry Pi.
 
@@ -73,3 +73,7 @@ Library can be installed by giving the command for pip installable from terminal
 pip3 install .............
 ```
 
+### Clone the repository 
+Once the library is installed clone the repository ([link](......)). Migrate to the example folder and execute the examples from the terminal or from the editor in Raspberry pi.
+
+**Note**:- Examples can be seen in action once the hat is stacked on the top of Raspberry pi with DC Motor intact.
