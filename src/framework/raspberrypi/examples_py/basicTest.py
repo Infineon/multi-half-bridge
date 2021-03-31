@@ -1,83 +1,47 @@
+"""
+# name        basicTest
+# author      Infineon Technologies AG
+# copyright   2021 Infineon Technologies AG
+# version     3.0.0
+# brief       This example shows how to switch two half bridge outputs with minimal code.
+# details
+    It will switch on two outputs (one to Vsup and one to GND), wait 3 seconds
+    and switch off both outputs (both to floating state).
+
+# SPDX-License-Identifier: MIT
+
+"""
+
 import multi_half_bridge_py as mhb
 from time import sleep
 
-# Tle94112 object on Shield 1
+# Create a Tle94112Rpi instance for each motor controller
 controller = mhb.Tle94112Rpi()
 
-# Tle94112Motor objects on controller
+# Create a Tle94112Motor instance for each connected load
 motor = mhb.Tle94112Motor(controller)
 
-# Enable MotorController on all Shields and Motors
+# Enable MotorController
 # Note: Required to be done before starting to configure the motor
 # controller is set to default CS0 pin
 controller.begin()
 
-# Connect a motor to HB1/HB2 highside and HB3/HB4 lowside
-# With two combined halfbridges the motor can have up to 1.8 A
-# IMPORTANT connect PWM to Lowside as highside is active Free wheeling
-motor.initConnector(motor.HIGHSIDE, controller.TLE_NOPWM, controller.TLE_HB1, controller.TLE_NOHB, controller.TLE_NOHB, controller.TLE_NOHB)
-motor.initConnector(motor.LOWSIDE,  controller.TLE_PWM1,  controller.TLE_HB5, controller.TLE_NOHB, controller.TLE_NOHB, controller.TLE_NOHB)
+# Clear all errors to start clean
+controller.clearErrors()
 
-# Start the motor controller
+# Let the library know that a load is connected to HB1 (high side)
+# and HB5 (low side).
+motor.connect(motor.HIGHSIDE, controller.TLE_HB1)
+motor.connect(motor.LOWSIDE, controller.TLE_HB5)
+motor.setPwm(motor.LOWSIDE, controller.TLE_NOPWM)
+
+# Initialize the motor
 motor.begin()
 
-print("Init ready\n")
-
-# Coast the motor
-motor.coast()
-# Sleep for one second
-sleep(1)
-
-print("max forward/backward\n")
+# Switch the load on
 motor.start(255)
 
-sleep(1)
+sleep(3)
+
+# Switch the loaf off (outputs to floating state)
 motor.coast()
-sleep(1)
-motor.start(-255)
-sleep(1)
-motor.coast()
-
-# Ramp up/down forward
-motor.start(50)                 # Start above 0 allow motor to start
-motor.rampSpeed(255, 5000)      # Ramp up to maximal speed (forward)
-sleep(1)
-motor.rampSpeed(100, 5000)      # Ramp down
-sleep(1)
-motor.rampSpeed(255, 5000)      # Ramp up to maximal speed (forward) again
-sleep(1)
-motor.rampSpeed(0, 5000)        # Ramp down to zero
-
-# Ramp up/down backward
-print("ramp up/down backward\n")
-motor.start(50)                 # Start above 0 allow motor to start
-motor.rampSpeed(-255, 5000)     # Ramp up to maximal speed (backward)
-sleep(1)
-motor.rampSpeed(-100, 5000)     # Ramp down
-sleep(1)
-motor.rampSpeed(-255, 5000)     # Ramp up to maximal speed (backward) again
-sleep(1)
-motor.rampSpeed(0, 5000)        # Ramp down to 0
-
-# Ramp transient with a change in rotation direction
-print("ramp transient\n")
-motor.rampSpeed(-255, 5000)     # Ramp up to maximal speed (backward)
-sleep(1)
-motor.rampSpeed(255, 5000)      # Ramp up to maximal speed (forward)
-sleep(1)
-motor.rampSpeed(-255, 5000)     # Ramp up to maximal speed (backward) again
-sleep(1)    
-motor.rampSpeed(0, 1000)        # Ramp down to zero
-sleep(1)
-
-# Stop and coast
-print("stop and coast\n")
-motor.stop(255)                 # Stop and hold with maximal force
-sleep(1)
-motor.coast()
-sleep(1)
-
-
-
-
-
