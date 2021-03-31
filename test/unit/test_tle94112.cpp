@@ -1,4 +1,5 @@
 #include "test_tle94112-mock.hpp"
+#include "tle94112.hpp"
 
 /**
  * Class C++ Tle94112 Class Test Suite
