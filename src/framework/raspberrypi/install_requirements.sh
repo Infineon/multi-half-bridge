@@ -17,5 +17,3 @@ echo "Cleaning up..."
 cd ..
 rm -f bcm2835-1.68.tar.gz
 rm -rf bcm2835-1.68
-
-echo "Please enable SPI now by using the command sudo raspi-config > Interfacing options > SPI"
