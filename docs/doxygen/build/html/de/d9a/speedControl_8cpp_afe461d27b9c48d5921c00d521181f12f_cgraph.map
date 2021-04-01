@@ -1,5 +1,0 @@
-<map id="loop" name="loop">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,52,57"/>
-<area shape="rect" id="node2" href="$d5/dd0/group__tle94112api.html#gaba359ba70b241189e8f94a2285a55b0a" title="sets the output state and the PWM channel for a halfbridge (only for passive freewheeling)" alt="" coords="107,5,244,32"/>
-<area shape="rect" id="node3" href="$d5/dd0/group__tle94112api.html#gaec21a2a1434b0de208d33387c387043f" title="sets the frequency and duty cycle for a PWM channel" alt="" coords="100,56,251,83"/>
-</map>

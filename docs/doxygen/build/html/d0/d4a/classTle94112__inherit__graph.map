@@ -1,7 +1,0 @@
-<map id="Tle94112" name="Tle94112">
-<area shape="rect" id="node1" title="represents a basic TLE94112" alt="" coords="219,5,293,32"/>
-<area shape="rect" id="node2" href="$d0/d9b/group__platfIno.html#d9/dc2/classTle94112Ino" title="Arduino Tle94112Ino constructor." alt="" coords="5,80,99,107"/>
-<area shape="rect" id="node3" href="$dd/d06/group__psoc6Pal.html#df/d61/classTle94112Psoc6hal" title=" " alt="" coords="123,80,253,107"/>
-<area shape="rect" id="node4" href="$df/d0c/classTle94112Rpi.html" title=" " alt="" coords="277,80,371,107"/>
-<area shape="rect" id="node5" href="$d5/d1c/classTle94112Wiced.html" title=" " alt="" coords="396,80,508,107"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="Tle94112::configPWM" name="Tle94112::configPWM">
-<area shape="rect" id="node1" title="sets the frequency and duty cycle for a PWM channel automatically called by the public version of con..." alt="" coords="5,81,156,108"/>
-<area shape="rect" id="node2" href="$d5/dd0/group__tle94112api.html#ga68607ddf951e75fc8dc9137881a05a3b" title="writes data bits to a control register of the TLE94112" alt="" coords="204,81,339,108"/>
-<area shape="rect" id="node3" href="$d3/d5d/group__pal.html#ae87d22bf14e42fb7777d1a1aeb2dba67" title="Disables the GPIO output according to the GPIO logic." alt="" coords="388,5,503,32"/>
-<area shape="rect" id="node4" href="$d3/d5d/group__pal.html#a870e415e4d8a62c8cd67ae0f5a3db782" title="Send/receives data from SPI bus." alt="" coords="392,56,499,83"/>
-<area shape="rect" id="node5" href="$d3/d5d/group__pal.html#acc600bd09670ed61bf3284700eaedb7b" title="Enables the GPIO output according to the GPIO logic." alt="" coords="390,107,501,133"/>
-<area shape="rect" id="node6" href="$d3/d5d/group__pal.html#ae4d88c04713dadad65eb5e31f2bfc227" title="Introduces a delay during the specified time." alt="" coords="387,157,504,184"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="Tle94112::clearStatusReg" name="Tle94112::clearStatusReg">
-<area shape="rect" id="node1" title="clears a status register by writing 0x00 to it" alt="" coords="5,81,179,108"/>
-<area shape="rect" id="node2" href="$d3/d5d/group__pal.html#ae87d22bf14e42fb7777d1a1aeb2dba67" title="Disables the GPIO output according to the GPIO logic." alt="" coords="228,5,343,32"/>
-<area shape="rect" id="node3" href="$d3/d5d/group__pal.html#a870e415e4d8a62c8cd67ae0f5a3db782" title="Send/receives data from SPI bus." alt="" coords="232,56,339,83"/>
-<area shape="rect" id="node4" href="$d3/d5d/group__pal.html#acc600bd09670ed61bf3284700eaedb7b" title="Enables the GPIO output according to the GPIO logic." alt="" coords="230,107,341,133"/>
-<area shape="rect" id="node5" href="$d3/d5d/group__pal.html#ae4d88c04713dadad65eb5e31f2bfc227" title="Introduces a delay during the specified time." alt="" coords="227,157,344,184"/>
-</map>
