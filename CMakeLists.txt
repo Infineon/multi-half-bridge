@@ -10,10 +10,6 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_CXX_OUTPUT_EXTENSION_REPLACE ON)
 set(CMAKE_C_OUTPUT_EXTENSION_REPLACE ON)
 
-# Coverage Flags
-#set(CMAKE_CXX_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage -DMHB_ENABLED=0 -Wswitch")
-#set(CMAKE_C_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage")
-
 # Search for include Files
 include_directories(
     src/config
@@ -38,15 +34,23 @@ set(Sources
 # Add Library
 add_library(${mhbcore} ${Sources} ${Headers})
 
-# Add directory
+# Currently only using this target for rasbperry pi host
 if (CMAKE_HOST_UNIX)
-add_subdirectory(src/framework/raspberrypi)
+    # Add directory
+    add_subdirectory(src/framework/raspberrypi)
 endif()
 
-# Enable Testing with CTest
-#enable_testing()
+# If the googletest library is in the project folder
+if (EXISTS ${CMAKE_SOURCE_DIR}/googletest)
+    # Coverage Flags
+    set(CMAKE_CXX_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage -DMHB_ENABLED=0 -Wswitch")
+    set(CMAKE_C_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage")
 
-# Add GoogleTest 
-#add_subdirectory(googletest)
-# Add Tests Folder
-#add_subdirectory(test/unit)
+    # Enable Testing with CTest
+    enable_testing()
+
+    # Add GoogleTest 
+    add_subdirectory(googletest)
+    # Add Tests Folder
+    add_subdirectory(test/unit)
+endif()

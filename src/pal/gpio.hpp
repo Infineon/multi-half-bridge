@@ -7,28 +7,24 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include <stdint.h>
 
 #ifndef GPIO_HPP_
 #define GPIO_HPP_
+
+#include <stdint.h>
+#include "../corelib/tle94112-types.hpp"
+
+namespace tle94112
+{
 
 /**
  * @addtogroup pal
  * @{
  */
 
-class GPIO
+class GPIOC
 {
 	public:
-
-		enum Error_t
-		{
-			OK          = 0,     /**< No error */
-			INTF_ERROR  = -1,    /**< Interface error */
-			CONF_ERROR  = -2,    /**< Configuration error */
-			READ_ERROR  = -3,    /**< Read error */
-			WRITE_ERROR = -4,    /**< Write error */
-		};
 
 		/**
 		 * @name   Interrupt event
@@ -124,5 +120,7 @@ class GPIO
 };
 
 /** @} */
+
+}
 
 #endif /** GPIO_HPP_ **/

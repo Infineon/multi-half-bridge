@@ -36,3 +36,5 @@ package_index.json
 package_infineon_index.json
 
 bcm2835-*
+
+/googletest

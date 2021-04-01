@@ -28,7 +28,7 @@
  * @brief Raspberry Pi GPIO class
  *
  */
-class GPIORpi: virtual public GPIO
+class GPIORpi: virtual public GPIOC
 {
 private:
 	uint8_t     pin;
