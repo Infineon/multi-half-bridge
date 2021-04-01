@@ -9,6 +9,7 @@
 
 #include "spic.hpp"
 
+
 SPIC::Error_t SPIC::checkErrorStatus()
 {
 	return errorStatus;

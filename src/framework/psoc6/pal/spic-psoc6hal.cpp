@@ -7,24 +7,11 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "spic-psoc6hal.hpp"
+#include "../../../config/tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
 
-/**
- * @brief Constructor of the PSOC6 SPIC class
- *
- * This function is setting the basics for a SPIC but needs
- * default marcos for the SPI pins which are yet not available for the PSOC HAL library.
- *
- */
-SPICPsoc6hal::SPICPsoc6hal() : csPin(SPICPsoc6hal::unusedPin)
-{
-	this->csPin   = csPin;
-	this->misoPin = misoPin;
-	this->mosiPin = mosiPin;
-	this->sckPin  = sckPin;
-}
+#include "spic-psoc6hal.hpp"
 
 /**
  * @brief Construct a new SPICPsoc6hal::SPICPsoc6hal object
@@ -68,12 +55,14 @@ SPICPsoc6hal::Error_t SPICPsoc6hal::init()
 	Error_t err = OK;
 
 	cy_rslt_t cyErr = cyhal_spi_init( &this->spi, this->mosiPin, this->misoPin, this->sckPin, this->csPin, NULL, 8, CYHAL_SPI_MODE_00_LSB, false);
-	if(CY_RSLT_SUCCESS != cyErr)
+	if(CY_RSLT_SUCCESS != cyErr) {
 		err = INTF_ERROR;
+	}
 
 	cyErr = cyhal_spi_set_frequency( &this->spi, SPI_FREQ_HZ);
-	if(CY_RSLT_SUCCESS != cyErr)
+	if(CY_RSLT_SUCCESS != cyErr){
 		err = INTF_ERROR;
+	}
 
 	return err;
 }
@@ -93,6 +82,8 @@ SPICPsoc6hal::Error_t SPICPsoc6hal::deinit()
 
 /**
  * @brief transfers a data package via the spi bus
+ * @attention __enable_irq() must be used in the main.c file otherwise the transfer function
+ * will be pending for ever, as the SPI subsystem is not started
  *
  * @param send         address and/or command to send
  * @param received     received data from spi bus
@@ -104,8 +95,7 @@ SPICPsoc6hal::Error_t SPICPsoc6hal::transfer(uint8_t send, uint8_t &received)
 
 	sendBuffer[0] = send;
 	receiveBuffer[0] = received;
-//	cy_rslt_t cyErr = cyhal_spi_transfer( &this->spi, sendBuffer, 1u, receiveBuffer, 1u, 0xF);
-	cy_rslt_t cyErr = cyhal_spi_transfer_async( &this->spi, sendBuffer, 2u, receiveBuffer, 1u);
+	cy_rslt_t cyErr = cyhal_spi_transfer( &this->spi, sendBuffer, 1u, receiveBuffer, 1u, 0x0);
 	if(CY_RSLT_SUCCESS != cyErr)
 		err = INTF_ERROR;
 
@@ -114,6 +104,8 @@ SPICPsoc6hal::Error_t SPICPsoc6hal::transfer(uint8_t send, uint8_t &received)
 
 /**
  * @brief transfers a data package via the spi bus
+ * @attention __enable_irq() must be used in the main.c file otherwise the transfer function
+ * will be pending for ever, as the SPI subsystem is not started
  *
  * @param send         address and/or command to send as 16bit
  * @param received     received data from spi bus as 16bit
@@ -126,7 +118,7 @@ SPICPsoc6hal::Error_t SPICPsoc6hal::transfer16(uint16_t send, uint16_t &received
 	sendBuffer[0] = (uint8_t)((send >> 8) & 0xFF);
 	sendBuffer[1] = (uint8_t)(send & 0xFF);
 
-	cy_rslt_t cyErr = cyhal_spi_transfer( &this->spi, &sendBuffer[0], 2, &receiveBuffer[0], 2, 0);
+	cy_rslt_t cyErr = cyhal_spi_transfer( &this->spi, sendBuffer, 2, receiveBuffer, 2, 0xF);
 	if(CY_RSLT_SUCCESS != cyErr)
 		err = INTF_ERROR;
 	received = (uint16_t)(((uint16_t)receiveBuffer[0] << 8) | (receiveBuffer[1]));

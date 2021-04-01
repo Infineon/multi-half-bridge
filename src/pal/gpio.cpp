@@ -9,6 +9,7 @@
 
 #include "gpio.hpp"
 
+
 GPIOC::Error_t GPIOC::checkErrorStatus()
 {
 	return errorStatus;

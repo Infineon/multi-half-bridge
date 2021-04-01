@@ -24,6 +24,11 @@
  * @{
  */
 
+
+/**
+ * @brief Arduino SPIC class
+ *
+ */
 class SPICIno: virtual public SPIC
 {
 	private:

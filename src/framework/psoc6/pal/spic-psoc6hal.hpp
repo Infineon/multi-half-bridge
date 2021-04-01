@@ -8,24 +8,25 @@
  */
 
 
-#ifndef SPIC_PSOC6_HPP_
-#define SPIC_PSOC6_HPP_
+#ifndef SPIC_PSOC6HAL_HPP_
+#define SPIC_PSOC6HAL_HPP_
 
 #include "../../../config/tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
 
-#include "../../../pal/spic.hpp"
-#include "cyhal_gpio.h"
-#include "cy_pdl.h"
 #include "cyhal.h"
-#include "cybsp.h"
+#include "../../../pal/spic.hpp"
 
 /**
- * @addtogroup mtbPal
+ * @addtogroup psoc6Pal
  * @{
  */
 
+/**
+ * @brief psoc6 SPIC class
+ * 
+ */
 #define SPI_FREQ_HZ         (1000000UL)
 class SPICPsoc6hal: virtual public SPIC
 {
@@ -36,12 +37,10 @@ class SPICPsoc6hal: virtual public SPIC
 		cyhal_gpio_t         sckPin;
 		cyhal_spi_t          spi;
 
-		uint8_t sendBuffer[5];
-		uint8_t receiveBuffer[5];
-		bool spiSetting = false;
+		uint8_t sendBuffer[2];
+		uint8_t receiveBuffer[2];
 
 	public:
-		SPICPsoc6hal();
 		SPICPsoc6hal(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t mosiPin, cyhal_gpio_t sckPin);
 		~SPICPsoc6hal();
 		Error_t     init();
@@ -52,7 +51,8 @@ class SPICPsoc6hal: virtual public SPIC
 		static const cyhal_gpio_t   unusedPin = CYHAL_NC_PIN_VALUE;      /**< Unused pin */
 
 };
+
 /** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
-#endif /** SPIC_PSOC6_HPP_ **/
+#endif /** SPIC_PSOC6HAL_HPP_ **/

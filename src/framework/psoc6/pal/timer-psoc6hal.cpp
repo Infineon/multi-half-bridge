@@ -7,9 +7,11 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "timer-psoc6hal.hpp"
+#include "../../../config/tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
+
+#include "timer-psoc6hal.hpp"
 
 /**
  * @brief Constructor of the PSOC6 Timer class

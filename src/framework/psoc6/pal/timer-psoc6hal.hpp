@@ -7,22 +7,26 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef TIMER_PSOC6_HPP_
-#define TIMER_PSOC6_HPP_
+#ifndef TIMER_PSOC6HAL_HPP_
+#define TIMER_PSOC6HAL_HPP_
 
 #include "../../../config/tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
 
-#include "../../../pal/timer.hpp"
 #include "cyhal_system.h"
 #include "cyhal_timer.h"
+#include "../../../pal/timer.hpp"
 
 /**
- * @addtogroup mtbPal
+ * @addtogroup psoc6Pal
  * @{
  */
 
+/**
+ * @brief psoc6 timer wrapper
+ * 
+ */
 class TimerPsoc6hal: virtual public Timer
 {
 	public:
@@ -40,7 +44,8 @@ class TimerPsoc6hal: virtual public Timer
 		cyhal_timer_t     timerHandle;  /**< Timer handle */
 		cyhal_timer_cfg_t timerConf;    /**< Timer configuration handle */
 };
+
 /** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
-#endif /** TIMER_PSOC6_HPP_ **/
+#endif /** TIMER_PSOC6HAL_HPP_ **/

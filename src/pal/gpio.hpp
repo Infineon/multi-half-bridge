@@ -12,11 +12,11 @@
 #ifndef GPIOC_HPP_
 #define GPIOC_HPP_
 
-
 /**
  * @addtogroup pal
  * @{
  */
+
 class GPIOC
 {
 	public:

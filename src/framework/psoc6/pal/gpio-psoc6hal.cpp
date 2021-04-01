@@ -7,9 +7,11 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "gpio-psoc6hal.hpp"
+#include "../../../config/tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
+
+#include "gpio-psoc6hal.hpp"
 
 /**
  * @brief       GPIO PSoC6 HAL constructor

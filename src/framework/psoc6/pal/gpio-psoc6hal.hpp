@@ -8,8 +8,8 @@
  */
 
 
-#ifndef GPIO_PSOC6_HPP_
-#define GPIO_PSOC6_HPP_
+#ifndef GPIO_PSOC6HAL_HPP_
+#define GPIO_PSOC6HAL_HPP_
 
 #include "../../../config/tle94112-conf.hpp"
 
@@ -21,10 +21,14 @@
 #include "../../../pal/gpio.hpp"
 
 /**
- * @addtogroup mtbPal
+ * @addtogroup psoc6Pal
  * @{
  */
 
+/**
+ * @brief psoc6 gpio wrapper class
+ * 
+ */
 class GPIOPsoc6hal : virtual public GPIOC
 {
 	private:
@@ -49,8 +53,7 @@ class GPIOPsoc6hal : virtual public GPIOC
 		Error_t     disable();
 };
 
-
 /** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
-#endif /** GPIO_PSOC6_HPP_ **/
+#endif /** GPIO_PSOC6HAL_HPP_ **/

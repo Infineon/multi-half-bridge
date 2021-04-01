@@ -22,6 +22,11 @@
  * @{
  */
 
+
+/**
+ * @brief Arduino GPIO class
+ *
+ */
 class GPIOIno: virtual public GPIOC
 {
 private:
@@ -31,6 +36,7 @@ private:
 	VLogic_t    logic;
 
 public:
+				GPIOIno();
 				GPIOIno(uint8_t pin, uint8_t mode, VLogic_t logic);
 				~GPIOIno();
 	Error_t     init();

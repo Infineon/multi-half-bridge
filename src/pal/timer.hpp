@@ -16,6 +16,7 @@
  * @addtogroup pal
  * @{
  */
+
 class Timer
 {
 	public:
