@@ -44,7 +44,6 @@ SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(BCM2835_SPI_BIT
  * This function sets all pins for a given SPI port, allowing a free setting
  * of the SPI interface
  *
- * @param port     SPI port if not default
  * @param csPin    chipselect pin for the SPI port
  * @param misoPin  miso pin number
  * @param mosiPin  mosi pin number

@@ -19,7 +19,6 @@
 #include <bcm2835.h>
 #include <cstdio>
 
-
 /**
  * @addtogroup rpiPal
  * @{
@@ -46,7 +45,7 @@ class SPICRpi: virtual public SPIC
 					SPICRpi();
 					SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock);
 					SPICRpi(uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin);
-					~SPICRpi();
+					~SPICRpi(){};
 		Error_t     init();
 		Error_t     deinit();
 		Error_t     transfer(uint8_t send, uint8_t &received);

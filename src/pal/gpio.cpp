@@ -9,8 +9,13 @@
 
 #include "gpio.hpp"
 
+using namespace tle94112;
 
+<<<<<<< HEAD
 GPIOC::Error_t GPIOC::checkErrorStatus()
+=======
+Error_t GPIOC::checkErrorStatus()
+>>>>>>> 989f37cd9726f4152a93e2693d99d231b43dc1db
 {
 	return errorStatus;
 }

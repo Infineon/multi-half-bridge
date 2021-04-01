@@ -1,5 +1,5 @@
 /**
- * @file        tle94112-pal-rpi.hpp
+ * @file        tle94112-platf-rpi.hpp
  * @brief       TLE94112 Raspberry Pi Hardware Platforms
  * @date        September 2020
  * @version     1.0.0
