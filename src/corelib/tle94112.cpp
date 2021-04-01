@@ -40,14 +40,31 @@ Tle94112::~Tle94112()
 }
 
 void Tle94112::begin(void)
-{
+{	
 	mEnabled = false;
-	Tle94112::sBus->init();
-	Tle94112::en->init();
-	Tle94112::en->enable();
-	Tle94112::cs->init();
-	Tle94112::cs->enable();
-	Tle94112::timer->init();
+
+	if (nullptr != sBus)
+	{	
+		Tle94112::sBus->init();	
+	}
+
+	if (nullptr != en)
+	{ 
+		Tle94112::en->init();
+		Tle94112::en->enable();
+	}
+
+	if (nullptr != cs)
+	{
+		Tle94112::cs->init();
+		Tle94112::cs->enable();
+	}
+
+	if (nullptr != timer)
+	{
+		Tle94112::timer->init();
+	}
+
 	mEnabled = true;
 	init();
 }
@@ -55,10 +72,26 @@ void Tle94112::begin(void)
 void Tle94112::end(void)
 {
 	mEnabled = false;
-	Tle94112::en->disable();
-	Tle94112::cs->disable();
-	Tle94112::timer->stop();
-	Tle94112::sBus->deinit();
+	
+	if (nullptr != en)
+	{
+		Tle94112::en->disable();
+	}
+
+	if (nullptr != cs)
+	{
+		Tle94112::cs->disable();
+	}
+
+	if (nullptr != timer)
+	{
+		Tle94112::timer->stop();
+	}
+	
+	if(nullptr != sBus)
+	{
+		Tle94112::sBus->deinit();
+	}	
 }
 
 void Tle94112::configHB(HalfBridge hb, HBState state, PWMChannel pwm)
@@ -68,10 +101,10 @@ void Tle94112::configHB(HalfBridge hb, HBState state, PWMChannel pwm)
 
 void Tle94112::configHB(HalfBridge hb, HBState state, PWMChannel pwm, uint8_t activeFW)
 {
-	configHB(static_cast<uint8_t>(hb),static_cast<uint8_t>(state),static_cast<uint8_t>(pwm),activeFW );
+	_configHB(static_cast<uint8_t>(hb),static_cast<uint8_t>(state),static_cast<uint8_t>(pwm),activeFW );
 }
 
-void Tle94112::configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeFW)
+void Tle94112::_configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeFW)
 {
 	uint8_t reg = mHalfBridges[hb].stateReg;
 	uint8_t mask = mHalfBridges[hb].stateMask;
@@ -91,10 +124,10 @@ void Tle94112::configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeFW
 
 void Tle94112::configPWM(PWMChannel pwm, PWMFreq freq, uint8_t dutyCycle)
 {
-	configPWM(static_cast<uint8_t>(pwm),static_cast<uint8_t>(freq),dutyCycle );
+	_configPWM(static_cast<uint8_t>(pwm),static_cast<uint8_t>(freq),dutyCycle );
 }
 
-void Tle94112::configPWM(uint8_t pwm, uint8_t freq, uint8_t dutyCycle)
+void Tle94112::_configPWM(uint8_t pwm, uint8_t freq, uint8_t dutyCycle)
 {
 	uint8_t reg = mPwmChannels[pwm].freqReg;
 	uint8_t mask = mPwmChannels[pwm].freqMask;
@@ -126,10 +159,10 @@ uint8_t Tle94112::getSysDiagnosis(uint8_t mask)
 
 uint8_t Tle94112::getHBOverCurrent(HalfBridge hb)
 {
-	return getHBOverCurrent(static_cast<uint8_t>(hb));
+	return _getHBOverCurrent(static_cast<uint8_t>(hb));
 }
 
-uint8_t Tle94112::getHBOverCurrent(uint8_t hb)
+uint8_t Tle94112::_getHBOverCurrent(uint8_t hb)
 {
 	uint8_t reg = mHalfBridges[hb].ocReg;
 	uint8_t mask = mHalfBridges[hb].ocMask;
@@ -139,10 +172,10 @@ uint8_t Tle94112::getHBOverCurrent(uint8_t hb)
 
 uint8_t Tle94112::getHBOpenLoad(HalfBridge hb)
 {
-	return getHBOpenLoad(static_cast<uint8_t>(hb));
+	return _getHBOpenLoad(static_cast<uint8_t>(hb));
 }
 
-uint8_t Tle94112::getHBOpenLoad(uint8_t hb)
+uint8_t Tle94112::_getHBOpenLoad(uint8_t hb)
 {
 	uint8_t reg = mHalfBridges[hb].olReg;
 	uint8_t mask = mHalfBridges[hb].olMask;
