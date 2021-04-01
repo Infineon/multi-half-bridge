@@ -21,6 +21,7 @@
 #include "../pal/gpio.hpp"
 #include "../pal/spic.hpp"
 
+
 /**
  * \addtogroup tle94112api
  * @{
@@ -118,7 +119,7 @@ class Tle94112
 		Tle94112();
 
 		//! \brief constructor with pal instances
-		//Tle94112(SPIC * sBus, GPIO * scs, GPIO * en, Timer * timer); 	
+		Tle94112(SPIC * sBus, GPIO * scs, GPIO * en, Timer * timer); 	
 
 		//! \brief standard destructor switches shield off
 		~Tle94112();
@@ -308,7 +309,7 @@ class Tle94112
 		 * \param activeFW 1 for active freewheeling
 		 *                 0 for passive freewheeling (default)
 		 */
-		void configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeFW);
+		void _configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeFW);
 
 		/*! \brief sets the frequency and duty cycle for a PWM channel
 		 *         automatically called by the public version of configPWM
@@ -317,7 +318,7 @@ class Tle94112
 		 * \param freq      selects the PWM output frequency
 		 * \param dutyCycle a value from 0 to 255 which sets the dutyCycle
 		 */
-		void configPWM(uint8_t pwm, uint8_t freq, uint8_t dutyCycle);
+		void _configPWM(uint8_t pwm, uint8_t freq, uint8_t dutyCycle);
 
 		/*! \brief gets the overcurrent error flag bit for a specific halfbridge
 		 *         automatically called by the public version of getHBOverCurrent
@@ -327,7 +328,7 @@ class Tle94112
 		 * \return 1 if there HalfBridge was shut down because of an overcurrent
 		 *         0 otherwise
 		 */
-		uint8_t getHBOverCurrent(uint8_t hb);
+		uint8_t _getHBOverCurrent(uint8_t hb);
 
 		/*! \brief gets the openload error flag bit for a specific halfbridge
 		 *         automatically called by the public version of getHBOpenLoad
@@ -337,7 +338,7 @@ class Tle94112
 		 * \return 1 if there HalfBridge detected an open load
 		 *         0 otherwise
 		 */
-		uint8_t getHBOpenLoad(uint8_t hb);
+		uint8_t _getHBOpenLoad(uint8_t hb);
 
 		/*! \brief writes data bits to a control register of the TLE94112
 		 *
