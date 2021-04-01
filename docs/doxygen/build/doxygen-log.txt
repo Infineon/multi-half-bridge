@@ -1,12 +1,23 @@
-/home/filies/code/arduino/libraries/Tle94112/src/corelib/TLE94112.hpp:358: warning: end of file while inside a group
+/home/filies/code/arduino/libraries/multi-half-bridge/src/corelib/tle94112-motor.hpp:347: warning: end of file while inside a group
 
-/home/filies/code/arduino/libraries/Tle94112/src/corelib/tle94112_util.hpp:66: warning: end of file while inside a group
+/home/filies/code/arduino/libraries/multi-half-bridge/src/corelib/tle94112.hpp:398: warning: end of file while inside a group
 
-/home/filies/code/arduino/libraries/Tle94112/src/corelib/TLE94112Motor.hpp:347: warning: end of file while inside a group
+/home/filies/code/arduino/libraries/multi-half-bridge/src/framework/raspberrypi/wrapper/tle94112-platf-rpi.hpp:49: warning: end of file while inside a group
 
-/home/filies/code/arduino/libraries/Tle94112/src/framework/arduino/pal/TLE94112-pal-ino.hpp:105: warning: end of file while inside a group
+/home/filies/code/arduino/libraries/multi-half-bridge/src/framework/wiced-43xxx/wrapper/tle94112-platf-wiced.hpp:45: warning: end of file while inside a group
 
-/home/filies/code/arduino/libraries/Tle94112/src/TLE94112-ino.hpp:43: warning: end of file while inside a group
+/home/filies/code/arduino/libraries/multi-half-bridge/src/tle94112-motor-ino.hpp:46: warning: end of file while inside a group
 
-/home/filies/code/arduino/libraries/Tle94112/src/TLE94112Motor-ino.hpp:47: warning: end of file while inside a group
-
+/home/filies/code/arduino/libraries/multi-half-bridge/src/framework/psoc6/wrapper/tle94112-platf-psoc6hal.hpp:5: warning: unable to resolve reference to `tle94112psoc6hal' for \ref command
+/home/filies/code/arduino/libraries/multi-half-bridge/src/framework/psoc6/wrapper/tle94112-psoc6hal.hpp:5: warning: unable to resolve reference to `tle94112psoc6hal' for \ref command
+/home/filies/code/arduino/libraries/multi-half-bridge/src/framework/psoc6/pal/gpio-psoc6hal.cpp:16: warning: argument 'driverMode' of command @param is not found in the argument list of GPIOPsoc6hal::GPIOPsoc6hal(cyhal_gpio_t pin, cyhal_gpio_direction_t dir, cyhal_gpio_drive_mode_t driveMode, VLogic_t logic)
+/home/filies/code/arduino/libraries/multi-half-bridge/src/framework/psoc6/pal/gpio-psoc6hal.hpp:43: warning: The following parameters of GPIOPsoc6hal::GPIOPsoc6hal(cyhal_gpio_t pin, cyhal_gpio_direction_t dir, cyhal_gpio_drive_mode_t driveMode, VLogic_t logic) are not documented:
+  parameter 'driveMode'
+/home/filies/code/arduino/libraries/multi-half-bridge/src/framework/psoc6/pal/spic-psoc6hal.cpp:16: warning: argument 'port' of command @param is not found in the argument list of SPICPsoc6hal::SPICPsoc6hal(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t mosiPin, cyhal_gpio_t sckPin)
+/home/filies/code/arduino/libraries/multi-half-bridge/src/framework/psoc6/pal/spic-psoc6hal.cpp:16: warning: argument 'speed' of command @param is not found in the argument list of SPICPsoc6hal::SPICPsoc6hal(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t mosiPin, cyhal_gpio_t sckPin)
+/home/filies/code/arduino/libraries/multi-half-bridge/src/framework/psoc6/pal/spic-psoc6hal.cpp:16: warning: argument 'mode' of command @param is not found in the argument list of SPICPsoc6hal::SPICPsoc6hal(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t mosiPin, cyhal_gpio_t sckPin)
+/home/filies/code/arduino/libraries/multi-half-bridge/src/framework/psoc6/pal/spic-psoc6hal.cpp:16: warning: argument 'bits' of command @param is not found in the argument list of SPICPsoc6hal::SPICPsoc6hal(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t mosiPin, cyhal_gpio_t sckPin)
+/home/filies/code/arduino/libraries/multi-half-bridge/src/framework/psoc6/pal/spic-psoc6hal.hpp:44: warning: The following parameters of SPICPsoc6hal::SPICPsoc6hal(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t mosiPin, cyhal_gpio_t sckPin) are not documented:
+  parameter 'misoPin'
+  parameter 'mosiPin'
+  parameter 'sckPin'

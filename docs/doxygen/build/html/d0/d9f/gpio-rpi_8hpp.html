@@ -98,23 +98,34 @@ $(document).ready(function(){initNavTree('d0/d9f/gpio-rpi_8hpp.html','../../');}
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a>  </div>
   <div class="headertitle">
 <div class="title">gpio-rpi.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Raspberry Pi PAL for the <a class="el" href="../../d7/dde/classGPIO.html">GPIO</a>.  
+<p>Raspberry Pi PAL for the GPIO.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../de/dfc/tle94112-conf_8hpp_source.html">../../../config/tle94112-conf.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d9b/tle94112_8hpp_source.html">../../../corelib/tle94112.hpp</a>&quot;</code><br />
+<code>#include &lt;bcm2835.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for gpio-rpi.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d3/dd7/gpio-rpi_8hpp__incl.png" border="0" usemap="#gpio-rpi_8hpp" alt=""/></div>
 <map name="gpio-rpi_8hpp" id="gpio-rpi_8hpp">
-<area shape="rect" title="Raspberry Pi PAL for the GPIO." alt="" coords="125,5,214,32"/>
-<area shape="rect" href="../../de/dfc/tle94112-conf_8hpp.html" title="TLE94112 Library Configuration." alt="" coords="96,80,243,121"/>
+<area shape="rect" title="Raspberry Pi PAL for the GPIO." alt="" coords="449,5,538,32"/>
+<area shape="rect" href="../../de/dfc/tle94112-conf_8hpp.html" title="TLE94112 Library Configuration." alt="" coords="183,80,329,121"/>
+<area shape="rect" href="../../d4/d9b/tle94112_8hpp.html" title=" " alt="" coords="406,87,581,114"/>
+<area shape="rect" title=" " alt="" coords="605,87,691,114"/>
 <area shape="rect" href="../../d8/d9c/tle94112-conf-opts_8hpp.html" title="TLE94112 Library Configuration Options." alt="" coords="5,169,160,196"/>
 <area shape="rect" href="../../d7/d7a/tle94112-conf-dfl_8hpp.html" title="TLE94112 Default Library Configuration." alt="" coords="185,169,327,196"/>
+<area shape="rect" title=" " alt="" coords="578,244,643,271"/>
+<area shape="rect" title=" " alt="" coords="403,169,467,196"/>
+<area shape="rect" href="../../df/d05/timer_8hpp.html" title="Timer Platform Abstraction Layer." alt="" coords="491,169,600,196"/>
+<area shape="rect" href="../../d1/d2c/gpio_8hpp.html" title="PAL of the GPIO." alt="" coords="624,169,728,196"/>
+<area shape="rect" href="../../d8/df0/spic_8hpp.html" title="PAL of the SPI cover." alt="" coords="752,169,856,196"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -122,14 +133,22 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../df/d0b/gpio-rpi_8hpp__dep__incl.png" border="0" usemap="#gpio-rpi_8hppdep" alt=""/></div>
 <map name="gpio-rpi_8hppdep" id="gpio-rpi_8hppdep">
-<area shape="rect" title="Raspberry Pi PAL for the GPIO." alt="" coords="5,5,95,32"/>
+<area shape="rect" title="Raspberry Pi PAL for the GPIO." alt="" coords="68,5,157,32"/>
 <area shape="rect" href="../../da/da1/gpio-rpi_8cpp.html" title="Raspberry Pi PAL for the GPIO." alt="" coords="5,80,95,107"/>
+<area shape="rect" href="../../da/d01/tle94112-rpi_8cpp.html" title="TLE94112 Raspberry Pi API." alt="" coords="119,80,234,107"/>
 </map>
 </div>
 </div>
 <p><a href="../../d0/d9f/gpio-rpi_8hpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:d9/d95/classGPIORpi"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d89/group__rpiPal.html#d9/d95/classGPIORpi">GPIORpi</a></td></tr>
+<tr class="memdesc:d9/d95/classGPIORpi"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raspberry Pi GPIO class.  <a href="../../d4/d89/group__rpiPal.html#d9/d95/classGPIORpi">More...</a><br /></td></tr>
+<tr class="separator:d9/d95/classGPIORpi"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Raspberry Pi PAL for the <a class="el" href="../../d7/dde/classGPIO.html">GPIO</a>. </p>
+<div class="textblock"><p>Raspberry Pi PAL for the GPIO. </p>
 <dl class="section date"><dt>Date</dt><dd>September 2020 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2019-2020 Infineon Technologies AG</dd></dl>
 <p>SPDX-License-Identifier: MIT </p>
@@ -138,7 +157,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_5752cadd8276ecfd63d9b924f2a4d4b5.html">framework</a></li><li class="navelem"><a class="el" href="../../dir_30e29a94f49e1c3d120f9bd62b8f621d.html">raspberry</a></li><li class="navelem"><a class="el" href="../../dir_c0695ea757e7d9d27a280ba8f8d849e6.html">pal</a></li><li class="navelem"><a class="el" href="../../d0/d9f/gpio-rpi_8hpp.html">gpio-rpi.hpp</a></li>
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_5752cadd8276ecfd63d9b924f2a4d4b5.html">framework</a></li><li class="navelem"><a class="el" href="../../dir_be3f31021d7a476c4d215be6a0e7785a.html">raspberrypi</a></li><li class="navelem"><a class="el" href="../../dir_8de486edec05588ba5107ed7a495ddd5.html">pal</a></li><li class="navelem"><a class="el" href="../../d0/d9f/gpio-rpi_8hpp.html">gpio-rpi.hpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.16 </li>

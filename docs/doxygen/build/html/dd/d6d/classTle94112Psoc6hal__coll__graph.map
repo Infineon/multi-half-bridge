@@ -1,0 +1,9 @@
+<map id="Tle94112Psoc6hal" name="Tle94112Psoc6hal">
+<area shape="rect" id="node1" title=" " alt="" coords="237,185,367,212"/>
+<area shape="rect" id="node2" href="$d5/dd0/group__tle94112api.html#de/dfb/classTle94112" title="represents a basic TLE94112" alt="" coords="265,109,339,136"/>
+<area shape="rect" id="node3" href="$d3/d5d/group__pal.html#d8/d07/classGPIOC" title=" " alt="" coords="5,5,71,32"/>
+<area shape="rect" id="node4" href="$d5/dd0/group__tle94112api.html#dc/db8/structTle94112_1_1HalfBridge__t" title="struct containing register locations for a single halfbridge" alt="" coords="95,5,250,32"/>
+<area shape="rect" id="node5" href="$d3/d5d/group__pal.html#d7/db9/classSPIC" title=" " alt="" coords="275,5,329,32"/>
+<area shape="rect" id="node6" href="$d5/dd0/group__tle94112api.html#dd/dbe/structTle94112_1_1PWMchannel__t" title="struct containing register locations for a single PWM channel" alt="" coords="353,5,525,32"/>
+<area shape="rect" id="node7" href="$d3/d5d/group__pal.html#dc/dea/classTimer" title=" " alt="" coords="549,5,604,32"/>
+</map>

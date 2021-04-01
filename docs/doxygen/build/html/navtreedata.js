@@ -25,11 +25,11 @@ var NAVTREE =
 [
   [ "TLE94112", "index.html", [
     [ "Modules", "modules.html", "modules" ],
-    [ "Classes", "annotated.html", [
-      [ "Class List", "annotated.html", "annotated_dup" ],
-      [ "Class Index", "classes.html", null ],
+    [ "Data Structures", "annotated.html", [
+      [ "Data Structures", "annotated.html", "annotated_dup" ],
+      [ "Data Structure Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
-      [ "Class Members", "functions.html", [
+      [ "Data Fields", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
@@ -40,8 +40,11 @@ var NAVTREE =
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
-      [ "File Members", "globals.html", [
+      [ "Globals", "globals.html", [
         [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -51,8 +54,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d5/dd0/group__tle94112api.html#gga7ffbb9a615ea60a5250c8d7f12a31e45a82d1445effad18fe53ddc2a0a84685b6",
-"dd/d03/group__tle94112motorapi.html#gadd0df7a46f6474374f2ac60de13e4a31"
+"d2/d6c/wiced-43xxx_2apps_2basicTest_2basicTest_8cpp.html",
+"d5/dd0/group__tle94112api.html#ga175ddd4afa57e1dcb869abe7426d4c0c",
+"d5/dd0/group__tle94112api.html#ggaef4185f04ef9fcb454ddff831606693ea36e6898f88accd13cfc8e2600767a1a9",
+"dd/d06/group__psoc6Pal.html#ae1feefab38d0d767a68070106520b72e",
+"functions_n.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

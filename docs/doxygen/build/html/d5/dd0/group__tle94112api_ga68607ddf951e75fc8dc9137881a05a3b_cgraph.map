@@ -1,0 +1,7 @@
+<map id="Tle94112::writeReg" name="Tle94112::writeReg">
+<area shape="rect" id="node1" title="writes data bits to a control register of the TLE94112" alt="" coords="5,81,140,108"/>
+<area shape="rect" id="node2" href="$d3/d5d/group__pal.html#ae87d22bf14e42fb7777d1a1aeb2dba67" title="Disables the GPIO output according to the GPIO logic." alt="" coords="189,5,304,32"/>
+<area shape="rect" id="node3" href="$d3/d5d/group__pal.html#a870e415e4d8a62c8cd67ae0f5a3db782" title="Send/receives data from SPI bus." alt="" coords="193,56,300,83"/>
+<area shape="rect" id="node4" href="$d3/d5d/group__pal.html#acc600bd09670ed61bf3284700eaedb7b" title="Enables the GPIO output according to the GPIO logic." alt="" coords="191,107,302,133"/>
+<area shape="rect" id="node5" href="$d3/d5d/group__pal.html#ae4d88c04713dadad65eb5e31f2bfc227" title="Introduces a delay during the specified time." alt="" coords="188,157,305,184"/>
+</map>

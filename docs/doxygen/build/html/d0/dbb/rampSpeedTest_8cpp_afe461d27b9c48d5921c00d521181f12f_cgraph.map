@@ -1,0 +1,20 @@
+<map id="loop" name="loop">
+<area shape="rect" id="node1" title=" " alt="" coords="5,104,52,131"/>
+<area shape="rect" id="node2" href="$d0/dbb/rampSpeedTest_8cpp.html#a374c3cf6ef53ea69049a44d60210cb2a" title=" " alt="" coords="100,104,236,131"/>
+<area shape="rect" id="node3" href="$dd/d03/group__tle94112motorapi.html#gabac90ef723cffd42f2aac7c7ab7aafcc" title="equivalent to start()" alt="" coords="767,81,937,108"/>
+<area shape="rect" id="node13" href="$dd/d03/group__tle94112motorapi.html#gac242bfe5ddd083cd675db01a93988eb2" title="function to gradually change the motors speed" alt="" coords="284,149,467,176"/>
+<area shape="rect" id="node4" href="$dd/d03/group__tle94112motorapi.html#gaca0d0d54d133002e724e4100c2cd3af8" title="releases the motor without driving or active breaking" alt="" coords="987,81,1135,108"/>
+<area shape="rect" id="node5" href="$d5/dd0/group__tle94112api.html#gaba359ba70b241189e8f94a2285a55b0a" title="sets the output state and the PWM channel for a halfbridge (only for passive freewheeling)" alt="" coords="1189,31,1326,57"/>
+<area shape="rect" id="node12" href="$d5/dd0/group__tle94112api.html#gaec21a2a1434b0de208d33387c387043f" title="sets the frequency and duty cycle for a PWM channel" alt="" coords="985,132,1136,159"/>
+<area shape="rect" id="node6" href="$d5/dd0/group__tle94112api.html#ga788102cec501e8d2532798c2107d0626" title="clears all clearable error flags" alt="" coords="1184,81,1331,108"/>
+<area shape="rect" id="node7" href="$d5/dd0/group__tle94112api.html#gad9db86ef0229b3edd760dbf4a38444ec" title="clears a status register by writing 0x00 to it" alt="" coords="1379,81,1552,108"/>
+<area shape="rect" id="node8" href="$d3/d5d/group__pal.html#ae87d22bf14e42fb7777d1a1aeb2dba67" title="Disables the GPIO output according to the GPIO logic." alt="" coords="1601,5,1716,32"/>
+<area shape="rect" id="node9" href="$d3/d5d/group__pal.html#a870e415e4d8a62c8cd67ae0f5a3db782" title="Send/receives data from SPI bus." alt="" coords="1605,56,1712,83"/>
+<area shape="rect" id="node10" href="$d3/d5d/group__pal.html#acc600bd09670ed61bf3284700eaedb7b" title="Enables the GPIO output according to the GPIO logic." alt="" coords="1603,107,1714,133"/>
+<area shape="rect" id="node11" href="$d3/d5d/group__pal.html#ae4d88c04713dadad65eb5e31f2bfc227" title="Introduces a delay during the specified time." alt="" coords="1600,157,1717,184"/>
+<area shape="rect" id="node14" href="$dd/d03/group__tle94112motorapi.html#ga6f1396de3639cef620537d6cfd8e27a2" title="Returns the motor&#39;s current speed setting." alt="" coords="531,241,702,268"/>
+<area shape="rect" id="node15" href="$dd/d03/group__tle94112motorapi.html#gadf26874662ef3c6d43a548d86fdc5f3e" title="private function needed by rampSpeed" alt="" coords="520,110,713,151"/>
+<area shape="rect" id="node18" href="$dd/d03/group__tle94112motorapi.html#ga6cfa653c71362a74819eefa53bd1dc8b" title="private function needed by rampSpeed" alt="" coords="515,175,719,217"/>
+<area shape="rect" id="node16" href="$d3/d5d/group__pal.html#a35282728bc2a470190325982d6a2c6e0" title="Starts the timer." alt="" coords="807,183,897,209"/>
+<area shape="rect" id="node17" href="$d3/d5d/group__pal.html#a21d5520b9dfd717e72610ac9aebfc60f" title="Elapsed time since the timer was started." alt="" coords="798,132,906,159"/>
+</map>

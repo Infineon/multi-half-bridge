@@ -1,0 +1,23 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title=" " alt="" coords="5,208,56,235"/>
+<area shape="rect" id="node2" href="$dd/d03/group__tle94112motorapi.html#gac41f9e9e8b294d410c33a287fcf9a092" title="connects a single halfbridge output to a motor connector" alt="" coords="105,69,267,96"/>
+<area shape="rect" id="node3" href="$dd/d03/group__tle94112motorapi.html#ga6588d94729c70eeba112f80a8e95ebf9" title="Sets the PWM channel to be used for a motor connector." alt="" coords="104,120,268,147"/>
+<area shape="rect" id="node4" href="$d5/dd0/group__tle94112api.html#gada4d16d44637114383460eda5724d5c5" title="enables and initializes the TLE94112" alt="" coords="129,171,243,197"/>
+<area shape="rect" id="node10" href="$dd/d03/group__tle94112motorapi.html#ga0a571ec8d79380546947fdb3f1785e87" title="finishes configuration and enables motor controls" alt="" coords="113,335,259,361"/>
+<area shape="rect" id="node18" href="$dd/d03/group__tle94112motorapi.html#gad48d1baef8ba49eed1e1bb19aebfe1cc" title="starts the motor with a certain speed in a certain direction" alt="" coords="115,284,257,311"/>
+<area shape="rect" id="node21" href="$dd/d03/group__tle94112motorapi.html#gafabaed5b84fd2a487c5567b0e161f9cf" title="actively breaks the motor to stop it" alt="" coords="331,259,472,285"/>
+<area shape="rect" id="node5" href="$d3/d5d/group__pal.html#aaf10147dbb4db9c1dddee5343418a893" title="Initializes the SPIC." alt="" coords="362,208,441,235"/>
+<area shape="rect" id="node6" href="$d3/d5d/group__pal.html#a5f1dea27401d50a2049c62a7806fcfca" title="Initializes the GPIO." alt="" coords="356,5,447,32"/>
+<area shape="rect" id="node7" href="$d3/d5d/group__pal.html#acc600bd09670ed61bf3284700eaedb7b" title="Enables the GPIO output according to the GPIO logic." alt="" coords="1153,107,1263,133"/>
+<area shape="rect" id="node8" href="$d3/d5d/group__pal.html#ad786d9deba1abbc132006ea989187b32" title="Initialize the timer." alt="" coords="361,107,441,133"/>
+<area shape="rect" id="node9" href="$d5/dd0/group__tle94112api.html#gaa61f625cddc7a067056e9c858ff954f2" title="initializes this object, automatically called by begin()" alt="" coords="351,157,451,184"/>
+<area shape="rect" id="node11" href="$dd/d03/group__tle94112motorapi.html#gaca0d0d54d133002e724e4100c2cd3af8" title="releases the motor without driving or active breaking" alt="" coords="536,360,684,387"/>
+<area shape="rect" id="node12" href="$d5/dd0/group__tle94112api.html#gaba359ba70b241189e8f94a2285a55b0a" title="sets the output state and the PWM channel for a halfbridge (only for passive freewheeling)" alt="" coords="738,309,875,336"/>
+<area shape="rect" id="node13" href="$d5/dd0/group__tle94112api.html#ga788102cec501e8d2532798c2107d0626" title="clears all clearable error flags" alt="" coords="733,360,880,387"/>
+<area shape="rect" id="node14" href="$d5/dd0/group__tle94112api.html#gad9db86ef0229b3edd760dbf4a38444ec" title="clears a status register by writing 0x00 to it" alt="" coords="928,309,1101,336"/>
+<area shape="rect" id="node15" href="$d3/d5d/group__pal.html#ae87d22bf14e42fb7777d1a1aeb2dba67" title="Disables the GPIO output according to the GPIO logic." alt="" coords="1151,259,1265,285"/>
+<area shape="rect" id="node16" href="$d3/d5d/group__pal.html#a870e415e4d8a62c8cd67ae0f5a3db782" title="Send/receives data from SPI bus." alt="" coords="1155,309,1261,336"/>
+<area shape="rect" id="node17" href="$d3/d5d/group__pal.html#ae4d88c04713dadad65eb5e31f2bfc227" title="Introduces a delay during the specified time." alt="" coords="1149,360,1267,387"/>
+<area shape="rect" id="node19" href="$dd/d03/group__tle94112motorapi.html#gabac90ef723cffd42f2aac7c7ab7aafcc" title="equivalent to start()" alt="" coords="316,309,487,336"/>
+<area shape="rect" id="node20" href="$d5/dd0/group__tle94112api.html#gaec21a2a1434b0de208d33387c387043f" title="sets the frequency and duty cycle for a PWM channel" alt="" coords="535,259,685,285"/>
+</map>

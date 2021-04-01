@@ -1,0 +1,13 @@
+<map id="gpio&#45;rpi.hpp" name="gpio&#45;rpi.hpp">
+<area shape="rect" id="node1" title="Raspberry Pi PAL for the GPIO." alt="" coords="449,5,538,32"/>
+<area shape="rect" id="node2" href="$de/dfc/tle94112-conf_8hpp.html" title="TLE94112 Library Configuration." alt="" coords="183,80,329,121"/>
+<area shape="rect" id="node5" href="$d4/d9b/tle94112_8hpp.html" title=" " alt="" coords="406,87,581,114"/>
+<area shape="rect" id="node11" title=" " alt="" coords="605,87,691,114"/>
+<area shape="rect" id="node3" href="$d8/d9c/tle94112-conf-opts_8hpp.html" title="TLE94112 Library Configuration Options." alt="" coords="5,169,160,196"/>
+<area shape="rect" id="node4" href="$d7/d7a/tle94112-conf-dfl_8hpp.html" title="TLE94112 Default Library Configuration." alt="" coords="185,169,327,196"/>
+<area shape="rect" id="node6" title=" " alt="" coords="578,244,643,271"/>
+<area shape="rect" id="node7" title=" " alt="" coords="403,169,467,196"/>
+<area shape="rect" id="node8" href="$df/d05/timer_8hpp.html" title="Timer Platform Abstraction Layer." alt="" coords="491,169,600,196"/>
+<area shape="rect" id="node9" href="$d1/d2c/gpio_8hpp.html" title="PAL of the GPIO." alt="" coords="624,169,728,196"/>
+<area shape="rect" id="node10" href="$d8/df0/spic_8hpp.html" title="PAL of the SPI cover." alt="" coords="752,169,856,196"/>
+</map>

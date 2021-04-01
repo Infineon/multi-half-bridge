@@ -1,15 +1,8 @@
 var searchData=
 [
   ['basictest_2ecpp',['basicTest.cpp',['../d2/d6c/wiced-43xxx_2apps_2basicTest_2basicTest_8cpp.html',1,'']]],
-  ['basictest_2ehpp',['basicTest.hpp',['../da/d37/wiced-43xxx_2apps_2basicTest_2basicTest_8hpp.html',1,'']]],
-  ['control2motors_2ecpp',['control2Motors.cpp',['../d9/dad/wiced-43xxx_2apps_2control2Motors_2control2Motors_8cpp.html',1,'']]],
-  ['control2motors_2ehpp',['control2Motors.hpp',['../d8/d3b/wiced-43xxx_2apps_2control2Motors_2control2Motors_8hpp.html',1,'']]],
-  ['rampspeedtest_2ecpp',['rampSpeedTest.cpp',['../df/d72/wiced-43xxx_2apps_2rampSpeedTest_2rampSpeedTest_8cpp.html',1,'']]],
-  ['rampspeedtest_2ehpp',['rampSpeedTest.hpp',['../db/d30/wiced-43xxx_2apps_2rampSpeedTest_2rampSpeedTest_8hpp.html',1,'']]],
-  ['speedcontrol_2ecpp',['speedControl.cpp',['../d9/d98/wiced-43xxx_2apps_2speedControl_2speedControl_8cpp.html',1,'']]],
-  ['speedcontrol_2ehpp',['speedControl.hpp',['../d8/d88/wiced-43xxx_2apps_2speedControl_2speedControl_8hpp.html',1,'']]],
   ['wiced',['WICED',['../d4/d7e/group__tle94112wiced.html',1,'']]],
-  ['write',['write',['../d6/dfc/classGPIOIno.html#a5a2dd48905749cebcbc05d9ca43a5983',1,'GPIOIno::write()'],['../d7/dde/classGPIO.html#aac07cfb1f930882afe7d74f9d17849fe',1,'GPIO::write()']]],
-  ['write_5ferror',['WRITE_ERROR',['../d7/dde/classGPIO.html#aed8cceb7e600abd5219c8534ed370effa4f3584bfdb59bfbf15f35474c13caada',1,'GPIO::WRITE_ERROR()'],['../d7/db9/classSPIC.html#ac5ab91b9a7e0ee2d59216c4da21e716bae83841ed6e767461cdb307b516cd9481',1,'SPIC::WRITE_ERROR()']]],
-  ['writereg',['writeReg',['../d5/dd0/group__tle94112api.html#ga68607ddf951e75fc8dc9137881a05a3b',1,'Tle94112::writeReg()'],['../d1/d0a/group__arduinoPal.html#ga5f3b738786d66dddc2e8678ab26512ee',1,'TLE94112Ino::writeReg()']]]
+  ['write',['write',['../d1/d0a/group__arduinoPal.html#a5a2dd48905749cebcbc05d9ca43a5983',1,'GPIOIno::write()'],['../dd/d06/group__psoc6Pal.html#a4256a4c72ad602a1efb54d9f467295da',1,'GPIOPsoc6hal::write()'],['../d4/d89/group__rpiPal.html#a7e47c067a1ad31cf73bb0816736475c9',1,'GPIORpi::write()'],['../d2/d6a/group__wicedPal.html#a73f2813dad2c4041213a010a070b5e4d',1,'GPIOWiced::write()'],['../d3/d5d/group__pal.html#aa81664dcbec032872d01f22c8b9d84f3',1,'GPIOC::write()']]],
+  ['write_5ferror',['WRITE_ERROR',['../d3/d5d/group__pal.html#a665ff2c87b7ed6db7891b422a62c6665a84a7b6a070d782be65ef791dc18126f6',1,'GPIOC::WRITE_ERROR()'],['../d3/d5d/group__pal.html#ac5ab91b9a7e0ee2d59216c4da21e716bae83841ed6e767461cdb307b516cd9481',1,'SPIC::WRITE_ERROR()']]],
+  ['writereg',['writeReg',['../d5/dd0/group__tle94112api.html#ga68607ddf951e75fc8dc9137881a05a3b',1,'Tle94112']]]
 ];

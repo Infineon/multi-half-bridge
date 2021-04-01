@@ -1,0 +1,7 @@
+<map id="SPIC" name="SPIC">
+<area shape="rect" id="node1" title=" " alt="" coords="186,5,241,32"/>
+<area shape="rect" id="node2" href="$d1/d0a/group__arduinoPal.html#de/d75/classSPICIno" title="Arduino SPIC class." alt="" coords="5,80,77,107"/>
+<area shape="rect" id="node3" href="$dd/d06/group__psoc6Pal.html#de/d65/classSPICPsoc6hal" title=" " alt="" coords="102,80,210,107"/>
+<area shape="rect" id="node4" href="$d4/d89/group__rpiPal.html#da/dd4/classSPICRpi" title="Raspberry Pi SPIC class." alt="" coords="235,80,309,107"/>
+<area shape="rect" id="node5" href="$d2/d6a/group__wicedPal.html#d1/d0e/classSPICWiced" title="Wiced SPIC class." alt="" coords="333,80,424,107"/>
+</map>

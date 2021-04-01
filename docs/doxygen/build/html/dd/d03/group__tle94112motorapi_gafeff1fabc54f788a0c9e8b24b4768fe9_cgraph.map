@@ -1,0 +1,11 @@
+<map id="Tle94112Motor::end" name="Tle94112Motor::end">
+<area shape="rect" id="node1" title="disables motor controls and switches back to configuration mode" alt="" coords="5,56,143,83"/>
+<area shape="rect" id="node2" href="$dd/d03/group__tle94112motorapi.html#gaca0d0d54d133002e724e4100c2cd3af8" title="releases the motor without driving or active breaking" alt="" coords="191,56,339,83"/>
+<area shape="rect" id="node3" href="$d5/dd0/group__tle94112api.html#gaba359ba70b241189e8f94a2285a55b0a" title="sets the output state and the PWM channel for a halfbridge (only for passive freewheeling)" alt="" coords="391,31,529,57"/>
+<area shape="rect" id="node4" href="$d5/dd0/group__tle94112api.html#ga788102cec501e8d2532798c2107d0626" title="clears all clearable error flags" alt="" coords="387,81,533,108"/>
+<area shape="rect" id="node5" href="$d5/dd0/group__tle94112api.html#gad9db86ef0229b3edd760dbf4a38444ec" title="clears a status register by writing 0x00 to it" alt="" coords="581,81,755,108"/>
+<area shape="rect" id="node6" href="$d3/d5d/group__pal.html#ae87d22bf14e42fb7777d1a1aeb2dba67" title="Disables the GPIO output according to the GPIO logic." alt="" coords="804,5,919,32"/>
+<area shape="rect" id="node7" href="$d3/d5d/group__pal.html#a870e415e4d8a62c8cd67ae0f5a3db782" title="Send/receives data from SPI bus." alt="" coords="808,56,915,83"/>
+<area shape="rect" id="node8" href="$d3/d5d/group__pal.html#acc600bd09670ed61bf3284700eaedb7b" title="Enables the GPIO output according to the GPIO logic." alt="" coords="806,107,917,133"/>
+<area shape="rect" id="node9" href="$d3/d5d/group__pal.html#ae4d88c04713dadad65eb5e31f2bfc227" title="Introduces a delay during the specified time." alt="" coords="803,157,920,184"/>
+</map>
