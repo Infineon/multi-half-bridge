@@ -93,9 +93,8 @@ SPICPsoc6hal::Error_t SPICPsoc6hal::transfer(uint8_t send, uint8_t &received)
 {
 	Error_t err = OK;
 
-	sendBuffer[0] = send;
 	receiveBuffer[0] = received;
-	cy_rslt_t cyErr = cyhal_spi_transfer( &this->spi, sendBuffer, 1u, receiveBuffer, 1u, 0x0);
+	cy_rslt_t cyErr = cyhal_spi_transfer( &this->spi, &send, 1u, &received, 1u, 0x0);
 	if(CY_RSLT_SUCCESS != cyErr)
 		err = INTF_ERROR;
 
