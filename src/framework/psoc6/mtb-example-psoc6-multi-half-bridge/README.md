@@ -13,7 +13,7 @@ This code example demonstrate the basic usage of the Infineon TLE94112 multi-hal
 - Board Support Package (BSP) minimum required version: 2.0.0  
 - Programming Language: C++  
 - Associated Parts: All [PSoC® 6 MCU](http://www.cypress.com/PSoC6) parts
-- [PAS XENSIV™ CO2 Sensor](link to product page or breakout board)
+- [Multi Half-Bridge ICs](https://www.infineon.com/cms/de/product/power/motor-control-ics/brushed-dc-motor-driver-ics/multi-half-bridge-ics/)
 
 ## Supported Toolchains (make variable 'TOOLCHAIN')
 
