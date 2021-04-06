@@ -23,6 +23,10 @@
  * @{
  */
 
+/**
+ * @brief Arduino Tle94112Ino constructor
+ * 
+ */
 class Tle94112Ino: virtual public Tle94112
 {
 	public:

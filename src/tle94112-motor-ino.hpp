@@ -1,5 +1,5 @@
 /*!
- * \file        TLE94112Motor-ino.hpp
+ * \file        tle94112-motor-ino.hpp
  * \name        TLE94112Motor-ino.hpp - optionally include library
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG

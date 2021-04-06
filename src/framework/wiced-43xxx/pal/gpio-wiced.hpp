@@ -23,6 +23,10 @@
  * @{
  */
 
+/**
+ * @brief WiCED gpio wrapper
+ * 
+ */
 class GPIOWiced : virtual public GPIOC
 {
 	private:
@@ -32,7 +36,6 @@ class GPIOWiced : virtual public GPIOC
 		VLogic_t            logic;                                       /**< Pin logic */
 
 	public:
-					GPIOWiced();
 					GPIOWiced(wiced_gpio_t pin, wiced_gpio_config_t config, VLogic_t logic);
 					~GPIOWiced();
 		Error_t     init();

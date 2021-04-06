@@ -16,6 +16,11 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
+/**
+ * @addtogroup arduinoPal
+ * @{
+ */
+
  /**
  * @brief Arduino Hardware Platform Pins
  * 
@@ -40,6 +45,8 @@
  * Standard TLE94112 enable pin
  */
 #define TLE94112_PIN_EN      8
+
+/** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PLATF_INO_HPP_ **/

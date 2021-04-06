@@ -20,13 +20,6 @@ GPIOWiced::GPIOWiced(wiced_gpio_t pin, wiced_gpio_config_t config, VLogic_t logi
 }
 
 /**
- * @brief GPIO WICED default constructor
- */
-GPIOWiced::GPIOWiced() : pin(WICED_GPIO_1), config(INPUT_HIGH_IMPEDANCE), logic(POSITIVE)
-{
-}
-
-/**
  * @brief GPIO WICED destructor
  */
 GPIOWiced::~GPIOWiced()
@@ -43,7 +36,7 @@ GPIOWiced::~GPIOWiced()
  */
 inline GPIOWiced::Error_t GPIOWiced::init()
 {
-	GPIOWiced::Error_t err = GPIOWiced::OK;
+	Error_t err = OK;
 	if (WICED_SUCCESS != wiced_gpio_init(pin, config))
 		err = GPIOWiced::INTF_ERROR;
 
@@ -85,7 +78,7 @@ inline GPIOWiced::VLevel_t GPIOWiced::read()
  */
 inline GPIOWiced::Error_t GPIOWiced::write(VLevel_t level)
 {
-	GPIOWiced::Error_t err = GPIOWiced::OK;
+	Error_t err = OK;
 
 	if (GPIO_LOW == level)
 	{
@@ -136,7 +129,7 @@ inline GPIOWiced::Error_t GPIOWiced::enable()
  */
 inline GPIOWiced::Error_t GPIOWiced::disable()
 {
-	GPIOWiced::Error_t err = GPIOWiced::OK;
+	GPIOWiced::Error_t err = OK;
 
 	if (this->logic == POSITIVE)
 	{

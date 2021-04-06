@@ -16,7 +16,6 @@
 
 #include <stdint.h>
 #include <stdlib.h>
-// #include "tle94112_util.hpp"
 #include "../pal/timer.hpp"
 #include "../pal/gpio.hpp"
 #include "../pal/spic.hpp"
@@ -220,8 +219,8 @@ class Tle94112
 		void clearErrors();
 
 		SPIC     *sBus;      //<! \brief SPI cover class as representation of the SPI bus
-		GPIOC    *cs;        //<! \brief shield enable GPIO to switch chipselect on/off
 		GPIOC    *en;        //<! \brief shield enable GPIO to switch shield on/off
+		GPIOC    *cs;        //<! \brief shield enable GPIO to switch chipselect on/off
 		Timer    *timer;     //<! \brief timer for delay settings
 
 	protected:

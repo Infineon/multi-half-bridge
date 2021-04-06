@@ -8,8 +8,8 @@
  */
 
 
-#ifndef GPIO_HPP_
-#define GPIO_HPP_
+#ifndef GPIOC_HPP_
+#define GPIOC_HPP_
 
 #include <stdint.h>
 #include "../corelib/tle94112-types.hpp"
@@ -121,6 +121,4 @@ class GPIOC
 
 /** @} */
 
-}
-
-#endif /** GPIO_HPP_ **/
+#endif /** GPIOC_HPP_ **/
