@@ -1,6 +1,6 @@
-# Getting Started with Python framework on Raspberry pi
+# Getting Started with Python framework on Raspberry Pi
 
-In this quick tutorial we will go through the step by step to get started with the Raspberry pi and TLE112EL shield.
+In this quick tutorial we will go through the step by step to get started with the Raspberry Pi and TLE112ES shield.
 
 ## Required experience
 * Experience level : Moderate
@@ -46,11 +46,11 @@ Compatible DC motor
 * build-essential
 * Infineon multi-half-bridge library (this library)
 
-### Prepare Raspberry pi
+### Prepare Raspberry Pi
 
-**You can this step, if you already have Raspberry pi OS installed on your compatible Raspberry Pi.**
+**You can this step, if you already have Raspberry Pi OS installed on your compatible Raspberry Pi.**
 
-* Download Raspberry pi OS from [here](https://www.raspberrypi.org/downloads/raspbian/)
+* Download Raspberry Pi OS from [here](https://www.raspberrypi.org/downloads/raspbian/)
 * Unzip Raspbian and flash the image to an SD card. [Here](https://www.raspberrypi.org/documentation/installation/installing-images/) you find a step-by-step tutorial.
 
 ### Hardware Setup
@@ -74,6 +74,6 @@ pip3 install .............
 ```
 
 ### Clone the repository 
-Once the library is installed clone the repository ([link](......)). Migrate to the example folder and execute the examples from the terminal or from the editor in Raspberry pi.
+Once the library is installed clone the repository ([link](......)). Migrate to the example folder and execute the examples from the terminal or from the editor in Raspberry Pi.
 
-**Note**:- Examples can be seen in action once the hat is stacked on the top of Raspberry pi with DC Motor intact.
+**Note**:- Examples can be seen in action once the HAT is stacked on the top of Raspberry Pi with DC Motor intact.
