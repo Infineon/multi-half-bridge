@@ -23,7 +23,7 @@
  * @{
  */
 
-class GPIOWiced : virtual public GPIO
+class GPIOWiced : virtual public GPIOC
 {
 	private:
 		#define             UNUSED_PIN (wiced_gpio_t)(WICED_GPIO_51 + 1) /**< Unused pin */

@@ -53,7 +53,6 @@ GPIORpi::Error_t GPIORpi::init()
 	 bcm2835_gpio_fsel(this->pin, this->mode);
 
 	return err;
-	
 }
 
 /**

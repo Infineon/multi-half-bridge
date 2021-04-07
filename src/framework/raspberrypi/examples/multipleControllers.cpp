@@ -1,14 +1,15 @@
   
 /*!
- * \name        controlwith2HATs
+ * \name        multipleControllers
  * \author      Infineon Technologies AG
- * \copyright   2020 Infineon Technologies AG
- * \version     2.0.0
- * \brief       This example runs a basic controller test with one attached motor on the TLE94112 HAT for Raspberry Pi
+ * \copyright   2021 Infineon Technologies AG
+ * \version     2.1.0
+ * \brief       This example shows how to use multiple TLE94112 controllers simultaneously.
  * \details
- * It will run the motor in forward and backward direction if the motor
- * is able to run in both directions. Otherwise it will only run in on direction.
- * Take this example as a first test when starting with this shield.
+ * For this example it is assumed, that two TLE94112 controllers are connected to one Raspberry Pi.
+ * The Chip Select pin of controller 1 is set to CS0 and the Chip Select pin of controller 2 is
+ * set to CS1. On both controllers a load is connected between half bridge 1 and 5.
+ * This example shows, how to control both motor controllers from one Raspberry Pi.
  *
  * SPDX-License-Identifier: MIT
  *
@@ -45,35 +46,38 @@ int main(int argc, char const *argv[])
     // Connect motor1 to HB1 and HB5 of controller 1
     motor1.connect(motor1.HIGHSIDE, controller1.TLE_HB1);
     motor1.connect(motor1.LOWSIDE,  controller1.TLE_HB5);
+    motor1.setPwm(motor1.LOWSIDE, controller1.TLE_NOPWM);
 
     // Connect motor2 to HB1 and HB5 of controller 2
     motor2.connect(motor2.HIGHSIDE, controller2.TLE_HB1);
     motor2.connect(motor2.LOWSIDE,  controller2.TLE_HB5);
+    motor2.setPwm(motor2.LOWSIDE, controller2.TLE_NOPWM);
 
     // Begin SPI communication with controller 1
     controller1.begin();
 
-    // Run motor1
-    printf("Run motor1...\n");
+    // Run motor 1 (connected to controller 1)
+    printf("Start motor on controller 1.\n");
     motor1.begin();
-    motor1.start(1);
+    motor1.start(255);
 
     delay(2000);
 
     // Begin SPI communication with controller 2 (ends communication with controller 1)
     controller2.begin();
 
-    // Run motor2
-    printf("Run motor2...\n");
+    // Run motor 2 (connected to controller 2)
+    printf("Start motor on controller 2.\n");
     motor2.begin();
-    motor2.start(1);
+    motor2.start(255);
 
     delay(5000);
 
     // Stop both motors
-    motor2.stop(1);
+    printf("Stop both motors.\n");
+    motor2.stop(255);
     controller1.begin();
-    motor1.stop(1);
+    motor1.stop(255);
 }
 
 #endif /** TLE94112_FRAMEWORK **/

@@ -9,8 +9,9 @@
 
 #include "spic.hpp"
 
+using namespace tle94112;
 
-SPIC::Error_t SPIC::checkErrorStatus()
+Error_t SPIC::checkErrorStatus()
 {
 	return errorStatus;
 }
