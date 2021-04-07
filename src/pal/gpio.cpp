@@ -9,8 +9,9 @@
 
 #include "gpio.hpp"
 
+using namespace tle94112;
 
-GPIO::Error_t GPIO::checkErrorStatus()
+Error_t GPIOC::checkErrorStatus()
 {
 	return errorStatus;
 }

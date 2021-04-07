@@ -20,7 +20,6 @@
 #include "../pal/timer-rpi.hpp"
 #include <cstdio>
 
-
 /**
  * @brief Construct a new Tle94112Rpi::Tle94112Rpi object
  * with default pin assignment

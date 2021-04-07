@@ -5,7 +5,7 @@
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
-GPIO    KEYWORD1
+GPIOC   KEYWORD1
 Timer   KEYWORD1
 SPIC    KEYWORD1
 
