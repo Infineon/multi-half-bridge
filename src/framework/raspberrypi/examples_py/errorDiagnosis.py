@@ -19,7 +19,7 @@ from time import sleep
 controller = mhb.Tle94112Rpi()
 
 # Tle94112motor Objects on controller
-motor = mhb.Tle94112motor(controller)
+motor = mhb.Tle94112Motor(controller)
 
 # Enable motorController on all Shields and motors
 # Note: Required to be done before starting to configure the motor
@@ -106,26 +106,50 @@ while 1:
     '''
     # For each half bridge (0 is placeholder for no half bridge)
     for halfBridge in range(1,13):
+      if (halfBridge==1):
+        hb_val = controller.TLE_HB1
+      if (halfBridge==2):
+        hb_val = controller.TLE_HB2
+      if (halfBridge==3):
+        hb_val = controller.TLE_HB3
+      if (halfBridge==4):
+        hb_val = controller.TLE_HB4
+      if (halfBridge==5):
+        hb_val = controller.TLE_HB5
+      if (halfBridge==6):
+        hb_val = controller.TLE_HB6
+      if (halfBridge==7):
+        hb_val = controller.TLE_HB7
+      if (halfBridge==8):
+        hb_val = controller.TLE_HB8
+      if (halfBridge==9):
+        hb_val = controller.TLE_HB9
+      if (halfBridge==10):
+        hb_val = controller.TLE_HB10
+      if (halfBridge==11):
+        hb_val = controller.TLE_HB11
+      if (halfBridge==12):
+        hb_val = controller.TLE_HB12
       # Read over-current status of this half bridge from chip
-      oc = controller.getHBOverCurrent((Tle94112::HalfBridge)halfBridge)
+      oc = controller.getHBOverCurrent(hb_val)
 
       # Check for an over-current error on the low-side of this half bridge
       if (oc & controller.TLE_LOWSIDE):
-        print("\tHB %u:\tOver-current detected in low-side switch.\n" + halfBridge)
+        print("\tHB" + hb_val + "\tOver-current detected in low-side switch.\n" + halfBridge)
   
       # Check for an over-current error on the high-side of this half bridge
       if (oc & controller.TLE_HIGHSIDE):
-        print("\tHB %u:\tOver-current detected in high-side switch.\n" + halfBridge)
+        print("\tHB" + hb_val + "\tOver-current detected in high-side switch.\n" + halfBridge)
 
       # Read open load status of this half bridge from chip
-      ol = controller.getHBOpenLoad((Tle94112::HalfBridge)halfBridge)
+      ol = controller.getHBOpenLoad(hb_val)
 
       # Check for an open load error in this half bridge
       if (ol):
-        print("\tHB %u:\tOpen load detected.\n" + halfBridge)
+        print("\tHB" + hb_val + "\tOpen load detected.\n" + halfBridge)
  
   # If no error was found print a heartbeat message
-  if (!status):
+  if (status==0):
     print("All seems fine :-)\n")
 
   print("\n---\n\n")

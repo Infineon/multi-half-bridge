@@ -82,5 +82,5 @@ sleep(2)
 
 # Stop both motors
 print("Stop both motors \n")
-motor1.stop()
-motor2.stop()
+motor1.stop(255)
+motor2.stop(255)

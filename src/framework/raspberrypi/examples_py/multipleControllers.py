@@ -18,8 +18,9 @@ from time import sleep
 
 # Tle94112 Object for HATs 1 (CS0, default) and 2 (CS1)
 controller1 = mhb.Tle94112Rpi()
-controller2 = mhb.Tle94112Rpi(TLE94112_PIN_CS1)
+PinSel = mhb.Rpi_PinSel()
 
+controller2 = mhb.Tle94112Rpi(PinSel.TLE94112_PIN_CS1)
 # Tle94112Motor Objects
 motor1 = mhb.Tle94112Motor(controller1)
 motor2 = mhb.Tle94112Motor(controller2)

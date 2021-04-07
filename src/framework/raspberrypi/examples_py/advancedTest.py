@@ -35,7 +35,7 @@ from time import sleep
 controller = mhb.Tle94112Rpi()
 
 # Tle94112Motor object on controller
-motor = mhb.Tle94112Motor()
+motor = mhb.Tle94112Motor(controller)
 
 # Enable MotorController on all shields and motors
 # !!Note!! Required to be done before starting to configure the motor
@@ -105,22 +105,22 @@ sleep(DELAY)
 
 # Slowly ramp up duty cycle from 0% to 100%
 print("- Slowly ramp up duty cycle from 0% to 100% \n")
-motor.rampSeed(255, 20000)
+motor.rampSpeed(255, 20000)
 sleep(DELAY)
 
 # Slowly ramp down duty cycle from 100% to 25%
 print("- Slowly ramp down duty cycle from 100% to 25% \n")
-motor.rampSeed(64, 20000)
+motor.rampSpeed(64, 20000)
 sleep(DELAY)
 
 # Quickly ramp up duty cycle from 25% to 100%
 print("- Quickly ramp up duty cycle from 25% to 100% \n")
-motor.rampSeed(255, 5000)
+motor.rampSpeed(255, 5000)
 sleep(DELAY)
 
 # Quickly ramp down duty cycle from 100% to 0%
 print("- Quickly ramp down duty cycle from 100% to 0% \n")
-motor.rampSeed(0, 5000)
+motor.rampSpeed(0, 5000)
 
 # Coast motor
 print("- Coast motor \n")
