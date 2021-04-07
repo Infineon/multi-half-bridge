@@ -57,21 +57,21 @@ motor.setPwm(motor.LOWSIDE, controller.TLE_PWM1)
 motor.begin()
 
 # BASIC MOTOR CONTROL
-print("\n--- BASIC MOTOR CONTROL ---\n\n")
+print("\n--- BASIC MOTOR CONTROL ---\n")
 sleep(DELAY)
 
 # Run motor forward without PWM (full speed)
-print("- Run Motor forward without PWM (full speed) \n")
+print("- Run Motor forward without PWM (full speed)")
 motor.start(255)
 sleep(DELAY)
 
 # Stop (brake) motor without PWM (full force)
-print("- Stop (brake) motor without PWM (full force) \n")
+print("- Stop (brake) motor without PWM (full force)")
 motor.stop(255)
 sleep(DELAY)
 
 # Run motor backwards without PWM
-print("- Run motor backwards without PWM \n")
+print("- Run motor backwards without PWM")
 motor.start(-255)
 sleep(DELAY)
 
@@ -81,11 +81,11 @@ motor.coast()
 sleep(DELAY)
 
 # MOTOR CONTROLL WITH PWM
-print("\n--- MOTOR CONTROLL WITH PWM ---\n\n")
+print("\n--- MOTOR CONTROLL WITH PWM ---\n")
 sleep(DELAY)
 
 # Run motor forward with PWM (50% duty cycle)
-print("- Run motor forward with PWM (50% duty cycle) \n")
+print("- Run motor forward with PWM (50% duty cycle)")
 motor.start(127)        # 0.5 * 255 ~= 127
 sleep(DELAY)
 
@@ -95,35 +95,35 @@ motor.setSpeed(64)      # 0.25 * 255 ~= 64
 sleep(DELAY)
 
 # Stop (brake) motor with PWM (50% duty cycle)
-print("- Stop (brake) motor with PWM (50% duty cycle) \n")
+print("- Stop (brake) motor with PWM (50% duty cycle)")
 motor.stop(127)
 sleep(DELAY)
 
 # RAMP UP/DOWN MOTOR SPEED
-print("\n--- RAMP UP/DOWN MOTOR SPEED ---\n\n")
+print("\n--- RAMP UP/DOWN MOTOR SPEED ---\n")
 sleep(DELAY)
 
 # Slowly ramp up duty cycle from 0% to 100%
-print("- Slowly ramp up duty cycle from 0% to 100% \n")
+print("- Slowly ramp up duty cycle from 0% to 100%")
 motor.rampSpeed(255, 20000)
 sleep(DELAY)
 
 # Slowly ramp down duty cycle from 100% to 25%
-print("- Slowly ramp down duty cycle from 100% to 25% \n")
+print("- Slowly ramp down duty cycle from 100% to 25%")
 motor.rampSpeed(64, 20000)
 sleep(DELAY)
 
 # Quickly ramp up duty cycle from 25% to 100%
-print("- Quickly ramp up duty cycle from 25% to 100% \n")
+print("- Quickly ramp up duty cycle from 25% to 100%")
 motor.rampSpeed(255, 5000)
 sleep(DELAY)
 
 # Quickly ramp down duty cycle from 100% to 0%
-print("- Quickly ramp down duty cycle from 100% to 0% \n")
+print("- Quickly ramp down duty cycle from 100% to 0%")
 motor.rampSpeed(0, 5000)
 
 # Coast motor
-print("- Coast motor \n")
+print("- Coast motor")
 motor.coast()
 
-print("\n--- END ---\n")
+print("\n--- END ---")

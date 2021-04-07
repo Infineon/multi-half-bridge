@@ -40,7 +40,7 @@ motor.start(255)
 # Clear all errors to start clean
 controller.clearErrors()
 
-print("Motor active, starting loop.\n\n")
+print("Motor active, starting loop.\n")
 
 while 1:
   # Communicate with TLE94112 to get the status register SYS_DIAG1 (default)
@@ -48,14 +48,14 @@ while 1:
   # The SPI error flag shows if a SPI protocol
   # error is detected.
   if (status & controller.TLE_SPI_ERROR):
-    print("SPI error detected!\n")
+    print("SPI error detected!")
 
   # Handle errors
   '''The under voltage flag shows if a supply voltage below the lower limit is detected. All outputs are disabled when flag is set.
   This error is latched and needs to be cleared manually.
   '''
   if (status & controller.TLE_UNDER_VOLTAGE):
-    print("Under voltage detected!\n")
+    print("Under voltage detected!")
     # Handle the under voltage error here.
 
 
@@ -64,7 +64,7 @@ while 1:
   This error is latched and needs to be cleared manually.
   '''
   if (status & controller.TLE_OVER_VOLTAGE):
-    print("Over voltage detected!\n")
+    print("Over voltage detected!")
     # Handle the over voltage error here.
 
   '''
@@ -72,7 +72,7 @@ while 1:
   This error is latched and needs to be cleared manually.
   '''
   if (status & controller.TLE_POWER_ON_RESET):
-    print("Power on reset detected!\n")
+    print("Power on reset detected!")
     # Handle the power on reset here.
 
   '''
@@ -80,14 +80,14 @@ while 1:
   This error is latched and needs to be cleared manually.
   '''
   if (status & controller.TLE_TEMP_WARNING):
-    print("Junction temperature above pre-warning threshold!\n")
+    print("Junction temperature above pre-warning threshold!")
     # Handle the temperature warning here.
   '''
   The shutdown temperature flag shows that the junction temperature exceeded the shutdown temperature threshold.
   All outputs are disabled when flag is set. This error is latched and needs to be cleared manually.
   '''
   if (status & controller.TLE_TEMP_SHUTDOWN):
-    print("Junction temperature above shutdown threshold!\n")
+    print("Junction temperature above shutdown threshold!")
     # Handle the temperature shutdown here.
 
   '''
@@ -98,7 +98,7 @@ while 1:
   cleared manually.
   '''
   if (status & controller.TLE_LOAD_ERROR):
-    print("Load error detected!\n")
+    print("Load error detected!")
     # Handle the Load error here.
 
     '''
@@ -135,24 +135,24 @@ while 1:
 
       # Check for an over-current error on the low-side of this half bridge
       if (oc & controller.TLE_LOWSIDE):
-        print("\tHB" + hb_val + "\tOver-current detected in low-side switch.\n" + halfBridge)
+        print("\tHB" + hb_val + "\tOver-current detected in low-side switch." + halfBridge)
   
       # Check for an over-current error on the high-side of this half bridge
       if (oc & controller.TLE_HIGHSIDE):
-        print("\tHB" + hb_val + "\tOver-current detected in high-side switch.\n" + halfBridge)
+        print("\tHB" + hb_val + "\tOver-current detected in high-side switch." + halfBridge)
 
       # Read open load status of this half bridge from chip
       ol = controller.getHBOpenLoad(hb_val)
 
       # Check for an open load error in this half bridge
       if (ol):
-        print("\tHB" + hb_val + "\tOpen load detected.\n" + halfBridge)
+        print("\tHB" + hb_val + "\tOpen load detected." + halfBridge)
  
   # If no error was found print a heartbeat message
   if (status==0):
-    print("All seems fine :-)\n")
+    print("All seems fine :-)")
 
-  print("\n---\n\n")
+  print("\n---\n")
 
   # Clear all error flags (will clear latched errors if they do not persist)
   controller.clearErrors()

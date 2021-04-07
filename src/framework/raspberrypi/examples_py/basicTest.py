@@ -43,5 +43,5 @@ motor.start(255)
 
 sleep(3)
 
-# Switch the loaf off (outputs to floating state)
+# Switch the load off (set outputs to floating state)
 motor.coast()

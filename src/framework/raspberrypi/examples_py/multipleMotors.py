@@ -63,24 +63,24 @@ motor1.begin()
 motor2.begin()
 
 # Start the motor1 forward on half speed
-print("Start motor 1 on 50% duty cycle \n")
+print("Start motor 1 on 50% duty cycle")
 motor1.start(127)
 sleep(2)
 # Start the motor2 forward on half speed
-print("Start motor 2 on 50% duty cycle \n")
+print("Start motor 2 on 50% duty cycle")
 motor2.start(127)
 sleep(2)
 
 # Accelerate motor1 to full speed
-print("Accelerate motor 1 to 100% duty cycle \n")
+print("Accelerate motor 1 to 100% duty cycle")
 motor1.setSpeed(255)
 sleep(2)
 # Accelerate motor2 to full speed
-print("Accelerate motor 2 to 100% duty cycle \n")
+print("Accelerate motor 2 to 100% duty cycle")
 motor2.setSpeed(255)
 sleep(2)
 
 # Stop both motors
-print("Stop both motors \n")
+print("Stop both motors")
 motor1.stop(255)
 motor2.stop(255)

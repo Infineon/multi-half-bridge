@@ -39,7 +39,7 @@ motor2.setPwm(motor2.LOWSIDE, controller2.TLE_NOPWM)
 controller1.begin()
 
 # Run motor1 (connected to controller 1)
-print("Start motor on controller 1 \n")
+print("Start motor on controller 1")
 motor1.begin()
 motor1.start(255)
 
@@ -49,7 +49,7 @@ sleep(2)
 controller2.begin()
 
 # Run motor2
-print("Start motor on controller 2 \n")
+print("Start motor on controller 2")
 motor2.begin()
 motor2.start(255)
 
