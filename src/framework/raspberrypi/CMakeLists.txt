@@ -11,6 +11,7 @@ set(Headers
 
 set(Sources
     pal/gpio-rpi.cpp
+    pal/logger-rpi.cpp
     pal/spic-rpi.cpp
     pal/timer-rpi.cpp
     wrapper/tle94112-rpi.cpp

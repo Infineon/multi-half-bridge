@@ -9,9 +9,11 @@ corelib:
 	mkdir -p $(BUILDPATH)
 	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/tle94112.o ../../corelib/tle94112.cpp
 	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/tle94112-motor.o ../../corelib/tle94112-motor.cpp
+	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/tle94112-logger.o ../../corelib/tle94112-logger.cpp
 
 pal: corelib
 	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/gpio-rpi.o pal/gpio-rpi.cpp
+	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/logger-rpi.o pal/logger-rpi.cpp
 	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/spic-rpi.o pal/spic-rpi.cpp
 	g++ -c $(CPPFLAGS) -o $(BUILDPATH)/timer-rpi.o pal/timer-rpi.cpp
 
