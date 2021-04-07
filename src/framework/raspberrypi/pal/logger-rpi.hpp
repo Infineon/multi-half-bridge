@@ -1,18 +1,18 @@
 /** 
- * @file        logger-psoc6hal.hpp
- * @brief       TLE94112 Logger PSoC6 HAL PAL 
+ * @file        logger-rpi.hpp
+ * @brief       TLE94112 Logger Raspberry Pi PAL 
  * @date        April 2021
  * @copyright   Copyright (c) 2020-2021 Infineon Technologies AG
  * 
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef LOGGER_PSOC6HAL_H_
-#define LOGGER_PSOC6HAL_H_
+#ifndef LOGGER_RPI_H_
+#define LOGGER_RPI_H_
 
 #include "tle94112-conf.hpp"
 
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #include "logger.hpp"
 
@@ -21,15 +21,15 @@
 using namespace tle94112;
 
 /**
- * @addtogroup psoc6Pal
+ * @addtogroup rpiPal
  * @{
  */
 
-class LoggerPSoC6 : public LoggerPAL
+class LoggerRpi : public LoggerPAL
 {
         public:
-                        LoggerPSoC6  ();
-                       ~LoggerPSoC6  (); 
+                        LoggerRpi    ();
+                       ~LoggerRpi    (); 
             Error_t     init         ();
             Error_t     deinit       ();
             Error_t     write        (const uint8_t * log_data, uint32_t length);
@@ -38,10 +38,10 @@ class LoggerPSoC6 : public LoggerPAL
 /** @} */
 
 /**
- * @brief Default LoggerPSoC6
+ * @brief Default LoggerRpi
  */
-extern LoggerPSoC6 logpalpsoc6;
+extern LoggerRpi logpalrpi;
 
 #endif /* TLE94112_LOGGER_ENABLED */
 #endif /** TLE94112_FRAMEWORK **/
-#endif /** LOGGER_PSOC6HAL_H_ **/
+#endif /** LOGGER_RPI_H_ **/

@@ -1,18 +1,18 @@
 /** 
- * @file        logger-psoc6hal.hpp
- * @brief       TLE94112 Logger PSoC6 HAL PAL 
+ * @file        logger-wiced.hpp
+ * @brief       TLE94112 Logger WICED PAL 
  * @date        April 2021
  * @copyright   Copyright (c) 2020-2021 Infineon Technologies AG
  * 
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef LOGGER_PSOC6HAL_H_
-#define LOGGER_PSOC6HAL_H_
+#ifndef LOGGER_WICED_H_
+#define LOGGER_WICED_H_
 
 #include "tle94112-conf.hpp"
 
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 #include "logger.hpp"
 
@@ -21,15 +21,15 @@
 using namespace tle94112;
 
 /**
- * @addtogroup psoc6Pal
+ * @addtogroup wicedPal
  * @{
  */
 
-class LoggerPSoC6 : public LoggerPAL
+class LoggerWiced : public LoggerPAL
 {
         public:
-                        LoggerPSoC6  ();
-                       ~LoggerPSoC6  (); 
+                        LoggerWiced  ();
+                       ~LoggerWiced  (); 
             Error_t     init         ();
             Error_t     deinit       ();
             Error_t     write        (const uint8_t * log_data, uint32_t length);
@@ -38,10 +38,10 @@ class LoggerPSoC6 : public LoggerPAL
 /** @} */
 
 /**
- * @brief Default LoggerPSoC6
+ * @brief Default LoggerWiced
  */
-extern LoggerPSoC6 logpalpsoc6;
+extern LoggerWiced logpalwic;
 
 #endif /* TLE94112_LOGGER_ENABLED */
 #endif /** TLE94112_FRAMEWORK **/
-#endif /** LOGGER_PSOC6HAL_H_ **/
+#endif /** LOGGER_WICED_H_ **/
