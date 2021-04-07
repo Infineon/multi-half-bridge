@@ -14,7 +14,7 @@
 #if (TLE94112_LOGGER_ENABLED == 1)
 
 #include <Arduino.h>
-#include "tle94112-logger.hpp"
+#include "../../../corelib/tle94112-logger.hpp"
 
 using namespace tle94112;
 

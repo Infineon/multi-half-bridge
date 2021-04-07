@@ -10,12 +10,12 @@
 #ifndef TLE94112_LOGGER_HPP_
 #define TLE94112_LOGGER_HPP_
 
-#include "tle94112-conf.hpp"
+#include "../config/tle94112-conf.hpp"
 
 #if (TLE94112_LOGGER_ENABLED == 1)
 
 #include <stdint.h>
-#include "tle94112-pal-logger.hpp"
+#include "../pal/logger.hpp"
 
 namespace tle94112
 {

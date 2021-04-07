@@ -121,4 +121,6 @@ class GPIOC
 
 /** @} */
 
+}
+
 #endif /** GPIOC_HPP_ **/
