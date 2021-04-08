@@ -16,7 +16,7 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #include "../../../pal/timer.hpp"
-
+using namespace tle94112;
 /**
  * @addtogroup rpiPal
  * @{

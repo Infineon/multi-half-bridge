@@ -8,6 +8,7 @@
  */
 
 #include "gpio-rpi.hpp"
+using namespace tle94112;
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 
@@ -42,12 +43,13 @@ GPIORpi::GPIORpi(uint8_t pin, uint8_t mode, VLogic_t logic): pin(pin), mode(mode
  *
  * @return      GPIORpi::Error_t
  */
-GPIORpi::Error_t GPIORpi::init()
+//GPIORpi::Error_t GPIORpi::init()
+Error_t GPIORpi::init()
 {
-	GPIORpi::Error_t err = GPIORpi::OK;
+	tle94112::Error_t err = tle94112::OK;
 	if (bcm2835_init() <= 0)
 	{
-		err = GPIORpi::INTF_ERROR; 
+		err = tle94112::INTF_ERROR; 
 	} 
 	
 	 bcm2835_gpio_fsel(this->pin, this->mode);
@@ -62,7 +64,7 @@ GPIORpi::Error_t GPIORpi::init()
  *
  * @return      GPIORpi::Error_t
  */
-GPIORpi::Error_t GPIORpi::deinit()
+Error_t GPIORpi::deinit()
 {
 	bcm2835_close();
 	return OK;
@@ -91,7 +93,7 @@ GPIORpi::VLevel_t GPIORpi::read()
  * @param[in]   level   Desired logic level of the pin
  * @return      GPIORpi::Error_t
  */
-GPIORpi::Error_t GPIORpi::write(VLevel_t level)
+Error_t GPIORpi::write(VLevel_t level)
 {
 	bcm2835_gpio_write(this->pin, level);
 	return OK;
@@ -105,7 +107,7 @@ GPIORpi::Error_t GPIORpi::write(VLevel_t level)
  *
  * @return      GPIORpi::Error_t
  */
-GPIORpi::Error_t GPIORpi::enable()
+Error_t GPIORpi::enable()
 {
 	if(this->logic == POSITIVE){
 		bcm2835_gpio_write(this->pin, GPIO_HIGH);
@@ -113,7 +115,7 @@ GPIORpi::Error_t GPIORpi::enable()
 	else if(this->logic == NEGATIVE){
 		bcm2835_gpio_write(this->pin, GPIO_LOW);;
 	}
-	return GPIORpi::OK;
+	return tle94112::OK;
 }
 
 /**
@@ -124,7 +126,7 @@ GPIORpi::Error_t GPIORpi::enable()
  *
  * @return      GPIOIno::Error_t
  */
-GPIORpi::Error_t GPIORpi::disable()
+Error_t GPIORpi::disable()
 {
 	if(this->logic == POSITIVE){
 		bcm2835_gpio_write(this->pin, GPIO_LOW);
@@ -132,7 +134,7 @@ GPIORpi::Error_t GPIORpi::disable()
 	else if(this->logic == NEGATIVE){
 		bcm2835_gpio_write(this->pin, GPIO_HIGH);
 	}
-	return GPIORpi::OK;
+	return tle94112::OK;
 }
 
 

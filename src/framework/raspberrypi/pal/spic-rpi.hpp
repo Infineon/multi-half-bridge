@@ -18,7 +18,7 @@
 #include "../../../pal/spic.hpp"
 #include <bcm2835.h>
 #include <cstdio>
-
+using namespace tle94112;
 /**
  * @addtogroup rpiPal
  * @{
