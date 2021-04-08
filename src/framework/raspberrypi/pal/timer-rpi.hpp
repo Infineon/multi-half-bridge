@@ -11,11 +11,13 @@
 #define TIMER_RPI_HPP_
 
 #include "../../../config/tle94112-conf.hpp"
-#include <bcm2835.h>
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #include "../../../pal/timer.hpp"
+#include <bcm2835.h>
+
+using namespace tle94112;
 
 /**
  * @addtogroup rpiPal

@@ -8,7 +8,6 @@
  */
 
 #include "spic-rpi.hpp"
-
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 /**
@@ -66,7 +65,7 @@ SPICRpi::SPICRpi(uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin
  *
  * @return      SPICRpi::Error_t
  */
-SPICRpi::Error_t SPICRpi::init()
+Error_t SPICRpi::init()
 {
 	if (!bcm2835_init()) {
 			printf("init failed\n");
@@ -91,7 +90,7 @@ SPICRpi::Error_t SPICRpi::init()
  *
  * @return      SPICRpi::Error_t
  */
-SPICRpi::Error_t SPICRpi::deinit()
+Error_t SPICRpi::deinit()
 {
 	bcm2835_spi_end();
 	return OK;
@@ -104,7 +103,7 @@ SPICRpi::Error_t SPICRpi::deinit()
  * @param received     received data from spi bus
  * @return             SPICRpi::Error_t
  */
-SPICRpi::Error_t SPICRpi::transfer(uint8_t send, uint8_t &received)
+Error_t SPICRpi::transfer(uint8_t send, uint8_t &received)
 {
 	received = bcm2835_spi_transfer(send);
 	return OK;
@@ -117,7 +116,7 @@ SPICRpi::Error_t SPICRpi::transfer(uint8_t send, uint8_t &received)
  * @param received     received data from spi bus
  * @return             SPICRpi::Error_t
  */
-SPICRpi::Error_t SPICRpi::transfer16(uint16_t send, uint16_t &received)
+Error_t SPICRpi::transfer16(uint16_t send, uint16_t &received)
 {
 	uint8_t data_out_msb = (uint8_t)((send >> 8) & 0xFF);
 	uint8_t data_out_lsb = (uint8_t)(send & 0xFF);
