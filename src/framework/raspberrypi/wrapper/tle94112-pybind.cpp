@@ -85,10 +85,19 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
         .export_values();
 
 // Wrapper for child Tle94112Rpi class
-    py::class_<Tle94112Rpi, Tle94112>(m, "Tle94112Rpi", py::multiple_inheritance())     
-        .def(py::init<>())
+    py::class_<Tle94112Rpi, Tle94112> tle94112rpi(m, "Tle94112Rpi", py::multiple_inheritance());
+
+    tle94112rpi.def(py::init<>())
         .def(py::init<uint8_t>());
 
+    py::enum_<Tle94112Rpi::TlePinCS>(tle94112rpi, "TlePinCS")
+        .value("TLE94112_PIN_CS0", Tle94112Rpi::TlePinCS::TLE94112_PIN_CS0)
+        .value("TLE94112_PIN_CS1", Tle94112Rpi::TlePinCS::TLE94112_PIN_CS1)
+        .value("TLE94112_PIN_CS2", Tle94112Rpi::TlePinCS::TLE94112_PIN_CS2)
+        .value("TLE94112_PIN_CS3", Tle94112Rpi::TlePinCS::TLE94112_PIN_CS3)
+        .value("TLE94112_PIN_EN", Tle94112Rpi::TlePinCS::TLE94112_PIN_EN)
+        .export_values();
+        
 // Wrapper for Tle94112Motor class 
     py::class_<Tle94112Motor> tle94112motor(m, "Tle94112Motor");
 
@@ -118,15 +127,15 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
         .export_values();
 
     // Exposing Chip select pins originally declared in bcm2835.h
-    py::class_<Rpi_PinSel> RpiPinSel(m,"Rpi_PinSel");
-        RpiPinSel.def(py::init<>());
-    py::enum_<Rpi_PinSel::TlePinCS>(RpiPinSel, "SetPin", py::arithmetic())
-        .value("TLE94112_PIN_CS0", Rpi_PinSel::TlePinCS::TLE94112_PIN_CS0)
-        .value("TLE94112_PIN_CS1", Rpi_PinSel::TlePinCS::TLE94112_PIN_CS1)
-        .value("TLE94112_PIN_CS2", Rpi_PinSel::TlePinCS::TLE94112_PIN_CS2)
-        .value("TLE94112_PIN_CS3", Rpi_PinSel::TlePinCS::TLE94112_PIN_CS3)
-        .value("TLE94112_PIN_EN", Rpi_PinSel::TlePinCS::TLE94112_PIN_EN)
-        .export_values();
+    // py::class_<Rpi_PinSel> RpiPinSel(m,"Rpi_PinSel");
+    //     RpiPinSel.def(py::init<>());
+    // py::enum_<Rpi_PinSel::TlePinCS>(RpiPinSel, "SetPin", py::arithmetic())
+    //     .value("TLE94112_PIN_CS0", Rpi_PinSel::TlePinCS::TLE94112_PIN_CS0)
+    //     .value("TLE94112_PIN_CS1", Rpi_PinSel::TlePinCS::TLE94112_PIN_CS1)
+    //     .value("TLE94112_PIN_CS2", Rpi_PinSel::TlePinCS::TLE94112_PIN_CS2)
+    //     .value("TLE94112_PIN_CS3", Rpi_PinSel::TlePinCS::TLE94112_PIN_CS3)
+    //     .value("TLE94112_PIN_EN", Rpi_PinSel::TlePinCS::TLE94112_PIN_EN)
+    //     .export_values();
 
 #ifdef VERSION_INFO
     m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);
