@@ -12,7 +12,9 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #include "timer-rpi.hpp"
+
 using namespace tle94112;
+
 /**
  * @brief Constructor of the Raspberry Pi Timer class
  *

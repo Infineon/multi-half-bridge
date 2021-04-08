@@ -8,7 +8,6 @@
  */
 
 #include "spic-rpi.hpp"
-using namespace tle94112;
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 /**

@@ -16,10 +16,10 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #include "../../../corelib/tle94112.hpp"
-
 #include <bcm2835.h>
-#include "../../../corelib/tle94112-types.hpp"
+
 using namespace tle94112;
+
 /**
  * @addtogroup rpiPal
  * @{
