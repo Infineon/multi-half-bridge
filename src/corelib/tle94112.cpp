@@ -140,6 +140,17 @@ void Tle94112::_configPWM(uint8_t pwm, uint8_t freq, uint8_t dutyCycle)
 	writeReg(reg, mask, shift, dutyCycle);
 }
 
+uint8_t Tle94112::setLedMode(HalfBridge hb, uint8_t active)
+{
+	if (hb != Tle94112::TLE_HB1) && (hb != Tle94112::TLE_HB2) return 1;
+	uint8_t hb_nr = static_cast<uint8_t>(hb);
+	
+	reg = mHalfBridges[hb].fwReg;
+	mask = mHalfBridges[hb].fwMask;
+	shift = mHalfBridges[hb].fwShift;
+	writeReg(reg, mask, shift, active);
+}
+
 uint8_t Tle94112::getSysDiagnosis()
 {
 	uint8_t ret = readStatusReg(SYS_DIAG1);

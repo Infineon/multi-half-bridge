@@ -113,6 +113,12 @@ class Tle94112
 			TLE_TEMP_SHUTDOWN = 0x04,
 			TLE_TEMP_WARNING = 0x02
 		};
+
+		//! \brief enum for led mode on (available on output 1 and 2)
+		enum FW_OL_SEL
+		{
+			TLE_OL_SEL_HS1 = 0x01, TLE_OL_SEL_HS2
+		};
 		//! \brief Reference value of Status Register
 		static const uint8_t TLE_STATUS_OK = 0U;
 
