@@ -2,7 +2,7 @@ Welcome to the **Infineon Multi Half Bridge C++ library** docs!
 
 <img src="https://www.infineon.com/export/sites/default/_images/product/power/motor_control_ics/TLE94112ES_TSDSO-24-51_Combi.jpg_1867607890.jpg" style="max-width:100%;" width="200">
 
-This software enables the usage of Infineon's Multi Half Bridges in embedded systems and applications.
+This software enables the usage of the Infineon Multi Half Bridges in embedded systems and applications.
 You can find all the related information in this wiki.
 
 ### Wiki Sections
