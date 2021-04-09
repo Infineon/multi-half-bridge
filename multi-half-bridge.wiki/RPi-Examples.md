@@ -35,10 +35,10 @@ make examples/basicTest
 
 Run the example:
 ```
-sudo ../../../build/basicTest
+../../../build/basicTest
 ```
 
-:warning: **Important:** sudo (root rights) is essential to run this example. Otherwise it will fail.
+:warning: **Important:** If you did not install the BCM2835 library with BCM2835_HAVE_LIBCAP option make sure to use sudo (root rights) when executing your binary. Otherwise it will fail with segmentation fault.
 
 
 ### advancedTest
@@ -87,10 +87,10 @@ make examples/advancedTest
 
 Run the example:
 ```
-sudo ../../../build/advancedTest
+../../../build/advancedTest
 ```
 
-:warning: **Important:** sudo (root rights) is essential to run this example. Otherwise it will fail.
+:warning: **Important:** If you did not install the BCM2835 library with BCM2835_HAVE_LIBCAP option make sure to use sudo (root rights) when executing your binary. Otherwise it will fail with segmentation fault.
 
 
 ### errorDiagnosis
@@ -129,10 +129,10 @@ make examples/errorDiagnosis
 
 Run the example:
 ```
-sudo ../../../build/errorDiagnosis
+../../../build/errorDiagnosis
 ```
 
-:warning: **Important:** sudo (root rights) is essential to run this example. Otherwise it will fail.
+:warning: **Important:** If you did not install the BCM2835 library with BCM2835_HAVE_LIBCAP option make sure to use sudo (root rights) when executing your binary. Otherwise it will fail with segmentation fault.
 
 
 ### multipleMotors
@@ -168,25 +168,25 @@ make examples/multipleMotors
 
 Run the example:
 ```
-sudo ../../../build/multipleMotors
+../../../build/multipleMotors
 ```
 
-:warning: **Important:** sudo (root rights) is essential to run this example. Otherwise it will fail.
+:warning: **Important:** If you did not install the BCM2835 library with BCM2835_HAVE_LIBCAP option make sure to use sudo (root rights) when executing your binary. Otherwise it will fail with segmentation fault.
 
 
-### multipleControllers
+### halfBridge
 
 #### Description
-This example shows how to use multiple TLE94112 controllers simultaneously. For this example it is assumed that two TLE94112 controllers are connected to one Raspberry Pi. The Chip Select pin of controller 1 is set to CS0 and the Chip Select pin of controller 2 is set to CS1. On both controllers a load is connected between half bridge 1 and 5. This example shows, how to control both motor controllers from one Raspberry Pi.
+The example shows how to control the half bridges to switch generic loads.
 
 #### Hardware setup
 
-Both TLE94112ES HATs need to be stacked onto a [compatible](RPi-Library-Installation###Compatibility) Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking on controller 1 as shown in the picture. Another jumper needs to be placed between the middle pin and CS1 on controller 2. Both HATs needs to be connected to a 5.5V to 20V DC power supply. A load (max. 0.9A) has to be connected to output 1 and 5 of both HATs.
+The TLE94112ES HAT needs to be stacked onto a [compatible](RPi-Library-Installation###Compatibility) Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking as shown in the picture. The HAT needs to be connected to a 5.5V to 20V DC power supply. A load (max. 0.9A) has to be connected to output 1 and 5 of the HAT.
 
-<img src="img/multipleControllers-hw-setup.png" style="max-width:100%;" width="300">
+<img src="img/basicTest-hw-setup.png" style="max-width:100%;" width="300">
 
 #### :information_source: Note
-Please open the example source file at `src/framework/raspberrypi/examples/multipleControllers.cpp` and read the comments before compiling it.
+Please open the example source file at `src/framework/raspberrypi/examples/halfBridge.cpp` and read the comments before compiling it.
 
 #### Compile
 
@@ -202,12 +202,55 @@ make clean
 
 Compile the example:
 ```
-make examples/multipleControllers
+make examples/halfBridge
 ```
 
 Run the example:
 ```
-sudo ../../../build/multipleControllers
+../../../build/halfBridge
 ```
 
-:warning: **Important:** sudo (root rights) is essential to run this example. Otherwise it will fail.
+:warning: **Important:** If you did not install the BCM2835 library with BCM2835_HAVE_LIBCAP option make sure to use sudo (root rights) when executing your binary. Otherwise it will fail with segmentation fault.
+
+
+### stepperMotor
+
+#### Description
+The multi half bridge TLE94112ES is able to drive voltage-controlled bipolar stepper motors This example shows how to control a stepper motor with the DC Motor Control HAT with TLE94112ES.
+
+#### Hardware setup
+
+The TLE94112ES HAT needs to be stacked onto a [compatible](RPi-Library-Installation###Compatibility) Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking as shown in the picture. The HAT needs to be connected to a 5.5V to 20V DC power supply. A low-current (<900 mA peak) voltage-controlled bipolar stepper motor needs to be connected as follows:
+- Coil A, high side (A1) to half bridge output 1
+- Coil A, low side (A2) to half bridge output 5
+- Coil B, high side (B1) to half bridge output 7
+- Coil B, low side (B2) to half bridge output 9
+
+<img src="img/stepperMotor-hw-setup.png" style="max-width:100%;" width="300">
+
+#### :information_source: Note
+Please open the example source file at `src/framework/raspberrypi/examples/stepperMotor.cpp` and read the comments before compiling it.
+
+#### Compile
+
+Change to Raspberry Pi framework folder:
+```
+cd src/framework/raspberrypi
+```
+
+Clean if any other example was compiled before:
+```
+make clean
+```
+
+Compile the example:
+```
+make examples/stepperMotor
+```
+
+Run the example:
+```
+../../../build/stepperMotor
+```
+
+:warning: **Important:** If you did not install the BCM2835 library with BCM2835_HAVE_LIBCAP option make sure to use sudo (root rights) when executing your binary. Otherwise it will fail with segmentation fault.
