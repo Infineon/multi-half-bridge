@@ -25,6 +25,10 @@ class Tle94112Rpi: virtual public Tle94112
 		Tle94112Rpi(void);
 		Tle94112Rpi(uint8_t csPin);
 
+        /**
+         * @brief This enum is used to expose the CS-Pins of the
+         * Raspberry-Pi to the Pybind11 wrapper.
+         */
 		enum TlePinCS{
         TLE94112_PIN_CS0     = RPI_V2_GPIO_P1_24,
         TLE94112_PIN_CS1     = RPI_V2_GPIO_P1_26,

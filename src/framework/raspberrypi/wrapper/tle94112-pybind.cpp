@@ -126,17 +126,6 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
         .value("HIGHSIDE", Tle94112Motor::ePolarity::HIGHSIDE)
         .export_values();
 
-    // Exposing Chip select pins originally declared in bcm2835.h
-    // py::class_<Rpi_PinSel> RpiPinSel(m,"Rpi_PinSel");
-    //     RpiPinSel.def(py::init<>());
-    // py::enum_<Rpi_PinSel::TlePinCS>(RpiPinSel, "SetPin", py::arithmetic())
-    //     .value("TLE94112_PIN_CS0", Rpi_PinSel::TlePinCS::TLE94112_PIN_CS0)
-    //     .value("TLE94112_PIN_CS1", Rpi_PinSel::TlePinCS::TLE94112_PIN_CS1)
-    //     .value("TLE94112_PIN_CS2", Rpi_PinSel::TlePinCS::TLE94112_PIN_CS2)
-    //     .value("TLE94112_PIN_CS3", Rpi_PinSel::TlePinCS::TLE94112_PIN_CS3)
-    //     .value("TLE94112_PIN_EN", Rpi_PinSel::TlePinCS::TLE94112_PIN_EN)
-    //     .export_values();
-
 #ifdef VERSION_INFO
     m.attr("__version__") = MACRO_STRINGIFY(VERSION_INFO);
 #else
