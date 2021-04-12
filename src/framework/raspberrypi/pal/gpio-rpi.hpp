@@ -18,6 +18,8 @@
 #include "../../../corelib/tle94112.hpp"
 #include <bcm2835.h>
 
+using namespace tle94112;
+
 /**
  * @addtogroup rpiPal
  * @{

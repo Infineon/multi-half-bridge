@@ -13,6 +13,8 @@
 
 #include "timer-rpi.hpp"
 
+using namespace tle94112;
+
 /**
  * @brief Constructor of the Raspberry Pi Timer class
  *
@@ -37,7 +39,7 @@ TimerRpi::~TimerRpi()
  *
  * @return      TimerRpi::Error_t
  */
-TimerRpi::Error_t TimerRpi::init()
+Error_t TimerRpi::init()
 {
 	startTime = 0;
 	return OK;
@@ -51,7 +53,7 @@ TimerRpi::Error_t TimerRpi::init()
  *
  * @return      TimerRpi::Error_t
  */
-TimerRpi::Error_t TimerRpi::deinit()
+Error_t TimerRpi::deinit()
 {
 	startTime = 0;
 	return OK;
@@ -64,7 +66,7 @@ TimerRpi::Error_t TimerRpi::deinit()
  *
  * @return      TimerRpi::Error_t
  */
-TimerRpi::Error_t TimerRpi::start()
+Error_t TimerRpi::start()
 {
 	startTime = bcm2835_st_read()/1000;
 	return OK;
@@ -80,7 +82,7 @@ TimerRpi::Error_t TimerRpi::start()
  * @param[in]   &elapsed                Address of a value where the elapsed time should be stored
  * @return      TimerRpi::Error_t
  */
-TimerRpi::Error_t TimerRpi::elapsed(uint32_t &elapsed)
+Error_t TimerRpi::elapsed(uint32_t &elapsed)
 {
 	elapsed = bcm2835_st_read()/1000 - startTime;
 	return OK;
@@ -94,7 +96,7 @@ TimerRpi::Error_t TimerRpi::elapsed(uint32_t &elapsed)
  *
  * @return      TimerRpi::Error_t
  */
-TimerRpi::Error_t TimerRpi::stop()
+Error_t TimerRpi::stop()
 {
 	startTime = 0;
 	return OK;
@@ -109,7 +111,7 @@ TimerRpi::Error_t TimerRpi::stop()
  * @param[in]   timeout                 Desired timeout in ms
  * @return      TimerRpi::Error_t
  */
-TimerRpi::Error_t TimerRpi::delayMilli(uint32_t timeout)
+Error_t TimerRpi::delayMilli(uint32_t timeout)
 {
 	bcm2835_delay(timeout);
 	return OK;
@@ -124,7 +126,7 @@ TimerRpi::Error_t TimerRpi::delayMilli(uint32_t timeout)
  * @param[in]   timeout                 Desired timeout in us
  * @return      TimerRpi::Error_t
  */
-TimerRpi::Error_t TimerRpi::delayMicro(uint32_t timeout) 
+Error_t TimerRpi::delayMicro(uint32_t timeout) 
 {
 	bcm2835_delayMicroseconds(timeout);
 	return OK;

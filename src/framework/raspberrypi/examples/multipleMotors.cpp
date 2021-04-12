@@ -57,7 +57,7 @@ int main(int argc, char const *argv[])
     // Clear all errors to start clean
     controller.clearErrors();
 
-    // Connect motor1 to HB1 and HB4
+    // Connect motor1 to HB1 and HB5
     motor1.connect(motor1.HIGHSIDE, controller.TLE_HB1);
     motor1.connect(motor1.LOWSIDE,  controller.TLE_HB5);
 

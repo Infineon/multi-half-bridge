@@ -54,7 +54,7 @@ If still not supported, please check the [Porting Guide](Porting-Guide) to integ
 
 Please follow the example sketches in the /examples directory in this library to learn more about the usage of the library.
 For proper work of the TLE94112 the following tips may help:
-* the TLE94112 works properly in the range of min 5.5V to max 40V Vbat
+* the TLE94112 works properly in the range of min 5.5V to max 20V Vbat
 * the TLE94112 works properly with 3.3V on all GPIOs and on VDD, but needs the 3.3V at least on the 5V VDD pin of the Arduino header
 * the max current on one half bridge is 0.9 A, if you need more you have to cascade more half bridges, see [manual](https://www.infineon.com/dgdl/Infineon-TLE94112EL-DS-v01_00-EN.pdf?fileId=5546d462576f347501579a2795837d3e) and pin out picture
 * the shield can be stacked if you change the 0 \Omega resistor from R7/R8.

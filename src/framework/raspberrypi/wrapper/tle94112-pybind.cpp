@@ -4,7 +4,7 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #include <pybind11/pybind11.h>
-
+//#include "tle94112-platf-rpi.hpp"
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
 
@@ -32,7 +32,7 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
         .def("clearErrors", &Tle94112::clearErrors, "Clear errors function");
         
 // Wrapping variables that are arguements to member functions and are defined as enum
-    py::enum_<Tle94112::HalfBridge>(tle94112, "HalfBridge")
+    py::enum_<Tle94112::HalfBridge>(tle94112, "HalfBridge", py::arithmetic())
         .value("TLE_NOHB", Tle94112::HalfBridge::TLE_NOHB)
         .value("TLE_HB1", Tle94112::HalfBridge::TLE_HB1)
         .value("TLE_HB2", Tle94112::HalfBridge::TLE_HB2)
@@ -48,33 +48,33 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
         .value("TLE_HB12", Tle94112::HalfBridge::TLE_HB12)
         .export_values();
     
-    py::enum_<Tle94112::PWMChannel>(tle94112, "PWMChannel")
+    py::enum_<Tle94112::PWMChannel>(tle94112, "PWMChannel", py::arithmetic())
         .value("TLE_NOPWM", Tle94112::PWMChannel::TLE_NOPWM)
         .value("TLE_PWM1", Tle94112::PWMChannel::TLE_PWM1)
         .value("TLE_PWM2", Tle94112::PWMChannel::TLE_PWM2)
         .value("TLE_PWM3", Tle94112::PWMChannel::TLE_PWM3)
         .export_values();
 
-    py::enum_<Tle94112::HBState>(tle94112, "HBState")
+    py::enum_<Tle94112::HBState>(tle94112, "HBState", py::arithmetic())
         .value("TLE_FLOATING", Tle94112::HBState::TLE_FLOATING)
         .value("TLE_LOW", Tle94112::HBState::TLE_LOW)
         .value("TLE_HIGH", Tle94112::HBState::TLE_HIGH)
         .export_values();
 
-    py::enum_<Tle94112::HBOCState>(tle94112, "HBOCState")
+    py::enum_<Tle94112::HBOCState>(tle94112, "HBOCState", py::arithmetic())
         .value("TLE_NONE", Tle94112::HBOCState::TLE_NONE)    
         .value("TLE_LOWSIDE", Tle94112::HBOCState::TLE_LOWSIDE)
         .value("TLE_HIGHSIDE", Tle94112::HBOCState::TLE_HIGHSIDE)
         .export_values();
 
-    py::enum_<Tle94112::PWMFreq>(tle94112, "PWMFreq")
+    py::enum_<Tle94112::PWMFreq>(tle94112, "PWMFreq", py::arithmetic())
         .value("TLE_FREQOFF", Tle94112::PWMFreq::TLE_FREQOFF)
         .value("TLE_FREQ80HZ", Tle94112::PWMFreq::TLE_FREQ80HZ)
         .value("TLE_FREQ100HZ", Tle94112::PWMFreq::TLE_FREQ100HZ)
         .value("TLE_FREQ200HZ", Tle94112::PWMFreq::TLE_FREQ200HZ)
         .export_values();
 
-    py::enum_<Tle94112::DiagFlag>(tle94112, "DiagFlag")
+    py::enum_<Tle94112::DiagFlag>(tle94112, "DiagFlag", py::arithmetic())
         .value("TLE_SPI_ERROR", Tle94112::DiagFlag::TLE_SPI_ERROR)
         .value("TLE_LOAD_ERROR", Tle94112::DiagFlag::TLE_LOAD_ERROR)
         .value("TLE_UNDER_VOLTAGE", Tle94112::DiagFlag::TLE_UNDER_VOLTAGE)
@@ -85,10 +85,19 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
         .export_values();
 
 // Wrapper for child Tle94112Rpi class
-    py::class_<Tle94112Rpi, Tle94112>(m, "Tle94112Rpi", py::multiple_inheritance())     
-        .def(py::init<>())
+    py::class_<Tle94112Rpi, Tle94112> tle94112rpi(m, "Tle94112Rpi", py::multiple_inheritance());
+
+    tle94112rpi.def(py::init<>())
         .def(py::init<uint8_t>());
 
+    py::enum_<Tle94112Rpi::TlePinCS>(tle94112rpi, "TlePinCS")
+        .value("TLE94112_PIN_CS0", Tle94112Rpi::TlePinCS::TLE94112_PIN_CS0)
+        .value("TLE94112_PIN_CS1", Tle94112Rpi::TlePinCS::TLE94112_PIN_CS1)
+        .value("TLE94112_PIN_CS2", Tle94112Rpi::TlePinCS::TLE94112_PIN_CS2)
+        .value("TLE94112_PIN_CS3", Tle94112Rpi::TlePinCS::TLE94112_PIN_CS3)
+        .value("TLE94112_PIN_EN", Tle94112Rpi::TlePinCS::TLE94112_PIN_EN)
+        .export_values();
+        
 // Wrapper for Tle94112Motor class 
     py::class_<Tle94112Motor> tle94112motor(m, "Tle94112Motor");
 
@@ -112,7 +121,7 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
         .def("getSpeed", &Tle94112Motor::getSpeed, "Get-Speed function")
         .def("rampSpeed", &Tle94112Motor::rampSpeed, "Ramp-Speed function");
 
-    py::enum_<Tle94112Motor::ePolarity>(tle94112motor, "ePolarity")
+    py::enum_<Tle94112Motor::ePolarity>(tle94112motor, "ePolarity", py::arithmetic())
         .value("LOWSIDE", Tle94112Motor::ePolarity::LOWSIDE)
         .value("HIGHSIDE", Tle94112Motor::ePolarity::HIGHSIDE)
         .export_values();
