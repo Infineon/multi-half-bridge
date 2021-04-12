@@ -1,6 +1,6 @@
-The following are provided as examples for TLE94112ES hat in python framework.
+The following examples show how to use the Python wrapper of the multi half bridge library with the TLE94112ES HAT for Raspberry Pi.
 
-**Note**:- Before running the examples Raspberry pi needs to be ready with the library installed and repository cloned.
+**Note**:- Before running the examples Raspberry Pi needs to be ready with the library installed and repository cloned as described [here](Py-Getting-Started).
 
 #### :information_source: Note
 Please open the example source file at `src/framework/raspberrypi/examples_py/*.py` and read the comments before compiling it.
@@ -16,7 +16,6 @@ It will switch on two outputs (one to Vsup and one to GND), wait 3 seconds and s
 The TLE94112ES HAT needs to be stacked onto a Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking as shown in the picture. The HAT needs to be connected to a 5.5V to 20V DC power supply. A bidirectional DC motor (max. 0.9A) has to be connected to output 1 and 5 of the HAT.
 
 <img src="img/basicTest-hw-setup.png" style="max-width:100%;" width="300">
-
 
 **advancedTest**
 
@@ -59,10 +58,6 @@ The TLE94112ES HAT needs to be stacked onto a Raspberry Pi. A jumper needs to be
 
 <img src="img/basicTest-hw-setup.png" style="max-width:100%;" width="300">
 
-
-
-
-
 ### multipleMotors
 
 #### Description
@@ -73,7 +68,6 @@ This example demonstrates how to control two motors, their speed and direction w
 The TLE94112ES HAT needs to be stacked onto a Raspberry Pi. A jumper needs to be placed between the middle pin and the CS0 marking as shown in the picture. The HAT needs to be connected to a 5.5V to 20V DC power supply. A load (max. 0.9A) has to be connected to output 1 and 5 of the HAT. Another load has to be connected between output 7 and 9.
 
 <img src="img/multipleMotors-hw-setup.png" style="max-width:100%;" width="300">
-
 
 ### multipleControllers
 
