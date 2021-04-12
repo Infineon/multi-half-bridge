@@ -27,18 +27,12 @@
 /* 3rd party libraries for this example */
 #include <bcm2835.h> // This library is required for the delay() function.
 
-void step(uint32_t steps) {
-  for (uint32_t step = 0; step < steps; step++) {
-
-  }
-}
-
 class BipolarStepper {
   public:
     enum direction
 		{
-			DIR_FORWARD = 0,
-			DIR_BACKWARD
+			FORWARD = 0,
+			BACKWARD
 		};
     Tle94112 *mDriver;
     Tle94112::HalfBridge hb_a1, hb_a2, hb_b1, hb_b2;
@@ -75,14 +69,15 @@ class BipolarStepper {
           mDriver->configHB(hb_b1, mDriver->TLE_LOW, mDriver->TLE_NOPWM);
           break;
       }
-      if (dir == DIR_FORWARD) state++;
-      if (dir == DIR_BACKWARD) state--;
+      if (dir == FORWARD) state++;
+      if (dir == BACKWARD) state--;
       if (state < 0) state = 3;
       if (state > 3) state = 0;
     }
 };
 
-// Set 200 steps per motor revision (usual for many stepper motors).
+// Set 200 steps per motor revolution (usual for many stepper motors).
+// Please change if your motor has a different number of steps per revolution.
 uint16_t steps_per_rev = 200;
 
 int main(int argc, char const *argv[])
@@ -103,10 +98,10 @@ int main(int argc, char const *argv[])
   // coil A low side, coil B high side, coil B low side.
   BipolarStepper stepper(controller, controller.TLE_HB1, controller.TLE_HB5, controller.TLE_HB7, controller.TLE_HB9);
 
-  // Turn the motor for one revision.
+  // Turn the motor for one revolution.
   for (uint16_t i = 0; i < steps_per_rev; i++) {
-    stepper.fullStep(stepper.DIR_FORWARD);
-    delay(1000/steps_per_rev); // Take 1000ms for one revision.
+    stepper.fullStep(stepper.FORWARD);
+    delay(1000/steps_per_rev); // Take 1000ms for one revolution.
   }
 
   // Disable the outputs. Will release any forces from the motor.
