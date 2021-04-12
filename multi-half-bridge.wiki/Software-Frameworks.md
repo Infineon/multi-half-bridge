@@ -45,7 +45,7 @@
         <td>Cypress WICED SDK trouble shooting for C++ and SPI</td>
     </tr>
     <tr>
-        <td>Raspberry Pi</td>
+        <td>Raspberry Pi (C++)</td>
         <td><a href="RPi-Getting-Started">Getting Started</a></td>
         <td>a quick startup documentation for the Raspberry Pi</td>
     </tr>
@@ -63,5 +63,15 @@
         <td></td>
         <td><a href="RPi-Examples">Examples</a></td>
         <td>Examples for the Raspberry Pi C++ framework</td>
+    </tr>
+        <tr>
+        <td>Raspberry Pi (Python)</td>
+        <td><a href="Py-Getting-Started">Getting Started</a></td>
+        <td>a quick startup documentation for the Raspberry Pi</td>
+    </tr>
+        <tr>
+        <td></td>
+        <td><a href="Py-Examples">Examples</a></td>
+        <td>Examples for the Raspberry Pi Python wrapper</td>
     </tr>
 </table>
