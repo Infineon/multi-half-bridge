@@ -1,39 +1,23 @@
 # Getting Started with Python framework on Raspberry Pi
 
-In this quick tutorial we will go through the step by step to get started with the Raspberry Pi and TLE112ES shield.
+This page explains how to install and use the Python wrapper for the multi half bridge library with the TLE94112ES HAT for Raspberry Pi.
 
-## Required experience
-* Experience level : Moderate
+## Overview
+
+### Required experience
+* Experience level: Moderate
 * Basic linux user level
-* Basic programming skills : Python
-
+* Basic programming skills: Python
 
 ### Required Hardware
 
 Name         | Picture |
 ---          |---      |
 [DC Motor Control HAT with TLE94112ES](https://www.infineon.com/cms/en/product/evaluation-boards/tle94112es_rpi_hat) | <img src="https://github.com/Infineon/Assets/raw/master/Pictures/tle94112_hat_Raspberry_Pi.png" width=100>
- Raspberry Pi |
+[Compatible](RPi-Library-Installation###Compatibility) Raspberry Pi |
 8GB+ microSD card for Raspberry Pi |
 5.5V - 20V power supply with > 15W |
 Compatible DC motor
-
-### Supported Platforms
-
-| Platform | Compatible |
-| --- |:---:|
-| Raspberry Pi 4 Mod. B | :heavy_check_mark: |
-| Raspberry Pi 3 Mod. B+ | :heavy_check_mark: |
-| Raspberry Pi 3 Mod. B | :heavy_check_mark: |
-| Raspberry Pi 3 Mod. A+ | :heavy_check_mark: |
-| Raspberry Pi Zero | :heavy_check_mark: |  |
-| Raspberry Pi Zero W(H) | :heavy_check_mark: |
-| Raspberry Pi 2 Mod. B v1.2 | :heavy_check_mark: |
-| Raspberry Pi 2 Mod. B | :heavy_check_mark: |
-| Raspberry Pi 1 Mod. B+ | :heavy_check_mark: |
-| Raspberry Pi 1 Mod. B | :x: |
-| Rapsberry Pi 1 Mod. A+ |:heavy_check_mark: |
-| Raspberry Pi 1 Mod. A | :x: |
 
 ### Required Software
 
@@ -41,17 +25,12 @@ Compatible DC motor
 * git
 * [bcm2835 library](https://www.airspayce.com/mikem/bcm2835/)
 * [pybind11 library](https://pybind11.readthedocs.io/en/stable/basics.html)
-* python3 or above (recomended)
-* updated pip module
+* python3 (tested with python3.7)
+* pip (for easy installation)
 * build-essential
 * Infineon multi-half-bridge library (this library)
 
-### Prepare Raspberry Pi
-
-**You can this step, if you already have Raspberry Pi OS installed on your compatible Raspberry Pi.**
-
-* Download Raspberry Pi OS from [here](https://www.raspberrypi.org/downloads/raspbian/)
-* Unzip Raspbian and flash the image to an SD card. [Here](https://www.raspberrypi.org/documentation/installation/installing-images/) you find a step-by-step tutorial.
+## Tutorial
 
 ### Hardware Setup
 
@@ -67,13 +46,35 @@ The [DC Motor Control HAT with TLE94112ES](https://www.infineon.com/cms/en/produ
 
 **Note** :warning: : Make sure to connect the power supply **only** to the designated inputs of your DC Motor Control HAT and that it **doesn't exceed 20V**. Otherwise your hardware can be damaged.
 
+### Raspberry Pi setup
+
+Set up Raspberry Pi with Raspberry Pi OS or similar OS.
+Check [this page](https://www.raspberrypi.org/downloads/) for instructions.
+
+You can access your Raspberry Pi either using a monitor and a keyboard or using SSH in a headless setup as described [here](https://www.raspberrypi.org/documentation/configuration/wireless/headless.md).
+
+Now insert the microSD card into your Raspberry Pi and turn on the power supply to boot it up. The Raspberry Pi will be powered by the DC Motor Control HAT.
+
 ### Library installation
-Library can be installed by giving the command for pip installable from terminal. Recommended to used command in with sudo.
+This library can be installed easily using `pip`. If you do not have `pip` installed please do so by typing
 ```
-pip3 install .............
+sudo apt-get install python3-pip
+```
+into the command line of your Raspberry Pi. Afterwards you can install the Infineon multi half bridge library by typing
+```
+sudo pip3 install infineon-mhb
 ```
 
 ### Clone the repository 
-Once the library is installed clone the repository ([link](......)). Migrate to the example folder and execute the examples from the terminal or from the editor in Raspberry Pi.
-
-**Note**:- Examples can be seen in action once the HAT is stacked on the top of Raspberry Pi with DC Motor intact.
+Once the library is installed clone the [multi half bridge repository](https://www.github.com/infineon/multi-half-bridge). 
+```
+git clone https://github.com/Infineon/multi-half-bridge.git
+```
+Navigate to the example folder
+```
+cd multi-half-bridge/src/framework/raspberrypi/examples_py
+```
+ and execute the examples from the terminal:
+```
+sudo python3 basicTest.py
+```
