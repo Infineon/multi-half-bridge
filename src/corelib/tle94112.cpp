@@ -141,14 +141,18 @@ void Tle94112::_configPWM(uint8_t pwm, uint8_t freq, uint8_t dutyCycle)
 }
 
 uint8_t Tle94112::setLedMode(HalfBridge hb, uint8_t active)
-{
-	if (hb != Tle94112::TLE_HB1) && (hb != Tle94112::TLE_HB2) return 1;
-	uint8_t hb_nr = static_cast<uint8_t>(hb);
-	
-	reg = mHalfBridges[hb].fwReg;
-	mask = mHalfBridges[hb].fwMask;
-	shift = mHalfBridges[hb].fwShift;
-	writeReg(reg, mask, shift, active);
+{	
+	// Check if half bridge is either 1 or 2, the others do not
+	// support LED mode.
+	if (hb == Tle94112::TLE_HB1) {
+		// Set LED mode on HB1: Set bit D0 of FW_OL_CTRL register (cp. TLE94112ES datasheet p. 51).
+		writeReg(FW_OL_CTRL, 0x01, 0, active);
+	} else if (hb == Tle94112::TLE_HB2) {
+		// Set LED mode on HB2: Set bit D1 of FW_OL_CTRL register (cp. TLE94112ES datasheet p. 51).
+		writeReg(FW_OL_CTRL, 0x02, 1, active);
+	} else return 1;
+
+	return 0;
 }
 
 uint8_t Tle94112::getSysDiagnosis()

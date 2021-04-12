@@ -174,6 +174,18 @@ class Tle94112
 		 */
 		void configPWM(PWMChannel pwm, PWMFreq freq, uint8_t dutyCycle);
 
+		/*! \brief sets LED mode on compatible half bridges
+		 *
+		 * \param hb		compatible half bridge to set LED mode
+		 * \param active	LED mode active (1) or inactive (0)
+		 *
+		 * \see HalfBridge
+		 * 
+		 * \return	0 if everything is ok
+		 * 			1 if half bridge does not support LED mode
+		 */
+		uint8_t setLedMode(HalfBridge hb, uint8_t active);
+
 		/*! \brief returns a diagnosis value for error detection
 		 *
 		 * \return 0 if everything is ok

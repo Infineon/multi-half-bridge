@@ -4,12 +4,15 @@
  * \author      Infineon Technologies AG
  * \copyright   2021 Infineon Technologies AG
  * \version     1.0.0
- * \brief       This example shows how to use LED mode on output 1of the TLE94112ES.
+ * \brief       This example shows how to use LED mode on output 1 of the TLE94112ES.
  * \details
  * Outputs OUT1 and OUT2 are designed to optionally drive low current loads such as LEDs. The high-side
  * channels, HS1 and HS2 are equipped with a lower open load threshold detection current and shorter filter
  * time, specifically for low current loads such as LEDs.
  * Setting HS1 or HS2 in LED mode increases the RDS_ON and decreases the open load detection threshold.
+ * This example enables LED mode on output 1 of the TLE94112ES and subsequently reads out the current status
+ * of the open load error register. If an LED is connected and LED mode is enabled, the error register should
+ * be empty, else an open load error will occur.
  *
  * SPDX-License-Identifier: MIT
  *
@@ -41,23 +44,22 @@ int main(int argc, char const *argv[])
   // controller is set to default CS0 pin.
   controller.begin();
 
-  // Switch output 1 off (just to be sure)
-
-
   // Clear all errors to start clean
   controller.clearErrors();
 
-  // Set LED mode for output 1
-  controller.configHB(controller.TLE_HB1, controller.TLE_HIGH, controller.TLE_NOPWM, false);
+  // disable LED mode for output 1
+  controller.setLedMode(controller.TLE_HB1, 0);
+  controller.configHB(controller.TLE_HB1, controller.TLE_HIGH, controller.TLE_NOPWM);
 
   delay(1000);
+
+  // Enable LED mode for output 1
+  // The following line lowers the sensitivity for open load detection.
+  // Comment it to get an open load error when using small loads like LEDs.
+  controller.setLedMode(controller.TLE_HB1, 1);
+
+  // Clear previous errors
   controller.clearErrors();
-
-  // Set LED mode for output 1
-  controller.configHB(controller.TLE_HB1, controller.TLE_HIGH, controller.TLE_NOPWM, 0x01);
-  // Configure PWM channel 1 for LED
-
-  // Assign LED to PWM channel 1 and activate LED
 
   if (controller.getSysDiagnosis() & controller.TLE_LOAD_ERROR)
     {
@@ -69,7 +71,9 @@ int main(int argc, char const *argv[])
     }
 
   delay(3000);
-  controller.configHB(controller.TLE_HB1, controller.TLE_FLOATING, controller.TLE_NOPWM, true);
+
+  // Turn LED off
+  controller.configHB(controller.TLE_HB1, controller.TLE_FLOATING, controller.TLE_NOPWM);
 }
 
 #endif /** TLE94112_FRAMEWORK **/
