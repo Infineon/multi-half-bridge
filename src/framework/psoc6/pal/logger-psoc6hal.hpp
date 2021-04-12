@@ -10,7 +10,7 @@
 #ifndef LOGGER_PSOC6HAL_H_
 #define LOGGER_PSOC6HAL_H_
 
-#include "tle94112-conf.hpp"
+#include "../../../config/tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
 

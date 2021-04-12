@@ -17,6 +17,8 @@
 
 #include "../../../pal/gpio.hpp"
 
+using namespace tle94112;
+
 /**
  * @addtogroup arduinoPal
  * @{

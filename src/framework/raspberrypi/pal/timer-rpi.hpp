@@ -16,7 +16,6 @@
 
 #include <bcm2835.h>
 #include "../../../pal/timer.hpp"
-#include <bcm2835.h>
 
 using namespace tle94112;
 

@@ -89,7 +89,7 @@ void Logger::printfModule(const char * format,
             color, 
             module, 
             temp_buffer, 
-            PAS_CO2_LOGGER_COLOR_DEFAULT);
+            TLE94112_LOGGER_COLOR_DEFAULT);
     logpal->write((const uint8_t *)color_buffer, strlen(color_buffer));
     logpal->write(new_line_characters, 2);
 
