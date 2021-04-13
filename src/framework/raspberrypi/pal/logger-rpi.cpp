@@ -14,6 +14,7 @@
 #if (TLE94112_LOGGER_ENABLED == 1)
 
 #include <stdio.h>
+#include <string.h>
 #include "tle94112-logger.hpp"
 
 using namespace tle94112;
