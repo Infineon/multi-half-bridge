@@ -15,7 +15,7 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #include <bcm2835.h>
-#include "../../../pal/timer.hpp"
+#include "timer.hpp"
 
 using namespace tle94112;
 

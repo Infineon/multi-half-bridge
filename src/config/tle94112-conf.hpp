@@ -26,7 +26,7 @@
  */
 
 #ifndef TLE94112_LOGGER_ENABLED
-#define TLE94112_LOGGER_ENABLED      1           /**< (1) Enabled, (0) Disabled */
+#define TLE94112_LOGGER_ENABLED      0           /**< (1) Enabled, (0) Disabled */
 #endif
 
 /**

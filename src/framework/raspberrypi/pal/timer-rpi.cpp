@@ -7,11 +7,9 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "../../../config/tle94112-conf.hpp"
+#include "timer-rpi.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
-
-#include "timer-rpi.hpp"
 
 using namespace tle94112;
 

@@ -15,6 +15,7 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #include "logger.hpp"
+#include "tle94112-logger.hpp"
 
 #if (TLE94112_LOGGER_ENABLED == 1)
 
