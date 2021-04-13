@@ -48,7 +48,7 @@ GPIOPsoc6hal::~GPIOPsoc6hal()
  * @retval  OK if success
  * @retval  ERROR if initialization error
  */
-inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::init()
+inline Error_t GPIOPsoc6hal::init()
 {
 	Error_t err = OK;
 
@@ -65,7 +65,7 @@ inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::init()
  * @retval  OK if success
  * @retval  ERROR if deinitialization error
  */
-inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::deinit()
+inline Error_t GPIOPsoc6hal::deinit()
 {
 	cyhal_gpio_free(this->pin);
 
@@ -90,7 +90,7 @@ inline GPIOPsoc6hal::VLevel_t GPIOPsoc6hal::read()
  * @retval      OK if success
  * @retval      ERROR if error
  */
-inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::write(VLevel_t level)
+inline Error_t GPIOPsoc6hal::write(VLevel_t level)
 {
 	cyhal_gpio_write(this->pin, level);
 
@@ -105,7 +105,7 @@ inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::write(VLevel_t level)
  * @retval      OK if success
  * @retval      ERROR if error
  */
-inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::enable()
+inline Error_t GPIOPsoc6hal::enable()
 {
 	if(this->logic == POSITIVE)
 	{
@@ -126,7 +126,7 @@ inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::enable()
  * @retval      OK if success
  * @retval      ERROR if error
  */
-inline GPIOPsoc6hal::Error_t GPIOPsoc6hal::disable()
+inline Error_t GPIOPsoc6hal::disable()
 {
 	if(this->logic == POSITIVE)
 	{

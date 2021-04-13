@@ -48,9 +48,9 @@ SPICPsoc6hal::~SPICPsoc6hal()
  * This function is initializing the chosen spi channel
  * with the given values for lsb,clock and mode
  *
- * @return      SPICPsoc6hal::Error_t
+ * @return Error_t
  */
-SPICPsoc6hal::Error_t SPICPsoc6hal::init()
+Error_t SPICPsoc6hal::init()
 {
 	Error_t err = OK;
 
@@ -72,9 +72,9 @@ SPICPsoc6hal::Error_t SPICPsoc6hal::init()
  *
  * This function is deinitializing the chosen spi channel.
  *
- * @return      SPICPsoc6hal::Error_t
+ * @return Error_t
  */
-SPICPsoc6hal::Error_t SPICPsoc6hal::deinit()
+Error_t SPICPsoc6hal::deinit()
 {
 	cyhal_spi_free( &this->spi );
 	return OK;
@@ -87,9 +87,9 @@ SPICPsoc6hal::Error_t SPICPsoc6hal::deinit()
  *
  * @param send         address and/or command to send
  * @param received     received data from spi bus
- * @return             SPICPsoc6hal::Error_t
+ * @return             Error_t
  */
-SPICPsoc6hal::Error_t SPICPsoc6hal::transfer(uint8_t send, uint8_t &received)
+Error_t SPICPsoc6hal::transfer(uint8_t send, uint8_t &received)
 {
 	Error_t err = OK;
 
@@ -108,9 +108,9 @@ SPICPsoc6hal::Error_t SPICPsoc6hal::transfer(uint8_t send, uint8_t &received)
  *
  * @param send         address and/or command to send as 16bit
  * @param received     received data from spi bus as 16bit
- * @return             SPICPsoc6hal::Error_t
+ * @return             Error_t
  */
-SPICPsoc6hal::Error_t SPICPsoc6hal::transfer16(uint16_t send, uint16_t &received)
+Error_t SPICPsoc6hal::transfer16(uint16_t send, uint16_t &received)
 {
 	Error_t err = OK;
 

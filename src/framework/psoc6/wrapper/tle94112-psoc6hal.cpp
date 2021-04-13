@@ -12,6 +12,7 @@
 #include "tle94112-psoc6hal.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
+
 #include "spic-psoc6hal.hpp"
 #include "gpio-psoc6hal.hpp"
 #include "timer-psoc6hal.hpp"

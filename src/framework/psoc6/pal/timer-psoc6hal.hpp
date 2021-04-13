@@ -18,6 +18,8 @@
 #include "cyhal_timer.h"
 #include "../../../pal/timer.hpp"
 
+using namespace tle94112;
+
 /**
  * @addtogroup psoc6Pal
  * @{

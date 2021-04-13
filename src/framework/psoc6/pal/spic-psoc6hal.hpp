@@ -18,6 +18,8 @@
 #include "cyhal.h"
 #include "../../../pal/spic.hpp"
 
+using namespace tle94112;
+
 /**
  * @addtogroup psoc6Pal
  * @{

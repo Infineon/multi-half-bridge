@@ -35,15 +35,15 @@ TimerPsoc6hal::~TimerPsoc6hal()
  * This function is initializing the Timer and sets
  * the elapsed time to zero.
  *
- * @return      TimerPsoc6hal::Error_t
+ * @return      Error_t
  */
-TimerPsoc6hal::Error_t TimerPsoc6hal::init()
+Error_t TimerPsoc6hal::init()
 {
 	Error_t err = OK;
 
 	cy_rslt_t cyErr = cyhal_timer_init(&timerHandle, NC, NULL);
 	if(CY_RSLT_SUCCESS != cyErr)
-		err = ERROR;
+		err = INTF_ERROR;
 
 	return err;
 }
@@ -54,9 +54,9 @@ TimerPsoc6hal::Error_t TimerPsoc6hal::init()
  * This function deinitialize the Timer and also
  * resets the elapsed time variable.
  *
- * @return      TimerPsoc6hal::Error_t
+ * @return      Error_t
  */
-TimerPsoc6hal::Error_t TimerPsoc6hal::deinit()
+Error_t TimerPsoc6hal::deinit()
 {
 	cyhal_timer_free(&timerHandle);
 	return OK;
@@ -67,9 +67,9 @@ TimerPsoc6hal::Error_t TimerPsoc6hal::deinit()
  *
  * This function is starting the timer.
  *
- * @return      TimerPsoc6hal::Error_t
+ * @return      Error_t
  */
-TimerPsoc6hal::Error_t TimerPsoc6hal::start()
+Error_t TimerPsoc6hal::start()
 {
 	Error_t err = OK;
 
@@ -85,20 +85,20 @@ TimerPsoc6hal::Error_t TimerPsoc6hal::start()
 		cy_rslt_t cyErr = cyhal_timer_configure(&timerHandle, &timerConf);
 		if(CY_RSLT_SUCCESS != cyErr)
 		{
-			err = ERROR;
+			err = INTF_ERROR;
 			break;
 		}
 
 		cyErr = cyhal_timer_set_frequency(&timerHandle, 1000000);
 		if(CY_RSLT_SUCCESS != cyErr)
 		{
-			err = ERROR;
+			err = INTF_ERROR;
 			break;
 		}
 
 		cyErr = cyhal_timer_start(&timerHandle);
 		if(CY_RSLT_SUCCESS != cyErr)
-			err = ERROR;
+			err = INTF_ERROR;
 
 	} while (0);
 
@@ -113,9 +113,9 @@ TimerPsoc6hal::Error_t TimerPsoc6hal::start()
  * is in milliseconds.
  *
  * @param[in]   &elapsed                Address of a value where the elapsed time should be stored
- * @return      TimerPsoc6hal::Error_t
+ * @return      Error_t
  */
-TimerPsoc6hal::Error_t TimerPsoc6hal::elapsed(uint32_t &elapsed)
+Error_t TimerPsoc6hal::elapsed(uint32_t &elapsed)
 {
 	elapsed = (uint32_t)(cyhal_timer_read(&timerHandle)/1000);
 	return OK;
@@ -127,15 +127,15 @@ TimerPsoc6hal::Error_t TimerPsoc6hal::elapsed(uint32_t &elapsed)
  * This function stops the timer and resets the
  * start time variable.
  *
- * @return      TimerPsoc6hal::Error_t
+ * @return      Error_t
  */
-TimerPsoc6hal::Error_t TimerPsoc6hal::stop()
+Error_t TimerPsoc6hal::stop()
 {
 	Error_t err = OK;
 
 	cy_rslt_t cyErr = cyhal_timer_stop(&timerHandle);
 	if(CY_RSLT_SUCCESS != cyErr)
-		err = ERROR;
+		err = INTF_ERROR;
 
 	return err;
 }
@@ -147,15 +147,15 @@ TimerPsoc6hal::Error_t TimerPsoc6hal::stop()
  * The input value is given in milliseconds.
  *
  * @param[in]   timeout                 Desired timeout in ms
- * @return      TimerPsoc6hal::Error_t
+ * @return      Error_t
  */
-TimerPsoc6hal::Error_t TimerPsoc6hal::delayMilli(uint32_t timeout)
+Error_t TimerPsoc6hal::delayMilli(uint32_t timeout)
 {
 	Error_t err = OK;
 
 	cy_rslt_t cyErr = cyhal_system_delay_ms(timeout);
 	if(CY_RSLT_SUCCESS != cyErr)
-		err = ERROR;
+		err = INTF_ERROR;
 
 	return err;
 	return OK;
@@ -168,15 +168,15 @@ TimerPsoc6hal::Error_t TimerPsoc6hal::delayMilli(uint32_t timeout)
  * The input value is given in microseconds.
  *
  * @param[in]   timeout                 Desired timeout in us
- * @return      TimerPsoc6hal::Error_t
+ * @return      Error_t
  */
-TimerPsoc6hal::Error_t TimerPsoc6hal::delayMicro(uint32_t timeout)
+Error_t TimerPsoc6hal::delayMicro(uint32_t timeout)
 {
 	Error_t err = OK;
 
 	cy_rslt_t cyErr = cyhal_system_delay_ms(timeout*1000);
 	if(CY_RSLT_SUCCESS != cyErr)
-		err = ERROR;
+		err = INTF_ERROR;
 
 	return err;
 }

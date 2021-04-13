@@ -15,7 +15,6 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
 
-
 /**
  * @addtogroup platfPsoc6
  * @{

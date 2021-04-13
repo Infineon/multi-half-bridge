@@ -20,6 +20,8 @@
 #include "cyhal_gpio.h"
 #include "../../../pal/gpio.hpp"
 
+using namespace tle94112;
+
 /**
  * @addtogroup psoc6Pal
  * @{
