@@ -18,6 +18,8 @@
 #include "../../../pal/gpio.hpp"
 #include <wiced_platform.h>
 
+using namespace tle94112;
+
 /**
  * @addtogroup wicedPal
  * @{

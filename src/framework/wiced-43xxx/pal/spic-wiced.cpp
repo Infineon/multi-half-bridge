@@ -101,9 +101,9 @@ SPICWiced::~SPICWiced()
  * This function is initializing the chosen spi channel
  * with the given values for lsb,clock and mode
  *
- * @return      SPICWiced::Error_t
+ * @return      Error_t
  */
-SPICWiced::Error_t SPICWiced::init()
+Error_t SPICWiced::init()
 {
 	this->segment.tx_buffer = sendBuffer;
 	this->segment.rx_buffer = receiveBuffer;
@@ -118,9 +118,9 @@ SPICWiced::Error_t SPICWiced::init()
  *
  * This function is deinitializing the chosen spi channel.
  *
- * @return      SPICWiced::Error_t
+ * @return      Error_t
  */
-SPICWiced::Error_t SPICWiced::deinit()
+Error_t SPICWiced::deinit()
 {
 	wiced_spi_deinit( &this->spi );
 	return OK;
@@ -131,9 +131,9 @@ SPICWiced::Error_t SPICWiced::deinit()
  *
  * @param send         address and/or command to send
  * @param received     received data from spi bus
- * @return             SPICWiced::Error_t
+ * @return             Error_t
  */
-SPICWiced::Error_t SPICWiced::transfer(uint8_t send, uint8_t &received)
+Error_t SPICWiced::transfer(uint8_t send, uint8_t &received)
 {
 	sendBuffer[0] = send;
 	receiveBuffer[0] = received;
@@ -146,9 +146,9 @@ SPICWiced::Error_t SPICWiced::transfer(uint8_t send, uint8_t &received)
  *
  * @param send         address and/or command to send as 16bit
  * @param received     received data from spi bus as 16bit
- * @return             SPICWiced::Error_t
+ * @return             Error_t
  */
-SPICWiced::Error_t SPICWiced::transfer16(uint16_t send, uint16_t &received)
+Error_t SPICWiced::transfer16(uint16_t send, uint16_t &received)
 {
 	sendBuffer[0] = (uint8_t)((send >> 8) & 0xFF);
 	sendBuffer[1] = (uint8_t)(send & 0xFF);

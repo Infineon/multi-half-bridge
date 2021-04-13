@@ -18,6 +18,8 @@
 #include "wiced_time.h"
 #include "wiced_rtos.h"
 
+using namespace tle94112;
+
 /**
  * @addtogroup wicedPal
  * @{
