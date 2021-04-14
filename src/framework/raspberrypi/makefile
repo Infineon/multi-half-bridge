@@ -1,4 +1,5 @@
-CXXFLAGS = -DTLE94112_FRAMEWORK=TLE94112_FRMWK_RPI
+CXXFLAGS = -DTLE94112_FRAMEWORK=TLE94112_FRMWK_RPI -DTLE94112_LOGGER_ENABLED=0 
+LIBINCLUDES = -Iwrapper -I../../corelib -Ipal -I../../pal -I../../config
 BUILDPATH = ../../../build
 INCPATH = /usr/local/include
 LIBPATH = /usr/local/lib
@@ -12,19 +13,21 @@ default: examples/basicTest
 
 corelib:
 	mkdir -p $(BUILDPATH)
-	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/tle94112.o ../../corelib/tle94112.cpp
-	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/tle94112-motor.o ../../corelib/tle94112-motor.cpp
+	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/tle94112.o ../../corelib/tle94112.cpp $(LIBINCLUDES)
+	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/tle94112-motor.o ../../corelib/tle94112-motor.cpp $(LIBINCLUDES)
+	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/tle94112-logger.o ../../corelib/tle94112-logger.cpp $(LIBINCLUDES)
 
 pal: corelib
-	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/gpio-rpi.o pal/gpio-rpi.cpp
-	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/spic-rpi.o pal/spic-rpi.cpp
-	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/timer-rpi.o pal/timer-rpi.cpp
+	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/gpio-rpi.o pal/gpio-rpi.cpp $(LIBINCLUDES)
+	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/logger-rpi.o pal/logger-rpi.cpp $(LIBINCLUDES)
+	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/spic-rpi.o pal/spic-rpi.cpp $(LIBINCLUDES)
+	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/timer-rpi.o pal/timer-rpi.cpp $(LIBINCLUDES)
 
 wrapper: pal
-	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/tle94112-rpi.o wrapper/tle94112-rpi.cpp
+	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/tle94112-rpi.o wrapper/tle94112-rpi.cpp $(LIBINCLUDES)
 
 examples/$(EXAMPLES): wrapper
-	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/$(@F).o examples/$(@F).cpp -Iwrapper/ -I../../corelib -Ipal
+	g++ -c $(CXXFLAGS) -o $(BUILDPATH)/$(@F).o examples/$(@F).cpp -Iwrapper $(LIBINCLUDES)
 ifeq ($(PCAP), 0)
 	g++ $(CXXFLAGS) -o $(BUILDPATH)/$(@F) $(BUILDPATH)/*.o -I$(INCPATH) -L$(LIBPATH) -lbcm2835
 else

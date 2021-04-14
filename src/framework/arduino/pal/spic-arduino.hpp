@@ -19,6 +19,8 @@
 #include <Arduino.h>
 #include "SPI.h"
 
+using namespace tle94112;
+
 /**
  * @addtogroup arduinoPal
  * @{

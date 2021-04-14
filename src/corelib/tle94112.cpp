@@ -12,6 +12,7 @@
  */
 
 #include "tle94112.hpp"
+#include "tle94112-logger.hpp"
 
 using namespace tle94112;
 
@@ -43,6 +44,9 @@ void Tle94112::begin(void)
 {	
 	mEnabled = false;
 
+    TLE94112_LOG_INIT();
+    TLE94112_LOG_MSG(__FUNCTION__);
+
 	if (nullptr != sBus)
 	{	
 		Tle94112::sBus->init();	
@@ -72,7 +76,9 @@ void Tle94112::begin(void)
 void Tle94112::end(void)
 {
 	mEnabled = false;
-	
+
+    TLE94112_LOG_MSG(__FUNCTION__);
+
 	if (nullptr != en)
 	{
 		Tle94112::en->disable();
@@ -91,7 +97,9 @@ void Tle94112::end(void)
 	if(nullptr != sBus)
 	{
 		Tle94112::sBus->deinit();
-	}	
+	}
+
+    TLE94112_LOG_DEINIT();	
 }
 
 void Tle94112::configHB(HalfBridge hb, HBState state, PWMChannel pwm)
@@ -106,6 +114,9 @@ void Tle94112::configHB(HalfBridge hb, HBState state, PWMChannel pwm, uint8_t ac
 
 void Tle94112::_configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeFW)
 {
+
+    TLE94112_LOG_MSG(__FUNCTION__);
+
 	uint8_t reg = mHalfBridges[hb].stateReg;
 	uint8_t mask = mHalfBridges[hb].stateMask;
 	uint8_t shift = mHalfBridges[hb].stateShift;
@@ -129,6 +140,9 @@ void Tle94112::configPWM(PWMChannel pwm, PWMFreq freq, uint8_t dutyCycle)
 
 void Tle94112::_configPWM(uint8_t pwm, uint8_t freq, uint8_t dutyCycle)
 {
+
+    TLE94112_LOG_MSG(__FUNCTION__);
+
 	uint8_t reg = mPwmChannels[pwm].freqReg;
 	uint8_t mask = mPwmChannels[pwm].freqMask;
 	uint8_t shift = mPwmChannels[pwm].freqShift;
@@ -157,6 +171,8 @@ uint8_t Tle94112::setLedMode(HalfBridge hb, uint8_t active)
 
 uint8_t Tle94112::getSysDiagnosis()
 {
+	TLE94112_LOG_MSG(__FUNCTION__);
+
 	uint8_t ret = readStatusReg(SYS_DIAG1);
 	return ret^TLE94112_STATUS_INV_MASK;
 }
@@ -168,6 +184,8 @@ uint8_t Tle94112::getSysDiagnosis(DiagFlag mask)
 
 uint8_t Tle94112::getSysDiagnosis(uint8_t mask)
 {
+    TLE94112_LOG_MSG(__FUNCTION__);
+
 	uint8_t ret = readStatusReg(SYS_DIAG1, mask, 0);
 	return ret^(TLE94112_STATUS_INV_MASK&mask);
 }
@@ -179,6 +197,8 @@ uint8_t Tle94112::getHBOverCurrent(HalfBridge hb)
 
 uint8_t Tle94112::_getHBOverCurrent(uint8_t hb)
 {
+    TLE94112_LOG_MSG(__FUNCTION__);
+
 	uint8_t reg = mHalfBridges[hb].ocReg;
 	uint8_t mask = mHalfBridges[hb].ocMask;
 	uint8_t shift = mHalfBridges[hb].ocShift;
@@ -192,6 +212,8 @@ uint8_t Tle94112::getHBOpenLoad(HalfBridge hb)
 
 uint8_t Tle94112::_getHBOpenLoad(uint8_t hb)
 {
+	TLE94112_LOG_MSG(__FUNCTION__);
+
 	uint8_t reg = mHalfBridges[hb].olReg;
 	uint8_t mask = mHalfBridges[hb].olMask;
 	uint8_t shift = mHalfBridges[hb].olShift;
@@ -200,6 +222,8 @@ uint8_t Tle94112::_getHBOpenLoad(uint8_t hb)
 
 void Tle94112::clearErrors()
 {
+    TLE94112_LOG_MSG(__FUNCTION__);
+
 	clearStatusReg(SYS_DIAG1);
 	clearStatusReg(OP_ERROR_1_STAT);
 	clearStatusReg(OP_ERROR_2_STAT);
@@ -211,6 +235,8 @@ void Tle94112::clearErrors()
 
 void Tle94112::init(void)
 {
+    TLE94112_LOG_MSG(__FUNCTION__);
+
 	//!< initial control register configuration
 	mCtrlRegAddresses[static_cast<int>(Tle94112::HB_ACT_1_CTRL)] = 0x03;
 	mCtrlRegData[HB_ACT_1_CTRL]         = 0;
@@ -285,6 +311,8 @@ void Tle94112::writeReg(uint8_t reg, uint8_t mask, uint8_t shift, uint8_t data)
 	uint8_t byte0;
 	uint8_t byte1;
 
+    TLE94112_LOG_MSG(__FUNCTION__);
+
 	toWrite |= (data << shift) & mask;
 	mCtrlRegData[reg] = toWrite;
 
@@ -308,6 +336,8 @@ uint8_t Tle94112::readStatusReg(uint8_t reg, uint8_t mask, uint8_t shift)
 	uint8_t byte0;
 	uint8_t received;
 
+    TLE94112_LOG_MSG(__FUNCTION__);
+
 	cs->disable();
 	sBus->transfer(address,byte0);
 	sBus->transfer(0xFF,received);
@@ -324,6 +354,8 @@ void Tle94112::clearStatusReg(uint8_t reg)
 	uint8_t address = mStatusRegAddresses[reg];
 	uint8_t byte0;
 	uint8_t byte1;
+
+    TLE94112_LOG_MSG(__FUNCTION__);
 
 	address = address | TLE94112_CMD_CLEAR;
 	cs->disable();

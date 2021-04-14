@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.4...3.18)
 
 project(multi_half_bridge_py)
 
-set(CMAKE_CXX_FLAGS "-DTLE94112_FRAMEWORK=TLE94112_FRMWK_RPI ")
+set(CMAKE_CXX_FLAGS "-DTLE94112_FRAMEWORK=TLE94112_FRMWK_RPI")
 
 set(Headers
     pal/
@@ -11,6 +11,7 @@ set(Headers
 
 set(Sources
     pal/gpio-rpi.cpp
+    pal/logger-rpi.cpp
     pal/spic-rpi.cpp
     pal/timer-rpi.cpp
     wrapper/tle94112-rpi.cpp

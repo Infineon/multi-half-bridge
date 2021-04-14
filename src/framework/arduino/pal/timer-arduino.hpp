@@ -16,6 +16,8 @@
 
 #include "../../../pal/timer.hpp"
 
+using namespace tle94112;
+
 /**
  * @addtogroup arduinoPal
  * @{

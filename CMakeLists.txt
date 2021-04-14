@@ -25,6 +25,7 @@ set(Headers
     )
 
 set(Sources
+    src/corelib/tle94112-logger.cpp
     src/corelib/tle94112.cpp
     src/corelib/tle94112-motor.cpp
     src/pal/gpio.cpp
@@ -43,7 +44,7 @@ endif()
 # If the googletest library is in the project folder
 if (EXISTS ${CMAKE_SOURCE_DIR}/googletest)
     # Coverage Flags
-    set(CMAKE_CXX_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage -DMHB_ENABLED=0 -Wswitch")
+    set(CMAKE_CXX_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage -DMHB_ENABLED=0 -DTLE94112_LOGGER_ENABLED=0 -Wswitch")
     set(CMAKE_C_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage")
 
     # Enable Testing with CTest

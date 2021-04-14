@@ -15,7 +15,7 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
-#include "../../../corelib/tle94112.hpp"
+#include "gpio.hpp"
 #include <bcm2835.h>
 
 using namespace tle94112;

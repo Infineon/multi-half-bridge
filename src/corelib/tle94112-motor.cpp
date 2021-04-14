@@ -15,6 +15,7 @@
  */
 
 #include "tle94112-motor.hpp"
+#include "tle94112-logger.hpp"
 
 #ifndef SIGNUM
 #define SIGNUM(x) ( (x > 0) - (x < 0) )
@@ -35,12 +36,16 @@ Tle94112Motor::~Tle94112Motor()
 
 void Tle94112Motor::begin(void)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	mEnabled = true;
 	coast();
 }
 
 void Tle94112Motor::end(void)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	coast();
 	mEnabled = false;
 }
@@ -63,6 +68,8 @@ void Tle94112Motor::initConnector(Tle94112Motor::ePolarity pol,
 		Tle94112::HalfBridge out3,
 		Tle94112::HalfBridge out4)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	Tle94112::HalfBridge outputs[TLE94112MOTOR_MAX_CONNECTORS] = {out1, out2, out3, out4};
 	if(mEnabled == false)
 	{
@@ -79,6 +86,8 @@ void Tle94112Motor::initConnector(Tle94112Motor::ePolarity pol,
 
 void Tle94112Motor::connect(Tle94112Motor::ePolarity pol, Tle94112::HalfBridge connector)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	if(mEnabled == false)
 	{
 		for(uint8_t idx = 0u; idx < TLE94112MOTOR_MAX_CONNECTORS; idx++)
@@ -94,6 +103,8 @@ void Tle94112Motor::connect(Tle94112Motor::ePolarity pol, Tle94112::HalfBridge c
 
 void Tle94112Motor::disconnect(Tle94112::HalfBridge connector)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	if(mEnabled == false)
 	{
 		for(uint8_t pol = 0u; pol<2u; pol++)
@@ -111,6 +122,8 @@ void Tle94112Motor::disconnect(Tle94112::HalfBridge connector)
 
 void Tle94112Motor::setPwm(Tle94112Motor::ePolarity pol, Tle94112::PWMChannel channel)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	if(mEnabled == false)
 	{
 		mConnectors[pol].channel = channel;
@@ -119,6 +132,8 @@ void Tle94112Motor::setPwm(Tle94112Motor::ePolarity pol, Tle94112::PWMChannel ch
 
 void Tle94112Motor::setPwm(Tle94112Motor::ePolarity pol, Tle94112::PWMChannel channel, Tle94112::PWMFreq freq)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	if(mEnabled == false)
 	{
 		mConnectors[pol].channel = channel;
@@ -128,6 +143,8 @@ void Tle94112Motor::setPwm(Tle94112Motor::ePolarity pol, Tle94112::PWMChannel ch
 
 void Tle94112Motor::setPwmFreq(Tle94112Motor::ePolarity pol, Tle94112::PWMFreq freq)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	if(mEnabled == false)
 	{
 		mConnectors[pol].freq = freq;
@@ -136,6 +153,8 @@ void Tle94112Motor::setPwmFreq(Tle94112Motor::ePolarity pol, Tle94112::PWMFreq f
 
 void Tle94112Motor::setActiveFreeWheeling(Tle94112Motor::ePolarity pol, uint8_t active_fw)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	if(mEnabled == false)
 	{
 		mConnectors[pol].active_fw = active_fw;
@@ -144,6 +163,8 @@ void Tle94112Motor::setActiveFreeWheeling(Tle94112Motor::ePolarity pol, uint8_t 
 
 void Tle94112Motor::coast()
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	if(mEnabled == true)
 	{
 		mMode = COAST;
@@ -164,6 +185,8 @@ void Tle94112Motor::coast()
 
 void Tle94112Motor::stop(uint8_t force)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	uint8_t numHighside = 0u;
 	if(mEnabled == true)
 	{
@@ -215,11 +238,15 @@ void Tle94112Motor::stop(uint8_t force)
 
 void Tle94112Motor::start(int16_t speed)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	setSpeed(speed);
 }
 
 void Tle94112Motor::setSpeed(int16_t speed)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	if(mEnabled == true)
 	{
 		if(speed == 0)
@@ -283,6 +310,8 @@ void Tle94112Motor::setSpeed(int16_t speed)
 
 int16_t Tle94112Motor::getSpeed(void)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	int16_t ret=0;
 	if(mMode == FORWARD)
 	{
@@ -297,6 +326,8 @@ int16_t Tle94112Motor::getSpeed(void)
 
 void Tle94112Motor::rampSpeed(int16_t speed, uint16_t slope)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	int16_t start_speed = getSpeed();
 	if (mEnabled == true && speed != start_speed)
 	{
@@ -323,6 +354,8 @@ void Tle94112Motor::rampSpeed(int16_t speed, uint16_t slope)
 
 uint32_t Tle94112Motor::_measureSetSpeedDuration(int16_t speed, int16_t start_speed)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+
 	if(start_speed == 0)
 	{
 		// changing direction is additional effort
@@ -339,6 +372,8 @@ uint32_t Tle94112Motor::_measureSetSpeedDuration(int16_t speed, int16_t start_sp
 
 void Tle94112Motor::_performSpeedStepping(int16_t start_speed, int16_t ramp_delta_speed, int16_t num_steps, uint16_t steptime)
 {
+	TLE94112_MOTOR_LOG_MSG(__FUNCTION__);
+	
 	uint32_t elapsed = 0; //!> none blocking delay
 	mDriver->timer->start();
 
