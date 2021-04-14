@@ -3,7 +3,7 @@
  * \name        tle94112.cpp - Arduino library to control Infineon's DC Motor Control Shield with Tle94112
  * \author      Infineon Technologies AG
  * \copyright   2019-2020 Infineon Technologies AG
- * \version     2.0.0
+ * \version     2.1.0
  * \brief       This file has to be included in projects that use Infineon's DC Motor Control Shield with TLE94112
  * \ref         tle94112corelib
  *

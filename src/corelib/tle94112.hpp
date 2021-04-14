@@ -3,7 +3,7 @@
  * \name        tle94112.hpp - basic register API
  * \author      Infineon Technologies AG
  * \copyright   2019-2020 Infineon Technologies AG
- * \version     2.0.0
+ * \version     2.1.0
  * \brief       This library includes the basic common functions to controll the TLE94112 registers
  * \ref         tle94112corelib
  *
@@ -169,7 +169,7 @@ class Tle94112
 		 */
 		void configPWM(PWMChannel pwm, PWMFreq freq, uint8_t dutyCycle);
 
-		/*! \brief sets LED mode on compatible half bridges
+		/*! \brief sets LED mode on compatible half bridges (half bridge 1 or 2 of TLE94112)
 		 *
 		 * \param hb		compatible half bridge to set LED mode
 		 * \param active	LED mode active (1) or inactive (0)
