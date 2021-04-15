@@ -3,7 +3,6 @@
  * \name        halfBridge
  * \author      Infineon Technologies AG
  * \copyright   2021 Infineon Technologies AG
- * \version     1.0.0
  * \brief       This example shows how to control the independent half bridges of the multi half bridge ICs.
  * \details
  * The example shows how to control the half bridges to switch generic loads.

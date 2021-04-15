@@ -3,7 +3,6 @@
  * \name        ledMode
  * \author      Infineon Technologies AG
  * \copyright   2021 Infineon Technologies AG
- * \version     1.0.0
  * \brief       This example shows how to use LED mode on output 1 of the TLE94112ES.
  * \details
  * Outputs OUT1 and OUT2 are designed to optionally drive low current loads such as LEDs. The high-side

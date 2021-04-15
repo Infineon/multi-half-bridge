@@ -2,7 +2,6 @@
  * \name        multipleMotors
  * \author      Infineon Technologies AG
  * \copyright   2021 Infineon Technologies AG
- * \version     2.1.0
  * \brief       This example demonstrates how to control two motors, their speed and direction with the TLE94112.
  *
  * \details

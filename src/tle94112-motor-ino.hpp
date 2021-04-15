@@ -2,8 +2,7 @@
  * \file        tle94112-motor-ino.hpp
  * \name        TLE94112Motor-ino.hpp - optionally include library
  * \author      Infineon Technologies AG
- * \copyright   2020 Infineon Technologies AG
- * \version     2.0.0
+ * \copyright   2021 Infineon Technologies AG
  * \ref         tle94112ino
  * \brief       This file can optionally be included in projects that use an Infineon
  *              DC Motor Control Shield with TLE94112

@@ -2,8 +2,7 @@
  * \file        tle94112-motor.hpp
  * \name        tle94112-motor.hpp - optionally include motor API
  * \author      Infineon Technologies AG
- * \copyright   2019-2020 Infineon Technologies AG
- * \version     2.0.0
+ * \copyright   2019-2021 Infineon Technologies AG
  * \ref         tle94112corelib
  * \brief       This file can optionally be included in projects that use Infineon
  *              DC Motor Control Shield with TLE94112

@@ -1,9 +1,8 @@
 /**
  * @file        tle94112-psoc6hal.hpp
  * @brief       tle94112-psoc6hal.hpp Cypress PSOC6 Hardware wrapper
- * @date        Mai 2020
- * @version     2.0.1
- * @copyright   Copyright (c) 2021 Infineon Technologies AG
+ * @date        April 2021
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
  * @ref         tle94112psoc6hal
  *
  * SPDX-License-Identifier: MIT

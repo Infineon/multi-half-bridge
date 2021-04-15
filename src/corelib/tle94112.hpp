@@ -2,8 +2,7 @@
  * \file        tle94112.hpp
  * \name        tle94112.hpp - basic register API
  * \author      Infineon Technologies AG
- * \copyright   2019-2020 Infineon Technologies AG
- * \version     2.1.0
+ * \copyright   2019-2021 Infineon Technologies AG
  * \brief       This library includes the basic common functions to controll the TLE94112 registers
  * \ref         tle94112corelib
  *

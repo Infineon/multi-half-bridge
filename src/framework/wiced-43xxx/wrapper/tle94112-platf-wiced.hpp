@@ -2,7 +2,6 @@
  * @file        tle94112-platf-wiced.hpp
  * @brief       TLE94112-platf-wiced.hpp Cypress WICED-43xxx Hardware Platforms
  * @date        Mai 2020
- * @version     2.0.0
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  * @ref         tle94112wiced
  * 

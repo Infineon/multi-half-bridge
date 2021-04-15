@@ -1,8 +1,7 @@
 /**
  * @file        tle94112-ino.hpp
  * @brief       TLE94112 Arduino API
- * @date        Mai 2020
- * @version     2.0.0
+ * @date        April 2021
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT

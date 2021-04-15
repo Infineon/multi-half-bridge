@@ -2,7 +2,6 @@
 # name        advancedTest
 # author      Infineon Technologies AG
 # copyright   2021 Infineon Technologies AG
-# version     1.0.0
 # brief       This example runs an advanced controller test with one attached motor on the TLE94112ES HAT for Raspberry Pi.
 # details
     This example is meant for one bidirectional motor, connected to

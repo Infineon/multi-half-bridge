@@ -3,7 +3,6 @@
  * \name        TLE94112 Cypress WICED-43xxx API
  * \author      Infineon Technologies AG
  * \copyright   2019 Infineon Technologies AG
- * \version     2.0.0
  * \ref         tle94112wiced
  *
  * SPDX-License-Identifier: MIT
