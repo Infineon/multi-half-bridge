@@ -2,7 +2,6 @@
  #  name        control2Motors
  #  author      Infineon Technologies AG
  #  copyright   2020 Infineon Technologies AG
- #  version     2.0.0
  #  brief       This example demonstrates how to control two motors, their speed and direction with the TLE94112 shield.
  #  details
 	By attaching a Tle94112 controller object to two Tle94112Motor objects, we can generate

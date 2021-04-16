@@ -1,7 +1,6 @@
 /**
  * @file        spic-arduino.hpp
- * @brief       Arduino PAL for the SPI cover
- * @date        June 2020
+ * @brief       TLE94112 SPI Arduino PAL
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT

@@ -1,10 +1,7 @@
 /**
  * @file        tle94112-psoc6hal.hpp
- * @brief       tle94112-psoc6hal.hpp Cypress PSOC6 Hardware wrapper
- * @date        Mai 2020
- * @version     2.0.1
- * @copyright   Copyright (c) 2021 Infineon Technologies AG
- * @ref         tle94112psoc6hal
+ * @brief       TLE94112 PSoC6 HAL API
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
  */
@@ -23,7 +20,7 @@
 #include "timer-psoc6hal.hpp"
 
 /**
- * @addtogroup psoc6Pal
+ * @addtogroup psoc6Api
  * @{
  */
 class Tle94112Psoc6hal: virtual public Tle94112

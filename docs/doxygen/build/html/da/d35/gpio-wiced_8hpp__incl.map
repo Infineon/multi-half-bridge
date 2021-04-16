@@ -1,6 +1,0 @@
-<map id="gpio&#45;wiced.hpp" name="gpio&#45;wiced.hpp">
-<area shape="rect" id="node1" title="WICED PAL for the GPIO." alt="" coords="115,5,224,32"/>
-<area shape="rect" id="node2" href="$de/dfc/tle94112-conf_8hpp.html" title="TLE94112 Library Configuration." alt="" coords="96,80,243,121"/>
-<area shape="rect" id="node3" href="$d8/d9c/tle94112-conf-opts_8hpp.html" title="TLE94112 Library Configuration Options." alt="" coords="5,169,160,196"/>
-<area shape="rect" id="node4" href="$d7/d7a/tle94112-conf-dfl_8hpp.html" title="TLE94112 Default Library Configuration." alt="" coords="185,169,327,196"/>
-</map>

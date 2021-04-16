@@ -3,7 +3,6 @@
  * \name        basicTest
  * \author      Infineon Technologies AG
  * \copyright   2021 Infineon Technologies AG
- * \version     3.0.0
  * \brief       This example shows how to switch two half bridge outputs with minimal code.
  * \details
  * It will switch on two outputs (one to Vsup and one to GND), wait 3 seconds

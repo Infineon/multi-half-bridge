@@ -1,7 +1,6 @@
 /**
  * @file        timer-rpi.hpp
- * @brief       Raspberry Pi Timer PAL
- * @date        September 2020
+ * @brief       TLE94112 Timer Raspberry Pi PAL
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT

@@ -1,7 +1,6 @@
 /**
  * @file        timer-wiced.hpp
- * @brief       WICED Timer PAL
- * @date        May 2020
+ * @brief       TLE94112 Timer WICED PAL
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT

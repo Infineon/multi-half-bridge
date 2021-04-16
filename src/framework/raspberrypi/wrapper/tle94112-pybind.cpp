@@ -1,3 +1,10 @@
+/**
+ * @file        tle94112-pybind.cpp
+ * @brief       TLE94112 Raspberry Pi Python Wrapper API
+ * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
+ *
+ * SPDX-License-Identifier: MIT
+ */
 
 #include "tle94112-pybind.hpp"
 

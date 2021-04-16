@@ -1,10 +1,7 @@
 /**
  * @file        tle94112-rpi.cpp
  * @brief       TLE94112 Raspberry Pi API
- * @date        September 2020
- * @version     1.0.0
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- * @ref         tle94112rpi
  *
  * SPDX-License-Identifier: MIT
  */

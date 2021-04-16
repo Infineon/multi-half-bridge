@@ -1,12 +1,10 @@
 /**
  * @file        spic-psoc6hal.hpp
- * @brief       PSOC6 PAL for the SPI cover
- * @date        Spt 2020
+ * @brief       TLE94112 SPI PSoC6 HAL PAL
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
  */
-
 
 #ifndef SPIC_PSOC6HAL_HPP_
 #define SPIC_PSOC6HAL_HPP_

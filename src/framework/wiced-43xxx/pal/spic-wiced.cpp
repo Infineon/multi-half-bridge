@@ -1,7 +1,6 @@
 /**
- * @file        spic-arduino.hpp
- * @brief       WICED PAL for the SPI cover
- * @date        June 2020
+ * @file        spic-wiced.cpp
+ * @brief       TLE94112 SPI WICED PAL
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT

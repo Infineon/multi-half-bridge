@@ -1,8 +1,7 @@
 /**
  * @file        tle94112-conf-opts.hpp
  * @brief       TLE94112 Library Configuration Options
- * @date        Mai 2020
- * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
  */

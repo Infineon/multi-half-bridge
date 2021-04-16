@@ -1,11 +1,11 @@
-/**
- * @file        spic.hpp
- * @brief       PAL of the SPI cover
- * @date        June 2020
- * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- *
+/** 
+ * @file        spic.cpp
+ * @brief       TLE94112 SPI Platform Abstraction Layer
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
+ * 
  * SPDX-License-Identifier: MIT
  */
+
 
 #ifndef SPIC_HPP_
 #define SPIC_HPP_

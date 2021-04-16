@@ -1,13 +1,9 @@
-/*!
- * \file        tle94112-wiced.cpp
- * \name        TLE94112 Cypress WICED-43xxx API
- * \author      Infineon Technologies AG
- * \copyright   2019 Infineon Technologies AG
- * \version     2.0.0
- * \ref         tle94112wiced
+/**
+ * @file        tle94112-wiced.hpp
+ * @brief       TLE94112 WICED API
+ * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
- *
  */
 
 #include "tle94112-wiced.hpp"

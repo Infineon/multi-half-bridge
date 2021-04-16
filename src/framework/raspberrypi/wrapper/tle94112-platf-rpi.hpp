@@ -1,10 +1,7 @@
 /**
  * @file        tle94112-platf-rpi.hpp
  * @brief       TLE94112 Raspberry Pi Hardware Platforms
- * @date        September 2020
- * @version     1.0.0
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- * @ref         tle94112rpi
  *
  * SPDX-License-Identifier: MIT
  */
@@ -19,7 +16,7 @@
 #include <bcm2835.h>
 
 /**
- * @addtogroup rpiPal
+ * @addtogroup platfRpi
  * @{
  *
  * @brief Raspberry Pi Hardware Platform Pins
@@ -43,6 +40,8 @@
  * Standard TLE94112 enable pin
  */
 #define TLE94112_PIN_EN      RPI_V2_GPIO_P1_37
+
+/** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PLATF_RPI_HPP_ **/

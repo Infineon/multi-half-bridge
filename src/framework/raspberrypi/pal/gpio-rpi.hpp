@@ -1,8 +1,7 @@
 /**
  * @file        gpio-rpi.hpp
- * @brief       Raspberry Pi PAL for the GPIO
- * @date        September 2020
- * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
+ * @brief       TLE94112 GPIO Raspberry Pi API
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
  */

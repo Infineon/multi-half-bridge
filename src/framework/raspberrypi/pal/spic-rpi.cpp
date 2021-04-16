@@ -1,7 +1,6 @@
 /**
  * @file        spic-rpi.cpp
- * @brief       Raspberry Pi PAL for the SPI cover
- * @date        September 2020
+ * @brief       TLE94112 SPI Raspberry Pi PAL
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT

@@ -1,17 +1,13 @@
-/*!
- * \file        tle94112-motor.hpp
- * \name        tle94112-motor.hpp - optionally include motor API
- * \author      Infineon Technologies AG
- * \copyright   2019-2020 Infineon Technologies AG
- * \version     2.0.0
- * \ref         tle94112corelib
- * \brief       This file can optionally be included in projects that use Infineon
+/** 
+ * @file        tle94112-motor.hpp
+ * @brief       TLE94112 Motor Control API
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
+ * @details		This file can optionally be included in projects that use Infineon
  *              DC Motor Control Shield with TLE94112
  *              It provides a higher abstraction for controlling motors with the TLE94112
  *              acting as an output driver
- *
+ * 
  * SPDX-License-Identifier: MIT
- *
  */
 
 #ifndef TLE94112_MOTOR_HPP_

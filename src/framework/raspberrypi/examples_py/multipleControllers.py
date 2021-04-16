@@ -2,7 +2,6 @@
 # name        multipleControllers
 # author      Infineon Technologies AG
 # copyright   2021 Infineon Technologies AG
-# version     2.1.0
 # brief       This example shows how to use multiple TLE94112 controllers simultaneously.
 # details
   For this example it is assumed, that two TLE94112 controllers are connected to one Raspberry Pi.

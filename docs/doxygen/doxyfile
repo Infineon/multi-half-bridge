@@ -1,10 +1,11 @@
 PROJECT_NAME           = "TLE94112"
-PROJECT_NUMBER         = 2.0.0
+PROJECT_NUMBER         = 3.0.0
 PROJECT_BRIEF          = "This shield provides 12 half-bridges which can drive up to 6 independent (+5 cascaded) bidirectional motors consuming up to 0.9 Ampere each"
 OUTPUT_DIRECTORY       = ./../docs/doxygen/build
 CREATE_SUBDIRS         = YES
 EXTRACT_ALL            = YES
 INPUT                  = ./../docs/doxygen  ./../src
+EXCLUDE                = ./../src/framework/raspberrypi/examples ./../src/framework/raspberrypi/examples_py ./../src/framework/wiced-43xxx/apps
 RECURSIVE              = YES
 ENABLE_PREPROCESSING   = YES
 PREDEFINED             = TLE94112_FRAMEWORK = TLE94112_FRMWK_ARDUINO TLE94112_FRMWK_WICED TLE94112_FRMWK_RPI TLE94112_FRMWK_MTB TLE94112_FRMWK_MTB TLE94112_FRMWK_PSOC6

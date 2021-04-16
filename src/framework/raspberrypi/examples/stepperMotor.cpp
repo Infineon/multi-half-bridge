@@ -3,7 +3,6 @@
  * \name        stepperMotor
  * \author      Infineon Technologies AG
  * \copyright   2021 Infineon Technologies AG
- * \version     1.0.0
  * \brief       This example shows how to control a stepper motor with the DC Motor Control HAT with TLE94112ES.
  * \details
  * The multi half bridge TLE94112ES is able to drive voltage controlled bipolar stepper motors.
