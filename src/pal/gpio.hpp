@@ -1,12 +1,10 @@
-/**
+/** 
  * @file        gpio.hpp
- * @brief       PAL of the GPIO
- * @date        May 2020
- * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- *
+ * @brief       TLE94112 GPIO Platform Abstraction Layer
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
+ * 
  * SPDX-License-Identifier: MIT
  */
-
 
 #ifndef GPIOC_HPP_
 #define GPIOC_HPP_

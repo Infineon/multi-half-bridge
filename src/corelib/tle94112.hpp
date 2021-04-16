@@ -1,13 +1,10 @@
-/*!
- * \file        tle94112.hpp
- * \name        tle94112.hpp - basic register API
- * \author      Infineon Technologies AG
- * \copyright   2019-2021 Infineon Technologies AG
- * \brief       This library includes the basic common functions to controll the TLE94112 registers
- * \ref         tle94112corelib
- *
+/** 
+ * @file        tle94112.hpp
+ * @brief       TLE94112 Core API
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
+ * @details 	This library includes the basic common functions to controll the TLE94112 registers
+ * 
  * SPDX-License-Identifier: MIT
- *
  */
 
 #ifndef TLE94112_HPP_

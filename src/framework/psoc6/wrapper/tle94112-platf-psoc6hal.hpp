@@ -1,7 +1,6 @@
 /**
  * @file        tle94112-platf-psoc6hal.hpp
- * @brief       TLE94112-platf-psoc6hal.hpp Cypress PSOC6 Hardware Platforms
- * @date        Mai 2021
+ * @brief       TLE94112 PSoC6 Hardware Platforms
  * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT

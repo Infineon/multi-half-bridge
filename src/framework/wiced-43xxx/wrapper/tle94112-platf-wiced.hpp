@@ -1,9 +1,7 @@
 /**
  * @file        tle94112-platf-wiced.hpp
- * @brief       TLE94112-platf-wiced.hpp Cypress WICED-43xxx Hardware Platforms
- * @date        Mai 2020
+ * @brief       TLE94112 WICED Hardware Platforms
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- * @ref         tle94112wiced
  * 
  * SPDX-License-Identifier: MIT
  */
@@ -38,6 +36,8 @@
  * Standard TLE94112 enable pin
  */
 #define TLE94112_PIN_EN      WICED_GPIO_36
+
+/** @} */
 
 #endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PLATF_WICED_HPP_ **/

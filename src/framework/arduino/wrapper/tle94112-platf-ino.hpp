@@ -1,8 +1,6 @@
-
 /**
  * @file        tle94112-platf-ino.hpp
  * @brief       TLE94112 Arduino Hardware Platforms
- * @date        April 2021
  * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
@@ -16,7 +14,7 @@
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
 /**
- * @addtogroup arduinoPal
+ * @addtogroup platfIno
  * @{
  */
 

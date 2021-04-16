@@ -1,11 +1,9 @@
-/*!
- * \file        tle94112-psoc6hal.cpp
- * \name        tle94112-psoc6hal.cpp - Cypress Hardware Abstraction Layer
- * \author      Infineon Technologies AG
- * \copyright   2021 Infineon Technologies AG
+/**
+ * @file        tle94112-psoc6hal.cpp
+ * @brief       TLE94112 PSoC6 HAL API
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
- *
  */
 
 #include "tle94112-psoc6hal.hpp"

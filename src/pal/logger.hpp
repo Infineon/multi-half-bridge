@@ -1,8 +1,7 @@
 /** 
  * @file        logger.hpp
  * @brief       TLE94112 Logger Platform Abstraction Layer
- * @date        April 2021
- * @copyright   Copyright (c) 2020-2021 Infineon Technologies AG
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
  * 
  * SPDX-License-Identifier: MIT
  */

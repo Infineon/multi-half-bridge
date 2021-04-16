@@ -1,7 +1,6 @@
 /**
  * @file        timer-psoc6hal.hpp
- * @brief       PSOC6 Timer PAL
- * @date        Spt 2020
+ * @brief       TLE94112 Timer PSoC6 HAL PAL
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT

@@ -1,9 +1,7 @@
 /**
  * @file        tle94112-rpi.hpp
  * @brief       TLE94112 Raspberry Pi API
- * @date        September 2020
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- * @ref         tle94112rpi
  *
  * SPDX-License-Identifier: MIT
  */
@@ -17,6 +15,11 @@
 
 #include "../../../corelib/tle94112.hpp"
 #include <bcm2835.h>
+
+/**
+ * @addtogroup rpiApi
+ * @{
+ */
 
 class Tle94112Rpi: virtual public Tle94112
 {

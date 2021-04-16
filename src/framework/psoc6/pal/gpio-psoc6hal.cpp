@@ -1,8 +1,7 @@
 /**
- * @file        gpio-psoc6hal.hpp
- * @brief       PSOC6 PAL for the GPIO
- * @date        Spt 2020
- * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
+ * @file        gpio-psoc6hal.cpp
+ * @brief       TLE94112 GPIO PSoC6 HAL PAL
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
  */

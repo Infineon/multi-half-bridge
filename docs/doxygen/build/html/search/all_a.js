@@ -1,9 +1,0 @@
-var searchData=
-[
-  ['init',['init',['../d5/dd0/group__tle94112api.html#gaa61f625cddc7a067056e9c858ff954f2',1,'Tle94112::init()'],['../d6/dfc/classGPIOIno.html#a5485281864da935dbce964d9b9f67272',1,'GPIOIno::init()'],['../de/d75/classSPICIno.html#aa6c292e721e6a496e2fd8032d5176da9',1,'SPICIno::init()'],['../dd/d9b/classTimerIno.html#a2714f4fd1bff915cbac4757aacd9490a',1,'TimerIno::init()'],['../d7/dde/classGPIO.html#af1a6667e1ceda3d38b875da1486e1f33',1,'GPIO::init()'],['../d7/db9/classSPIC.html#aaf10147dbb4db9c1dddee5343418a893',1,'SPIC::init()'],['../dc/dea/classTimer.html#ad786d9deba1abbc132006ea989187b32',1,'Timer::init()']]],
-  ['initconnector',['initConnector',['../dd/d03/group__tle94112motorapi.html#gab5625091ea7eb6d08439d3d13a8cb244',1,'Tle94112Motor::initConnector(Tle94112Motor::ePolarity pol, Tle94112::PWMChannel channel, Tle94112::HalfBridge out1, Tle94112::HalfBridge out2, Tle94112::HalfBridge out3, Tle94112::HalfBridge out4)'],['../dd/d03/group__tle94112motorapi.html#gaf04ffbda43a44e77ea0e2234b0b358e8',1,'Tle94112Motor::initConnector(Tle94112Motor::ePolarity, Tle94112::PWMChannel channel, Tle94112::PWMFreq freq, Tle94112::HalfBridge out1, Tle94112::HalfBridge out2, Tle94112::HalfBridge out3, Tle94112::HalfBridge out4)']]],
-  ['int_5ffalling_5fedge',['INT_FALLING_EDGE',['../d7/dde/classGPIO.html#a7a07814347ac460ae15e811372f24b73a4ede63866dcf899093010c0fdcde8291',1,'GPIO']]],
-  ['int_5frising_5fedge',['INT_RISING_EDGE',['../d7/dde/classGPIO.html#a7a07814347ac460ae15e811372f24b73a8a793d69497174a9430ea2b0e15d6d60',1,'GPIO']]],
-  ['intevent_5ft',['IntEvent_t',['../d7/dde/classGPIO.html#a7a07814347ac460ae15e811372f24b73',1,'GPIO']]],
-  ['intf_5ferror',['INTF_ERROR',['../d7/dde/classGPIO.html#aed8cceb7e600abd5219c8534ed370effa725317add7598473bfd5a1087cf467ff',1,'GPIO::INTF_ERROR()'],['../d7/db9/classSPIC.html#ac5ab91b9a7e0ee2d59216c4da21e716ba4b39d50cc04ed6fb7036b2fc04598f8e',1,'SPIC::INTF_ERROR()']]]
-];

@@ -1,8 +1,7 @@
 /** 
  * @file        logger-wiced.hpp
- * @brief       TLE94112 Logger WICED PAL 
- * @date        April 2021
- * @copyright   Copyright (c) 2020-2021 Infineon Technologies AG
+ * @brief       TLE94112 Logger WICED PAL
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
  * 
  * SPDX-License-Identifier: MIT
  */

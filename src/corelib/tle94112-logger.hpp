@@ -1,8 +1,7 @@
 /** 
  * @file        tle94112-logger.hpp
  * @brief       TLE94112 Logger
- * @date        April 2021
- * @copyright   Copyright (c) 2020-2021 Infineon Technologies AG
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
  * 
  * SPDX-License-Identifier: MIT
  */

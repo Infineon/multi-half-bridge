@@ -1,9 +1,8 @@
 
 /** 
  * @file        tle94112-types.hpp
- * @brief       Tle94112 Types
- * @date        March 2021
- * @copyright   Copyright (c) 2020-2021 Infineon Technologies AG
+ * @brief       TLE94112 Types
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
  * 
  * SPDX-License-Identifier: MIT
  */
@@ -15,7 +14,7 @@ namespace tle94112
 {
 
     /**
-    * @addtogroup tle94112types
+    * @addtogroup tle94112api
     * @{
     */
 
@@ -33,6 +32,7 @@ namespace tle94112
     };
     /** @} */
 
+    /** @} */
 }
 
 #endif /** TLE94112_TYPES_HPP_ **/

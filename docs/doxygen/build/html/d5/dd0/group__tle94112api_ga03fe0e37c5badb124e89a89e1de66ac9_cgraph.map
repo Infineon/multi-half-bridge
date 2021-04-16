@@ -1,4 +1,0 @@
-<map id="Tle94112::configHB" name="Tle94112::configHB">
-<area shape="rect" id="node1" title="sets the output state and the PWM channel for a halfbridge (allows active freewheeling)" alt="" coords="5,5,143,32"/>
-<area shape="rect" id="node2" href="$d5/dd0/group__tle94112api.html#gaba359ba70b241189e8f94a2285a55b0a" title="sets the output state and the PWM channel for a halfbridge (only for passive freewheeling)" alt="" coords="191,5,328,32"/>
-</map>
