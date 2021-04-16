@@ -1,5 +1,10 @@
 # Multi Half Bridge Library
 
+![arduino build](https://github.com/Infineon/pas-co2-sensor/actions/workflows/arduino_ci.yml/badge.svg)
+![unit_test](https://github.com/Infineon/pas-co2-sensor/actions/workflows/unit_test.yml/badge.svg)
+
+C++ library of Infineon's Multi Half-Bridge IC controllers.
+
 ## Supported Products
 
 <table>
@@ -22,18 +27,27 @@
         <td><img src="https://github.com/infineon/multi-half-bridge/wiki/img/arduino-logo.png" width=200></td>
         <td><img src="https://github.com/infineon/multi-half-bridge/wiki/img/wiced-logo.png" width=200></td>
         <td><img src="https://github.com/infineon/multi-half-bridge/wiki/img/rpi-logo.png" width=200></td>
-        <td><img src="https://github.com/infineon/multi-half-bridge/wiki/img/cross-platform.png" width=200></td>
     </tr>
     <tr>
         <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/Arduino-API">Arduino API</a></td>
         <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/WICED-API">WICED API</a></td>
-        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/RPi-API">RPi API</a></td>
-        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/TLE94112-API/">TLE94112 API</a><br><a href="https://github.com/Infineon/multi-half-bridge/wiki/TLE94112Motor-API">TLE94112Motor API</a></td>
+        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/RPi-API">RPi API</a><br><a href="https://github.com/Infineon/multi-half-bridge/wiki/RPi-Python-API">RPi Python API</a></td>
     </tr>
     <tr>
         <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/Ino-Getting-Started">Getting Started</a></td>
         <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/CW-Getting-Started">Getting Started</a></td>
-        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/RPi-Getting-Started">Getting Started</a></td>
+        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/RPi-Getting-Started">Getting Started C++</a><br><a href="https://github.com/Infineon/multi-half-bridge/wiki/Py-Getting-Started">Getting Started Python</a></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td><img src="https://github.com/infineon/multi-half-bridge/wiki/img/cross-platform.png" width=200></td>
+    </tr>
+    <tr>
+        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/TLE94112-API/">TLE94112 API</a><br><a href="https://github.com/Infineon/multi-half-bridge/wiki/TLE94112Motor-API">TLE94112Motor API</a></td>
+    </tr>
+    <tr>
         <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/Porting-Guide">Porting Guide</a></td>
     </tr>
 </table>
