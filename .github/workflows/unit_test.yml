@@ -31,9 +31,8 @@ jobs:
         cmake --build . 
         ctest
     - name: Deploy coverage report 
-        # Gather the coverage files into root/coverage folder
+      run: |
         GCOV_FILES=$(sudo find . | grep '.*\.gc..$')
         mkdir ../coverage
         cp $GCOV_FILES ../coverage
-        # Call cpp coveralls and upload report
         coveralls --root .. -e test -e googletest -e docs -e build
