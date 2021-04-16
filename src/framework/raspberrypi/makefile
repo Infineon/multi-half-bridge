@@ -51,25 +51,25 @@ LIB_DIRS := $(CORELIB_DIR) $(PAL_DIR) $(WRAPPER_DIR)
 default: examples/basicTest
 
 $(BUILD_DIR)/%.o: $(CORELIB_DIR)/%.cpp
-	mkdir -p $(@D)
-	g++ -c $(CXXFLAGS) -o $@ $< $(CXX_INC)
+	@mkdir -p $(@D)
+	@g++ -c $(CXXFLAGS) -o $@ $< $(CXX_INC)
 
 $(BUILD_DIR)/%.o: $(PAL_DIR)/%.cpp
-	mkdir -p $(@D)
-	g++ -c $(CXXFLAGS) -o $@ $< $(CXX_INC)
+	@mkdir -p $(@D)
+	@g++ -c $(CXXFLAGS) -o $@ $< $(CXX_INC)
 
 $(BUILD_DIR)/%.o: $(WRAPPER_DIR)/%.cpp
-	mkdir -p $(@D)
-	g++ -c $(CXXFLAGS) -o $@ $< $(CXX_INC)
+	@mkdir -p $(@D)
+	@g++ -c $(CXXFLAGS) -o $@ $< $(CXX_INC)
 
 $(EXAMPLES): $(CORELIB_OBJ) $(PAL_OBJ) $(WRAPPER_OBJ)
-	g++ -c $(CXXFLAGS) -o $(BUILD_DIR)/$(@F).o examples/$(@F).cpp $(CXX_INC)
+	@g++ -c $(CXXFLAGS) -o $(BUILD_DIR)/$(@F).o examples/$(@F).cpp $(CXX_INC)
 ifeq ($(PCAP), 0)
-	g++ $(CXXFLAGS) -o $(BUILD_DIR)/$(@F) $(BUILD_DIR)/*.o -I$(SYS_INC_DIR) -L$(SYS_LIB_DIR) -lbcm2835
+	@g++ $(CXXFLAGS) -o $(BUILD_DIR)/$(@F) $(BUILD_DIR)/*.o -I$(SYS_INC_DIR) -L$(SYS_LIB_DIR) -lbcm2835
 else
-	g++ $(CXXFLAGS) -o $(BUILD_DIR)/$(@F) $(BUILD_DIR)/*.o -I$(SYS_INC_DIR) -L$(SYS_LIB_DIR) -lbcm2835 -lcap
-	sudo setcap cap_sys_rawio+ep $(BUILD_DIR)/$(@F)
+	@g++ $(CXXFLAGS) -o $(BUILD_DIR)/$(@F) $(BUILD_DIR)/*.o -I$(SYS_INC_DIR) -L$(SYS_LIB_DIR) -lbcm2835 -lcap
+	@sudo setcap cap_sys_rawio+ep $(BUILD_DIR)/$(@F)
 endif
 
 clean:
-	rm -f $(BUILD_DIR)/*
+	@rm -f $(BUILD_DIR)/*
