@@ -1,7 +1,7 @@
 # Multi Half Bridge Library
 
 ![arduino build](https://github.com/Infineon/multi-half-bridge/actions/workflows/arduino_ci.yml/badge.svg)
-![unit_test](https://github.com/Infineon/multi-half-bridge/actions/workflows/unit_test.yml/badge.svg)
+![unit test](https://github.com/Infineon/multi-half-bridge/actions/workflows/unit_test.yml/badge.svg)
 
 C++ library of Infineon's Multi Half-Bridge IC controllers.
 
