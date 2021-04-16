@@ -30,7 +30,7 @@ C++ library of Infineon's Multi Half-Bridge IC controllers.
     <tr>
         <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/Arduino-API">Arduino API</a></td>
         <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/WICED-API">WICED API</a></td>
-        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/RPi-API">RPi API</a><br><a href="https://github.com/Infineon/multi-half-bridge/wiki/RPi-Python-API">RPi Python API</a></td>
+        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/RPi-API">RPi API</a><br><a href="https://github.com/Infineon/multi-half-bridge/wiki/Py-API">RPi Python API</a></td>
     </tr>
     <tr>
         <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/Ino-Getting-Started">Getting Started</a></td>
