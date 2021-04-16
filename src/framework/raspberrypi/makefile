@@ -39,7 +39,7 @@ PCAP := $(shell nm $(SYS_LIB_DIR)/libbcm2835.a | grep "cap_free" -c)
 EXAMPLES := $(basename $(wildcard examples/*.cpp))
 CORELIB_SRC := $(shell find $(CORELIB_DIR) -type f -name *.cpp)
 PAL_SRC := $(shell find $(PAL_DIR) -type f -name *.cpp)
-WRAPPER_SRC := $(shell find $(WRAPPER_DIR) -type f -name *.cpp)
+WRAPPER_SRC := $(shell find $(WRAPPER_DIR) -type f -name *.cpp ! -name *-pybind.cpp)
 CORELIB_OBJ := $(addprefix $(BUILD_DIR)/, $(notdir $(CORELIB_SRC:.cpp=.o)))
 PAL_OBJ := $(addprefix $(BUILD_DIR)/, $(notdir $(PAL_SRC:.cpp=.o)))
 WRAPPER_OBJ := $(addprefix $(BUILD_DIR)/, $(notdir $(WRAPPER_SRC:.cpp=.o)))
@@ -66,9 +66,11 @@ $(EXAMPLES): $(CORELIB_OBJ) $(PAL_OBJ) $(WRAPPER_OBJ)
 	@g++ -c $(CXXFLAGS) -o $(BUILD_DIR)/$(@F).o examples/$(@F).cpp $(CXX_INC)
 ifeq ($(PCAP), 0)
 	@g++ $(CXXFLAGS) -o $(BUILD_DIR)/$(@F) $(BUILD_DIR)/*.o -I$(SYS_INC_DIR) -L$(SYS_LIB_DIR) -lbcm2835
+	@echo 'Type "sudo $(BUILD_DIR)/$(@F)" to execute the example.'
 else
 	@g++ $(CXXFLAGS) -o $(BUILD_DIR)/$(@F) $(BUILD_DIR)/*.o -I$(SYS_INC_DIR) -L$(SYS_LIB_DIR) -lbcm2835 -lcap
 	@sudo setcap cap_sys_rawio+ep $(BUILD_DIR)/$(@F)
+	@echo 'Type "$(BUILD_DIR)/$(@F)" to execute the example.'
 endif
 
 clean:
