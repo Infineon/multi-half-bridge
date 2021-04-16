@@ -44,7 +44,7 @@ endif()
 # If the googletest library is in the project folder
 if (EXISTS ${CMAKE_SOURCE_DIR}/googletest)
     # Coverage Flags
-    set(CMAKE_CXX_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage -DMHB_ENABLED=0 -DTLE94112_LOGGER_ENABLED=0 -Wswitch")
+    set(CMAKE_CXX_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage -DMHB_ENABLED=0 -DTLE94112_LOGGER_ENABLED=0")
     set(CMAKE_C_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage")
 
     # Enable Testing with CTest
