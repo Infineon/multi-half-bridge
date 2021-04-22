@@ -12,7 +12,6 @@
  * This example shows, how to control both motor controllers from one Raspberry Pi.
  *
  * SPDX-License-Identifier: MIT
- *
  */
 
 #ifndef MULTIPLECONTROLLERS_HPP_

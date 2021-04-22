@@ -21,7 +21,7 @@
  * and the TLE94112 will signal an overcurrent.
  *
  * SPDX-License-Identifier: MIT
-  */
+ */
 
 #ifndef MULTIPLEMOTORS_HPP_
 #define MULTIPLEMOTORS_HPP_
