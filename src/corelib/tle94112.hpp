@@ -5,6 +5,7 @@
  * @details 	This library includes the basic common functions to controll the TLE94112 registers
  * 
  * SPDX-License-Identifier: MIT
+ *
  */
 
 #ifndef TLE94112_HPP_

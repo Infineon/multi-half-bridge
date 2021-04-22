@@ -17,11 +17,10 @@
  * 
  * This function allows to set all parameters of the SPI master.
  * 
- * @param port     SPI channel to be used
  * @param csPin    Number of the desired ChipSelect pin
- * @param speed    SPI baud setting
- * @param mode     SPI mode setting
- * @param bits     number of bits in one command
+ * @param misoPin  Number of the desired MISO pin
+ * @param mosiPin  Number of the desired MOSI pin
+ * @param sckPin   Number of the desired SystemClock pin
  * 
  * @attention This does not set the platform_spi_peripherals structure yet
  */

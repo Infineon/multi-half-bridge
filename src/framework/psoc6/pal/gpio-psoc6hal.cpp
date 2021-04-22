@@ -17,7 +17,7 @@
  *
  * @param[in]   pin         GPIO pin number
  * @param[in]   dir         GPIO direction
- * @param[in]   driverMode  GPIO driver mode
+ * @param[in]   driveMode   GPIO driver mode
  * @param[in]   logic       Voltage logic
  */
 GPIOPsoc6hal::GPIOPsoc6hal( cyhal_gpio_t              pin,
