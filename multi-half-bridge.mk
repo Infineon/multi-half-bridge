@@ -17,9 +17,11 @@ GLOBAL_INCLUDES  := src/config \
 
 $(NAME)_SOURCES  := src/corelib/tle94112.cpp \
 					src/corelib/tle94112-motor.cpp \
+					src/corelib/tle94112-logger.cpp \
 					src/pal/gpio.cpp \
 					src/pal/spic.cpp \
 					src/framework/wiced-43xxx/pal/gpio-wiced.cpp \
+					src/framework/wiced-43xxx/pal/logger-wiced.cpp \
 					src/framework/wiced-43xxx/pal/timer-wiced.cpp \
 					src/framework/wiced-43xxx/pal/spic-wiced.cpp \
 					src/framework/wiced-43xxx/wrapper/tle94112-wiced.cpp
