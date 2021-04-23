@@ -3,10 +3,10 @@
  * \author      Infineon Technologies AG
  * \copyright   2021 Infineon Technologies AG
  * \version     1.0.0
- * \brief       This example runs an advanced controller test with one attached motor on the TLE94112EL shield.
+ * \brief       This example runs an advanced controller test with one attached motor on the TLE94112ES HAT for Raspberry Pi.
  * \details
  * This example is meant for one bidirectional motor, connected to
- * output 1 and 5 of the TLE94112EL shield.
+ * output 1 and 5 of the TLE94112ES HAT for Raspberry Pi.
  * It demonstrates the following library functions:
  * * Basic motor control
  *   - Run motor forward without PWM
@@ -23,18 +23,11 @@
  *   - Quickly ramp down duty cycle from 100% to 0%
  *
  * SPDX-License-Identifier: MIT
+ *
  */
 
 #ifndef ADVANCEDTEST_HPP_
 #define ADVANCEDTEST_HPP_
-
-extern "C"
-{
-#include "cy_pdl.h"
-#include "cyhal.h"
-#include "cybsp.h"
-#include "cy_retarget_io.h"
-}
 
 /*
  * As this library works with multiple frameworks,
@@ -43,6 +36,14 @@ extern "C"
  */
 #include "../../../../config/tle94112-conf.hpp"
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
+
+extern "C"
+{
+#include "cy_pdl.h"
+#include "cyhal.h"
+#include "cybsp.h"
+#include "cy_retarget_io.h"
+}
 
 /* Infineon library for multi-half-bridge and motor control */
 #include <tle94112-psoc6hal.hpp>

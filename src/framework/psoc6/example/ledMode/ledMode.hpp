@@ -18,14 +18,6 @@
 #ifndef LEDMODE_HPP_
 #define LEDMODE_HPP_
 
-extern "C"
-{
-#include "cy_pdl.h"
-#include "cyhal.h"
-#include "cybsp.h"
-#include "cy_retarget_io.h"
-}
-
 /*
  * As this library works with multiple frameworks,
  * this part is needed to avoid trying to compile
@@ -33,6 +25,14 @@ extern "C"
  */
 #include "../../../../config/tle94112-conf.hpp"
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
+
+extern "C"
+{
+#include "cy_pdl.h"
+#include "cyhal.h"
+#include "cybsp.h"
+#include "cy_retarget_io.h"
+}
 
 /* Infineon library for multi-half-bridge and motor control */
 #include <tle94112-psoc6hal.hpp>

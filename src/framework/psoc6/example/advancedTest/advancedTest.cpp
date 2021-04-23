@@ -3,10 +3,10 @@
  * \author      Infineon Technologies AG
  * \copyright   2021 Infineon Technologies AG
  * \version     1.0.0
- * \brief       This example runs an advanced controller test with one attached motor on the TLE94112EL shield.
+ * \brief       This example runs an advanced controller test with one attached motor on the TLE94112ES HAT for Raspberry Pi.
  * \details
  * This example is meant for one bidirectional motor, connected to
- * output 1 and 5 of the TLE94112EL shield.
+ * output 1 and 5 of the TLE94112ES HAT for Raspberry Pi.
  * It demonstrates the following library functions:
  * * Basic motor control
  *   - Run motor forward without PWM
@@ -23,6 +23,7 @@
  *   - Quickly ramp down duty cycle from 100% to 0%
  *
  * SPDX-License-Identifier: MIT
+ *
  */
 
 /* Infineon library for multi-half-bridge and motor control */
