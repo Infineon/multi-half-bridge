@@ -91,7 +91,7 @@ enum examples_t
 };
 
 //!> Select the example which is compiled. There are a number of different examples defined which can be switched here.
-#define EXAMPLE                     STEPPERMOTOR
+#define EXAMPLE                     BASICTEST
 
 int main(void)
 {
