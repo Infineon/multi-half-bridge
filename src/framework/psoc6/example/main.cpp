@@ -58,6 +58,9 @@ extern "C"
 #include "basicTest/basicTest.hpp"
 #include "advancedTest/advancedTest.hpp"
 #include "errorDiagnosis/errorDiagnosis.hpp"
+#include "halfBridge/halfBridge.hpp"
+#include "ledMode/ledMode.hpp"
+#include "stepperMotor/stepperMotor.hpp"
 #include "multipleControllers/multipleControllers.hpp"
 #include "multipleMotors/multipleMotors.hpp"
 
@@ -80,12 +83,15 @@ enum examples_t
 	BASICTEST            = 1,      //!< \brief basicTest just starts and stops a motor */
 	ADVANCEDTEST,                  //!< \brief advanceTest runs a motor up and down */
 	ERRORDIAGNOSIS,                //!< \brief errorDiagnosis shows the use of the error registers */
+	HALFBRIDGE,                    //!< \brief halfBridge shows the use of only the controller library
+	LEDMODE,                       //!< \brief ledMode shows how to lower the sensitivity for open load detection
+	STEPPERMOTOR,                  //!< \brief stepperMotor shows how to drive voltage controlled bipolar stepper motors
 	MULTIPLECONTROLLERS,           //!< \brief multipleControllers shows how to implement stacked shields */
 	MULTIPLEMOTORS                 //!< \brief multipleMotors shows how to use more than one motor */
 };
 
 //!> Select the example which is compiled. There are a number of different examples defined which can be switched here.
-#define EXAMPLE                     BASICTEST
+#define EXAMPLE                     STEPPERMOTOR
 
 int main(void)
 {
@@ -124,6 +130,18 @@ int main(void)
 		case ERRORDIAGNOSIS:
 			printf("\n[multi-half-bridge] : compiled example -> errorDiagnosis\n");
 			errorDiagnosis(MULTI_HALF_BRIDGES);
+			break;
+		case HALFBRIDGE:
+			printf("\n[multi-half-bridge] : compiled example -> halfBridge\n");
+			halfBridge();
+			break;
+		case LEDMODE:
+			printf("\n[multi-half-bridge] : compiled example -> ledMode\n");
+			ledMode();
+			break;
+		case STEPPERMOTOR:
+			printf("\n[multi-half-bridge] : compiled example -> stepperMotor\n");
+			stepperMotor();
 			break;
 		case MULTIPLEMOTORS:
 			printf("\n[multi-half-bridge] : compiled example -> multipleMotors\n");
