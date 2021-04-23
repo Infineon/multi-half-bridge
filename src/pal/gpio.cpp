@@ -5,6 +5,7 @@
  * 
  * SPDX-License-Identifier: MIT
  */
+
 #include "gpio.hpp"
 
 using namespace tle94112;

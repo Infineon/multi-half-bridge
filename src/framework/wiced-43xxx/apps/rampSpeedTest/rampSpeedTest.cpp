@@ -32,7 +32,7 @@ void measureRampTime(int index)
     WPRINT_APP_INFO(("Test %i:\t", index));
     WPRINT_APP_INFO(("%i -> ", testcases[index].startspeed));
     WPRINT_APP_INFO(("%i  \t", testcases[index].endspeed));
-    WPRINT_APP_INFO(("Expected: %i ms\n", expected));
+    WPRINT_APP_INFO(("Expected: %ld ms\n", expected));
 
     motor.setSpeed( testcases[index].startspeed );
 
@@ -46,7 +46,7 @@ void measureRampTime(int index)
 
     wiced_time_get_time( &endTime );
 
-    WPRINT_APP_INFO(("Measured: %u ms\n", (uint32_t)(endTime - startTime)));
+    WPRINT_APP_INFO(("Measured: %lu ms\n", (uint32_t)(endTime - startTime)));
 }
 
 void setup()
