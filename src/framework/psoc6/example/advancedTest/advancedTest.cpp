@@ -32,7 +32,7 @@ void advancedTest(uint8_t bridges)
 {
 
 	/* pointer to the multi-half-bridge controller */
-	Tle94112Psoc6hal controller = Tle94112Psoc6hal();
+	Tle94112Psoc6hal controller;
 
 	/* pointer to the motor controller */
 	Tle94112Motor motor(controller);
