@@ -1,9 +1,8 @@
-/**
+/** 
  * @file        timer.hpp
- * @brief       Timer Platform Abstraction Layer
- * @date        May 2020
- * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- *
+ * @brief       TLE94112 Timer Platform Abstraction Layer
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
+ * 
  * SPDX-License-Identifier: MIT
  */
 
@@ -11,6 +10,10 @@
 #define TIMER_HPP_
 
 #include <stdint.h>
+#include "../corelib/tle94112-types.hpp"
+
+namespace tle94112
+{
 
 /**
  * @addtogroup pal
@@ -20,12 +23,6 @@
 class Timer
 {
 	public:
-
-		enum Error_t
-		{
-			OK    = 0,  /**< No error */
-			ERROR = 1,  /**< Error */
-		};
 
 		/**
 		 * @brief       Initialize the timer
@@ -88,5 +85,7 @@ class Timer
 };
 
 /** @} */
+
+}
 
 #endif /** TIMER_HPP_ **/

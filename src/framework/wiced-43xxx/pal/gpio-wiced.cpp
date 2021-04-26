@@ -1,7 +1,6 @@
 /**
- * @file        gpio-wiced.hpp
- * @brief       WICED PAL for the GPIO
- * @date        May 2020
+ * @file        gpio-wiced.cpp
+ * @brief       TLE94112 GPIO WICED PAL
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
@@ -20,13 +19,6 @@ GPIOWiced::GPIOWiced(wiced_gpio_t pin, wiced_gpio_config_t config, VLogic_t logi
 }
 
 /**
- * @brief GPIO WICED default constructor
- */
-GPIOWiced::GPIOWiced() : pin(WICED_GPIO_1), config(INPUT_HIGH_IMPEDANCE), logic(POSITIVE)
-{
-}
-
-/**
  * @brief GPIO WICED destructor
  */
 GPIOWiced::~GPIOWiced()
@@ -41,11 +33,11 @@ GPIOWiced::~GPIOWiced()
  * @retval  OK if success
  * @retval  INTF_ERROR if initialization error
  */
-inline GPIOWiced::Error_t GPIOWiced::init()
+inline Error_t GPIOWiced::init()
 {
-	GPIOWiced::Error_t err = GPIOWiced::OK;
+	Error_t err = OK;
 	if (WICED_SUCCESS != wiced_gpio_init(pin, config))
-		err = GPIOWiced::INTF_ERROR;
+		err = INTF_ERROR;
 
 	return err;
 }
@@ -56,11 +48,11 @@ inline GPIOWiced::Error_t GPIOWiced::init()
  * @retval  OK if success
  * @retval  INTF_ERROR if deinitialization error
  */
-inline GPIOWiced::Error_t GPIOWiced::deinit()
+inline Error_t GPIOWiced::deinit()
 {
-	GPIOWiced::Error_t err = GPIOWiced::OK;
+	Error_t err = OK;
 	if (WICED_SUCCESS != wiced_gpio_deinit(pin))
-		err = GPIOWiced::INTF_ERROR;
+		err = INTF_ERROR;
 
 	return err;
 }
@@ -83,19 +75,19 @@ inline GPIOWiced::VLevel_t GPIOWiced::read()
  * @retval      OK if success
  * @retval      INTF_ERROR if error
  */
-inline GPIOWiced::Error_t GPIOWiced::write(VLevel_t level)
+inline Error_t GPIOWiced::write(VLevel_t level)
 {
-	GPIOWiced::Error_t err = GPIOWiced::OK;
+	Error_t err = OK;
 
 	if (GPIO_LOW == level)
 	{
 		if (WICED_SUCCESS != wiced_gpio_output_low(pin))
-			err = GPIOWiced::INTF_ERROR;
+			err = INTF_ERROR;
 	}
 	else if (GPIO_HIGH == level)
 	{
 		if (WICED_SUCCESS != wiced_gpio_output_high(pin))
-			err = GPIOWiced::INTF_ERROR;
+			err = INTF_ERROR;
 	}
 
 	return err;
@@ -109,19 +101,19 @@ inline GPIOWiced::Error_t GPIOWiced::write(VLevel_t level)
  * @retval      OK if success
  * @retval      INTF_ERROR if error
  */
-inline GPIOWiced::Error_t GPIOWiced::enable()
+inline Error_t GPIOWiced::enable()
 {
-	GPIOWiced::Error_t err = GPIOWiced::OK;
+	Error_t err = OK;
 
 	if (this->logic == POSITIVE)
 	{
 		if (WICED_SUCCESS != wiced_gpio_output_high(pin))
-			err = GPIOWiced::INTF_ERROR;
+			err = INTF_ERROR;
 	}
 	else if (this->logic == NEGATIVE)
 	{
 		if (WICED_SUCCESS != wiced_gpio_output_low(pin))
-			err = GPIOWiced::INTF_ERROR;
+			err = INTF_ERROR;
 	}
 	return err;
 }
@@ -134,19 +126,19 @@ inline GPIOWiced::Error_t GPIOWiced::enable()
  * @retval      OK if success
  * @retval      INTF_ERROR if error
  */
-inline GPIOWiced::Error_t GPIOWiced::disable()
+inline Error_t GPIOWiced::disable()
 {
-	GPIOWiced::Error_t err = GPIOWiced::OK;
+	Error_t err = OK;
 
 	if (this->logic == POSITIVE)
 	{
 		if (WICED_SUCCESS != wiced_gpio_output_low(pin))
-			err = GPIOWiced::INTF_ERROR;
+			err = INTF_ERROR;
 	}
 	else if (this->logic == NEGATIVE)
 	{
 		if (WICED_SUCCESS != wiced_gpio_output_high(pin))
-			err = GPIOWiced::INTF_ERROR;
+			err = INTF_ERROR;
 	}
 	return err;
 }

@@ -2,7 +2,6 @@
  * \name        rampSpeedTest
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
- * \version     2.0.0
  * \brief       This example measure the rampspeed of an attached motor with the TLE94112 shield
  * \details
  * By attaching a motor to the TLE94112 and running a testcase scenario, we can measure the
@@ -23,10 +22,9 @@
 
 #include <stdlib.h>
 #include <wiced.h>
-#include <TLE94112-platf-wiced.hpp>
-#include <TLE94112-pal-wiced.hpp>
-#include <TLE94112.hpp>
-#include <TLE94112Motor.hpp>
+#include <tle94112-platf-wiced.hpp>
+#include <tle94112-wiced.hpp>
+#include <tle94112-motor.hpp>
 #include "wiced_rtos.h"
 
 extern "C" void application_start();

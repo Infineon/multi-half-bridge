@@ -1,16 +1,16 @@
 /** 
- * @file        spic.cpp
- * @brief       PAL of the SPI cover
- * @date        June 2020
- * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
+ * @file        spic.hpp
+ * @brief       TLE94112 SPI Platform Abstraction Layer
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
  * 
  * SPDX-License-Identifier: MIT
  */
 
 #include "spic.hpp"
 
+using namespace tle94112;
 
-SPIC::Error_t SPIC::checkErrorStatus()
+Error_t SPIC::checkErrorStatus()
 {
 	return errorStatus;
 }

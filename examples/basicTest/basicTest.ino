@@ -1,8 +1,7 @@
 /*!
  * \name        basicTest
  * \author      Infineon Technologies AG
- * \copyright   2019 Infineon Technologies AG
- * \version     2.0.0
+ * \copyright   2021 Infineon Technologies AG
  * \brief       This example runs a basic controller test with one attached motor on the TLE94112 shield
  * \details
  * It will run the motor in forward and backward direction if the motor
@@ -13,8 +12,8 @@
  *
  */
 
-#include <TLE94112-ino.hpp>
-#include <TLE94112Motor-ino.hpp>
+#include <tle94112-ino.hpp>
+#include <tle94112-motor-ino.hpp>
 #include "SPI.h"
 
 // Tle94112 Object on Shield 1

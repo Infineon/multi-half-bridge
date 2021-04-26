@@ -1,7 +1,6 @@
 /**
- * @file        spic-arduino.hpp
- * @brief       Arduino PAL for the SPI cover
- * @date        June 2020
+ * @file        spic-arduino.cpp
+ * @brief       TLE94112 SPI Arduino PAL
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
@@ -66,9 +65,9 @@ SPICIno::SPICIno(SPIClass &port, uint8_t csPin, uint8_t misoPin, uint8_t mosiPin
  * This function is initializing the chosen spi channel
  * with the given values for lsb,clock and mode
  *
- * @return      SPICIno::Error_t
+ * @return      Error_t
  */
-SPICIno::Error_t SPICIno::init()
+Error_t SPICIno::init()
 {
 	spi->begin();
 	spi->setBitOrder(this->lsb);
@@ -82,9 +81,9 @@ SPICIno::Error_t SPICIno::init()
  *
  * This function is deinitializing the chosen spi channel.
  *
- * @return      SPICIno::Error_t
+ * @return      Error_t
  */
-SPICIno::Error_t SPICIno::deinit()
+Error_t SPICIno::deinit()
 {
 	spi->end();
 	return OK;
@@ -95,9 +94,9 @@ SPICIno::Error_t SPICIno::deinit()
  *
  * @param send         address and/or command to send
  * @param received     received data from spi bus
- * @return             SPICIno::Error_t
+ * @return             Error_t
  */
-SPICIno::Error_t SPICIno::transfer(uint8_t send, uint8_t &received)
+Error_t SPICIno::transfer(uint8_t send, uint8_t &received)
 {
 	received = spi->transfer(send);
 	return OK;
@@ -110,7 +109,7 @@ SPICIno::Error_t SPICIno::transfer(uint8_t send, uint8_t &received)
  * @param received     received data from spi bus
  * @return             SPICWiced::Error_t
  */
-SPICIno::Error_t SPICIno::transfer16(uint16_t send, uint16_t &received)
+Error_t SPICIno::transfer16(uint16_t send, uint16_t &received)
 {
 	uint8_t data_out_msb = (uint8_t)((send >> 8) & 0xFF);
 	uint8_t data_out_lsb = (uint8_t)(send & 0xFF);

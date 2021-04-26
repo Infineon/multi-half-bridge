@@ -1,34 +1,28 @@
-/**
+/** 
  * @file        gpio.hpp
- * @brief       PAL of the GPIO
- * @date        May 2020
- * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- *
+ * @brief       TLE94112 GPIO Platform Abstraction Layer
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
+ * 
  * SPDX-License-Identifier: MIT
  */
 
-#include <stdint.h>
+#ifndef GPIOC_HPP_
+#define GPIOC_HPP_
 
-#ifndef GPIO_HPP_
-#define GPIO_HPP_
+#include <stdint.h>
+#include "../corelib/tle94112-types.hpp"
+
+namespace tle94112
+{
 
 /**
  * @addtogroup pal
  * @{
  */
 
-class GPIO
+class GPIOC
 {
 	public:
-
-		enum Error_t
-		{
-			OK          = 0,     /**< No error */
-			INTF_ERROR  = -1,    /**< Interface error */
-			CONF_ERROR  = -2,    /**< Configuration error */
-			READ_ERROR  = -3,    /**< Read error */
-			WRITE_ERROR = -4,    /**< Write error */
-		};
 
 		/**
 		 * @name   Interrupt event
@@ -118,11 +112,13 @@ class GPIO
 
 		Error_t checkErrorStatus();
 
-		private:
+	private:
 		Error_t errorStatus;
 
 };
 
 /** @} */
 
-#endif /** GPIO_HPP_ **/
+}
+
+#endif /** GPIOC_HPP_ **/

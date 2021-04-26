@@ -25,6 +25,8 @@
 .settings/
 .version
 .accepted
+.vscode
+.pio
 /build/
 /downloads/
 /packages/
@@ -32,3 +34,7 @@
 package_adafruit_index.json
 package_index.json
 package_infineon_index.json
+
+bcm2835-*
+
+/googletest

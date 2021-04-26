@@ -1,7 +1,6 @@
 /**
  * @file        timer-wiced.hpp
- * @brief       WICED Timer PAL
- * @date        May 2020
+ * @brief       TLE94112 Timer WICED PAL
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
@@ -18,11 +17,17 @@
 #include "wiced_time.h"
 #include "wiced_rtos.h"
 
+using namespace tle94112;
+
 /**
  * @addtogroup wicedPal
  * @{
  */
 
+/**
+ * @brief WiCED timer wrapper
+ * 
+ */
 class TimerWiced: virtual public Timer
 {
 	public:

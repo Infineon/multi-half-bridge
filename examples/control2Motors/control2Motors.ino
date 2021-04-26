@@ -1,8 +1,7 @@
 /*!
  * \name        control2Motors
  * \author      Infineon Technologies AG
- * \copyright   2019 Infineon Technologies AG
- * \version     2.0.0
+ * \copyright   2021 Infineon Technologies AG
  * \brief
  * This example demonstrates how to control two motors, their speed and direction
  * with the TLE94112 shield.
@@ -27,8 +26,8 @@
  *
  */
 
-#include <TLE94112-ino.hpp>
-#include <TLE94112Motor-ino.hpp>
+#include <tle94112-ino.hpp>
+#include <tle94112-motor-ino.hpp>
 
 // Tle94112 Object
 Tle94112Ino controller = Tle94112Ino();

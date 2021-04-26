@@ -2,7 +2,6 @@
  * \name        rampSpeedTest
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
- * \version     2.0.0
  * \brief       This example measure the rampspeed of an attached motor with the TLE94112 shield
  * \details
  * By attaching a motor to the TLE94112 and running a testcase scenario, we can measure the
@@ -16,7 +15,6 @@
  *
  */
 
-#include "../../../../config/tle94112-conf.hpp"
 #include "rampSpeedTest.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
@@ -34,7 +32,7 @@ void measureRampTime(int index)
     WPRINT_APP_INFO(("Test %i:\t", index));
     WPRINT_APP_INFO(("%i -> ", testcases[index].startspeed));
     WPRINT_APP_INFO(("%i  \t", testcases[index].endspeed));
-    WPRINT_APP_INFO(("Expected: %i ms\n", expected));
+    WPRINT_APP_INFO(("Expected: %ld ms\n", expected));
 
     motor.setSpeed( testcases[index].startspeed );
 
@@ -48,7 +46,7 @@ void measureRampTime(int index)
 
     wiced_time_get_time( &endTime );
 
-    WPRINT_APP_INFO(("Measured: %u ms\n", (uint32_t)(endTime - startTime)));
+    WPRINT_APP_INFO(("Measured: %lu ms\n", (uint32_t)(endTime - startTime)));
 }
 
 void setup()

@@ -1,16 +1,20 @@
-/**
- * @file        spic.hpp
- * @brief       PAL of the SPI cover
- * @date        June 2020
- * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- *
+/** 
+ * @file        spic.cpp
+ * @brief       TLE94112 SPI Platform Abstraction Layer
+ * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
+ * 
  * SPDX-License-Identifier: MIT
  */
 
-#include <stdint.h>
 
 #ifndef SPIC_HPP_
 #define SPIC_HPP_
+
+#include <stdint.h>
+#include "../corelib/tle94112-types.hpp"
+
+namespace tle94112
+{
 
 /**
  * @addtogroup pal
@@ -20,15 +24,6 @@
 class SPIC
 {
 	public:
-
-		enum Error_t
-		{
-			OK          = 0,     /**< No error */
-			INTF_ERROR  = -1,    /**< Interface error */
-			CONF_ERROR  = -2,    /**< Configuration error */
-			READ_ERROR  = -3,    /**< Read error */
-			WRITE_ERROR = -4,    /**< Write error */
-		};
 
 		/**
 		 * @brief       Initializes the SPIC
@@ -74,5 +69,7 @@ class SPIC
 };
 
 /** @} */
+
+}
 
 #endif /** SPIC_HPP_ **/

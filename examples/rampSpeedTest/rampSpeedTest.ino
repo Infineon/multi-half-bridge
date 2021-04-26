@@ -1,8 +1,7 @@
 /*!
  * \name        rampSpeedTest
  * \author      Infineon Technologies AG
- * \copyright   2019 Infineon Technologies AG
- * \version     2.0.0
+ * \copyright   2021 Infineon Technologies AG
  * \brief       This example measure the rampspeed of an attached motor with the TLE94112 shield
  * \details
  * By attaching a motor to the TLE94112 and running a testcase scenario, we can measure the
@@ -16,8 +15,8 @@
  *
  */
 
-#include <TLE94112-ino.hpp>
-#include <TLE94112Motor-ino.hpp>
+#include <tle94112-ino.hpp>
+#include <tle94112-motor-ino.hpp>
 
 
 // Tle94112 Object on Shield 1

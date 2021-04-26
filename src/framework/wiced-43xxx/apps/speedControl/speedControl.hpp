@@ -3,7 +3,6 @@
  * \name        speedControl
  * \author      Infineon Technologies AG
  * \copyright   2019 Infineon Technologies AG
- * \version     2.0.0
  * \brief       This example demonstrates how to control the speed of motor by using the PWM units of the TLE94112 shield
  * \details
  * Attaching a potentiometer on an analog input pin, which will than control the
@@ -25,10 +24,9 @@
 
 #include <stdlib.h>
 #include <wiced.h>
-#include <TLE94112-platf-wiced.hpp>
-#include <TLE94112-pal-wiced.hpp>
-#include <TLE94112.hpp>
-#include <TLE94112Motor.hpp>
+#include <tle94112-platf-wiced.hpp>
+#include <tle94112-wiced.hpp>
+#include <tle94112-motor.hpp>
 #include "wiced_rtos.h"
 
 extern "C" void application_start();

@@ -1,7 +1,6 @@
 /**
  * @file        spic-wiced.hpp
- * @brief       WICED PAL for the SPI cover
- * @date        June 2020
+ * @brief       TLE94112 SPI WICED PAL
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
@@ -19,11 +18,12 @@
 #include <platform.h>
 #include <wiced_platform.h>
 
+using namespace tle94112;
+
 /**
  * @addtogroup wicedPal
  * @{
  */
-
 
 /**
  * @brief Wiced SPIC class

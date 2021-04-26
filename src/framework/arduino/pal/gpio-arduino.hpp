@@ -1,7 +1,6 @@
 /**
  * @file        gpio-arduino.hpp
- * @brief       Arduino PAL for the GPIO
- * @date        May 2020
+ * @brief       TLE94112 GPIO Arduino PAL
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
  *
  * SPDX-License-Identifier: MIT
@@ -15,7 +14,9 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
-#include "../../../corelib/TLE94112.hpp"
+#include "../../../pal/gpio.hpp"
+
+using namespace tle94112;
 
 /**
  * @addtogroup arduinoPal
@@ -27,9 +28,10 @@
  * @brief Arduino GPIO class
  *
  */
-class GPIOIno: virtual public GPIO
+class GPIOIno: virtual public GPIOC
 {
 private:
+	#define     UNUSED_PIN    0xFF  /**< Unused pin */
 	uint8_t     pin;
 	uint8_t     mode;
 	VLogic_t    logic;

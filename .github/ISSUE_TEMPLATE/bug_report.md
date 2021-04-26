@@ -26,7 +26,7 @@ If applicable, add screenshots to help explain your problem.
 **Software (please complete the following information):**
  - OS: [e.g. Windows 10, Linux Ubuntu 18.04]
  - IDE name and version [e.g. Arduino IDE 1.8.10]
- - Libraries with full name and version:[ eg: DC-Motor-Control-TLE94112EL V1.4.1]
+ - Libraries with full name and version:[ eg: multi-half-bridge V1.4.1]
  - XMC-for-Arduino with version: [eg: XMC4Arduino 1.2.1]
 
 **Hardware (please complete the following information):**

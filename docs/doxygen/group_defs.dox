@@ -3,33 +3,55 @@
  * @{
  */
 
-/** @defgroup tle94112api       Tle94112 base driver API */
-/** @defgroup tle94112motorapi  Tle94112 motor controll API */
-/** @defgroup tle94112utilapi   Tle94112 util API */
+/** @defgroup tle94112api       TLE94112 API */
+/** @defgroup tle94112motorapi  TLE94112 Motor Control API */
 /** @defgroup pal               Platform Abstraction Layer Interface */
 /** @} */
 
-/** @defgroup tle94112frmw        SW Frameworks
+/** @defgroup tle94112frmw      SW Frameworks
  *  @{
  */
 
-/** @defgroup tle94112ino         Arduino
- *  @{
- */
+    /**
+     * @defgroup tle94112ino       Arduino
+     * @{
+     */
+        /** @defgroup inoApi        TLE94112 API */
+        /** @defgroup arduinoPal    PAL */
+        /** @defgroup platfIno      Arduino HW Platforms */
+    /** @} */
 
-/** @defgroup inoApi        Tle94112 Arduino API */
-/** @defgroup arduinoPal    PAL Arduino */
-/** @defgroup platfIno      Arduino HW Platforms */
+    /**
+     * @defgroup tle94112rpi        RaspberryPi
+     * @{
+     */
+        /** @defgroup rpiApi        TLE94112 API */
+        /** @defgroup rpiPal        PAL */
+        /** @defgroup platfRpi      HW Platforms */
+    /** @} */
 
-/** @} */
+    /**
+     * @defgroup tle94112mtb        ModusToolbox
+     * @{
+     */
+        /*
+         * @defgroup tle94112psoc6hal     PSOC6 HAL
+         * @{
+         */
+            /** @defgroup psoc6Api        TLE94112 API */
+            /** @defgroup psoc6Pal        PAL  */
+            /** @defgroup platfPsoc6      HW Platforms */
+        /** @} */
+    /** @} */
 
-/** @defgroup tle94112wiced       WICED
- *  @{
- */
+    /**
+     * @defgroup tle94112wiced      WICED
+     * @{
+     */
+        /** @defgroup wicedApi      TLE94112 API */
+        /** @defgroup wicedPal      PAL */
+        /** @defgroup platfWiced    HW Platform */
+    /** @} */
 
-/** @defgroup wicedPal       PAL WICED */
-/** @defgroup wicedHW        43xxx HW Platforms */
-
-/** @} */
 /** @} */
 

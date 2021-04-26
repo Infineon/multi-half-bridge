@@ -5,7 +5,7 @@
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
-GPIO    KEYWORD1
+GPIOC   KEYWORD1
 Timer   KEYWORD1
 SPIC    KEYWORD1
 
@@ -42,7 +42,6 @@ rampSpeed	KEYWORD2
 Tle94112	KEYWORD2
 Tle94112Motor	KEYWORD2
 Tle94112Ino	KEYWORD2
-Tle94112MotorIno	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

@@ -2,7 +2,6 @@
  * \name        basicTest
  * \author      Infineon Technologies AG
  * \copyright   2020 Infineon Technologies AG
- * \version     2.0.0
  * \brief       This example runs a basic controller test with one attached motor on the TLE94112 shield
  * \details
  * It will run the motor in forward and backward direction if the motor
@@ -20,10 +19,9 @@
 
 #include <stdlib.h>
 #include <wiced.h>
-#include <TLE94112-platf-wiced.hpp>
-#include <TLE94112-pal-wiced.hpp>
-#include <TLE94112.hpp>
-#include <TLE94112Motor.hpp>
+#include <tle94112-platf-wiced.hpp>
+#include <tle94112-wiced.hpp>
+#include <tle94112-motor.hpp>
 #include "wiced_rtos.h"
 
 extern "C" void application_start();

@@ -2,7 +2,6 @@
  * \name        control2Motors
  * \author      Infineon Technologies AG
  * \copyright   2019 Infineon Technologies AG
- * \version     2.0.0
  * \brief       This example demonstrates how to control two motors, their speed and direction with the TLE94112 shield.
  *
  * \details
@@ -25,7 +24,6 @@
  *
  */
 
-#include "../../../../config/tle94112-conf.hpp"
 #include "control2Motors.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)

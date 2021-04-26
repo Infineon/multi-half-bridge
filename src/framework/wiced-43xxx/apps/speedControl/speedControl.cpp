@@ -1,8 +1,7 @@
 /*!
  * \name        speedControl
  * \author      Infineon Technologies AG
- * \copyright   2019 Infineon Technologies AG
- * \version     2.0.0
+ * \copyright   2020 Infineon Technologies AG
  * \brief       This example demonstrates how to control the speed of motor by using the PWM units of the TLE94112 shield
  * \details
  * Attaching a potentiometer on an analog input pin, which will than control the
@@ -15,7 +14,6 @@
  *
  */
 
-#include "../../../../config/tle94112-conf.hpp"
 #include "speedControl.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
