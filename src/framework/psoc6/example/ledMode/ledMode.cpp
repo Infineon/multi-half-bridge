@@ -18,6 +18,12 @@
 /* Infineon library for multi-half-bridge and motor control */
 #include "ledMode.hpp"
 
+/*
+ * As this library works with multiple frameworks,
+ * this part is needed to avoid trying to compile
+ * this example from other frameworks.
+ */
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
 
 void ledMode()
 {
@@ -67,3 +73,5 @@ void ledMode()
 	printf("[multi-half-bridge] : set output to floating\n");
 	controller.configHB(controller.TLE_HB1, controller.TLE_FLOATING, controller.TLE_NOPWM);
 }
+
+#endif /** TLE94112_FRAMEWORK **/

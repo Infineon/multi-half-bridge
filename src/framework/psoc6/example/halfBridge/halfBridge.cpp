@@ -9,12 +9,14 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include "halfBridge.hpp"
+
 /*
  * As this library works with multiple frameworks,
  * this part is needed to avoid trying to compile
  * this example from other frameworks.
  */
-#include "halfBridge.hpp"
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
 
 void halfBridge()
 {
@@ -53,3 +55,5 @@ void halfBridge()
 	controller.configHB(controller.TLE_HB1, controller.TLE_FLOATING, controller.TLE_NOPWM);
 	controller.configHB(controller.TLE_HB5, controller.TLE_FLOATING, controller.TLE_NOPWM);
 }
+
+#endif /** TLE94112_FRAMEWORK **/

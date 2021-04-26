@@ -26,6 +26,13 @@
 /* Infineon library for multi-half-bridge and motor control */
 #include "multipleMotors.hpp"
 
+/*
+ * As this library works with multiple frameworks,
+ * this part is needed to avoid trying to compile
+ * this example from other frameworks.
+ */
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
+
 void multipleMotors(uint8_t bridges)
 {
 	/* pointer to the multi-half-bridge controller */
@@ -98,3 +105,4 @@ void multipleMotors(uint8_t bridges)
 
 }
 
+#endif /** TLE94112_FRAMEWORK **/

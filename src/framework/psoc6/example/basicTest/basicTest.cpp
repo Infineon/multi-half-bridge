@@ -14,6 +14,13 @@
 /* Infineon library for multi-half-bridge and motor control */
 #include "basicTest.hpp"
 
+/*
+ * As this library works with multiple frameworks,
+ * this part is needed to avoid trying to compile
+ * this example from other frameworks.
+ */
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
+
 void basicTest(uint8_t bridges)
 {
 
@@ -67,3 +74,4 @@ void basicTest(uint8_t bridges)
 	printf("[multi-half-bridge] : motor stop\n");
 }
 
+#endif /** TLE94112_FRAMEWORK **/

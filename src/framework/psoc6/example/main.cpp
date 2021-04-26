@@ -44,7 +44,7 @@
  * this part is needed to avoid trying to compile
  * this example from other frameworks.
  */
-#include "../../../../config/tle94112-conf.hpp"
+#include "../../../config/tle94112-conf.hpp"
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
 
 extern "C"

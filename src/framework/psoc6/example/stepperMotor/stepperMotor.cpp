@@ -12,6 +12,13 @@
 
 #include "stepperMotor.hpp"
 
+/*
+ * As this library works with multiple frameworks,
+ * this part is needed to avoid trying to compile
+ * this example from other frameworks.
+ */
+#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
+
 class BipolarStepper {
   public:
     enum direction
@@ -98,3 +105,5 @@ void stepperMotor()
 	printf("[multi-half-bridge] : set output to floating\n");
 	stepper.disableOutputs();
 }
+
+#endif /** TLE94112_FRAMEWORK **/
