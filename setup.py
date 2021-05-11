@@ -103,7 +103,7 @@ class CMakeBuild(build_ext):
 # logic and declaration, and simpler if you include description/version in a file.
 setup(
     name="multi-half-bridge",
-    version="3.0.0",
+    version="3.0.2",
     author="Infineon Technologies",
     description="Python Library for Infineon's multi half-bridge IC drivers",
     long_description="Python library for Infineons multi half-bridge IC drivers",
