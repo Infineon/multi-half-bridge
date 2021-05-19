@@ -162,13 +162,13 @@ pipeline {
 	 /*
 	post {
 		failure {
-			/*
+			
 			mail(
 				to: '',
 				subject: "[EPE JENKINS] ${IFXLIB} pipeline:",
 				body: "Something during Jenkins pipeline run went wrong."
 			)
-			*/
+			
 		}
 	}
 */
