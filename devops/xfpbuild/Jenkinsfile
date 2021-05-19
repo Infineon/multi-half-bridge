@@ -1,6 +1,6 @@
 /*
  * ##################################################################################
- * #
+ *
  * XFP internal build pipeline
  * should run fast (<10min) with following parts
  * - unit test and report
@@ -9,6 +9,7 @@
  * - doxygen build and deploy on internal server
  *
  */
+
 
 pipeline {
 	/**
@@ -158,6 +159,7 @@ pipeline {
 	 * post
 	 *-----------------------------------------------------------------------------
 	 */
+	 /*
 	post {
 		failure {
 			/*
@@ -169,5 +171,5 @@ pipeline {
 			*/
 		}
 	}
-
+*/
 }
