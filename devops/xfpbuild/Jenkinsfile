@@ -1,18 +1,29 @@
 /*
  * ##################################################################################
  * #
- * # Attention: this file is used for compilation checks together with
- * # Jenkins, SonarQube and OpenShift cluster
- * #
+ * XFP internal build pipeline
+ * should run fast (<10min) with following parts
+ * - unit test and report
+ * - SonarQube report
+ * - compilation (if for more than one framework, than in parallel)
+ * - doxygen build and deploy on internal server
+ *
  */
+
 pipeline {
+	/**
+	 * node where to run on (try itec on the TCP Jenkins)
+	 */
 	agent {
 		node {
-			label 'x64 || rpi'
-			customWorkspace "/home/jenkins/Arduino/libraries/Tle94112"
+			label 'itec'
 		}
 	}
 
+	/**
+	 * Keep only the last 5 artifacts on the server to prevent from
+	 * locking massive amount of diskspace. The number should <= 5.
+	 */
 	options {
 		buildDiscarder(
 			logRotator(
@@ -23,6 +34,9 @@ pipeline {
 		disableConcurrentBuilds()
 	}
 
+	/**
+	 * Set up cron triggers for constant pipeline builds if this is needed
+	 */
 	/*
 	triggers {
 		cron('H H(0-1) * * *')
@@ -39,7 +53,7 @@ pipeline {
 				stage('HTML') {
 					steps {
 						echo "html"
-						sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
+						//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
 					}
 				}
 				/*-----------------------------------------------------------------------------
@@ -77,7 +91,8 @@ pipeline {
 				 */
 				stage('CPP') {
 					steps {
-						sh "cd  ${env.WORKSPACE};mkdir -p build;/usr/local/bin/cppcheck -v --enable=all --xml-version=2 -I examples src 2> build/cppcheck-report.xml"
+						echo "cpp"
+						//sh "cd  ${env.WORKSPACE};mkdir -p build;/usr/local/bin/cppcheck -v --enable=all --xml-version=2 -I examples src 2> build/cppcheck-report.xml"
 					} // end steps
 				} // end stage
 
@@ -88,7 +103,7 @@ pipeline {
 				stage('CLI') {
 					steps {
 						echo "Compile"
-						sh ("cd ${env.WORKSPACE};/usr/bin/make all")
+						//sh ("cd ${env.WORKSPACE};/usr/bin/make all")
 					} // end steps
 				} // end stage
 
@@ -120,7 +135,7 @@ pipeline {
 				stage('Docu') {
 					steps {
 						echo "html deploy"
-						sh("mkdir -p /mnt/raspel/Public/doxygen/Tle94112/;cd ${env.WORKSPACE}/docs;cp -r html /mnt/raspel/Public/doxygen/Tle94112/;")
+						//sh("mkdir -p /mnt/raspel/Public/doxygen/Tle94112/;cd ${env.WORKSPACE}/docs;cp -r html /mnt/raspel/Public/doxygen/Tle94112/;")
 					}
 				}
 
