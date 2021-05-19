@@ -136,9 +136,6 @@ pipeline {
 		 * SonarQube stage runs the sonar scanner and collects all reports
 		 */
 		stage('SonarQube') {
-			environment {
-				scannerHome = tool 'SonarQubeScanner'
-			}
 			steps {
 				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 					withSonarQubeEnv(
