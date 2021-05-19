@@ -13,7 +13,7 @@
 
 pipeline {
 	/**
-	 * node where to run on (try itec on the TCP Jenkins)
+	 * node where to run on (try itec nodes on the TCP Jenkins)
 	 */
 	agent {
 		node {
@@ -66,25 +66,37 @@ pipeline {
 	*/
 
 	stages {
-		stage('Build documentation') {
+
+		/*-----------------------------------------------------------------------------
+		 * unit test
+		 *-----------------------------------------------------------------------------
+		 */
+		stage('unit test') {
+			steps {
+				echo "unit test"
+				//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
+			}
+		}
+
+		stage('build') {
 			parallel {
 				/*-----------------------------------------------------------------------------
 				 * html
 				 *-----------------------------------------------------------------------------
 				 */
-				stage('HTML') {
+				stage('ARD') {
 					steps {
-						echo "html"
+						echo "Arduino"
 						//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
 					}
 				}
 				/*-----------------------------------------------------------------------------
-				 * latex/pdf
+				 * PlatformIO build
 				 *-----------------------------------------------------------------------------
 				 */
-				stage('PDF') {
+				stage('PIO') {
 					steps {
-						echo "latex/pdf"
+						echo "PlatformIO"
 						/*
 						sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make pdf")
 						build(
@@ -99,6 +111,16 @@ pipeline {
 							]
 						)
 						*/
+					}
+				}
+				/*-----------------------------------------------------------------------------
+				 * doxygen
+				 *-----------------------------------------------------------------------------
+				 */
+				stage('DOXY') {
+					steps {
+						echo "doxygen"
+						//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
 					}
 				}
 			} // end parallel
@@ -165,16 +187,6 @@ pipeline {
 					}
 				}
 
-
-				/*-----------------------------------------------------------------------------
-				 * production
-				 *-----------------------------------------------------------------------------
-				 */
-				stage('PRODUCTION') {
-					steps {
-						echo "Production"
-					}
-				}
 
 			} // end parallel
 		} // end stage
