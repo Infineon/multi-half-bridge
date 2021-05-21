@@ -17,7 +17,7 @@ pipeline {
 	 */
 	agent {
 		node {
-			label 'itec'
+			label 'itec-cent7'
 		}
 	}
 
