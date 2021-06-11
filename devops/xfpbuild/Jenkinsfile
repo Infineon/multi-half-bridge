@@ -151,7 +151,7 @@ pipeline {
 									python3 doxyifx.py html
 									rm -rf ${DOCS_TARGET}
 									mkdir ${DOCS_TARGET}
-									cp ${DOCS_SOURCE} ${DOCS_TARGET}/.
+									cp -R ${DOCS_SOURCE}/ ${DOCS_TARGET}/.
 								''',
 								returnStdout: true
 							).trim()
