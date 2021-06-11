@@ -67,6 +67,23 @@ pipeline {
 
 	stages {
 
+		// *
+		// * ************************************************************DevCI TRIGGER
+		// *
+		stage('Vars') {
+			steps {
+				echo "TIER:          ${params.TIER}"
+				echo "WEB_ROOT:      ${env.WEB_ROOT}"
+				echo "ROOT_URL:      ${env.ROOT_URL}"
+				echo "BRANCH_NAME:   ${env.BRANCH_NAME}"
+				echo "BUILD_NUMBER:  ${env.BUILD_NUMBER}"
+				echo "WORKSPACE:     ${WORKSPACE}"
+				echo "SONARINSTANCE: ${env.SONARINSTANCE}"
+				echo "SERVER:        ${env.RAMEZ_SERVER}/${params.RAMEZ_SERVER}"
+
+			} // end steps
+		} // end DevCI Trigger
+
 		/*-----------------------------------------------------------------------------
 		 * unit test
 		 *-----------------------------------------------------------------------------
