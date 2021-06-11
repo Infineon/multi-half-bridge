@@ -79,8 +79,8 @@ pipeline {
 				echo "BUILD_NUMBER:  ${env.BUILD_NUMBER}"
 				echo "WORKSPACE:     ${WORKSPACE}"
 				echo "SONARINSTANCE: ${env.SONARINSTANCE}"
-				echo "SERVER:        ${env.RAMEZ_SERVER}/${params.RAMEZ_SERVER}"
-
+				echo "SERVER:        ${env.SERVER}/${params.SERVER}"
+				sh ("export")
 			} // end steps
 		} // end DevCI Trigger
 
