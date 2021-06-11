@@ -143,7 +143,7 @@ pipeline {
 									cd ./
 									git clone https://bitbucket.vih.infineon.com/scm/ghmm/infineondoxygenerator.git
 									cd ./infineondoxygenerator
-									#python doxyifx.py html
+									python doxyifx.py html
 								''',
 								returnStdout: true
 							).trim()
