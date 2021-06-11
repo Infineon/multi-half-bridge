@@ -45,14 +45,14 @@ pipeline {
 	}
 
 	/**
-	 * Keep only the last 5 artifacts on the server to prevent from
+	 * Keep only the last 2 artifacts on the server to prevent from
 	 * locking massive amount of disk space. The number should <= 5.
 	 */
 	options {
 		buildDiscarder(
 			logRotator(
-				numToKeepStr: '5',
-				artifactNumToKeepStr: '5'
+				numToKeepStr: '2',
+				artifactNumToKeepStr: '2'
 			)
 		)
 		disableConcurrentBuilds()
@@ -84,7 +84,6 @@ pipeline {
 				echo "SERVER:        ${env.SERVER}/${params.SERVER}"
 				echo "DOCS_SOURCE:   ${env.DOCS_SOURCE}"
 				echo "DOCS_TARGET:   ${env.DOCS_TARGET}"
-				sh ("export")
 			} // end steps
 		} // end DevCI Trigger
 
@@ -210,20 +209,6 @@ pipeline {
 			} // end steps
 		} // end stage
 
-		stage('Deploy') {
-			parallel {
-				/*-----------------------------------------------------------------------------
-				 * development
-				 *-----------------------------------------------------------------------------
-				 */
-				stage('Docu') {
-					steps {
-						echo "html deploy"
-						//sh("mkdir -p /mnt/raspel/Public/doxygen/Tle94112/;cd ${env.WORKSPACE}/docs;cp -r html /mnt/raspel/Public/doxygen/Tle94112/;")
-					}
-				}
-
-
 			} // end parallel
 		} // end stage
 	} // end stages
@@ -232,17 +217,17 @@ pipeline {
 	 * post
 	 *-----------------------------------------------------------------------------
 	 */
-	 /*
+	
 	post {
 		failure {
 			
 			mail(
-				to: '',
-				subject: "[EPE JENKINS] ${IFXLIB} pipeline:",
+				to: 'Olaf.Filies@infineon.com',
+				subject: "[EPE JENKINS] pipeline: ${env.BRANCH_NAME}",
 				body: "Something during Jenkins pipeline run went wrong."
 			)
 			
 		}
 	}
-*/
+
 }
