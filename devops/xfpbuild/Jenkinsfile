@@ -144,9 +144,7 @@ pipeline {
 									rm -rf infineondoxygenerator
 									git clone https://bitbucket.vih.infineon.com/scm/ghmm/infineondoxygenerator.git;
 									cd ./infineondoxygenerator;
-									pwd
-									ls -la
-									python doxyifx.py html
+									python3 doxyifx.py html
 								''',
 								returnStdout: true
 							).trim()
