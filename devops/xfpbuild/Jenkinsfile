@@ -141,6 +141,7 @@ pipeline {
 							def result = sh(
 								script: '''
 									cd ./
+									rm -rf infineondoxygenerator
 									git clone https://bitbucket.vih.infineon.com/scm/ghmm/infineondoxygenerator.git
 									cd ./infineondoxygenerator
 									python doxyifx.py html
