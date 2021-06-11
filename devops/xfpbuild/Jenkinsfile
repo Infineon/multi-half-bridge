@@ -123,7 +123,7 @@ pipeline {
 						script {
 							def result = sh(
 								script: '''
-									cd ${env.WORKSPACE}
+									cd ${env.WORKSPACE}/.;
 									git clone https://bitbucket.vih.infineon.com/scm/ghmm/infineondoxygenerator.git
 									cd ./infineondoxygenerator
 									python doxyifx.py html
