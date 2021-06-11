@@ -120,7 +120,18 @@ pipeline {
 				stage('DOXY') {
 					steps {
 						echo "doxygen"
-						//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
+						script {
+							def result = sh(
+								script: '''
+									cd ${env.WORKSPACE}
+									git clone https://bitbucket.vih.infineon.com/scm/ghmm/infineondoxygenerator.git
+									cd ./infineondoxygenerator
+									python doxyifx.py html
+								''',
+								returnStdout: true
+							).trim()
+							echo "$result"
+						}
 					}
 				}
 			} // end parallel
