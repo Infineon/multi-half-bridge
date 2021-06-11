@@ -157,7 +157,7 @@ pipeline {
 							echo "$result"
 						}
 					}
-				}
+				} // end doxy
 			} // end parallel
 		} // end docu build
 
@@ -209,7 +209,6 @@ pipeline {
 			} // end steps
 		} // end stage
 
-			} // end parallel
 		} // end stage
 	} // end stages
 
