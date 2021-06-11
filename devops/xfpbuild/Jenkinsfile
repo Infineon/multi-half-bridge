@@ -149,9 +149,9 @@ pipeline {
 									git clone https://bitbucket.vih.infineon.com/scm/ghmm/infineondoxygenerator.git;
 									cd ./infineondoxygenerator;
 									python3 doxyifx.py html
-									#rm -rf ${env.DOCS_TARGET}
-									mkdir ${env.DOCS_TARGET}
-									cp ${env.DOCS_SOURCE} ${env.DOCS_TARGET}/.
+									rm -rf ${DOCS_TARGET}
+									mkdir ${DOCS_TARGET}
+									cp ${DOCS_SOURCE} ${DOCS_TARGET}/.
 								''',
 								returnStdout: true
 							).trim()
