@@ -36,21 +36,23 @@ pipeline {
 	 */
 	environment {
 		TIER = "${params.TIER}"
-		WEB_ROOT    = "/home/razweb/htdocs-${params.SERVER}"
-		ROOT_URL = "https://${params.SERVER}.vih.infineon.com"
-		scannerHome = tool 'sonar-scanner-cli-4.2.0.1873-linux'
+		WEB_ROOT       = "/home/razweb/htdocs-${params.SERVER}"
+		DOCS_SOURCE    = "${WORKSPACE}/docs/doxygen/build"
+		DOCS_TARGET    = "${env.WEB_ROOT}/itec/xfp/${env.BRANCH_NAME}"
+		ROOT_URL       = "https://${params.SERVER}.vih.infineon.com"
+		scannerHome    = tool 'sonar-scanner-cli-4.2.0.1873-linux'
 		SONARINSTANCE  = "${params.SONARINSTANCE}"
 	}
 
 	/**
-	 * Keep only the last 5 artifacts on the server to prevent from
+	 * Keep only the last 2 artifacts on the server to prevent from
 	 * locking massive amount of disk space. The number should <= 5.
 	 */
 	options {
 		buildDiscarder(
 			logRotator(
-				numToKeepStr: '5',
-				artifactNumToKeepStr: '5'
+				numToKeepStr: '2',
+				artifactNumToKeepStr: '2'
 			)
 		)
 		disableConcurrentBuilds()
@@ -66,6 +68,24 @@ pipeline {
 	*/
 
 	stages {
+
+		// *
+		// * ************************************************************DevCI TRIGGER
+		// *
+		stage('Vars') {
+			steps {
+				echo "TIER:          ${params.TIER}"
+				echo "WEB_ROOT:      ${env.WEB_ROOT}"
+				echo "ROOT_URL:      ${env.ROOT_URL}"
+				echo "BRANCH_NAME:   ${env.BRANCH_NAME}"
+				echo "BUILD_NUMBER:  ${env.BUILD_NUMBER}"
+				echo "WORKSPACE:     ${WORKSPACE}"
+				echo "SONARINSTANCE: ${env.SONARINSTANCE}"
+				echo "SERVER:        ${env.SERVER}/${params.SERVER}"
+				echo "DOCS_SOURCE:   ${env.DOCS_SOURCE}"
+				echo "DOCS_TARGET:   ${env.DOCS_TARGET}"
+			} // end steps
+		} // end DevCI Trigger
 
 		/*-----------------------------------------------------------------------------
 		 * unit test
@@ -120,9 +140,24 @@ pipeline {
 				stage('DOXY') {
 					steps {
 						echo "doxygen"
-						//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
+						script {
+							def result = sh(
+								script: '''
+									cd ./
+									rm -rf infineondoxygenerator
+									git clone https://bitbucket.vih.infineon.com/scm/ghmm/infineondoxygenerator.git;
+									cd ./infineondoxygenerator;
+									python3 doxyifx.py html
+									rm -rf ${DOCS_TARGET}
+									mkdir ${DOCS_TARGET}
+									cp -R ${DOCS_SOURCE}/ ${DOCS_TARGET}/.
+								''',
+								returnStdout: true
+							).trim()
+							echo "$result"
+						}
 					}
-				}
+				} // end doxy
 			} // end parallel
 		} // end docu build
 
@@ -174,39 +209,23 @@ pipeline {
 			} // end steps
 		} // end stage
 
-		stage('Deploy') {
-			parallel {
-				/*-----------------------------------------------------------------------------
-				 * development
-				 *-----------------------------------------------------------------------------
-				 */
-				stage('Docu') {
-					steps {
-						echo "html deploy"
-						//sh("mkdir -p /mnt/raspel/Public/doxygen/Tle94112/;cd ${env.WORKSPACE}/docs;cp -r html /mnt/raspel/Public/doxygen/Tle94112/;")
-					}
-				}
-
-
-			} // end parallel
-		} // end stage
 	} // end stages
 
 	/*-----------------------------------------------------------------------------
 	 * post
 	 *-----------------------------------------------------------------------------
 	 */
-	 /*
+	
 	post {
 		failure {
 			
 			mail(
-				to: '',
-				subject: "[EPE JENKINS] ${IFXLIB} pipeline:",
+				to: 'Olaf.Filies@infineon.com',
+				subject: "[EPE JENKINS] pipeline: ${env.BRANCH_NAME}",
 				body: "Something during Jenkins pipeline run went wrong."
 			)
 			
 		}
 	}
-*/
+
 }
