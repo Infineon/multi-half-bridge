@@ -17,7 +17,7 @@ pipeline {
 	 */
 	agent {
 		node {
-			label 'itec-cent7'
+			label 'epe'
 		}
 	}
 
@@ -35,7 +35,7 @@ pipeline {
 	 * Environment settings for shell calls
 	 */
 	environment {
-		TIER = "${params.TIER}"
+		TIER           = "${params.TIER}"
 		WEB_ROOT       = "/home/razweb/htdocs-${params.SERVER}"
 		DOCS_SOURCE    = "${WORKSPACE}/docs/doxygen/build"
 		DOCS_TARGET    = "${env.WEB_ROOT}/itec/xfp/${env.BRANCH_NAME}"
@@ -138,12 +138,18 @@ pipeline {
 				 *-----------------------------------------------------------------------------
 				 */
 				stage('DOXY') {
+					agent {
+						node {
+							label 'epelinux'
+						}
+					}
 					steps {
 						echo "doxygen"
 						script {
 							def result = sh(
 								script: '''
 									cd ./
+									export PATH=/opt/doxygen/1.8.14/bin:/opt/python/anaconda/4.2.0/py3.5.2:$PATH
 									rm -rf infineondoxygenerator
 									git clone https://bitbucket.vih.infineon.com/scm/ghmm/infineondoxygenerator.git;
 									cd ./infineondoxygenerator;
@@ -198,7 +204,7 @@ pipeline {
 					withSonarQubeEnv(
 						installationName: "${params.SONARINSTANCE}"
 					){
-						sh "${scannerHome}/bin/sonar-scanner -X"
+						sh "cp ./devops/xfpbuild/sonar-project.properties ./.; ${scannerHome}/bin/sonar-scanner -X"
 					}
 				} // end catch
 				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
