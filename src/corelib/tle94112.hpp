@@ -1,9 +1,9 @@
-/** 
+/**
  * @file        tle94112.hpp
  * @brief       TLE94112 Core API
  * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
  * @details 	This library includes the basic common functions to controll the TLE94112 registers
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
@@ -12,9 +12,9 @@
 
 #include <stdint.h>
 #include <stdlib.h>
-#include "../pal/timer.hpp"
-#include "../pal/gpio.hpp"
-#include "../pal/spic.hpp"
+#include "timer.hpp"
+#include "gpio.hpp"
+#include "spic.hpp"
 
 using namespace tle94112;
 
@@ -116,7 +116,7 @@ class Tle94112
 		Tle94112();
 
 		//! \brief constructor with pal instances
-		Tle94112(SPIC * sBus, GPIOC * cs, GPIOC * en, Timer * timer); 	
+		Tle94112(SPIC * sBus, GPIOC * cs, GPIOC * en, Timer * timer);
 
 		//! \brief standard destructor switches shield off
 		~Tle94112();
@@ -170,7 +170,7 @@ class Tle94112
 		 * \param active	LED mode active (1) or inactive (0)
 		 *
 		 * \see HalfBridge
-		 * 
+		 *
 		 * \return	0 if everything is ok
 		 * 			1 if half bridge does not support LED mode
 		 */
@@ -284,7 +284,7 @@ class Tle94112
 		} HalfBridge_t;
 
 		//! \brief struct containing register locations for a single PWM channel
-		typedef struct 
+		typedef struct
 		{
 			uint8_t freqReg;
 			uint8_t freqMask;

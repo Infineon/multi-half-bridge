@@ -6,14 +6,14 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "../../../tle94112-ino.hpp"
+#include "tle94112-ino.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
 #include "tle94112-platf-ino.hpp"
-#include "../pal/gpio-arduino.hpp"
-#include "../pal/spic-arduino.hpp"
-#include "../pal/timer-arduino.hpp"
+#include "gpio-arduino.hpp"
+#include "spic-arduino.hpp"
+#include "timer-arduino.hpp"
 
 /**
  * @brief Construct a new Tle94112Ino:: Tle94112Ino object

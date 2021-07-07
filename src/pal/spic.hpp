@@ -1,8 +1,8 @@
-/** 
+/**
  * @file        spic.cpp
  * @brief       TLE94112 SPI Platform Abstraction Layer
  * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
@@ -11,7 +11,7 @@
 #define SPIC_HPP_
 
 #include <stdint.h>
-#include "../corelib/tle94112-types.hpp"
+#include "tle94112-types.hpp"
 
 namespace tle94112
 {
@@ -43,7 +43,7 @@ class SPIC
 
 		/**
 		 * @brief           Send/receives data from SPI bus
-		 * @param send      address or command to send 
+		 * @param send      address or command to send
 		 * @param received  data from SPI bus
 		 * @return          SPIC error code
 		 * @retval          OK if success
@@ -53,7 +53,7 @@ class SPIC
 
 		/**
 		 * @brief           Send/receives data from SPI bus
-		 * @param send      address or command to send 
+		 * @param send      address or command to send
 		 * @param received  data from SPI bus
 		 * @return          SPIC error code
 		 * @retval          OK if success

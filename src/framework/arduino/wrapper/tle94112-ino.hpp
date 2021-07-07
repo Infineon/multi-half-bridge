@@ -9,12 +9,12 @@
 #ifndef TLE94112_INO_HPP_
 #define TLE94112_INO_HPP_
 
-#include "config/tle94112-conf.hpp"
+#include "tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
-#include "corelib/tle94112.hpp"
-#include "framework/arduino/wrapper/tle94112-platf-ino.hpp"
+#include "tle94112.hpp"
+#include "tle94112-platf-ino.hpp"
 
 /**
  * @addtogroup inoApi
@@ -23,7 +23,7 @@
 
 /**
  * @brief Arduino Tle94112Ino constructor
- * 
+ *
  */
 class Tle94112Ino: virtual public Tle94112
 {

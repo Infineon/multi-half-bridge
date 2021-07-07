@@ -10,11 +10,11 @@
 #ifndef GPIO_ARDUINO_HPP_
 #define GPIO_ARDUINO_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
+#include "tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
-#include "../../../pal/gpio.hpp"
+#include "gpio.hpp"
 
 using namespace tle94112;
 

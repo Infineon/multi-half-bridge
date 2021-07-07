@@ -9,7 +9,7 @@
 #ifndef TLE94112_PLATF_INO_HPP_
 #define TLE94112_PLATF_INO_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
+#include "tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
@@ -20,7 +20,7 @@
 
  /**
  * @brief Arduino Hardware Platform Pins
- * 
+ *
  * This class provides a simple API for connecting the TLE94112 shield via SPI.
  * The 12 halfbridges, the PWM units and the registers are set and controlled
  * from the library.

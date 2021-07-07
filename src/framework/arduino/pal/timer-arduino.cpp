@@ -6,7 +6,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "../../../config/tle94112-conf.hpp"
+#include "tle94112-conf.hpp"
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 

@@ -13,7 +13,7 @@
 
 #if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
 
-#include "../../../pal/timer.hpp"
+#include "timer.hpp"
 
 using namespace tle94112;
 
