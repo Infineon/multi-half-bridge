@@ -1,5 +1,5 @@
 {  
-   "name":"TLE94112",
+   "name":"multi-half-bridge",
    "keywords":"infineon arduino motor arduino-ide arduino-library dc-motor-control",
    "description":"This shield provides 12 half-bridges which can drive up to 6 independent (+5 cascaded) bidirectional motors consuming up to 0.9 Ampere each",
    "repository":{  
@@ -12,7 +12,7 @@
       "url":"https://www.infineon.com/cms/en/product/evaluation-boards/tle94112el_shield/",
       "maintainer": true
    },
-   "version":"3.0.2",
+   "version":"3.0.3",
    "license":"MIT",
    "frameworks":"arduino",
    "platforms":[  
