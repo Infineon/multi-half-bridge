@@ -28,6 +28,11 @@ C++ library of Infineon's Multi Half-Bridge IC controllers.
         <td><img src="https://github.com/infineon/multi-half-bridge/wiki/img/rpi-logo.png" width=200></td>
     </tr>
     <tr>
+        <td style="text-align: center"><a href="https://github.com/Infineon/arduino-multi-half-bridge">Arduino Library</a></td>
+        <td style="text-align: center"></td>
+        <td style="text-align: center"><a href="https://pypi.org/project/multi-half-bridge/">RPi Python Library</td>
+    </tr>
+    <tr>
         <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/Arduino-API">Arduino API</a></td>
         <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/WICED-API">WICED API</a></td>
         <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/RPi-API">RPi API</a><br><a href="https://github.com/Infineon/multi-half-bridge/wiki/Py-API">RPi Python API</a></td>
@@ -55,6 +60,7 @@ C++ library of Infineon's Multi Half-Bridge IC controllers.
 </table>
 
 ## More Information
+
 The complete library and project documentation can be found in the [Wiki](https://github.com/Infineon/multi-half-bridge/wiki/Home).
 
 ## License

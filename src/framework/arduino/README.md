@@ -25,7 +25,7 @@ Check in this [link](https://github.com/Infineon/multi-half-bridge/wiki/Hardware
 
 ### Getting Started
 
-Find a getting started tutorial based on the PAS CO2 Shield2Go and the XMC 2Go eval board [here](https://github.com/Infineon/multi-half-bridge/wiki/Ino-Getting-Started).
+Find a getting started tutorial based on the DC Motor Control Shield for Arduino and the XMC4700 Relax Kit [here](https://github.com/Infineon/multi-half-bridge/wiki/Ino-Getting-Started).
 
 ### More information
 
@@ -38,7 +38,7 @@ The complete relevant Arduino documentation (and more) can be found in the base 
 
 ### Contributing
 
-This is a release repository for the Arduino framework. The code basis is maintained and developed in the PAS CO2 Sensor Cross-Framework-Platform (XFP) library [repository](https://github.com/infineon/multi-half-bridge). 
+This is a release repository for the Arduino framework. The code basis is maintained and developed in the Multi Half-bridge Cross-Framework-Platform (XFP) library [repository](https://github.com/infineon/multi-half-bridge). 
   
 ### License
 
