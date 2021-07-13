@@ -10,11 +10,7 @@
 #ifndef SPIC_WICED_HPP_
 #define SPIC_WICED_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
-
-#include "../../../pal/spic.hpp"
+#include "spic.hpp"
 #include <platform.h>
 #include <wiced_platform.h>
 
@@ -63,5 +59,4 @@ class SPICWiced: virtual public SPIC
 };
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** SPIC_WICED_HPP_ **/

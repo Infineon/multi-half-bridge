@@ -10,10 +10,6 @@
 #ifndef GPIO_ARDUINO_HPP_
 #define GPIO_ARDUINO_HPP_
 
-#include "tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
-
 #include "gpio.hpp"
 
 using namespace tle94112;
@@ -22,7 +18,6 @@ using namespace tle94112;
  * @addtogroup arduinoPal
  * @{
  */
-
 
 /**
  * @brief Arduino GPIO class
@@ -49,5 +44,4 @@ public:
 };
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** GPIO_ARDUINO_HPP_ **/

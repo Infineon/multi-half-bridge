@@ -24,14 +24,6 @@
  *
  */
 
-/*
- * As this library works with multiple frameworks,
- * this part is needed to avoid trying to compile
- * this example from other frameworks.
- */
-#include "../../../config/tle94112-conf.hpp"
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
-
 /* Infineon library for multi half bridge */
 #include "tle94112-rpi.hpp"
 #include "tle94112-motor.hpp"
@@ -100,5 +92,3 @@ int main(int argc, char const *argv[])
     motor1.stop();
     motor2.stop();
 }
-
-#endif /** TLE94112_FRAMEWORK **/

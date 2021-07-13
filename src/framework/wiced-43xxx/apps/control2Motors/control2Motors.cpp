@@ -26,8 +26,6 @@
 
 #include "control2Motors.hpp"
 
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
-
 // Tle94112 Object on Shield 1
 Tle94112Wiced controller = Tle94112Wiced();
 
@@ -125,5 +123,3 @@ void application_start( )
         loop();
     }
 }
-
-#endif /** TLE94112_FRAMEWORK **/

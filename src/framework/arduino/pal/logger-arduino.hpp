@@ -10,9 +10,6 @@
 #define LOGGER_ARDUINO_H_
 
 #include "tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
-
 #include "logger.hpp"
 
 #if (TLE94112_LOGGER_ENABLED == 1)
@@ -42,5 +39,4 @@ class LoggerIno : public LoggerPAL
 extern LoggerIno logpalino;
 
 #endif /* TLE94112_LOGGER_ENABLED */
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** LOGGER_ARDUINO_H_ **/

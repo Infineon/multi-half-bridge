@@ -1,17 +1,13 @@
-/** 
+/**
  * @file        logger-rpi.hpp
- * @brief       TLE94112 Logger Raspberry Pi PAL 
+ * @brief       TLE94112 Logger Raspberry Pi PAL
  * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef LOGGER_RPI_H_
-#define LOGGER_RPI_H_
-
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
+#ifndef LOGGER_RPI_HPP_
+#define LOGGER_RPI_HPP_
 
 #include "logger.hpp"
 #include "tle94112-logger.hpp"
@@ -29,7 +25,7 @@ class LoggerRpi : public LoggerPAL
 {
         public:
                         LoggerRpi    ();
-                       ~LoggerRpi    (); 
+                       ~LoggerRpi    ();
             Error_t     init         ();
             Error_t     deinit       ();
             Error_t     write        (const uint8_t * log_data, uint32_t length);
@@ -42,6 +38,5 @@ class LoggerRpi : public LoggerPAL
  */
 extern LoggerRpi logpalrpi;
 
-#endif /* TLE94112_LOGGER_ENABLED */
-#endif /** TLE94112_FRAMEWORK **/
-#endif /** LOGGER_RPI_H_ **/
+#endif /** TLE94112_LOGGER_ENABLED */
+#endif /** LOGGER_RPI_HPP_ **/

@@ -1,4 +1,4 @@
-  
+
 /*!
  * \name        basicTest
  * \author      Infineon Technologies AG
@@ -12,14 +12,6 @@
  *
  */
 
-/*
- * As this library works with multiple frameworks,
- * this part is needed to avoid trying to compile
- * this example from other frameworks.
- */
-#include "../../../config/tle94112-conf.hpp"
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
-
 /* Infineon library for multi half bridge */
 #include "tle94112-rpi.hpp"
 #include "tle94112-motor.hpp"
@@ -29,7 +21,7 @@
 
 int main(int argc, char const *argv[])
 {
-  
+
   // Create a Tle94112Rpi instance for each motor controller.
   Tle94112Rpi controller;
 
@@ -49,7 +41,7 @@ int main(int argc, char const *argv[])
   motor.connect(motor.HIGHSIDE, controller.TLE_HB1);
   motor.connect(motor.LOWSIDE, controller.TLE_HB5);
   motor.setPwm(motor.LOWSIDE, controller.TLE_NOPWM);
-  
+
   // Initialize the motor.
   motor.begin();
 
@@ -61,5 +53,3 @@ int main(int argc, char const *argv[])
   // Switch the load off (outputs to floating state).
   motor.coast();
 }
-
-#endif /** TLE94112_FRAMEWORK **/

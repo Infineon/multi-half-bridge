@@ -1,0 +1,13 @@
+# Files/Folders to be excluded
+
+example
+../raspberrypi
+../arduino
+../wiced-43xxx
+../../../test/unit
+../../../CMakeLists.txt
+../../../build
+../../../.vscode
+../../../.settings
+../../../.pio
+../../../devops

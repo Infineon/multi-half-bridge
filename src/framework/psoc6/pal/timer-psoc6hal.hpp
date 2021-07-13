@@ -9,13 +9,9 @@
 #ifndef TIMER_PSOC6HAL_HPP_
 #define TIMER_PSOC6HAL_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
-
 #include "cyhal_system.h"
 #include "cyhal_timer.h"
-#include "../../../pal/timer.hpp"
+#include "timer.hpp"
 
 using namespace tle94112;
 
@@ -26,7 +22,7 @@ using namespace tle94112;
 
 /**
  * @brief psoc6 timer wrapper
- * 
+ *
  */
 class TimerPsoc6hal: virtual public Timer
 {
@@ -48,5 +44,4 @@ class TimerPsoc6hal: virtual public Timer
 
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** TIMER_PSOC6HAL_HPP_ **/

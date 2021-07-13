@@ -10,11 +10,7 @@
 #ifndef SPIC_RPI_HPP_
 #define SPIC_RPI_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
-
-#include "../../../pal/spic.hpp"
+#include "spic.hpp"
 #include <bcm2835.h>
 #include <cstdio>
 
@@ -40,7 +36,7 @@ class SPICRpi: virtual public SPIC
 		uint8_t     mode;
 		uint8_t     clock;
 		uint8_t		channel;
-		uint32_t	speed; 
+		uint32_t	speed;
 
 	public:
 					SPICRpi();
@@ -54,5 +50,4 @@ class SPICRpi: virtual public SPIC
 };
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** SPIC_RPI_HPP_ **/

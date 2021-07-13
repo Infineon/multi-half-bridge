@@ -8,8 +8,6 @@
 
 #include "logger-arduino.hpp"
 
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
-
 #if (TLE94112_LOGGER_ENABLED == 1)
 
 #include <Arduino.h>
@@ -84,4 +82,3 @@ Logger    tle_log(static_cast<LoggerPAL*>(&logpalino));
 }
 
 #endif /* TLE94112_LOGGER_ENABLED */
-#endif /** TLE94112_FRAMEWORK **/

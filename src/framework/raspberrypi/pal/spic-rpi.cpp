@@ -7,7 +7,6 @@
  */
 
 #include "spic-rpi.hpp"
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 /**
  * @brief Constructor of the Raspberry Pi SPIC class
@@ -17,23 +16,23 @@
  */
 SPICRpi::SPICRpi() : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
 {
- 
+
 }
 
 /**
  * @brief Construct a new SPICRpi::SPICRpi object of the Raspberry Pi SPIC class
- * 
+ *
  * This function sets some basic SPI modes for the default SPI port.
- * 
+ *
  * @param lsb    lowside (LSB) or highside (MSB) mode
  * @param mode   SPI mode
  * @param clock  SPI clock divider
  */
 SPICRpi::SPICRpi(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(BCM2835_SPI_BIT_ORDER_LSBFIRST), mode(BCM2835_SPI_MODE1), clock(BCM2835_SPI_CLOCK_DIVIDER_16)
-{	
+{
 	this->lsb = lsb;
 	this->mode = mode;
-	this->clock = clock;	
+	this->clock = clock;
 }
 
 /**
@@ -77,7 +76,7 @@ Error_t SPICRpi::init()
 	bcm2835_spi_setDataMode(BCM2835_SPI_MODE1);                   // The default
     bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_32);
     bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                      // The default
-    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);      // The default  
+    bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);      // The default
 	return OK;
 }
 
@@ -125,5 +124,3 @@ Error_t SPICRpi::transfer16(uint16_t send, uint16_t &received)
 	received = (uint16_t)(((uint16_t)data_in_msb << 8) | (data_in_lsb));
 	return OK;
 }
-
-#endif /** TLE94112_FRAMEWORK **/

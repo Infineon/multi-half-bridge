@@ -9,11 +9,7 @@
 #ifndef TLE94112_RPI_HPP_
 #define TLE94112_RPI_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
-
-#include "../../../corelib/tle94112.hpp"
+#include "tle94112.hpp"
 #include <bcm2835.h>
 
 /**
@@ -41,5 +37,4 @@ class Tle94112Rpi: virtual public Tle94112
 };
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_RPI_HPP_ **/

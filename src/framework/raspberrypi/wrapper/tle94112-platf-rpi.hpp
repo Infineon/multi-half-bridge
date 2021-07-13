@@ -9,10 +9,6 @@
 #ifndef TLE94112_PLATF_RPI_HPP_
 #define TLE94112_PLATF_RPI_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
-
 #include <bcm2835.h>
 
 /**
@@ -43,5 +39,4 @@
 
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PLATF_RPI_HPP_ **/

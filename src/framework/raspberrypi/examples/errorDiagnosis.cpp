@@ -4,21 +4,13 @@
  * \copyright   2021 Infineon Technologies AG
  * \brief       This example shows how to read and understand the status registers of the TLE94112.
  * \details
- * It will run the motor in forward direction and then read the status registers every 5 seconds. 
+ * It will run the motor in forward direction and then read the status registers every 5 seconds.
  * It shows how to understand the status registers and which errors can appear.
  * Take this example if you want to learn how to debug the TLE94112 during operation.
  *
  * SPDX-License-Identifier: MIT
  *
  */
-
-/*
- * As this library works with multiple frameworks,
- * this part is needed to avoid trying to compile
- * this example from other frameworks.
- */
-#include "../../../config/tle94112-conf.hpp"
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 /* Infineon library for multi half bridge */
 #include "tle94112-rpi.hpp"
@@ -77,9 +69,9 @@ int main(int argc, char const *argv[])
     /**
      * The under voltage flag shows if a supply
      * voltage below the lower limit is detected.
-     * 
+     *
      * All outputs are disabled when flag is set.
-     * 
+     *
      * This error is latched and needs to be
      * cleared manually.
     */
@@ -90,11 +82,11 @@ int main(int argc, char const *argv[])
     }
 
     /**
-     * The over voltage flag shows if a supply 
+     * The over voltage flag shows if a supply
      * voltage above the upper limit is detected.
-     * 
+     *
      * All outputs are disabled when flag is set.
-     * 
+     *
      * This error is latched and needs to be
      * cleared manually.
     */
@@ -105,11 +97,11 @@ int main(int argc, char const *argv[])
     }
 
     /**
-     * The over voltage flag shows if a supply 
+     * The over voltage flag shows if a supply
      * voltage above the upper limit is detected.
-     * 
+     *
      * All outputs are disabled when flag is set.
-     * 
+     *
      * This error is latched and needs to be
      * cleared manually.
     */
@@ -123,7 +115,7 @@ int main(int argc, char const *argv[])
      * The pre-warning temperature flag shows that
      * the junction temperature exceeded the
      * temperature pre-warning threshold.
-     * 
+     *
      * This error is latched and needs to be
      * cleared manually.
     */
@@ -137,9 +129,9 @@ int main(int argc, char const *argv[])
      * The shutdown temperature flag shows that
      * the junction temperature exceeded the
      * shutdown temperature threshold.
-     * 
+     *
      * All outputs are disabled when flag is set.
-     * 
+     *
      * This error is latched and needs to be
      * cleared manually.
     */
@@ -154,10 +146,10 @@ int main(int argc, char const *argv[])
      * - an open load error or
      * - an over-current error
      * is detected on at least one output.
-     * 
+     *
      * The faulty output is disabled in case
      * of an over-current error.
-     * 
+     *
      * This error is latched and needs to be
      * cleared manually.
     */
@@ -217,5 +209,3 @@ int main(int argc, char const *argv[])
     delay(5000);
   }
 }
-
-#endif /** TLE94112_FRAMEWORK **/

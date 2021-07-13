@@ -7,9 +7,6 @@
  */
 
 #include "tle94112-ino.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
-
 #include "tle94112-platf-ino.hpp"
 #include "gpio-arduino.hpp"
 #include "spic-arduino.hpp"
@@ -39,5 +36,3 @@ Tle94112Ino::Tle94112Ino(uint8_t csPin):Tle94112()
 	Tle94112::timer = new TimerIno();
 	Tle94112::sBus = new SPICIno();
 }
-
-#endif /** TLE94112_FRAMEWORK **/

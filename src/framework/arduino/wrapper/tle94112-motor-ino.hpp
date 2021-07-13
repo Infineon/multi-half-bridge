@@ -13,10 +13,6 @@
 #ifndef TLE94112MOTOR_INO_HPP_
 #define TLE94112MOTOR_INO_HPP_
 
-#include "tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
-
 #include "tle94112-ino.hpp"
 #include "tle94112-motor.hpp"
 
@@ -28,7 +24,6 @@
  * This file exists only for compatibility with the Arduino setup.
  *
  * @see Tle94112
- */;
+ */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112MOTOR_INO_HPP_ **/

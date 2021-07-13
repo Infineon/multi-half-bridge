@@ -9,9 +9,7 @@
 #ifndef TLE94112_PLATF_INO_HPP_
 #define TLE94112_PLATF_INO_HPP_
 
-#include "tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
+#if defined(ARDUINO_AVR_UNO) || defined(XMC1100_Boot_Kit) || defined(XMC4700_Relax_Kit) /**< Arduino Uno, XMC1100 Boot Kit or XMC4700 Relax Kit */
 
 /**
  * @addtogroup platfIno
@@ -45,5 +43,5 @@
 
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
+#endif /** #ifdef **/
 #endif /** TLE94112_PLATF_INO_HPP_ **/

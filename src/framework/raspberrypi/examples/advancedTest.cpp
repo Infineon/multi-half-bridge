@@ -1,4 +1,4 @@
-  
+
 /*!
  * \name        advancedTest
  * \author      Infineon Technologies AG
@@ -25,14 +25,6 @@
  * SPDX-License-Identifier: MIT
  *
  */
-
-/*
- * As this library works with multiple frameworks,
- * this part is needed to avoid trying to compile
- * this example from other frameworks.
- */
-#include "../../../config/tle94112-conf.hpp"
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 /* Infineon library for multi half bridge */
 #include "tle94112-rpi.hpp"
@@ -75,12 +67,12 @@ int main(int argc, char const *argv[])
  /** BASIC MOTOR CONTROL. */
  printf("\n--- BASIC MOTOR CONTROL ---\n\n");
  delay(DELAY);
- 
+
  // Run motor forward without PWM (full speed).
  printf("- Run motor forward without PWM (full speed).\n");
  motor.start(255);
  delay(DELAY);
- 
+
  // Stop (brake) motor without PWM (full force).
  printf("- Stop (brake) motor without PWM (full force).\n");
  motor.stop(255);
@@ -144,4 +136,3 @@ printf("- Change duty cycle to 25%%.\n");
 
  printf("\n--- END ---\n");
 }
-#endif /** TLE94112_FRAMEWORK **/

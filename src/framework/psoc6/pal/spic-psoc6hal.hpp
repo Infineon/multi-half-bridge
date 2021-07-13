@@ -9,12 +9,8 @@
 #ifndef SPIC_PSOC6HAL_HPP_
 #define SPIC_PSOC6HAL_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
-
 #include "cyhal.h"
-#include "../../../pal/spic.hpp"
+#include "spic.hpp"
 
 using namespace tle94112;
 
@@ -25,7 +21,7 @@ using namespace tle94112;
 
 /**
  * @brief psoc6 SPIC class
- * 
+ *
  */
 #define SPI_FREQ_HZ         (1000000UL)
 class SPICPsoc6hal: virtual public SPIC
@@ -54,5 +50,4 @@ class SPICPsoc6hal: virtual public SPIC
 
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** SPIC_PSOC6HAL_HPP_ **/

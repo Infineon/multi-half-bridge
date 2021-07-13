@@ -10,10 +10,6 @@
 #ifndef SPIC_ARDUINO_HPP_
 #define SPIC_ARDUINO_HPP_
 
-#include "tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
-
 #include "spic.hpp"
 #include <Arduino.h>
 #include "SPI.h"
@@ -54,5 +50,4 @@ class SPICIno: virtual public SPIC
 };
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** SPIC_ARDUINO_HPP_ **/

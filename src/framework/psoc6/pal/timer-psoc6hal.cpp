@@ -6,10 +6,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
-
 #include "timer-psoc6hal.hpp"
 
 /**
@@ -179,5 +175,3 @@ Error_t TimerPsoc6hal::delayMicro(uint32_t timeout)
 
 	return err;
 }
-
-#endif /** TLE94112_FRAMEWORK **/

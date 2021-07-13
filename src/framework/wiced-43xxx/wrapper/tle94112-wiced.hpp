@@ -10,12 +10,8 @@
 #ifndef TLE94112_WICED_HPP_
 #define TLE94112_WICED_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
-
 #include <wiced_platform.h>
-#include "../../../corelib/tle94112.hpp"
+#include "tle94112.hpp"
 
 /**
  * @addtogroup wicedApi
@@ -31,5 +27,4 @@ class Tle94112Wiced: virtual public Tle94112
 };
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_WICED_HPP_ **/

@@ -9,10 +9,6 @@
 #ifndef TLE94112_INO_HPP_
 #define TLE94112_INO_HPP_
 
-#include "tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
-
 #include "tle94112.hpp"
 #include "tle94112-platf-ino.hpp"
 
@@ -33,5 +29,4 @@ class Tle94112Ino: virtual public Tle94112
 };
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_INO_HPP_ **/

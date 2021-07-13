@@ -2,16 +2,12 @@
  * @file        tle94112-platf-wiced.hpp
  * @brief       TLE94112 WICED Hardware Platforms
  * @copyright   Copyright (c) 2019-2020 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
 #ifndef TLE94112_PLATF_WICED_HPP_
 #define TLE94112_PLATF_WICED_HPP_
-
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 #include <wiced_platform.h>
 
@@ -39,5 +35,4 @@
 
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PLATF_WICED_HPP_ **/

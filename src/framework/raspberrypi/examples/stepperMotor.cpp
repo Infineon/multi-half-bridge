@@ -1,4 +1,4 @@
-  
+
 /*!
  * \name        stepperMotor
  * \author      Infineon Technologies AG
@@ -11,14 +11,6 @@
  * SPDX-License-Identifier: MIT
  *
  */
-
-/*
- * As this library works with multiple frameworks,
- * this part is needed to avoid trying to compile
- * this example from other frameworks.
- */
-#include "../../../config/tle94112-conf.hpp"
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 /* Infineon library for multi half bridge */
 #include "tle94112-rpi.hpp"
@@ -107,5 +99,3 @@ int main(int argc, char const *argv[])
   // REQUIRED, otherwise the motor becomes hot.
   stepper.disableOutputs();
 }
-
-#endif /** TLE94112_FRAMEWORK **/

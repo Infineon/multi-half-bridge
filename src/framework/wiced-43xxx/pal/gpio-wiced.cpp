@@ -8,8 +8,6 @@
 
 #include "gpio-wiced.hpp"
 
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
-
 /**
  * @brief GPIO WICED default constructor
  */
@@ -142,5 +140,3 @@ inline Error_t GPIOWiced::disable()
 	}
 	return err;
 }
-
-#endif /** TLE94112_FRAMEWORK **/
