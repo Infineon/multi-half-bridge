@@ -134,7 +134,4 @@ Error_t GPIORpi::disable()
 }
 
 
-#endif /** TLE94112_FRAMEWORK **/
-
-
 
