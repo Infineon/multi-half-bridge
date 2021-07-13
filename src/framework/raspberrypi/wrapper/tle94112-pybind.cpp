@@ -6,8 +6,10 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "tle94112-pybind.hpp"
 #include <pybind11/pybind11.h>
+#include "tle94112.hpp"
+#include "tle94112-motor.hpp"
+#include "tle94112-rpi.hpp"
 
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
