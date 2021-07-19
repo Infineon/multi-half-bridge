@@ -1,0 +1,14 @@
+<map id="Tle94112Motor::stop" name="Tle94112Motor::stop">
+<area shape="rect" id="node1" title="actively breaks the motor to stop it" alt="" coords="5,81,161,108"/>
+<area shape="rect" id="node2" href="$dd/d03/group__tle94112motorapi.html#aca0d0d54d133002e724e4100c2cd3af8" title="releases the motor without driving or active breaking" alt="" coords="209,31,372,57"/>
+<area shape="rect" id="node9" href="$d5/dd0/group__tle94112api.html#aba359ba70b241189e8f94a2285a55b0a" title="sets the output state and the PWM channel for a halfbridge (only for passive freewheeling)" alt="" coords="431,81,579,108"/>
+<area shape="rect" id="node10" href="$d5/dd0/group__tle94112api.html#aec21a2a1434b0de208d33387c387043f" title="sets the frequency and duty cycle for a PWM channel" alt="" coords="209,132,372,159"/>
+<area shape="rect" id="node3" href="$d5/dd0/group__tle94112api.html#a788102cec501e8d2532798c2107d0626" title="clears all clearable error flags" alt="" coords="425,31,585,57"/>
+<area shape="rect" id="node4" href="$d5/dd0/group__tle94112api.html#ad9db86ef0229b3edd760dbf4a38444ec" title="clears a status register by writing 0x00 to it" alt="" coords="637,56,825,83"/>
+<area shape="rect" id="node5" href="$d3/d5d/group__pal.html#a03f2756f97eed3d5eaabb93ea6627db7" title="Introduces a delay during the specified time." alt="" coords="873,107,1071,133"/>
+<area shape="rect" id="node6" href="$d3/d5d/group__pal.html#aacea90c9389fba78d927132bd3a546cc" title="Disables the GPIO output according to the GPIO logic." alt="" coords="881,157,1063,184"/>
+<area shape="rect" id="node7" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="882,5,1062,32"/>
+<area shape="rect" id="node8" href="$d3/d5d/group__pal.html#a0ef16bcb393e15a5010f0ec50b867e33" title="Send/receives data from SPI bus." alt="" coords="885,56,1059,83"/>
+<area shape="rect" id="node11" href="$d5/dd0/group__tle94112api.html#ae81da08f80a439295811f774713e6590" title="sets the frequency and duty cycle for a PWM channel automatically called by the public version of con..." alt="" coords="420,132,589,159"/>
+<area shape="rect" id="node12" href="$d5/dd0/group__tle94112api.html#a68607ddf951e75fc8dc9137881a05a3b" title="writes data bits to a control register of the TLE94112" alt="" coords="657,107,805,133"/>
+</map>

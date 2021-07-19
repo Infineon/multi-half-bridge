@@ -1,0 +1,8 @@
+<map id="Tle94112::setLedMode" name="Tle94112::setLedMode">
+<area shape="rect" id="node1" title="sets LED mode on compatible half bridges (half bridge 1 or 2 of TLE94112)" alt="" coords="5,81,175,108"/>
+<area shape="rect" id="node2" href="$d5/dd0/group__tle94112api.html#a68607ddf951e75fc8dc9137881a05a3b" title="writes data bits to a control register of the TLE94112" alt="" coords="223,81,371,108"/>
+<area shape="rect" id="node3" href="$d3/d5d/group__pal.html#a03f2756f97eed3d5eaabb93ea6627db7" title="Introduces a delay during the specified time." alt="" coords="419,5,616,32"/>
+<area shape="rect" id="node4" href="$d3/d5d/group__pal.html#aacea90c9389fba78d927132bd3a546cc" title="Disables the GPIO output according to the GPIO logic." alt="" coords="426,56,609,83"/>
+<area shape="rect" id="node5" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="427,107,607,133"/>
+<area shape="rect" id="node6" href="$d3/d5d/group__pal.html#a0ef16bcb393e15a5010f0ec50b867e33" title="Send/receives data from SPI bus." alt="" coords="430,157,605,184"/>
+</map>

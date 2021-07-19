@@ -1,0 +1,5 @@
+<map id="GPIOPsoc6hal::~GPIOPsoc6hal" name="GPIOPsoc6hal::~GPIOPsoc6hal">
+<area shape="rect" id="node1" title="GPIO PSOC6 destructor." alt="" coords="5,31,227,57"/>
+<area shape="rect" id="node2" href="$dd/d06/group__psoc6Pal.html#a3923839087a483b8185bc8efdac96905" title="Initializes the PSOC6 GPIO." alt="" coords="279,5,437,32"/>
+<area shape="rect" id="node3" href="$dd/d06/group__psoc6Pal.html#a34c447e864f409cd496064f81f25ec1a" title="Disables the PSOC6 output according to the GPIO logic." alt="" coords="275,56,441,83"/>
+</map>

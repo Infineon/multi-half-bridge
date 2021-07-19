@@ -1,0 +1,46 @@
+<map id="tle94112&#45;types.hpp" name="tle94112&#45;types.hpp">
+<area shape="rect" id="node1" title="TLE94112 Types." alt="" coords="1481,5,1629,32"/>
+<area shape="rect" id="node2" href="$d1/d2c/gpio_8hpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="777,80,855,107"/>
+<area shape="rect" id="node26" href="$d8/df0/spic_8hpp.html" title="TLE94112 SPI Platform Abstraction Layer." alt="" coords="1517,80,1593,107"/>
+<area shape="rect" id="node36" href="$df/d05/timer_8hpp.html" title="TLE94112 Timer Platform Abstraction Layer." alt="" coords="2135,80,2219,107"/>
+<area shape="rect" id="node3" href="$d4/d9b/tle94112_8hpp.html" title="TLE94112 Core API." alt="" coords="1444,155,1551,181"/>
+<area shape="rect" id="node17" href="$d9/d4f/gpio-arduino_8hpp.html" title="TLE94112 GPIO Arduino PAL." alt="" coords="750,155,882,181"/>
+<area shape="rect" id="node19" href="$db/ded/gpio-psoc6hal_8hpp.html" title="TLE94112 GPIO PSoC6 HAL PAL." alt="" coords="2648,155,2789,181"/>
+<area shape="rect" id="node21" href="$d0/d9f/gpio-rpi_8hpp.html" title="TLE94112 GPIO Raspberry Pi API." alt="" coords="107,155,207,181"/>
+<area shape="rect" id="node23" href="$d2/d39/gpio-wiced_8hpp.html" title="TLE94112 GPIO WICED PAL." alt="" coords="605,155,726,181"/>
+<area shape="rect" id="node25" href="$de/d31/gpio_8cpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="5,155,83,181"/>
+<area shape="rect" id="node4" href="$d3/dd8/tle94112-motor_8hpp.html" title="TLE94112 Motor Control API." alt="" coords="1535,229,1686,256"/>
+<area shape="rect" id="node7" href="$d7/d9a/tle94112-pybind_8cpp.html" title="TLE94112 Raspberry Pi Python Wrapper API." alt="" coords="1324,304,1479,331"/>
+<area shape="rect" id="node8" href="$d3/d0a/tle94112_8cpp.html" title="TLE94112 Core API." alt="" coords="1127,229,1233,256"/>
+<area shape="rect" id="node9" href="$d9/def/tle94112-ino_8hpp.html" title="TLE94112 Arduino API." alt="" coords="1710,229,1842,256"/>
+<area shape="rect" id="node11" href="$d1/d2d/tle94112-psoc6hal_8hpp.html" title="TLE94112 PSoC6 HAL API." alt="" coords="2833,229,3004,256"/>
+<area shape="rect" id="node13" href="$dc/de3/tle94112-rpi_8hpp.html" title="TLE94112 Raspberry Pi API." alt="" coords="973,229,1102,256"/>
+<area shape="rect" id="node15" href="$d8/d3c/tle94112-wiced_8hpp.html" title="TLE94112 WICED API." alt="" coords="1258,229,1409,256"/>
+<area shape="rect" id="node5" href="$db/dc4/tle94112-motor_8cpp.html" title="TLE94112 Motor Control API." alt="" coords="1503,304,1652,331"/>
+<area shape="rect" id="node6" href="$d9/d0c/tle94112-motor-ino_8hpp.html" title="TLE94112 Motor Arduino API." alt="" coords="1676,304,1852,331"/>
+<area shape="rect" id="node10" href="$d3/d34/tle94112-ino_8cpp.html" title="TLE94112 Arduino API." alt="" coords="1876,304,2007,331"/>
+<area shape="rect" id="node12" href="$dc/d89/tle94112-psoc6hal_8cpp.html" title="TLE94112 PSoC6 HAL API." alt="" coords="2895,304,3065,331"/>
+<area shape="rect" id="node14" href="$da/d01/tle94112-rpi_8cpp.html" title="TLE94112 Raspberry Pi API." alt="" coords="493,304,621,331"/>
+<area shape="rect" id="node16" href="$d8/d67/tle94112-wiced_8cpp.html" title="TLE94112 WICED API." alt="" coords="851,304,1000,331"/>
+<area shape="rect" id="node18" href="$df/df8/gpio-arduino_8cpp.html" title="TLE94112 GPIO Arduino PAL." alt="" coords="523,229,653,256"/>
+<area shape="rect" id="node20" href="$db/d23/gpio-psoc6hal_8cpp.html" title="TLE94112 GPIO PSoC6 HAL PAL." alt="" coords="2618,229,2758,256"/>
+<area shape="rect" id="node22" href="$da/da1/gpio-rpi_8cpp.html" title="TLE94112 GPIO Raspberry Pi API." alt="" coords="83,229,181,256"/>
+<area shape="rect" id="node24" href="$d6/d24/gpio-wiced_8cpp.html" title="TLE94112 GPIO WICED PAL." alt="" coords="379,229,499,256"/>
+<area shape="rect" id="node27" href="$df/d2f/spic-arduino_8hpp.html" title="TLE94112 SPI Arduino PAL." alt="" coords="1865,155,1996,181"/>
+<area shape="rect" id="node29" href="$de/d47/spic-psoc6hal_8hpp.html" title="TLE94112 SPI PSoC6 HAL PAL." alt="" coords="3191,155,3329,181"/>
+<area shape="rect" id="node31" href="$d8/d2e/spic-rpi_8hpp.html" title="TLE94112 SPI Raspberry Pi PAL." alt="" coords="256,155,355,181"/>
+<area shape="rect" id="node33" href="$da/dee/spic-wiced_8hpp.html" title="TLE94112 SPI WICED PAL." alt="" coords="906,155,1025,181"/>
+<area shape="rect" id="node35" href="$dd/d1a/spic_8cpp.html" title="TLE94112 SPI Platform Abstraction Layer." alt="" coords="1575,155,1649,181"/>
+<area shape="rect" id="node28" href="$d8/d55/spic-arduino_8cpp.html" title="TLE94112 SPI Arduino PAL." alt="" coords="1969,229,2098,256"/>
+<area shape="rect" id="node30" href="$df/df1/spic-psoc6hal_8cpp.html" title="TLE94112 SPI PSoC6 HAL PAL." alt="" coords="3249,229,3388,256"/>
+<area shape="rect" id="node32" href="$db/d31/spic-rpi_8cpp.html" title="TLE94112 SPI Raspberry Pi PAL." alt="" coords="257,229,354,256"/>
+<area shape="rect" id="node34" href="$d4/d1b/spic-wiced_8cpp.html" title="TLE94112 SPI WICED PAL." alt="" coords="830,229,949,256"/>
+<area shape="rect" id="node37" href="$da/dda/timer-arduino_8hpp.html" title="TLE94112 Timer Arduino PAL." alt="" coords="2348,155,2487,181"/>
+<area shape="rect" id="node39" href="$d5/dcc/timer-psoc6hal_8hpp.html" title="TLE94112 Timer PSoC6 HAL PAL." alt="" coords="2902,155,3050,181"/>
+<area shape="rect" id="node41" href="$da/df3/timer-rpi_8hpp.html" title="TLE94112 Timer Raspberry Pi PAL." alt="" coords="2195,155,2301,181"/>
+<area shape="rect" id="node43" href="$d8/d76/timer-wiced_8hpp.html" title="TLE94112 Timer WICED PAL." alt="" coords="2043,155,2171,181"/>
+<area shape="rect" id="node38" href="$df/d09/timer-arduino_8cpp.html" title="TLE94112 Timer Arduino PAL." alt="" coords="2455,229,2593,256"/>
+<area shape="rect" id="node40" href="$db/de1/timer-psoc6hal_8cpp.html" title="TLE94112 Timer PSoC6 HAL PAL." alt="" coords="3079,229,3225,256"/>
+<area shape="rect" id="node42" href="$d0/d4c/timer-rpi_8cpp.html" title="TLE94112 Timer Raspberry Pi PAL." alt="" coords="2273,229,2380,256"/>
+<area shape="rect" id="node44" href="$d4/d22/timer-wiced_8cpp.html" title="TLE94112 Timer WICED PAL." alt="" coords="2122,229,2249,256"/>
+</map>

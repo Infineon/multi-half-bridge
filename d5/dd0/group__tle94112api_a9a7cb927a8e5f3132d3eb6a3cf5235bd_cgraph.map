@@ -1,0 +1,4 @@
+<map id="Tle94112::_getHBOverCurrent" name="Tle94112::_getHBOverCurrent">
+<area shape="rect" id="node1" title="gets the overcurrent error flag bit for a specific halfbridge automatically called by the public vers..." alt="" coords="5,5,221,32"/>
+<area shape="rect" id="node2" href="$d5/dd0/group__tle94112api.html#a5ad39746c9a78d4ac384c6be78aa8cd0" title="reads one byte from a status register of the TLE94112" alt="" coords="269,5,455,32"/>
+</map>

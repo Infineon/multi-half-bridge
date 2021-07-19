@@ -1,0 +1,8 @@
+<map id="Tle94112::begin" name="Tle94112::begin">
+<area shape="rect" id="node1" title="enables and initializes the TLE94112" alt="" coords="5,107,132,133"/>
+<area shape="rect" id="node2" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="180,5,360,32"/>
+<area shape="rect" id="node3" href="$d3/d5d/group__pal.html#a6737b60f293a715a65d4c07101ea5668" title="Initialize the timer." alt="" coords="193,56,347,83"/>
+<area shape="rect" id="node4" href="$d3/d5d/group__pal.html#abba0a55befd79b70df445b563e9b68cd" title="Initializes the SPIC." alt="" coords="197,107,343,133"/>
+<area shape="rect" id="node5" href="$d3/d5d/group__pal.html#a49d4ba83b8c1fc4184456c9c74df667a" title="Initializes the GPIO." alt="" coords="191,157,349,184"/>
+<area shape="rect" id="node6" href="$d5/dd0/group__tle94112api.html#aa61f625cddc7a067056e9c858ff954f2" title="initializes this object, automatically called by begin()" alt="" coords="215,208,325,235"/>
+</map>

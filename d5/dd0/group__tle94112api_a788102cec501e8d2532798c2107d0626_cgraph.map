@@ -1,0 +1,8 @@
+<map id="Tle94112::clearErrors" name="Tle94112::clearErrors">
+<area shape="rect" id="node1" title="clears all clearable error flags" alt="" coords="5,81,165,108"/>
+<area shape="rect" id="node2" href="$d5/dd0/group__tle94112api.html#ad9db86ef0229b3edd760dbf4a38444ec" title="clears a status register by writing 0x00 to it" alt="" coords="213,81,401,108"/>
+<area shape="rect" id="node3" href="$d3/d5d/group__pal.html#a03f2756f97eed3d5eaabb93ea6627db7" title="Introduces a delay during the specified time." alt="" coords="449,5,647,32"/>
+<area shape="rect" id="node4" href="$d3/d5d/group__pal.html#aacea90c9389fba78d927132bd3a546cc" title="Disables the GPIO output according to the GPIO logic." alt="" coords="457,56,639,83"/>
+<area shape="rect" id="node5" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="458,107,638,133"/>
+<area shape="rect" id="node6" href="$d3/d5d/group__pal.html#a0ef16bcb393e15a5010f0ec50b867e33" title="Send/receives data from SPI bus." alt="" coords="461,157,635,184"/>
+</map>

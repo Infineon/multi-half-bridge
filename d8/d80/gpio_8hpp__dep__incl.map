@@ -1,0 +1,26 @@
+<map id="gpio.hpp" name="gpio.hpp">
+<area shape="rect" id="node1" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="1178,5,1257,32"/>
+<area shape="rect" id="node2" href="$d4/d9b/tle94112_8hpp.html" title="TLE94112 Core API." alt="" coords="697,80,804,107"/>
+<area shape="rect" id="node16" href="$d9/d4f/gpio-arduino_8hpp.html" title="TLE94112 GPIO Arduino PAL." alt="" coords="75,80,207,107"/>
+<area shape="rect" id="node18" href="$db/ded/gpio-psoc6hal_8hpp.html" title="TLE94112 GPIO PSoC6 HAL PAL." alt="" coords="1457,80,1599,107"/>
+<area shape="rect" id="node20" href="$d0/d9f/gpio-rpi_8hpp.html" title="TLE94112 GPIO Raspberry Pi API." alt="" coords="1101,80,1201,107"/>
+<area shape="rect" id="node22" href="$d2/d39/gpio-wiced_8hpp.html" title="TLE94112 GPIO WICED PAL." alt="" coords="1225,80,1346,107"/>
+<area shape="rect" id="node24" href="$de/d31/gpio_8cpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="1623,80,1700,107"/>
+<area shape="rect" id="node3" href="$d3/dd8/tle94112-motor_8hpp.html" title="TLE94112 Motor Control API." alt="" coords="387,155,538,181"/>
+<area shape="rect" id="node6" href="$d7/d9a/tle94112-pybind_8cpp.html" title="TLE94112 Raspberry Pi Python Wrapper API." alt="" coords="563,229,717,256"/>
+<area shape="rect" id="node7" href="$d3/d0a/tle94112_8cpp.html" title="TLE94112 Core API." alt="" coords="768,155,875,181"/>
+<area shape="rect" id="node8" href="$d9/def/tle94112-ino_8hpp.html" title="TLE94112 Arduino API." alt="" coords="231,155,363,181"/>
+<area shape="rect" id="node10" href="$d1/d2d/tle94112-psoc6hal_8hpp.html" title="TLE94112 PSoC6 HAL API." alt="" coords="1443,155,1613,181"/>
+<area shape="rect" id="node12" href="$dc/de3/tle94112-rpi_8hpp.html" title="TLE94112 Raspberry Pi API." alt="" coords="614,155,743,181"/>
+<area shape="rect" id="node14" href="$d8/d3c/tle94112-wiced_8hpp.html" title="TLE94112 WICED API." alt="" coords="899,155,1050,181"/>
+<area shape="rect" id="node4" href="$db/dc4/tle94112-motor_8cpp.html" title="TLE94112 Motor Control API." alt="" coords="389,229,539,256"/>
+<area shape="rect" id="node5" href="$d9/d0c/tle94112-motor-ino_8hpp.html" title="TLE94112 Motor Arduino API." alt="" coords="189,229,365,256"/>
+<area shape="rect" id="node9" href="$d3/d34/tle94112-ino_8cpp.html" title="TLE94112 Arduino API." alt="" coords="5,229,136,256"/>
+<area shape="rect" id="node11" href="$dc/d89/tle94112-psoc6hal_8cpp.html" title="TLE94112 PSoC6 HAL API." alt="" coords="1505,229,1674,256"/>
+<area shape="rect" id="node13" href="$da/d01/tle94112-rpi_8cpp.html" title="TLE94112 Raspberry Pi API." alt="" coords="884,229,1012,256"/>
+<area shape="rect" id="node15" href="$d8/d67/tle94112-wiced_8cpp.html" title="TLE94112 WICED API." alt="" coords="1040,229,1189,256"/>
+<area shape="rect" id="node17" href="$df/df8/gpio-arduino_8cpp.html" title="TLE94112 GPIO Arduino PAL." alt="" coords="76,155,207,181"/>
+<area shape="rect" id="node19" href="$db/d23/gpio-psoc6hal_8cpp.html" title="TLE94112 GPIO PSoC6 HAL PAL." alt="" coords="1689,155,1829,181"/>
+<area shape="rect" id="node21" href="$da/da1/gpio-rpi_8cpp.html" title="TLE94112 GPIO Raspberry Pi API." alt="" coords="1125,155,1224,181"/>
+<area shape="rect" id="node23" href="$d6/d24/gpio-wiced_8cpp.html" title="TLE94112 GPIO WICED PAL." alt="" coords="1299,155,1419,181"/>
+</map>

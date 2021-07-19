@@ -1,0 +1,13 @@
+<map id="tle94112&#45;motor&#45;ino.hpp" name="tle94112&#45;motor&#45;ino.hpp">
+<area shape="rect" id="node1" title="TLE94112 Motor Arduino API." alt="" coords="163,5,339,32"/>
+<area shape="rect" id="node2" href="$d9/def/tle94112-ino_8hpp.html" title="TLE94112 Arduino API." alt="" coords="267,80,399,107"/>
+<area shape="rect" id="node11" href="$d3/dd8/tle94112-motor_8hpp.html" title="TLE94112 Motor Control API." alt="" coords="93,80,243,107"/>
+<area shape="rect" id="node3" href="$d4/d9b/tle94112_8hpp.html" title="TLE94112 Core API." alt="" coords="117,155,224,181"/>
+<area shape="rect" id="node10" href="$de/d65/tle94112-platf-ino_8hpp.html" title="TLE94112 Arduino Hardware Platforms." alt="" coords="250,155,417,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="30,304,101,331"/>
+<area shape="rect" id="node5" title=" " alt="" coords="334,229,405,256"/>
+<area shape="rect" id="node6" href="$df/d05/timer_8hpp.html" title="TLE94112 Timer Platform Abstraction Layer." alt="" coords="23,229,107,256"/>
+<area shape="rect" id="node8" href="$d1/d2c/gpio_8hpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="131,229,210,256"/>
+<area shape="rect" id="node9" href="$d8/df0/spic_8hpp.html" title="TLE94112 SPI Platform Abstraction Layer." alt="" coords="234,229,310,256"/>
+<area shape="rect" id="node7" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="125,304,273,331"/>
+</map>

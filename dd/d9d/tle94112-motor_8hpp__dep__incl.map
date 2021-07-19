@@ -1,0 +1,6 @@
+<map id="tle94112&#45;motor.hpp" name="tle94112&#45;motor.hpp">
+<area shape="rect" id="node1" title="TLE94112 Motor Control API." alt="" coords="191,5,342,32"/>
+<area shape="rect" id="node2" href="$db/dc4/tle94112-motor_8cpp.html" title="TLE94112 Motor Control API." alt="" coords="5,80,155,107"/>
+<area shape="rect" id="node3" href="$d9/d0c/tle94112-motor-ino_8hpp.html" title="TLE94112 Motor Arduino API." alt="" coords="179,80,355,107"/>
+<area shape="rect" id="node4" href="$d7/d9a/tle94112-pybind_8cpp.html" title="TLE94112 Raspberry Pi Python Wrapper API." alt="" coords="379,80,533,107"/>
+</map>
