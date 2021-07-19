@@ -1,4 +1,4 @@
-  
+
 # -*- coding: utf-8 -*-
 import os
 import sys
@@ -103,7 +103,7 @@ class CMakeBuild(build_ext):
 # logic and declaration, and simpler if you include description/version in a file.
 setup(
     name="multi-half-bridge",
-    version="3.0.2",
+    version="3.0.3",
     author="Infineon Technologies",
     description="Python Library for Infineon's multi half-bridge IC drivers",
     long_description="Python library for Infineons multi half-bridge IC drivers",
@@ -111,7 +111,7 @@ setup(
         'Source' : 'https://github.com/Infineon/multi-half-bridge',
         'Wiki': 'https://github.com/Infineon/multi-half-bridge/wiki',
         'IC Prodcuts Page' : 'https://www.infineon.com/cms/de/product/power/motor-control-ics/brushed-dc-motor-driver-ics/multi-half-bridge-ics/'
-    },  
+    },
     ext_modules=[CMakeExtension("multi_half_bridge_py")],
     cmdclass={"build_ext": CMakeBuild},
     license='MIT',
