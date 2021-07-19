@@ -2,7 +2,12 @@ cmake_minimum_required(VERSION 3.4...3.18)
 
 project(multi_half_bridge_py)
 
-set(CMAKE_CXX_FLAGS "-DTLE94112_FRAMEWORK=TLE94112_FRMWK_RPI")
+# Search for include Files
+include_directories(
+    pal/
+    wrapper/
+)
+
 
 set(Headers
     pal/

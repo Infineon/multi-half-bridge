@@ -1,8 +1,8 @@
-/** 
+/**
  * @file        timer.hpp
  * @brief       TLE94112 Timer Platform Abstraction Layer
  * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
@@ -10,7 +10,7 @@
 #define TIMER_HPP_
 
 #include <stdint.h>
-#include "../corelib/tle94112-types.hpp"
+#include "tle94112-types.hpp"
 
 namespace tle94112
 {

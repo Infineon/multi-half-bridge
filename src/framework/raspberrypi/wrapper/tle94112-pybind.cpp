@@ -6,12 +6,11 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "tle94112-pybind.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
-
 #include <pybind11/pybind11.h>
-//#include "tle94112-platf-rpi.hpp"
+#include "tle94112.hpp"
+#include "tle94112-motor.hpp"
+#include "tle94112-rpi.hpp"
+
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
 
@@ -37,7 +36,7 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
         .def("getHBOverCurrent", &Tle94112::getHBOverCurrent, "Get Half-Bridge over current")
         .def("getHBOpenload", &Tle94112::getHBOpenLoad, "Get Half-Bridge open load")
         .def("clearErrors", &Tle94112::clearErrors, "Clear errors function");
-        
+
 // Wrapping variables that are arguements to member functions and are defined as enum
     py::enum_<Tle94112::HalfBridge>(tle94112, "HalfBridge", py::arithmetic())
         .value("TLE_NOHB", Tle94112::HalfBridge::TLE_NOHB)
@@ -54,7 +53,7 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
         .value("TLE_HB611", Tle94112::HalfBridge::TLE_HB11)
         .value("TLE_HB12", Tle94112::HalfBridge::TLE_HB12)
         .export_values();
-    
+
     py::enum_<Tle94112::PWMChannel>(tle94112, "PWMChannel", py::arithmetic())
         .value("TLE_NOPWM", Tle94112::PWMChannel::TLE_NOPWM)
         .value("TLE_PWM1", Tle94112::PWMChannel::TLE_PWM1)
@@ -69,7 +68,7 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
         .export_values();
 
     py::enum_<Tle94112::HBOCState>(tle94112, "HBOCState", py::arithmetic())
-        .value("TLE_NONE", Tle94112::HBOCState::TLE_NONE)    
+        .value("TLE_NONE", Tle94112::HBOCState::TLE_NONE)
         .value("TLE_LOWSIDE", Tle94112::HBOCState::TLE_LOWSIDE)
         .value("TLE_HIGHSIDE", Tle94112::HBOCState::TLE_HIGHSIDE)
         .export_values();
@@ -104,8 +103,8 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
         .value("TLE94112_PIN_CS3", Tle94112Rpi::TlePinCS::TLE94112_PIN_CS3)
         .value("TLE94112_PIN_EN", Tle94112Rpi::TlePinCS::TLE94112_PIN_EN)
         .export_values();
-        
-// Wrapper for Tle94112Motor class 
+
+// Wrapper for Tle94112Motor class
     py::class_<Tle94112Motor> tle94112motor(m, "Tle94112Motor");
 
     tle94112motor.def(py::init<Tle94112 &>(), py::keep_alive<1, 2>())
@@ -139,4 +138,3 @@ PYBIND11_MODULE(multi_half_bridge_py, m) {
     m.attr("__version__") = "dev";
 #endif
 }
-#endif /** TLE94112_FRAMEWORK **/

@@ -8,8 +8,6 @@
 
 #include "timer-wiced.hpp"
 
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
-
 /**
  * @brief Constructor of the WICED Timer class
  *
@@ -128,5 +126,3 @@ Error_t TimerWiced::delayMicro(uint32_t timeout)
 	wiced_rtos_delay_microseconds( timeout );
 	return OK;
 }
-
-#endif /** TLE94112_FRAMEWORK **/

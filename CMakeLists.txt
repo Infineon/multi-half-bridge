@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.12.4)  
+cmake_minimum_required(VERSION 3.12.4)
 
-# Arduino Library Template 
+# Arduino Library Template
 set(mhbcore multi-half-bridge-corelib)
 
 project(${mhbcore} CXX C)
@@ -50,7 +50,7 @@ if (EXISTS ${CMAKE_SOURCE_DIR}/googletest)
     # Enable Testing with CTest
     enable_testing()
 
-    # Add GoogleTest 
+    # Add GoogleTest
     add_subdirectory(googletest)
     # Add Tests Folder
     add_subdirectory(test/unit)

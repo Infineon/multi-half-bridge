@@ -7,7 +7,6 @@
  */
 
 #include "gpio-rpi.hpp"
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 /**
  * @brief Constructor of the Raspberry Pi GPIO class
@@ -16,7 +15,7 @@
  *
  */
 GPIORpi::GPIORpi() : pin(0), mode(BCM2835_GPIO_FSEL_OUTP), logic(POSITIVE)
-{ 
+{
 }
 
 /**
@@ -46,9 +45,9 @@ Error_t GPIORpi::init()
 	tle94112::Error_t err = tle94112::OK;
 	if (bcm2835_init() <= 0)
 	{
-		err = tle94112::INTF_ERROR; 
-	} 
-	
+		err = tle94112::INTF_ERROR;
+	}
+
 	 bcm2835_gpio_fsel(this->pin, this->mode);
 
 	return err;
@@ -133,9 +132,6 @@ Error_t GPIORpi::disable()
 	}
 	return tle94112::OK;
 }
-
-
-#endif /** TLE94112_FRAMEWORK **/
 
 
 

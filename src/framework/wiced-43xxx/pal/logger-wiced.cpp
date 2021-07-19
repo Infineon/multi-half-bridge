@@ -1,14 +1,12 @@
-/** 
+/**
  * @file        logger-wiced.cpp
- * @brief       TLE94112 Logger WICED PAL 
+ * @brief       TLE94112 Logger WICED PAL
  * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
 #include "logger-wiced.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 
 #if (TLE94112_LOGGER_ENABLED == 1)
 
@@ -36,7 +34,7 @@ LoggerWiced::~LoggerWiced()
 }
 
 /**
- * @brief       Initializes the logger WICED PAL 
+ * @brief       Initializes the logger WICED PAL
  * @return      TLE94112 error code
  * @retval      OK always
  */
@@ -53,16 +51,16 @@ Error_t  LoggerWiced::init()
 Error_t   LoggerWiced::deinit()
 {
   return tle94112::OK;
-} 
+}
 
 /**
  * @brief       Writes in the logger WICED PAL
- * 
+ *
  * @param[in]   *logData    Pointer to the array holding the data to be logged
- * @param[in]   length      Length in bytes of the data to be written 
+ * @param[in]   length      Length in bytes of the data to be written
  * @return      TLE94112 error code
  * @retval      OK always
- * 
+ *
  */
 Error_t   LoggerWiced::write(const uint8_t * log_data, uint32_t length)
 {
@@ -86,4 +84,3 @@ Logger    tle_log(static_cast<LoggerPAL*>(&logpalwic));
 }
 
 #endif /* TLE94112_LOGGER_ENABLED */
-#endif /** TLE94112_FRAMEWORK **/

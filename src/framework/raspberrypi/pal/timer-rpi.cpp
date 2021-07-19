@@ -8,8 +8,6 @@
 
 #include "timer-rpi.hpp"
 
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
-
 using namespace tle94112;
 
 /**
@@ -123,10 +121,8 @@ Error_t TimerRpi::delayMilli(uint32_t timeout)
  * @param[in]   timeout                 Desired timeout in us
  * @return      TimerRpi::Error_t
  */
-Error_t TimerRpi::delayMicro(uint32_t timeout) 
+Error_t TimerRpi::delayMicro(uint32_t timeout)
 {
 	bcm2835_delayMicroseconds(timeout);
 	return OK;
 }
-
-#endif /** TLE94112_FRAMEWORK **/

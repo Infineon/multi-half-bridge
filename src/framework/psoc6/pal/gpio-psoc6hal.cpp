@@ -6,10 +6,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
-
 #include "gpio-psoc6hal.hpp"
 
 /**
@@ -137,5 +133,3 @@ inline Error_t GPIOPsoc6hal::disable()
 	}
 	return OK;
 }
-
-#endif /** TLE94112_FRAMEWORK **/

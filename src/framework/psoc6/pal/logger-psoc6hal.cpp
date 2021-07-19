@@ -1,14 +1,12 @@
-/** 
+/**
  * @file        logger-psoc6hal.cpp
- * @brief       TLE94112 Logger PSoC6 HAL PAL 
+ * @brief       TLE94112 Logger PSoC6 HAL PAL
  * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
 #include "logger-psoc6hal.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
 
 #if (TLE94112_LOGGER_ENABLED == 1)
 
@@ -34,8 +32,8 @@ LoggerPSoC6::~LoggerPSoC6()
 }
 
 /**
- * @brief       Initializes the logger PSoC6 HAL PAL 
- * @note        Serial is initialized by the PSoC6 HAL core 
+ * @brief       Initializes the logger PSoC6 HAL PAL
+ * @note        Serial is initialized by the PSoC6 HAL core
  *              and begun in setup().
  * @return      TLE94112 error code
  * @retval      OK always
@@ -53,18 +51,18 @@ Error_t  LoggerPSoC6::init()
 Error_t   LoggerPSoC6::deinit()
 {
   return tle94112::OK;
-} 
+}
 
 /**
  * @brief       Writes in the logger PSoC6 HAL PAL
- * 
+ *
  * @note        RETARGETTING IS DONE IN MAIN... THIS COULD BE ALSO ADDED TO INIT...
- * 
+ *
  * @param[in]   *logData    Pointer to the array holding the data to be logged
- * @param[in]   length      Length in bytes of the data to be written 
+ * @param[in]   length      Length in bytes of the data to be written
  * @return      TLE94112 error code
  * @retval      OK always
- * 
+ *
  */
 Error_t   LoggerPSoC6::write(const uint8_t * log_data, uint32_t length)
 {
@@ -88,4 +86,3 @@ Logger    tle_log(static_cast<LoggerPAL*>(&logpalpsoc6));
 }
 
 #endif /* TLE94112_LOGGER_ENABLED */
-#endif /** TLE94112_FRAMEWORK **/

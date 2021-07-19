@@ -13,10 +13,6 @@
 #ifndef BASICTEST_HPP_
 #define BASICTEST_HPP_
 
-#include "../../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
-
 #include <stdlib.h>
 #include <wiced.h>
 #include <tle94112-platf-wiced.hpp>
@@ -26,5 +22,4 @@
 
 extern "C" void application_start();
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /* BASICTEST_HPP_ */

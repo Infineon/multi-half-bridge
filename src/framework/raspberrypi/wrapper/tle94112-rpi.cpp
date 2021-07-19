@@ -7,14 +7,10 @@
  */
 
 #include "tle94112-rpi.hpp"
-
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
-
 #include "tle94112-platf-rpi.hpp"
-#include "../pal/gpio-rpi.hpp"
-#include "../pal/spic-rpi.hpp"
-#include "../pal/timer-rpi.hpp"
+#include "gpio-rpi.hpp"
+#include "spic-rpi.hpp"
+#include "timer-rpi.hpp"
 #include <cstdio>
 
 /**
@@ -41,5 +37,3 @@ Tle94112Rpi::Tle94112Rpi(uint8_t csPin)
 	Tle94112::timer = new TimerRpi();
 	Tle94112::sBus = new SPICRpi();
 }
-
-#endif /** TLE94112_FRAMEWORK **/

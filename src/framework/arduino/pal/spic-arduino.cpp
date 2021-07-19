@@ -8,8 +8,6 @@
 
 #include "spic-arduino.hpp"
 
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
-
 /**
  * @brief Constructor of the Arduino SPIC class
  *
@@ -23,9 +21,9 @@ SPICIno::SPICIno() : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
 
 /**
  * @brief Construct a new SPICIno::SPICIno object of the Arduino SPIC class
- * 
+ *
  * This function sets some basic SPI modes for the default SPI port.
- * 
+ *
  * @param lsb    lowside (LSB) or highside (MSB) mode
  * @param mode   SPI mode
  * @param clock  SPI clock divider
@@ -120,5 +118,3 @@ Error_t SPICIno::transfer16(uint16_t send, uint16_t &received)
 	received = (uint16_t)(((uint16_t)data_in_msb << 8) | (data_in_lsb));
 	return OK;
 }
-
-#endif /** TLE94112_FRAMEWORK **/

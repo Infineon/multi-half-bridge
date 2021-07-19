@@ -1,4 +1,4 @@
-  
+
 /*!
  * \name        ledMode
  * \author      Infineon Technologies AG
@@ -17,14 +17,6 @@
  *
  */
 
-/*
- * As this library works with multiple frameworks,
- * this part is needed to avoid trying to compile
- * this example from other frameworks.
- */
-#include "../../../config/tle94112-conf.hpp"
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
-
 /* Infineon library for multi half bridge */
 #include "tle94112-rpi.hpp"
 
@@ -34,7 +26,7 @@
 
 int main(int argc, char const *argv[])
 {
-  
+
   // Create a Tle94112Rpi instance for each motor controller.
   Tle94112Rpi controller;
 
@@ -74,5 +66,3 @@ int main(int argc, char const *argv[])
   // Turn LED off
   controller.configHB(controller.TLE_HB1, controller.TLE_FLOATING, controller.TLE_NOPWM);
 }
-
-#endif /** TLE94112_FRAMEWORK **/

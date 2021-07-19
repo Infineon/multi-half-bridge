@@ -4,16 +4,10 @@ example
 ../raspberrypi
 ../arduino
 ../wiced-43xxx
-../../tle94112-ino.hpp
-../../tle94112-motor-ino.hpp
 ../../../test/unit
 ../../../CMakeLists.txt
-../../../multi-half-bridge.mk
-
 ../../../build
 ../../../.vscode
 ../../../.settings
-../../../.mtbLaunchConfigs
 ../../../.pio
 ../../../devops
-

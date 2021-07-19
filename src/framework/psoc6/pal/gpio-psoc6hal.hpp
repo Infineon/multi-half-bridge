@@ -10,14 +10,10 @@
 #ifndef GPIO_PSOC6HAL_HPP_
 #define GPIO_PSOC6HAL_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
-
 #include <stdint.h>
 #include "cyhal_system.h"
 #include "cyhal_gpio.h"
-#include "../../../pal/gpio.hpp"
+#include "gpio.hpp"
 
 using namespace tle94112;
 
@@ -28,7 +24,7 @@ using namespace tle94112;
 
 /**
  * @brief psoc6 gpio wrapper class
- * 
+ *
  */
 class GPIOPsoc6hal : virtual public GPIOC
 {
@@ -56,5 +52,4 @@ class GPIOPsoc6hal : virtual public GPIOC
 
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** GPIO_PSOC6HAL_HPP_ **/

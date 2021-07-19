@@ -1,20 +1,20 @@
-/** 
+/**
  * @file        tle94112-logger.hpp
  * @brief       TLE94112 Logger
  * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
 #ifndef TLE94112_LOGGER_HPP_
 #define TLE94112_LOGGER_HPP_
 
-#include "../config/tle94112-conf.hpp"
+#include "tle94112-conf.hpp"
 
 #if (TLE94112_LOGGER_ENABLED == 1)
 
 #include <stdint.h>
-#include "../pal/logger.hpp"
+#include "logger.hpp"
 
 namespace tle94112
 {
@@ -48,7 +48,7 @@ class Logger
  */
 extern Logger tle_log;
 
-/** 
+/**
  * Logger colors options
  */
 #define TLE94112_LOGGER_COLOR_RED                  "\x1b[31m"
@@ -68,7 +68,7 @@ extern Logger tle_log;
 
 /**
  * @brief TLE94112 logger module
- */ 
+ */
 
 /**
  *  Logger color for different error types
@@ -89,7 +89,7 @@ extern Logger tle_log;
 
 /**
  * @brief TLE94112 core logger module
- */ 
+ */
 #if (TLE94112_CORE_LOGGER_ENABLED == 1)
 
 #define TLE94112_LOGGER_SERVICE               "[tle94112]        : "
@@ -114,14 +114,14 @@ extern Logger tle_log;
 
 #else
 
-#define TLE94112_LOG_MSG(str)                 {   }  
+#define TLE94112_LOG_MSG(str)                 {   }
 #define TLE94112_LOG_RETURN(ret)              {   }
 
 #endif /* TLE94112_CORE_LOGGER_ENABLED */
 
 /**
  * @brief TLE94112 motor logger module
- */ 
+ */
 #if (TLE94112_MOTOR_LOGGER_ENABLED == 1)
 
 #define TLE94112_MOTOR_LOGGER_SERVICE               "[tle94112 motor]  : "
@@ -146,17 +146,17 @@ extern Logger tle_log;
 
 #else
 
-#define TLE94112_MOTOR_LOG_MSG(str)                 {   }  
+#define TLE94112_MOTOR_LOG_MSG(str)                 {   }
 #define TLE94112_MOTOR_LOG_RETURN(ret)              {   }
 
 #endif /* TLE94112_MOTOR_LOGGER_ENABLED */
 
 /**
  * @brief TLE94112 Register module
- */ 
+ */
 #if (TLE94112_REG_LOGGER_ENABLED == 1)
 
-#define TLE94112_REG_LOGGER_SERVICE               "[tle94112 reg]    : " 
+#define TLE94112_REG_LOGGER_SERVICE               "[tle94112 reg]    : "
 #define TLE94112_REG_LOGGER_COLOR                 TLE94112_LOGGER_COLOR_GREEN
 
 #define TLE94112_REG_LOG_MSG(str)\
@@ -204,16 +204,16 @@ extern Logger tle_log;
 
 #else
 
-#define TLE94112_REG_VALUE_HEX(addr_ptr)          {   } 
+#define TLE94112_REG_VALUE_HEX(addr_ptr)          {   }
 #define TLE94112_REG_BITF_VALUE(map, addr, bitf)  {   }
-#define TLE94112_REG_MAP_HEX(map, length, addr)   {   }   
+#define TLE94112_REG_MAP_HEX(map, length, addr)   {   }
 
 
 #endif /* TLE94112_REG_LOGGER_ENABLED */
 
 /**
  * @brief TLE94112 Application module
- */ 
+ */
 #if (TLE94112_APP_LOGGER_ENABLED == 1)
 
 /**
@@ -260,7 +260,7 @@ extern Logger tle_log;
 
 #else
 
-/** 
+/**
  * Logger not enabled. All macros are empty.
  */
 
@@ -270,11 +270,11 @@ extern Logger tle_log;
 #define TLE94112_LOG_MSG(str)                     {   }
 #define TLE94112_LOG_RETURN(ret)                  {   }
 
-#define TLE94112_MOTOR_LOG_MSG(str)               {   }  
+#define TLE94112_MOTOR_LOG_MSG(str)               {   }
 #define TLE94112_MOTOR_LOG_RETURN(ret)            {   }
 
 #define TLE94112_REG_BITF_VALUE(map, addr, bitf)  {   }
-#define TLE94112_REG_MAP_HEX(map, length, addr)   {   } 
+#define TLE94112_REG_MAP_HEX(map, length, addr)   {   }
 
 #define TLE94112_APP_LOG_MSG(str)                 {   }
 #define TLE94112_APP_LOG_VAR(str, var)            {   }

@@ -9,11 +9,7 @@
 #ifndef TLE94112_PSOC6HAL_HPP_
 #define TLE94112_PSOC6HAL_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
-
-#include "../../../corelib/tle94112.hpp"
+#include "tle94112.hpp"
 #include "tle94112-platf-psoc6hal.hpp"
 #include "spic-psoc6hal.hpp"
 #include "gpio-psoc6hal.hpp"
@@ -35,5 +31,4 @@ class Tle94112Psoc6hal: virtual public Tle94112
 
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PCOS6HAL_HPP_ **/

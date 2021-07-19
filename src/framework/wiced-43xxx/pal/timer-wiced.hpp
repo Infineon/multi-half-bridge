@@ -9,11 +9,7 @@
 #ifndef TIMER_WICED_HPP_
 #define TIMER_WICED_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
-
-#include "../../../pal/timer.hpp"
+#include "timer.hpp"
 #include "wiced_time.h"
 #include "wiced_rtos.h"
 
@@ -26,7 +22,7 @@ using namespace tle94112;
 
 /**
  * @brief WiCED timer wrapper
- * 
+ *
  */
 class TimerWiced: virtual public Timer
 {
@@ -46,5 +42,4 @@ class TimerWiced: virtual public Timer
 };
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** TIMER_WICED_HPP_ **/

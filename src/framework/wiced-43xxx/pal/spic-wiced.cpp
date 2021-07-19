@@ -7,8 +7,6 @@
  */
 
 #include "spic-wiced.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
 #include "wiced_rtos.h"
 #include <wiced.h>
 #include <platform.h>
@@ -52,7 +50,7 @@ SPICWiced::SPICWiced() : csPin(WICED_GPIO_NONE), port(WICED_SPI_0)
  *
  * @param port     SPI channel to be used
  * @param csPin    Number of the desired ChipSelect pin
- * 
+ *
  * @attention Yet not implemented
  */
 SPICWiced::SPICWiced(wiced_spi_t port, wiced_gpio_t csPin)
@@ -66,15 +64,15 @@ SPICWiced::SPICWiced(wiced_spi_t port, wiced_gpio_t csPin)
 
 /**
  * @brief Construct a new SPICWiced::SPICWiced object
- * 
+ *
  * This function allows to set all parameters of the SPI master.
- * 
+ *
  * @param port     SPI channel to be used
  * @param csPin    Number of the desired ChipSelect pin
  * @param speed    SPI baud setting
  * @param mode     SPI mode setting
  * @param bits     number of bits in one command
- * 
+ *
  * @attention This does not set the platform_spi_peripherals structure yet
  */
 SPICWiced::SPICWiced(wiced_spi_t port, wiced_gpio_t csPin, uint8_t speed, uint8_t mode, uint8_t bits)
@@ -157,5 +155,3 @@ Error_t SPICWiced::transfer16(uint16_t send, uint16_t &received)
 
 	return OK;
 }
-
-#endif /** TLE94112_FRAMEWORK **/

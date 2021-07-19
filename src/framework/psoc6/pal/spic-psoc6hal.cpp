@@ -6,22 +6,18 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
-
 #include "spic-psoc6hal.hpp"
 
 /**
  * @brief Construct a new SPICPsoc6hal::SPICPsoc6hal object
- * 
+ *
  * This function allows to set all parameters of the SPI master.
- * 
+ *
  * @param csPin    Number of the desired ChipSelect pin
  * @param misoPin  Number of the desired MISO pin
  * @param mosiPin  Number of the desired MOSI pin
  * @param sckPin   Number of the desired SystemClock pin
- * 
+ *
  * @attention This does not set the platform_spi_peripherals structure yet
  */
 SPICPsoc6hal::SPICPsoc6hal(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t mosiPin, cyhal_gpio_t sckPin)
@@ -122,5 +118,3 @@ Error_t SPICPsoc6hal::transfer16(uint16_t send, uint16_t &received)
 
 	return err;
 }
-
-#endif /** TLE94112_FRAMEWORK **/

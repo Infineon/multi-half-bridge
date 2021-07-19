@@ -1,14 +1,12 @@
-/** 
+/**
  * @file        logger-rpi.cpp
- * @brief       TLE94112 Logger Raspberry Pi PAL 
+ * @brief       TLE94112 Logger Raspberry Pi PAL
  * @copyright   Copyright (c) 2019-2021 Infineon Technologies AG
- * 
+ *
  * SPDX-License-Identifier: MIT
  */
 
 #include "logger-rpi.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_RPI)
 
 #if (TLE94112_LOGGER_ENABLED == 1)
 
@@ -35,7 +33,7 @@ LoggerRpi::~LoggerRpi()
 }
 
 /**
- * @brief       Initializes the logger Raspberry Pi PAL 
+ * @brief       Initializes the logger Raspberry Pi PAL
  * @return      TLE94112 error code
  * @retval      OK always
  */
@@ -52,16 +50,16 @@ Error_t  LoggerRpi::init()
 Error_t   LoggerRpi::deinit()
 {
   return tle94112::OK;
-} 
+}
 
 /**
  * @brief       Writes in the logger Raspberry Pi PAL
- * 
+ *
  * @param[in]   *logData    Pointer to the array holding the data to be logged
- * @param[in]   length      Length in bytes of the data to be written 
+ * @param[in]   length      Length in bytes of the data to be written
  * @return      TLE94112 error code
  * @retval      OK always
- * 
+ *
  */
 Error_t   LoggerRpi::write(const uint8_t * log_data, uint32_t length)
 {
@@ -85,4 +83,3 @@ Logger    tle_log(static_cast<LoggerPAL*>(&logpalrpi));
 }
 
 #endif /* TLE94112_LOGGER_ENABLED */
-#endif /** TLE94112_FRAMEWORK **/

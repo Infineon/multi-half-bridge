@@ -1,0 +1,45 @@
+name: build-check
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    strategy:
+      matrix:
+        example: [
+            examples/basicTest,
+            examples/control2Motors,
+            examples/rampSpeedTest,
+            examples/speedControl,
+            examples/errorDiagnosis
+       ]
+
+        arduino-platform: ["arduino:avr"]
+
+        include:
+          - arduino-platform: "arduino:avr"
+            fqbn: "arduino:avr:uno"
+
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Setup Arduino CLI
+        uses: arduino/setup-arduino-cli@v1.1.1
+
+      - name: Install platform
+        run: |
+          arduino-cli core update-index
+          arduino-cli core install ${{ matrix.arduino-platform }}
+
+      - name: Install repo as library
+        run: |
+          mkdir -p "$HOME/Arduino/libraries"
+          ln -s "$PWD" "$HOME/Arduino/libraries/."
+
+      - name: Compile Sketch
+        run: arduino-cli compile --fqbn ${{ matrix.fqbn }} --libraries="." --libraries="$HOME/Arduino/libraries/." ${{ matrix.example }}
+

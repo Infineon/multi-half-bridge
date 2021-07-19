@@ -7,9 +7,6 @@
  */
 
 #include "gpio-arduino.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
-
 #include <Arduino.h>
 
 /**
@@ -127,9 +124,3 @@ Error_t GPIOIno::disable()
 	}
 	return OK;
 }
-
-
-#endif /** TLE94112_FRAMEWORK **/
-
-
-

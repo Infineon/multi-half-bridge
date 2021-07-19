@@ -10,11 +10,7 @@
 #ifndef GPIO_WICED_HPP_
 #define GPIO_WICED_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_WICED)
-
-#include "../../../pal/gpio.hpp"
+#include "gpio.hpp"
 #include <wiced_platform.h>
 
 using namespace tle94112;
@@ -26,7 +22,7 @@ using namespace tle94112;
 
 /**
  * @brief WiCED gpio wrapper
- * 
+ *
  */
 class GPIOWiced : virtual public GPIOC
 {
@@ -50,5 +46,4 @@ class GPIOWiced : virtual public GPIOC
 
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** GPIO_WICED_HPP_ **/

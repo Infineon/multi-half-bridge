@@ -9,10 +9,6 @@
 #ifndef TLE94112_PLATF_PSOC6HAL_HPP_
 #define TLE94112_PLATF_PSOC6HAL_HPP_
 
-#include "../../../config/tle94112-conf.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
-
 /**
  * @addtogroup platfPsoc6
  * @{
@@ -20,7 +16,7 @@
 
 /**
  * @brief Different SPI pinsettings for different PSOC6 boards
- * 
+ *
  */
 #if defined (TARGET_CY8CPROTO_063_BLE)
 	#define KIT_SPI_MASTER_MOSI               (P9_0)
@@ -67,5 +63,4 @@
 
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** TLE94112_PLATF_PSOC6HAL_HPP_ **/

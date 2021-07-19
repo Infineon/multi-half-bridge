@@ -10,10 +10,7 @@
 #define TIMER_ARDUINO_HPP_
 
 #include "timer-arduino.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_ARDUINO)
-
-#include "../../../pal/timer.hpp"
+#include "timer.hpp"
 
 using namespace tle94112;
 
@@ -40,5 +37,4 @@ class TimerIno: virtual public Timer
 };
 /** @} */
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /** TIMER_ARDUINO_HPP_ **/

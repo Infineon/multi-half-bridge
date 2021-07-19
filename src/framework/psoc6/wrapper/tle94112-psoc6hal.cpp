@@ -7,9 +7,6 @@
  */
 
 #include "tle94112-psoc6hal.hpp"
-
-#if (TLE94112_FRAMEWORK == TLE94112_FRMWK_PSOC6)
-
 #include "spic-psoc6hal.hpp"
 #include "gpio-psoc6hal.hpp"
 #include "timer-psoc6hal.hpp"
@@ -19,7 +16,7 @@
  * This constructor calls with default pinsetting for the PSCO6
  * board. Keep in mind that we do not set the chipselect pin with
  * the SPI class, as we need a constant signal during multiple transfers.
- * 
+ *
  */
 Tle94112Psoc6hal::Tle94112Psoc6hal(void):Tle94112()
 {
@@ -34,7 +31,7 @@ Tle94112Psoc6hal::Tle94112Psoc6hal(void):Tle94112()
  * This constructor calls with default pinsetting for the PSCO6 SPI
  * except for the chip select pin. Keep in mind that we do not set the chipselect pin with
  * the SPI class, as we need a constant signal during multiple transfers.
- * 
+ *
  * @param csPin   chipselect pin for the wrapping GPIO
  */
 Tle94112Psoc6hal::Tle94112Psoc6hal(cyhal_gpio_t csPin):Tle94112()
@@ -48,7 +45,7 @@ Tle94112Psoc6hal::Tle94112Psoc6hal(cyhal_gpio_t csPin):Tle94112()
 /**
  * @brief Construct a new Tle94112Psoc6hal::Tle94112Psoc6hal object
  * For PSOC HAL setups with different than the usual pinsettings.
- * 
+ *
  * @param csPin   chipselect pin for the wrapping GPIO
  * @param misoPin miso pin for the SPIC
  * @param mosiPin mosi pin for the SPIC
@@ -61,5 +58,3 @@ Tle94112Psoc6hal::Tle94112Psoc6hal(cyhal_gpio_t csPin,cyhal_gpio_t misoPin,cyhal
 	Tle94112::timer = new TimerPsoc6hal();
 	Tle94112::sBus = new SPICPsoc6hal(SPICPsoc6hal::unusedPin,misoPin,mosiPin,sckPin);
 }
-
-#endif /** TLE94112_FRAMEWORK **/
