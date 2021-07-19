@@ -32,5 +32,4 @@ extern "C" void application_start();
 #define pinSpeed      WICED_ADC_1
 #define pinSpeedTime  2
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /* BASICTEST_HPP_ */

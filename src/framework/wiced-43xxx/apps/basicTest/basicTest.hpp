@@ -22,5 +22,4 @@
 
 extern "C" void application_start();
 
-#endif /** TLE94112_FRAMEWORK **/
 #endif /* BASICTEST_HPP_ */
