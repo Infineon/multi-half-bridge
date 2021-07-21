@@ -10,10 +10,9 @@
  *
  */
 
-
 pipeline {
 	/**
-	 * node where to run on (try itec nodes on the TCP Jenkins)
+	 * node where to run on
 	 */
 	agent {
 		node {
@@ -27,7 +26,7 @@ pipeline {
 	parameters {
 		choice(name: 'TIER',          choices:['development','staging','production'], description: 'tier setting')
 		choice(name: 'SERVER',        choices:['vihlarazweb3','vihlarazweb2'],        description: 'server')
-		choice(name: 'SONARINSTANCE', choices:['Sonar','Sonar-Test','Sonar-Prod'],    description: 'SonarQube instance')
+		choice(name: 'SONARINSTANCE', choices:['Sonar-Dev','Sonar-Test','Sonar-Prod'],description: 'SonarQube instance')
 		string(name: 'TESTBRANCH',    defaultValue: 'develop',                        description: 'e.g. DESMAKERS-990')
 	}
 
