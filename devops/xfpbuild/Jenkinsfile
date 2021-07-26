@@ -163,7 +163,7 @@ pipeline {
 											cd ./infineondoxygenerator;
 											python3 doxyifx.py html
 											rm -rf ${DOCS_TARGET}
-											mkdir ${DOCS_TARGET}
+											mkdir -p ${DOCS_TARGET}
 											cp -R ${DOCS_SOURCE}/ ${DOCS_TARGET}/.
 										''',
 										returnStdout: true
