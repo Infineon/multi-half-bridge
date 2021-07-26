@@ -1,0 +1,16 @@
+/*
+ * ##################################################################################
+ *
+ * XFP internal release pipeline
+ * should test intensively with following parts
+ * - unit test and report
+ * - SonarQube report
+ * - Polyspace report
+ * - compilation for all possible frameworks
+ * - doxygen build and deploy on internal release server
+ * - Spinx on internal release server
+ * - opengrok report
+ * - deploy the library into Artifactory
+ *
+ */
+

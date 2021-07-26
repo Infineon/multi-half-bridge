@@ -16,7 +16,7 @@ pipeline {
 	 */
 	agent {
 		node {
-			label 'epe'
+			label 'any'
 		}
 	}
 
@@ -26,7 +26,7 @@ pipeline {
 	parameters {
 		choice(name: 'TIER',          choices:['development','staging','production'], description: 'tier setting')
 		choice(name: 'SERVER',        choices:['vihlarazweb3','vihlarazweb2'],        description: 'server')
-		choice(name: 'SONARINSTANCE', choices:['Sonar-Dev','Sonar-Test','Sonar-Prod'],description: 'SonarQube instance')
+		choice(name: 'SONARINSTANCE', choices:['Sonar-Dev','Sonar-Prod'],             description: 'SonarQube instance')
 		string(name: 'TESTBRANCH',    defaultValue: 'develop',                        description: 'e.g. DESMAKERS-990')
 	}
 
@@ -36,12 +36,12 @@ pipeline {
 	environment {
 		TIER           = "${params.TIER}"
 		WEB_ROOT       = "/home/razweb/htdocs-${params.SERVER}"
+		REPO_NAME	   = "${GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
+		DOCS_TARGET    = "${env.WEB_ROOT}/itec/xfp/${REPO_NAME}/${env.BRANCH_NAME}"	}
 		DOCS_SOURCE    = "${WORKSPACE}/docs/doxygen/build"
-		DOCS_TARGET    = "${env.WEB_ROOT}/itec/xfp/${env.BRANCH_NAME}"
 		ROOT_URL       = "https://${params.SERVER}.vih.infineon.com"
 		scannerHome    = tool 'sonar-scanner-cli-4.2.0.1873-linux'
 		SONARINSTANCE  = "${params.SONARINSTANCE}"
-	}
 
 	/**
 	 * Keep only the last 2 artifacts on the server to prevent from
@@ -81,6 +81,7 @@ pipeline {
 				echo "WORKSPACE:     ${WORKSPACE}"
 				echo "SONARINSTANCE: ${env.SONARINSTANCE}"
 				echo "SERVER:        ${env.SERVER}/${params.SERVER}"
+				echo "REPO_NAME:     ${env.REPO_NAME}"
 				echo "DOCS_SOURCE:   ${env.DOCS_SOURCE}"
 				echo "DOCS_TARGET:   ${env.DOCS_TARGET}"
 			} // end steps
@@ -99,6 +100,7 @@ pipeline {
 
 		stage('build') {
 			parallel {
+
 				/*-----------------------------------------------------------------------------
 				 * html
 				 *-----------------------------------------------------------------------------
@@ -109,6 +111,7 @@ pipeline {
 						//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
 					}
 				}
+
 				/*-----------------------------------------------------------------------------
 				 * PlatformIO build
 				 *-----------------------------------------------------------------------------
@@ -132,11 +135,12 @@ pipeline {
 						*/
 					}
 				}
+
 				/*-----------------------------------------------------------------------------
 				 * doxygen
 				 *-----------------------------------------------------------------------------
 				 */
-				stage('DOXY') {
+				stage('DOCU') {
 					agent {
 						node {
 							label 'epelinux'
@@ -161,8 +165,28 @@ pipeline {
 							).trim()
 							echo "$result"
 						}
-					}
-				} // end doxy
+					} // end doxygen
+
+					steps {
+						echo "ReadTheDocs"
+						script {
+							def result = sh(
+								script: '''
+									export PATH=/opt/python/3.9/linux/RHEL60/bin:$PATH
+									cd docs
+									sphinx-build ./ ./documentation
+									rm -rf ${DOCS_TARGET}
+									mkdir -p ${DOCS_TARGET}
+									cp -R ./documentation ${DOCS_TARGET}/.
+								''',
+								returnStdout: true
+							).trim()
+							echo "$result"
+						}
+					} // end ReadTheDocs
+
+				} // end docu
+
 			} // end parallel
 		} // end docu build
 
@@ -175,13 +199,23 @@ pipeline {
 				 */
 				stage('CPP') {
 					steps {
-						echo "cpp"
-						//sh "cd  ${env.WORKSPACE};mkdir -p build;/usr/local/bin/cppcheck -v --enable=all --xml-version=2 -I examples src 2> build/cppcheck-report.xml"
+						echo "cppcheck"
+						script {
+							def result = sh(
+								script: '''
+									cd  ${env.WORKSPACE};
+									mkdir -p build;
+									/usr/local/bin/cppcheck -v --enable=all --xml-version=2 -I src test 2> build/cppcheck-report.xml
+								''',
+								returnStdout: true
+							).trim()
+							echo "$result"
+						}
 					} // end steps
-				} // end stage
+				} // end cppcheck
 
 				/*-----------------------------------------------------------------------------
-				 * cppcheck
+				 * cli
 				 *-----------------------------------------------------------------------------
 				 */
 				stage('CLI') {
@@ -194,16 +228,40 @@ pipeline {
 			} // parallel
 		} // end stage
 
-		/**
+		/*-----------------------------------------------------------------------------
 		 * SonarQube stage runs the sonar scanner and collects all reports
+		 *-----------------------------------------------------------------------------
 		 */
 		stage('SonarQube') {
 			steps {
+				echo "SonarQube"
+				echo "scannerLinux:  ${env.scannerHomeLinux}"
+				echo "scannerWin10:  ${env.scannerHomeWin10}"
+
 				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 					withSonarQubeEnv(
-						installationName: "${params.SONARINSTANCE}"
-					){
-						sh "cp ./devops/xfpbuild/sonar-project.properties ./.; ${scannerHome}/bin/sonar-scanner -X"
+						installationName: "${params.SONARINSTANCE}") {
+						script {
+							if (isUnix()) {
+								def result = sh(
+									script: '''
+										cp ./devops/xfpbuild/sonar-project.properties ./.;
+										${scannerHomeLinux}/bin/sonar-scanner -X
+									''',
+									returnStdout: true
+								).trim()
+								echo "$result"
+							} else {
+								def result = sh(
+									script: '''
+										cp ./devops/xfpbuild/sonar-project.properties ./.;
+										${scannerHomeWin10}/bin/sonar-scanner -X
+									''',
+									returnStdout: true
+								).trim()
+								echo "$result"
+							}
+						}
 					}
 				} // end catch
 				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -212,7 +270,8 @@ pipeline {
 					}
 				} // end catch
 			} // end steps
-		} // end stage
+
+		} // end SonarQube
 
 	} // end stages
 
