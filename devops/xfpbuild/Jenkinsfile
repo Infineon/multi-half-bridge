@@ -177,6 +177,7 @@ pipeline {
 						stage('Sphinx') {
 							steps {
 								echo "ReadTheDocs"
+/*
 								script {
 									def result = sh(
 										script: '''
@@ -191,6 +192,7 @@ pipeline {
 									).trim()
 									echo "$result"
 								}
+*/
 							} // end ReadTheDocs
 						} // end sphinx
 
