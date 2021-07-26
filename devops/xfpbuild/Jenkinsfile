@@ -211,6 +211,11 @@ pipeline {
 				 *-----------------------------------------------------------------------------
 				 */
 				stage('CPP') {
+					agent {
+						node {
+							label 'epelinux'
+						}
+					}
 					steps {
 						echo "cppcheck"
 						script {
