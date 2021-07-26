@@ -37,11 +37,12 @@ pipeline {
 		TIER           = "${params.TIER}"
 		WEB_ROOT       = "/home/razweb/htdocs-${params.SERVER}"
 		REPO_NAME	   = "${GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
-		DOCS_TARGET    = "${env.WEB_ROOT}/itec/xfp/${REPO_NAME}/${env.BRANCH_NAME}"	}
+		DOCS_TARGET    = "${env.WEB_ROOT}/itec/xfp/${REPO_NAME}/${env.BRANCH_NAME}"
 		DOCS_SOURCE    = "${WORKSPACE}/docs/doxygen/build"
 		ROOT_URL       = "https://${params.SERVER}.vih.infineon.com"
 		scannerHome    = tool 'sonar-scanner-cli-4.2.0.1873-linux'
 		SONARINSTANCE  = "${params.SONARINSTANCE}"
+	}
 
 	/**
 	 * Keep only the last 2 artifacts on the server to prevent from
