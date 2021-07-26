@@ -221,7 +221,7 @@ pipeline {
 						script {
 							def result = sh(
 								script: '''
-									cd  ${env.WORKSPACE};
+									cd ./;
 									mkdir -p build;
 									/usr/local/bin/cppcheck -v --enable=all --xml-version=2 -I src test 2> build/cppcheck-report.xml
 								''',
