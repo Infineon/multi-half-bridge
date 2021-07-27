@@ -260,31 +260,31 @@ pipeline {
 
 				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 					withSonarQubeEnv(
-						installationName: "${params.SONARINSTANCE}") {
-							script {
-								if (isUnix()) {
-									environment {
-										scannerHome = tool 'sonar-scanner-cli-4.2.0.1873-linux'
-									}
-								} else {
-									environment {
-										scannerHome = tool 'sonar-scanner-cli-4.2.0.1873'
-									}
+						installationName: "${params.SONARINSTANCE}") 
+					){
+						script {
+							if (isUnix()) {
+								environment {
+									scannerHome = tool 'sonar-scanner-cli-4.2.0.1873-linux'
 								}
-
-								echo "scannerHome:  ${env.scannerHome}"
-
-								def result = sh(
-									script: '''
-										cp ./devops/xfpbuild/sonar-project.properties ./.;
-										${scannerHome}/bin/sonar-scanner -X
-									''',
-									returnStdout: true
-								).trim()
-								echo "$result"
+							} else {
+								environment {
+									scannerHome = tool 'sonar-scanner-cli-4.2.0.1873'
+								}
 							}
+
+							echo "scannerHome:  ${env.scannerHome}"
+
+							def result = sh(
+								script: '''
+									cp ./devops/xfpbuild/sonar-project.properties ./.;
+									${scannerHome}/bin/sonar-scanner -X
+								''',
+								returnStdout: true
+							).trim()
+							echo "$result"
 						}
-					)
+					}
 				} // end catch
 			} // end steps
 
