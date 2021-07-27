@@ -251,10 +251,6 @@ pipeline {
 		 *-----------------------------------------------------------------------------
 		 */
 		stage('SonarQube') {
-			environment {
-				scannerHome = tool 'sonar-scanner-cli-4.2.0.1873'
-			}
-
 			steps {
 				echo "SonarQube"
 				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
