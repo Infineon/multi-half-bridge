@@ -40,7 +40,8 @@ pipeline {
 		DOCS_TARGET    = "${env.WEB_ROOT}/itec/xfp/${REPO_NAME}/${env.BRANCH_NAME}"
 		DOCS_SOURCE    = "${WORKSPACE}/docs/doxygen/build"
 		ROOT_URL       = "https://${params.SERVER}.vih.infineon.com"
-		scannerHome    = tool 'sonar-scanner-cli-4.2.0.1873-linux'
+		scannerHomeLinux = tool 'sonar-scanner-cli-4.2.0.1873-linux'
+		scannerHomeWin10 = 'd:/slave/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner-cli-4.2.0.1873/sonar-scanner-4.2.0.1873'
 		SONARINSTANCE  = "${params.SONARINSTANCE}"
 	}
 
