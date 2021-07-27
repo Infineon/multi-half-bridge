@@ -34,15 +34,15 @@ pipeline {
 	 * Environment settings for shell calls
 	 */
 	environment {
-		TIER           = "${params.TIER}"
-		WEB_ROOT       = "/home/razweb/htdocs-${params.SERVER}"
-		REPO_NAME	   = "${GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
-		DOCS_TARGET    = "${env.WEB_ROOT}/itec/xfp/${REPO_NAME}/${env.BRANCH_NAME}"
-		DOCS_SOURCE    = "${WORKSPACE}/docs/doxygen/build"
-		ROOT_URL       = "https://${params.SERVER}.vih.infineon.com"
+		TIER             = "${params.TIER}"
+		WEB_ROOT         = "/home/razweb/htdocs-${params.SERVER}"
+		REPO_NAME	     = "${GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
+		DOCS_TARGET      = "${env.WEB_ROOT}/itec/xfp/${REPO_NAME}/${env.BRANCH_NAME}"
+		DOCS_SOURCE      = "${WORKSPACE}/docs/doxygen/build"
+		ROOT_URL         = "https://${params.SERVER}.vih.infineon.com"
 		scannerHomeLinux = tool 'sonar-scanner-cli-4.2.0.1873-linux'
 		scannerHomeWin10 = 'd:/slave/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner-cli-4.2.0.1873/sonar-scanner-4.2.0.1873'
-		SONARINSTANCE  = "${params.SONARINSTANCE}"
+		SONARINSTANCE    = "${params.SONARINSTANCE}"
 	}
 
 	/**
@@ -176,9 +176,9 @@ pipeline {
 						} // end stage
 
 						stage('Sphinx') {
+							when { expression { return fileExists ('./docs/config.py') } }
 							steps {
 								echo "ReadTheDocs"
-/*
 								script {
 									def result = sh(
 										script: '''
@@ -193,7 +193,7 @@ pipeline {
 									).trim()
 									echo "$result"
 								}
-*/
+
 							} // end ReadTheDocs
 						} // end sphinx
 
