@@ -262,15 +262,13 @@ pipeline {
 					){
 						script {
 							if (isUnix()) {
+								echo "Linux"
 								env.scannerHome = tool 'sonar-scanner-cli-4.2.0.1873-linux'
 							}
-
-							echo "scannerHome:  ${env.scannerHome}"
-
 							def result = sh(
 								script: '''
 									cp ./devops/xfpbuild/sonar-project.properties ./.;
-									${scannerHome}/sonar-scanner -X
+									${scannerHome}/bin/sonar-scanner -X
 								''',
 								returnStdout: true
 							).trim()
