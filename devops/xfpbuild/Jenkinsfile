@@ -269,7 +269,7 @@ pipeline {
 							}
 							def result = sh(
 								script: '''
-									ls -la d:/slave/tools/hudson.plugins.sonar.SonarRunnerInstallation/
+									ls -la ${scannerHome}
 									cp ./devops/xfpbuild/sonar-project.properties ./.;
 									${scannerHome}/bin/sonar-scanner -X
 								''',
