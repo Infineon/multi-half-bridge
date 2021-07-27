@@ -257,6 +257,9 @@ pipeline {
 				echo "SonarQube"
 				echo "scannerLinux:  ${env.scannerHomeLinux}"
 				echo "scannerWin10:  ${env.scannerHomeWin10}"
+				sl tool 'sonar-scanner-cli-4.2.0.1873*'
+				echo "sl:  ${env.sl}"
+
 
 				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 					withSonarQubeEnv(
