@@ -257,35 +257,32 @@ pipeline {
 				echo "SonarQube"
 				echo "scannerLinux:  ${env.scannerHomeLinux}"
 				echo "scannerWin10:  ${env.scannerHomeWin10}"
-				sl tool 'sonar-scanner-cli-4.2.0.1873*'
-				echo "sl:  ${env.sl}"
-
 
 				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 					withSonarQubeEnv(
 						installationName: "${params.SONARINSTANCE}") {
 						script {
-						//if (isUnix()) {
-								def result = sh(
-									script: '''
-										cp ./devops/xfpbuild/sonar-project.properties ./.;
-										${scannerHomeLinux}/bin/sonar-scanner -X
-									''',
-									returnStdout: true
-								).trim()
-								echo "$result"
-						/*	} else {
-								def result = sh(
-									script: '''
-										cp ./devops/xfpbuild/sonar-project.properties ./.;
-										${scannerHomeWin10}/bin/sonar-scanner -X
-									''',
-									returnStdout: true
-								).trim()
-								echo "$result"
+							if (isUnix()) {
+								environment {
+									scannerHome = tool 'sonar-scanner-cli-4.2.0.1873-linux'
+								}
+							} else {
+								environment {
+									scannerHome = tool 'sonar-scanner-cli-4.2.0.1873'
+								}
 							}
-							*/
-						}
+
+							echo "scannerHome:  ${env.scannerHome}"
+
+							def result = sh(
+								script: '''
+									cp ./devops/xfpbuild/sonar-project.properties ./.;
+									${scannerHome}/bin/sonar-scanner -X
+								''',
+								returnStdout: true
+							).trim()
+							echo "$result"
+						)
 					}
 				} // end catch
 			} // end steps
