@@ -253,8 +253,6 @@ pipeline {
 		stage('SonarQube') {
 			environment {
 				scannerHome = tool 'sonar-scanner-cli-4.2.0.1873'
-				scannerHomeLinux = tool 'sonar-scanner-cli-4.2.0.1873-linux'
-				scannerHomeWin10 = 'd:/slave/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner-cli-4.2.0.1873/sonar-scanner-4.2.0.1873'
 			}
 
 			steps {
@@ -265,16 +263,13 @@ pipeline {
 					){
 						script {
 							if (isUnix()) {
-								echo "Linux"
 								env.scannerHome = tool 'sonar-scanner-cli-4.2.0.1873-linux'
 							}else{
-								echo "Windows"
-								echo "${env.scannerHomeWin10}"
-								echo "${env.scannerHome}"
+								env.scannerHome = 'd:/slave/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner-cli-4.2.0.1873/sonar-scanner-4.2.0.1873'
 							}
 							def result = sh(
 								script: '''
-									ls -la d:/slave/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner-cli-4.2.0.1873/
+									ls -la d:/slave/tools/hudson.plugins.sonar.SonarRunnerInstallation/
 									cp ./devops/xfpbuild/sonar-project.properties ./.;
 									${scannerHome}/bin/sonar-scanner -X
 								''',
