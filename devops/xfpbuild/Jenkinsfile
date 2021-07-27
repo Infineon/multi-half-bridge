@@ -251,6 +251,9 @@ pipeline {
 		 *-----------------------------------------------------------------------------
 		 */
 		stage('SonarQube') {
+			environment {
+				scannerHome = tool 'sonar-scanner-cli-4.2.0.1873'
+			}
 			steps {
 				echo "SonarQube"
 				echo "scannerLinux:  ${env.scannerHomeLinux}"
@@ -263,9 +266,7 @@ pipeline {
 					){
 						script {
 							if (isUnix()) {
-								def scannerHome = tool 'sonar-scanner-cli-4.2.0.1873-linux'
-							} else {
-								def scannerHome = tool 'sonar-scanner-cli-4.2.0.1873'
+								env.scannerHome = tool 'sonar-scanner-cli-4.2.0.1873-linux'
 							}
 
 							echo "scannerHome:  ${env.scannerHome}"
