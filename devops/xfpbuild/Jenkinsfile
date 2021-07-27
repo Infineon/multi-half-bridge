@@ -141,7 +141,7 @@ pipeline {
 				 * doxygen
 				 *-----------------------------------------------------------------------------
 				 */
-				stage('DOCU') {
+				stage('docu') {
 					agent {
 						node {
 							label 'epelinux'
@@ -221,9 +221,10 @@ pipeline {
 						script {
 							def result = sh(
 								script: '''
-									cd ./;
-									mkdir -p build;
-									/usr/local/bin/cppcheck -v --enable=all --xml-version=2 -I src test 2> build/cppcheck-report.xml
+									cd ./
+									export PATH=/opt/sofit/cppcheck/1.76.1/bin:$PATH
+									mkdir -p build
+									/opt/sofit/cppcheck/1.76.1/bin/cppcheck -v --enable=all --xml-version=2 -I src test 2> build/cppcheck-report.xml
 								''',
 								returnStdout: true
 							).trim()
