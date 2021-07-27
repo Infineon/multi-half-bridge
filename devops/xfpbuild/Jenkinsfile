@@ -256,10 +256,6 @@ pipeline {
 			}
 			steps {
 				echo "SonarQube"
-				echo "scannerLinux:  ${env.scannerHomeLinux}"
-				echo "scannerWin10:  ${env.scannerHomeWin10}"
-
-
 				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 					withSonarQubeEnv(
 						installationName: "${params.SONARINSTANCE}"
@@ -274,7 +270,7 @@ pipeline {
 							def result = sh(
 								script: '''
 									cp ./devops/xfpbuild/sonar-project.properties ./.;
-									${scannerHome}/bin/sonar-scanner -X
+									${scannerHome}/sonar-scanner -X
 								''',
 								returnStdout: true
 							).trim()
