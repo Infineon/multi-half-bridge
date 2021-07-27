@@ -262,7 +262,7 @@ pipeline {
 					withSonarQubeEnv(
 						installationName: "${params.SONARINSTANCE}") {
 						script {
-							if (isUnix()) {
+						//if (isUnix()) {
 								def result = sh(
 									script: '''
 										cp ./devops/xfpbuild/sonar-project.properties ./.;
@@ -271,7 +271,7 @@ pipeline {
 									returnStdout: true
 								).trim()
 								echo "$result"
-							} else {
+						/*	} else {
 								def result = sh(
 									script: '''
 										cp ./devops/xfpbuild/sonar-project.properties ./.;
@@ -281,9 +281,16 @@ pipeline {
 								).trim()
 								echo "$result"
 							}
+							*/
 						}
 					}
 				} // end catch
+			} // end steps
+
+		} // end SonarQube
+		
+		stage('SonarQube') {
+			steps {
 				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 					timeout(time: 200, unit: 'MINUTES') {
 						waitForQualityGate abortPipeline: true
