@@ -256,6 +256,12 @@ pipeline {
 				echo "scannerLinux:  ${env.scannerHomeLinux}"
 				echo "scannerWin10:  ${env.scannerHomeWin10}"
 
+
+				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+					withSonarQubeEnv(
+						installationName: "${params.SONARINSTANCE}"
+					){
+						script {
 							if (isUnix()) {
 								environment {
 									scannerHome = tool 'sonar-scanner-cli-4.2.0.1873-linux'
@@ -267,12 +273,6 @@ pipeline {
 							}
 
 							echo "scannerHome:  ${env.scannerHome}"
-
-				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-					withSonarQubeEnv(
-						installationName: "${params.SONARINSTANCE}"
-					){
-						script {
 
 							def result = sh(
 								script: '''
