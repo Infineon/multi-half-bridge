@@ -264,6 +264,8 @@ pipeline {
 							if (isUnix()) {
 								echo "Linux"
 								env.scannerHome = tool 'sonar-scanner-cli-4.2.0.1873-linux'
+							}else{
+								echo "Windows"
 							}
 							def result = sh(
 								script: '''
