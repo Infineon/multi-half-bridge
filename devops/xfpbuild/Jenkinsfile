@@ -252,7 +252,7 @@ pipeline {
 		 */
 		stage('SonarQube') {
 			environment {
-				scannerHome = tool 'sonar-scanner-4.2.0.1873'
+				scannerHome = tool 'sonar-scanner-cli-4.2.0.1873'
 				scannerHomeLinux = tool 'sonar-scanner-cli-4.2.0.1873-linux'
 				scannerHomeWin10 = 'd:/slave/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner-cli-4.2.0.1873/sonar-scanner-4.2.0.1873'
 			}
@@ -274,6 +274,7 @@ pipeline {
 							}
 							def result = sh(
 								script: '''
+									ls -la d:/slave/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner-cli-4.2.0.1873/
 									cp ./devops/xfpbuild/sonar-project.properties ./.;
 									${scannerHome}/bin/sonar-scanner -X
 								''',
