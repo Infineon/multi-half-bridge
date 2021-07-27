@@ -263,13 +263,9 @@ pipeline {
 					){
 						script {
 							if (isUnix()) {
-								environment {
-									scannerHome = tool 'sonar-scanner-cli-4.2.0.1873-linux'
-								}
+								def scannerHome = tool 'sonar-scanner-cli-4.2.0.1873-linux'
 							} else {
-								environment {
-									scannerHome = tool 'sonar-scanner-cli-4.2.0.1873'
-								}
+								def scannerHome = tool 'sonar-scanner-cli-4.2.0.1873'
 							}
 
 							echo "scannerHome:  ${env.scannerHome}"
