@@ -9,6 +9,17 @@
  * - doxygen build and deploy on internal server
  *
  */
+library("jenkins-pipeline-ifx-library")
+
+def projectName = 'eden-artifactory-demo'
+def artifactoryServer = 'Artifactory'
+def artifactoryRepository = 'gen-des-epe-sw-development-local'
+def artifactoryTarget = 'gen-des-tools-prod-eden-local'
+def artifactorySW = 'https://artifactory.intra.infineon.com/artifactory/gen-des-epe-sw-development-local/'
+
+def arduinoCLI = 'arduinoCLI/0.18.3'
+
+def linuxTools = '/home/xfpjenki/tools'
 
 pipeline {
 	/**
@@ -37,8 +48,8 @@ pipeline {
 		TIER             = "${params.TIER}"
 		WEB_ROOT         = "/home/razweb/htdocs-${params.SERVER}"
 		REPO_NAME	     = "${GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
-		DOCS_TARGET      = "${env.WEB_ROOT}/itec/xfp/${REPO_NAME}/${env.BRANCH_NAME}"
-		DOCS_SOURCE      = "${WORKSPACE}/docs/doxygen/build"
+		DOCS_TARGET      = "${env.WEB_ROOT}/itec/xfp/${env.REPO_NAME}/${env.BRANCH_NAME}"
+		DOCS_SOURCE      = "${env.WORKSPACE}/docs/doxygen/build"
 		ROOT_URL         = "https://${params.SERVER}.vih.infineon.com"
 		SONARINSTANCE    = "${params.SONARINSTANCE}"
 	}
@@ -106,10 +117,35 @@ pipeline {
 				 *-----------------------------------------------------------------------------
 				 */
 				stage('ARD') {
+
+					agent {
+						node {
+							label 'epelinux'
+						}
+					}
+
+					steps {
+						rtDownload (
+							serverId: artifactoryServer,
+							spec: """
+								{
+									"files": [
+												{
+													"pattern": "${artifactoryRepository}/${arduinoCLI}/arduino-cli_0.18.3_Linux_64bit.tar.gz",
+													"target": "${linuxTools}/${arduinoCLI}/",
+													"flat": "true"
+												}
+											]
+								}
+							"""
+						)
+					}
+
 					steps {
 						echo "Arduino"
 						//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
 					}
+
 				}
 
 				/*-----------------------------------------------------------------------------
@@ -261,7 +297,7 @@ pipeline {
 							if (isUnix()) {
 								env.scannerHome = tool 'sonar-scanner-cli-4.2.0.1873-linux'
 							}else{
-								env.scannerHome = 'd:/slave/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner-cli-4.2.0.1873/sonar-scanner-4.2.0.1873'
+								env.scannerHome = tool 'sonar-scanner-4.2.0.1873'
 							}
 							def result = sh(
 								script: '''
