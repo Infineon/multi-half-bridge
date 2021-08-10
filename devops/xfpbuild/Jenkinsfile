@@ -149,7 +149,7 @@ pipeline {
 						stage('CLI Build') {
 							steps {
 								echo "Arduino"
-								sh ("${linuxTools}/${arduinoCLI}/arduino-cli board list")
+								sh ("${linuxTools}/${arduinoCLI}/arduino-cli config init;${linuxTools}/${arduinoCLI}/arduino-cli board list")
 								//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
 							}
 						}
