@@ -126,6 +126,7 @@ pipeline {
 					stages('Arduino') {
 
 						stage('Artifactory') {
+							when { expression { return fileExists ('${linuxTools}/${arduinoCLI}/arduino-cli') } }
 							steps {
 								rtDownload (
 									serverId: artifactoryServer,
