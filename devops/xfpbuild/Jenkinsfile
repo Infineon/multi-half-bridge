@@ -113,37 +113,58 @@ pipeline {
 			parallel {
 
 				/*-----------------------------------------------------------------------------
-				 * html
+				 * Arduino Linux CLI
 				 *-----------------------------------------------------------------------------
 				 */
-				stage('ARD') {
-
+				stage('ino') {
 					agent {
 						node {
 							label 'epelinux'
 						}
 					}
 
-					steps {
-						rtDownload (
-							serverId: artifactoryServer,
-							spec: """
-								{
-									"files": [
-												{
-													"pattern": "${artifactoryRepository}/${arduinoCLI}/arduino-cli_0.18.3_Linux_64bit.tar.gz",
-													"target": "${linuxTools}/${arduinoCLI}/",
-													"flat": "true"
-												}
-											]
-								}
-							"""
-						)
-					}
+					stages('Arduino') {
 
-					steps {
-						echo "Arduino"
-						//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
+						stage('Artifactory') {
+							steps {
+								rtDownload (
+									serverId: artifactoryServer,
+									spec: """
+										{
+											"files": [
+														{
+															"pattern": "${artifactoryRepository}/${arduinoCLI}/arduino-cli_0.18.3_Linux_64bit.tar.gz",
+															"target": "${linuxTools}/",
+															"explode": "true"
+														}
+													]
+										}
+									"""
+								)
+								sh ("chmod 750 ${linuxTools}/${arduinoCLI}/arduino-cli")
+							}
+
+						}
+
+						stage('CLI Build') {
+							steps {
+								echo "Arduino"
+								script {
+									def result = sh(
+										script: '''
+											ls -la ${linuxTools}/${arduinoCLI};
+											${linuxTools}/${arduinoCLI}/arduino-cli
+										''',
+										returnStdout: true
+									).trim()
+									echo "$result"
+								}
+								echo "Arduino"
+								sh ("ls -la ${linuxTools}/${arduinoCLI}; ${linuxTools}/${arduinoCLI}/arduino-cli")
+								//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
+							}
+						}
+
 					}
 
 				}
