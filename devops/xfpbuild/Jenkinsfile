@@ -17,7 +17,8 @@ def artifactoryRepository = 'gen-des-epe-sw-development-local'
 def artifactoryTarget = 'gen-des-tools-prod-eden-local'
 def artifactorySW = 'https://artifactory.intra.infineon.com/artifactory/gen-des-epe-sw-development-local/'
 
-def arduinoCLI = 'arduinoCLI/0.18.3'
+def arduinoVER = '0.18.3'
+def arduinoCLI = 'arduinoCLI/${arduinoVER}'
 
 def linuxTools = '/home/xfpjenki/tools'
 
@@ -134,7 +135,7 @@ pipeline {
 										{
 											"files": [
 														{
-															"pattern": "${artifactoryRepository}/${arduinoCLI}/arduino-cli_0.18.3_Linux_64bit.tar.gz",
+															"pattern": "${artifactoryRepository}/${arduinoCLI}/arduino-cli_${arduinoVER}_Linux_64bit.tar.gz",
 															"target": "${linuxTools}/",
 															"explode": "true"
 														}
