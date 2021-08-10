@@ -149,18 +149,18 @@ pipeline {
 						stage('CLI Build') {
 							steps {
 								echo "Arduino"
-								script {
-									def result = sh(
-										script: '''
-											ls -la ${linuxTools}/${arduinoCLI};
-											${linuxTools}/${arduinoCLI}/arduino-cli
-										''',
-										returnStdout: true
-									).trim()
-									echo "$result"
-								}
-								echo "Arduino"
-								//sh ("ls -la ${linuxTools}/${arduinoCLI}; ${linuxTools}/${arduinoCLI}/arduino-cli")
+								// script {
+								// 	def result = sh(
+								// 		script: '''
+								// 			ls -la ${linuxTools}/${arduinoCLI};
+								// 			${linuxTools}/${arduinoCLI}/arduino-cli
+								// 		''',
+								// 		returnStdout: true
+								// 	).trim()
+								// 	echo "$result"
+								// }
+								// echo "Arduino"
+								sh ("ls -la ${linuxTools}/${arduinoCLI}; ${linuxTools}/${arduinoCLI}/arduino-cli")
 								//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
 							}
 						}
