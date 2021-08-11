@@ -128,7 +128,7 @@ pipeline {
 					stages('Arduino') {
 
 						stage('Artifactory CLI') {
-							when { expression { return fileExists ('${linuxTools}/${arduinoCLI}/arduino-cli') } }
+							//when { expression { return fileExists ('${linuxTools}/${arduinoCLI}/arduino-cli') } }
 							steps {
 								rtDownload (
 									serverId: artifactoryServer,
@@ -149,7 +149,7 @@ pipeline {
 						}
 
 						stage('Artifactory Board') {
-							when { expression { return fileExists ('./.arduino15/library-index.json') } }
+							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
 							steps {
 								rtDownload (
 									serverId: artifactoryServer,
