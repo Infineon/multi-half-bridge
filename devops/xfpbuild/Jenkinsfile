@@ -171,7 +171,9 @@ pipeline {
 						}
 
 						stage('Generate INO') {
-							
+							steps {
+								echo "Generate INo"
+							}
 						}
 
 						stage('CLI Build') {
