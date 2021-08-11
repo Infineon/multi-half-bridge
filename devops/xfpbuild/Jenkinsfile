@@ -136,7 +136,7 @@ pipeline {
 										{
 											"files": [
 														{
-															"pattern": "${artifactoryRepository}/${inoCLI}",
+															"pattern": "${artifactoryRepo}/${inoCLI}",
 															"target": "${linuxTools}/",
 															"explode": "true"
 														}
