@@ -19,6 +19,7 @@ def artifactorySW = 'https://artifactory.intra.infineon.com/artifactory/gen-des-
 
 def arduinoVER = '0.18.3'
 def arduinoCLI = 'arduinoCLI/${arduinoVER}'
+def arduinoBoard = 'arduinoBoardPackage/${arduinoVER}'
 
 def linuxTools = '/home/xfpjenki/tools'
 
@@ -126,7 +127,7 @@ pipeline {
 
 					stages('Arduino') {
 
-						stage('Artifactory') {
+						stage('Artifactory CLI') {
 							when { expression { return fileExists ('${linuxTools}/${arduinoCLI}/arduino-cli') } }
 							steps {
 								rtDownload (
@@ -145,7 +146,27 @@ pipeline {
 								)
 								sh ("chmod 750 ${linuxTools}/${arduinoCLI}/arduino-cli")
 							}
+						}
 
+						stage('Artifactory Board') {
+							when { expression { return fileExists ('./.arduino15/library-index.json') } }
+							steps {
+								rtDownload (
+									serverId: artifactoryServer,
+									spec: """
+										{
+											"files": [
+														{
+															"pattern": "${artifactoryRepository}/${arduinoBoard}/arduino-board-package_${arduinoVER}_Linux_64bit.tar.gz",
+															"target": "./",
+															"explode": "true"
+														}
+													]
+										}
+									"""
+								)
+								sh ("chmod 750 ${linuxTools}/${arduinoCLI}/arduino-cli")
+							}
 						}
 
 						stage('CLI Build') {
