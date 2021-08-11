@@ -18,7 +18,7 @@ def artifactoryTarget = 'gen-des-tools-prod-eden-local'
 def artifactorySW = 'https://artifactory.intra.infineon.com/artifactory/gen-des-epe-sw-development-local/'
 
 def inoVER = '0.18.3'
-def inoCLI = 'arduinoCLI/0.18.3/arduino-cli_0.18.3_Linux_64bit.tar.gz'
+def inoCLI   = 'arduinoCLI/0.18.3/arduino-cli_0.18.3_Linux_64bit.tar.gz'
 def inoBoard = 'arduinoBoardPackage/0.18.3/arduino-board-package_0.18.3_Linux_64bit.tar.gz'
 
 def linuxTools = '/home/xfpjenki/tools'
@@ -148,124 +148,124 @@ pipeline {
 							}
 						}
 
-						stage('Artifactory Board') {
-							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
-							steps {
-								rtDownload (
-									serverId: artifactoryServer,
-									spec: """
-										{
-											"files": [
-														{
-															"pattern": "${artifactoryRepository}/${inoBoard}",
-															"target": "./",
-															"explode": "true"
-														}
-													]
-										}
-									"""
-								)
-							}
-						}
+						// stage('Artifactory Board') {
+						// 	//when { expression { return fileExists ('./.arduino15/library-index.json') } }
+						// 	steps {
+						// 		rtDownload (
+						// 			serverId: artifactoryServer,
+						// 			spec: """
+						// 				{
+						// 					"files": [
+						// 								{
+						// 									"pattern": "${artifactoryRepository}/${inoBoard}",
+						// 									"target": "./",
+						// 									"explode": "true"
+						// 								}
+						// 							]
+						// 				}
+						// 			"""
+						// 		)
+						// 	}
+						// }
 
-						stage('CLI Build') {
-							steps {
-								echo "Arduino"
-								//sh ("${linuxTools}/${inoCLI}/${inoVER}/arduino-cli config init;${linuxTools}/${inoCLI}/${inoVER}/arduino-cli board list")
-								//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
-							}
-						}
+						// stage('CLI Build') {
+						// 	steps {
+						// 		echo "Arduino"
+						// 		//sh ("${linuxTools}/${inoCLI}/${inoVER}/arduino-cli config init;${linuxTools}/${inoCLI}/${inoVER}/arduino-cli board list")
+						// 		//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
+						// 	}
+						// }
 
 					}
 
 				}
 
-				/*-----------------------------------------------------------------------------
-				 * PlatformIO build
-				 *-----------------------------------------------------------------------------
-				 */
-				stage('PIO') {
-					steps {
-						echo "PlatformIO"
-						/*
-						sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make pdf")
-						build(
-							job: 'dev/doxy_maker_pdf',
-							propagate: true,
-							parameters: [
-								[
-									$class: 'StringParameterValue',
-									name: 'WORKSPACE',
-									value: "${env.WORKSPACE}"
-								],
-							]
-						)
-						*/
-					}
-				}
+				// /*-----------------------------------------------------------------------------
+				//  * PlatformIO build
+				//  *-----------------------------------------------------------------------------
+				//  */
+				// stage('PIO') {
+				// 	steps {
+				// 		echo "PlatformIO"
+				// 		/*
+				// 		sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make pdf")
+				// 		build(
+				// 			job: 'dev/doxy_maker_pdf',
+				// 			propagate: true,
+				// 			parameters: [
+				// 				[
+				// 					$class: 'StringParameterValue',
+				// 					name: 'WORKSPACE',
+				// 					value: "${env.WORKSPACE}"
+				// 				],
+				// 			]
+				// 		)
+				// 		*/
+				// 	}
+				// }
 
-				/*-----------------------------------------------------------------------------
-				 * doxygen
-				 *-----------------------------------------------------------------------------
-				 */
-				stage('docu') {
-					agent {
-						node {
-							label 'epelinux'
-						}
-					}
+				// /*-----------------------------------------------------------------------------
+				//  * doxygen
+				//  *-----------------------------------------------------------------------------
+				//  */
+				// stage('docu') {
+				// 	agent {
+				// 		node {
+				// 			label 'epelinux'
+				// 		}
+				// 	}
 
-					stages {
+				// 	stages {
 
-						stage('doxygen') {
-							steps {
-								echo "doxygen"
-								script {
-									def result = sh(
-										script: '''
-											cd ./
-											export DOCS_SOURCE=${WORKSPACE}/docs/doxygen/build
-											export PATH=/opt/doxygen/1.8.14/bin:/opt/python/anaconda/4.2.0/py3.5.2:$PATH
-											rm -rf infineondoxygenerator
-											git clone https://bitbucket.vih.infineon.com/scm/ghmm/infineondoxygenerator.git;
-											cd ./infineondoxygenerator;
-											python3 doxyifx.py html
-											rm -rf ${DOCS_TARGET}
-											mkdir -p ${DOCS_TARGET}
-											cp -R ${DOCS_SOURCE}/ ${DOCS_TARGET}/.
-										''',
-										returnStdout: true
-									).trim()
-									echo "$result"
-								}
-							} // end doxygen
-						} // end stage
+				// 		stage('doxygen') {
+				// 			steps {
+				// 				echo "doxygen"
+				// 				script {
+				// 					def result = sh(
+				// 						script: '''
+				// 							cd ./
+				// 							export DOCS_SOURCE=${WORKSPACE}/docs/doxygen/build
+				// 							export PATH=/opt/doxygen/1.8.14/bin:/opt/python/anaconda/4.2.0/py3.5.2:$PATH
+				// 							rm -rf infineondoxygenerator
+				// 							git clone https://bitbucket.vih.infineon.com/scm/ghmm/infineondoxygenerator.git;
+				// 							cd ./infineondoxygenerator;
+				// 							python3 doxyifx.py html
+				// 							rm -rf ${DOCS_TARGET}
+				// 							mkdir -p ${DOCS_TARGET}
+				// 							cp -R ${DOCS_SOURCE}/ ${DOCS_TARGET}/.
+				// 						''',
+				// 						returnStdout: true
+				// 					).trim()
+				// 					echo "$result"
+				// 				}
+				// 			} // end doxygen
+				// 		} // end stage
 
-						stage('Sphinx') {
-							when { expression { return fileExists ('./docs/config.py') } }
-							steps {
-								echo "ReadTheDocs"
-								script {
-									def result = sh(
-										script: '''
-											export PATH=/opt/python/3.9/linux/RHEL60/bin:$PATH
-											cd docs
-											sphinx-build ./ ./documentation
-											rm -rf ${DOCS_TARGET}
-											mkdir -p ${DOCS_TARGET}
-											cp -R ./documentation ${DOCS_TARGET}/.
-										''',
-										returnStdout: true
-									).trim()
-									echo "$result"
-								}
+				// 		stage('Sphinx') {
+				// 			when { expression { return fileExists ('./docs/config.py') } }
+				// 			steps {
+				// 				echo "ReadTheDocs"
+				// 				script {
+				// 					def result = sh(
+				// 						script: '''
+				// 							export PATH=/opt/python/3.9/linux/RHEL60/bin:$PATH
+				// 							cd docs
+				// 							sphinx-build ./ ./documentation
+				// 							rm -rf ${DOCS_TARGET}
+				// 							mkdir -p ${DOCS_TARGET}
+				// 							cp -R ./documentation ${DOCS_TARGET}/.
+				// 						''',
+				// 						returnStdout: true
+				// 					).trim()
+				// 					echo "$result"
+				// 				}
 
-							} // end ReadTheDocs
-						} // end sphinx
+				// 			} // end ReadTheDocs
+				// 		} // end sphinx
 
-					 } // end stages
+				// 	 } // end stages
 
-				} // end docu
+				// } // end docu
 
 			} // end parallel
 		} // end docu build
