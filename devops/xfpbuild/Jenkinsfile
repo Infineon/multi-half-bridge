@@ -122,7 +122,7 @@ pipeline {
 				stage('ino') {
 					agent {
 						node {
-							label 'epelinux'
+							label 'epelinux1'
 						}
 					}
 
@@ -205,68 +205,68 @@ pipeline {
 				// 	}
 				// }
 
-				// /*-----------------------------------------------------------------------------
-				//  * doxygen
-				//  *-----------------------------------------------------------------------------
-				//  */
-				// stage('docu') {
-				// 	agent {
-				// 		node {
-				// 			label 'epelinux'
-				// 		}
-				// 	}
+				/*-----------------------------------------------------------------------------
+				 * doxygen
+				 *-----------------------------------------------------------------------------
+				 */
+				stage('docu') {
+					agent {
+						node {
+							label 'epelinux2'
+						}
+					}
 
-				// 	stages {
+					stages {
 
-				// 		stage('doxygen') {
-				// 			steps {
-				// 				echo "doxygen"
-				// 				script {
-				// 					def result = sh(
-				// 						script: '''
-				// 							cd ./
-				// 							export DOCS_SOURCE=${WORKSPACE}/docs/doxygen/build
-				// 							export PATH=/opt/doxygen/1.8.14/bin:/opt/python/anaconda/4.2.0/py3.5.2:$PATH
-				// 							rm -rf infineondoxygenerator
-				// 							git clone https://bitbucket.vih.infineon.com/scm/ghmm/infineondoxygenerator.git;
-				// 							cd ./infineondoxygenerator;
-				// 							python3 doxyifx.py html
-				// 							rm -rf ${DOCS_TARGET}
-				// 							mkdir -p ${DOCS_TARGET}
-				// 							cp -R ${DOCS_SOURCE}/ ${DOCS_TARGET}/.
-				// 						''',
-				// 						returnStdout: true
-				// 					).trim()
-				// 					echo "$result"
-				// 				}
-				// 			} // end doxygen
-				// 		} // end stage
+						stage('doxygen') {
+							steps {
+								echo "doxygen"
+								script {
+									def result = sh(
+										script: '''
+											cd ./
+											export DOCS_SOURCE=${WORKSPACE}/docs/doxygen/build
+											export PATH=/opt/doxygen/1.8.14/bin:/opt/python/anaconda/4.2.0/py3.5.2:$PATH
+											rm -rf infineondoxygenerator
+											git clone https://bitbucket.vih.infineon.com/scm/ghmm/infineondoxygenerator.git;
+											cd ./infineondoxygenerator;
+											python3 doxyifx.py html
+											rm -rf ${DOCS_TARGET}
+											mkdir -p ${DOCS_TARGET}
+											cp -R ${DOCS_SOURCE}/ ${DOCS_TARGET}/.
+										''',
+										returnStdout: true
+									).trim()
+									echo "$result"
+								}
+							} // end doxygen
+						} // end stage
 
-				// 		stage('Sphinx') {
-				// 			when { expression { return fileExists ('./docs/config.py') } }
-				// 			steps {
-				// 				echo "ReadTheDocs"
-				// 				script {
-				// 					def result = sh(
-				// 						script: '''
-				// 							export PATH=/opt/python/3.9/linux/RHEL60/bin:$PATH
-				// 							cd docs
-				// 							sphinx-build ./ ./documentation
-				// 							rm -rf ${DOCS_TARGET}
-				// 							mkdir -p ${DOCS_TARGET}
-				// 							cp -R ./documentation ${DOCS_TARGET}/.
-				// 						''',
-				// 						returnStdout: true
-				// 					).trim()
-				// 					echo "$result"
-				// 				}
+						stage('Sphinx') {
+							when { expression { return fileExists ('./docs/config.py') } }
+							steps {
+								echo "ReadTheDocs"
+								script {
+									def result = sh(
+										script: '''
+											export PATH=/opt/python/3.9/linux/RHEL60/bin:$PATH
+											cd docs
+											sphinx-build ./ ./documentation
+											rm -rf ${DOCS_TARGET}
+											mkdir -p ${DOCS_TARGET}
+											cp -R ./documentation ${DOCS_TARGET}/.
+										''',
+										returnStdout: true
+									).trim()
+									echo "$result"
+								}
 
-				// 			} // end ReadTheDocs
-				// 		} // end sphinx
+							} // end ReadTheDocs
+						} // end sphinx
 
-				// 	 } // end stages
+					 } // end stages
 
-				// } // end docu
+				} // end docu
 
 			} // end parallel
 		} // end docu build
@@ -281,7 +281,7 @@ pipeline {
 				stage('CPP') {
 					agent {
 						node {
-							label 'epelinux'
+							label 'epelinux3'
 						}
 					}
 					steps {
