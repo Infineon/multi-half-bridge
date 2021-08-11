@@ -149,25 +149,25 @@ pipeline {
 							}
 						}
 
-						// stage('Artifactory Board') {
-						// 	//when { expression { return fileExists ('./.arduino15/library-index.json') } }
-						// 	steps {
-						// 		rtDownload (
-						// 			serverId: artifactoryServer,
-						// 			spec: """
-						// 				{
-						// 					"files": [
-						// 								{
-						// 									"pattern": "${artifactoryRepository}/${inoBoard}",
-						// 									"target": "./",
-						// 									"explode": "true"
-						// 								}
-						// 							]
-						// 				}
-						// 			"""
-						// 		)
-						// 	}
-						// }
+						stage('Artifactory Board') {
+							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
+							steps {
+								rtDownload (
+									serverId: artifactoryServer,
+									spec: """
+										{
+											"files": [
+														{
+															"pattern": "${artifactoryRepo}/${inoBoard}",
+															"target": "./",
+															"explode": "true"
+														}
+													]
+										}
+									"""
+								)
+							}
+						}
 
 						// stage('CLI Build') {
 						// 	steps {
