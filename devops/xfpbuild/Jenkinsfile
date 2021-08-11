@@ -13,13 +13,13 @@ library("jenkins-pipeline-ifx-library")
 
 def projectName = 'eden-artifactory-demo'
 def artifactoryServer = 'Artifactory'
-def artifactoryRepository = 'gen-des-epe-sw-development-local'
+def artifactoryRepo = 'gen-des-epe-sw-development-local'
 def artifactoryTarget = 'gen-des-tools-prod-eden-local'
 def artifactorySW = 'https://artifactory.intra.infineon.com/artifactory/gen-des-epe-sw-development-local/'
 
-def arduinoVER = '0.18.3'
-def arduinoCLI = 'arduinoCLI/${arduinoVER}'
-def arduinoBoard = 'arduinoBoardPackage/${arduinoVER}'
+def inoVER = '0.18.3'
+def inoCLI = 'arduinoCLI'
+def inoBoard = 'arduinoBoardPackage'
 
 def linuxTools = '/home/xfpjenki/tools'
 
@@ -136,7 +136,7 @@ pipeline {
 										{
 											"files": [
 														{
-															"pattern": "${artifactoryRepository}/${arduinoCLI}/arduino-cli_${arduinoVER}_Linux_64bit.tar.gz",
+															"pattern": "${artifactoryRepository}/${inoCLI}/${inoVER}/arduino-cli_${inoVER}_Linux_64bit.tar.gz",
 															"target": "${linuxTools}/",
 															"explode": "true"
 														}
@@ -144,7 +144,7 @@ pipeline {
 										}
 									"""
 								)
-								sh ("chmod 750 ${linuxTools}/${arduinoCLI}/arduino-cli")
+								sh ("chmod 750 ${linuxTools}/${inoCLI}/${inoVER}/arduino-cli")
 							}
 						}
 
@@ -157,7 +157,7 @@ pipeline {
 										{
 											"files": [
 														{
-															"pattern": "${artifactoryRepository}/${arduinoBoard}/arduino-board-package_${arduinoVER}_Linux_64bit.tar.gz",
+															"pattern": "${artifactoryRepository}/${arduinoBoard}/${inoVER}/arduino-board-package_${inoVER}_Linux_64bit.tar.gz",
 															"target": "./",
 															"explode": "true"
 														}
@@ -165,14 +165,13 @@ pipeline {
 										}
 									"""
 								)
-								sh ("chmod 750 ${linuxTools}/${arduinoCLI}/arduino-cli")
 							}
 						}
 
 						stage('CLI Build') {
 							steps {
 								echo "Arduino"
-								sh ("${linuxTools}/${arduinoCLI}/arduino-cli config init;${linuxTools}/${arduinoCLI}/arduino-cli board list")
+								sh ("${linuxTools}/${inoCLI}/${inoVER}/arduino-cli config init;${linuxTools}/${inoCLI}/${inoVER}/arduino-cli board list")
 								//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
 							}
 						}
