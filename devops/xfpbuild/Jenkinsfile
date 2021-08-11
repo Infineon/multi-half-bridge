@@ -18,8 +18,8 @@ def artifactoryTarget = 'gen-des-tools-prod-eden-local'
 def artifactorySW = 'https://artifactory.intra.infineon.com/artifactory/gen-des-epe-sw-development-local/'
 
 def inoVER = '0.18.3'
-def inoCLI = 'arduinoCLI'
-def inoBoard = 'arduinoBoardPackage'
+def inoCLI = 'arduinoCLI/0.18.3/arduino-cli_0.18.3_Linux_64bit.tar.gz'
+def inoBoard = 'arduinoBoardPackage/0.18.3/arduino-board-package_0.18.3_Linux_64bit.tar.gz'
 
 def linuxTools = '/home/xfpjenki/tools'
 
@@ -136,7 +136,7 @@ pipeline {
 										{
 											"files": [
 														{
-															"pattern": "${artifactoryRepository}/${inoCLI}/${inoVER}/arduino-cli_${inoVER}_Linux_64bit.tar.gz",
+															"pattern": "${artifactoryRepository}/${inoCLI}",
 															"target": "${linuxTools}/",
 															"explode": "true"
 														}
@@ -144,7 +144,7 @@ pipeline {
 										}
 									"""
 								)
-								sh ("chmod 750 ${linuxTools}/${inoCLI}/${inoVER}/arduino-cli")
+//								sh ("chmod 750 ${linuxTools}/${inoCLI}/${inoVER}/arduino-cli")
 							}
 						}
 
@@ -157,7 +157,7 @@ pipeline {
 										{
 											"files": [
 														{
-															"pattern": "${artifactoryRepository}/${arduinoBoard}/${inoVER}/arduino-board-package_${inoVER}_Linux_64bit.tar.gz",
+															"pattern": "${artifactoryRepository}/${inoBoard}",
 															"target": "./",
 															"explode": "true"
 														}
@@ -171,7 +171,7 @@ pipeline {
 						stage('CLI Build') {
 							steps {
 								echo "Arduino"
-								sh ("${linuxTools}/${inoCLI}/${inoVER}/arduino-cli config init;${linuxTools}/${inoCLI}/${inoVER}/arduino-cli board list")
+								//sh ("${linuxTools}/${inoCLI}/${inoVER}/arduino-cli config init;${linuxTools}/${inoCLI}/${inoVER}/arduino-cli board list")
 								//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
 							}
 						}
