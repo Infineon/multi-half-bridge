@@ -160,6 +160,7 @@ pipeline {
 														{
 															"pattern": "${artifactoryRepo}/${inoBoard}",
 															"target": "/home/xfpjenki/",
+															"flat": "true",
 															"explode": "true"
 														}
 													]
@@ -169,13 +170,17 @@ pipeline {
 							}
 						}
 
-						// stage('CLI Build') {
-						// 	steps {
-						// 		echo "Arduino"
-						// 		//sh ("${linuxTools}/${inoCLI}/${inoVER}/arduino-cli config init;${linuxTools}/${inoCLI}/${inoVER}/arduino-cli board list")
-						// 		//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
-						// 	}
-						// }
+						stage('Generate INO') {
+							
+						}
+
+						stage('CLI Build') {
+							steps {
+								echo "Arduino"
+								//sh ("${linuxTools}/${inoCLI}/arduino-cli config init;${linuxTools}/${inoCLI}/${inoVER}/arduino-cli board list")
+								//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
+							}
+						}
 
 					}
 
