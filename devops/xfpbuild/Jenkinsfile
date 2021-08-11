@@ -129,7 +129,7 @@ pipeline {
 					stages('Arduino') {
 
 						stage('Artifactory CLI') {
-							//when { expression { return fileExists ('${linuxTools}/${arduinoCLI}/arduino-cli') } }
+							when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
 							steps {
 								rtDownload (
 									serverId: artifactoryServer,
@@ -159,7 +159,7 @@ pipeline {
 											"files": [
 														{
 															"pattern": "${artifactoryRepo}/${inoBoard}",
-															"target": "./",
+															"target": "/home/xfpjenki/",
 															"explode": "true"
 														}
 													]
