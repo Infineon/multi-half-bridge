@@ -333,7 +333,7 @@ pipeline {
 										for i in "${examples[@]}"
 										do
 											echo $i;
-											'''+linuxTools+'''/'''+inoCLI+'''/arduino-cli compile -v --fqbn arduino:avr:uno --libraries=./build/Arduino/${lib} build/Arduino/${lib}/examples/$i
+											'''+linuxTools+'''/'''+inoCLI+'''/arduino-cli compile --verbose --fqbn arduino:avr:uno --libraries=./build/Arduino/${lib} build/Arduino/${lib}/examples/$i
 										done
 									''',
 									returnStdout: true
