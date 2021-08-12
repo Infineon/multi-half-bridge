@@ -324,20 +324,23 @@ pipeline {
 						stage('CLI Build') {
 							steps {
 								echo "Compile"
-								sh(
-									script: '''
-										cd ./
-										export lib=`ls -1 ./build/Arduino/`
-										export examples=(`ls -1 ./build/Arduino/${lib}/examples/`)
-										echo $examples
-										for i in "${examples[@]}"
-										do
-											echo $i;
-											'''+linuxTools+'''/'''+inoCLI+'''/arduino-cli compile --verbose --fqbn arduino:avr:uno --libraries=./build/Arduino/${lib} build/Arduino/${lib}/examples/$i
-										done
-									''',
-									returnStdout: true
-								)
+								script {
+									def result = sh(
+										script: '''
+											cd ./
+											export lib=`ls -1 ./build/Arduino/`
+											export examples=(`ls -1 ./build/Arduino/${lib}/examples/`)
+											echo $examples
+											for i in "${examples[@]}"
+											do
+												echo $i;
+												'''+linuxTools+'''/'''+inoCLI+'''/arduino-cli compile --verbose --fqbn arduino:avr:uno --libraries=./build/Arduino/${lib} build/Arduino/${lib}/examples/$i
+											done
+										''',
+										returnStdout: true
+									).trim()
+									echo "$result"
+								}
 							} // end CLI Build
 						}
 
