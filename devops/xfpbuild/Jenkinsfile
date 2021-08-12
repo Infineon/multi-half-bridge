@@ -329,7 +329,8 @@ pipeline {
 										script: '''
 											cd ./
 											export lib=`ls -1 ./build/Arduino/`
-											examples=(`ls -1 ./build/Arduino/${lib}/examples/`)
+											export examples=(`ls -1 ./build/Arduino/${lib}/examples/`)
+											echo $examples
 										''',
 										returnStdout: true
 									).trim()
