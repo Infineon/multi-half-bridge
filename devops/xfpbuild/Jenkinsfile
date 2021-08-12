@@ -192,8 +192,7 @@ pipeline {
 														{
 															"pattern": "${artifactoryRepo}/${inoBoard}",
 															"target": "/home/xfpjenki/",
-															"flat": "true",
-															"explode": "true"
+															"flat": "true"
 														}
 													]
 										}
