@@ -200,6 +200,9 @@ pipeline {
 								)
 								sh(
 									script: '''
+										cd /home/xfpjenki
+										tar -xf '''+inoTGZ+'''
+										rm '''+inoTGZ+'''
 										shopt -s globstar;
 										chmod u+x /home/xfpjenki/.arduino15/**/*.sh;
 										chmod u+x /home/xfpjenki/.arduino15/**/bin/*;
