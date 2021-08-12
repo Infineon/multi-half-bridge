@@ -21,6 +21,7 @@ def inoVER = '0.18.3'
 def inoCLI   = 'arduinoCLI/0.18.3'
 def inoTGZ   = 'arduino-cli_0.18.3_Linux_64bit.tar.gz'
 def inoBoard = 'arduinoBoardPackage/0.18.3/arduino-board-package_0.18.3_Linux_64bit.tar.gz'
+def brdTGZ = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
 
 def linuxTools = '/home/xfpjenki/tools'
 
@@ -201,8 +202,8 @@ pipeline {
 								sh(
 									script: '''
 										cd /home/xfpjenki
-										tar -xf '''+inoTGZ+'''
-										rm '''+inoTGZ+'''
+										tar -xf '''+brdTGZ+'''
+										rm '''+brdTGZ+'''
 										shopt -s globstar;
 										chmod u+x /home/xfpjenki/.arduino15/**/*.sh;
 										chmod u+x /home/xfpjenki/.arduino15/**/bin/*;
