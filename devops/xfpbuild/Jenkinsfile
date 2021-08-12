@@ -327,7 +327,7 @@ pipeline {
 								sh(
 									script: '''
 										cd ./
-										lib = `ls -1 ./build/Arduino/`
+										export lib=`ls -1 ./build/Arduino/`
 										#set example = ($(ls -1 */))
 										'''+linuxTools+'''/'''+inoCLI+'''/arduino-cli compile --fqbn arduino:avr:uno --libraries=./build/Arduino/${lib} build/Arduino/${lib}/examples/basicTest
 									''',
