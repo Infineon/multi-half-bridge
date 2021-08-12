@@ -314,7 +314,7 @@ pipeline {
 								sh(
 									script: '''
 										cd ./
-										'''+linuxTools+'''/'''+inoCLI+'''/arduino-cli compile --fqbn arduino:avr:uno --libraries=./build/Arduino/multi-half-bridge/ Arduino/multi-half-bridge/examples/basicTest
+										'''+linuxTools+'''/'''+inoCLI+'''/arduino-cli compile --fqbn arduino:avr:uno --libraries=./build/Arduino/multi-half-bridge/ build/Arduino/multi-half-bridge/examples/basicTest
 									''',
 									returnStdout: true
 								)
