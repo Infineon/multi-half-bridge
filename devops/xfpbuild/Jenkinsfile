@@ -129,7 +129,7 @@ pipeline {
 					stages('Arduino') {
 
 						stage('Artifactory CLI') {
-							when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
+							//when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
 							steps {
 								rtDownload (
 									serverId: artifactoryServer,
