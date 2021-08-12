@@ -329,7 +329,10 @@ pipeline {
 										cd ./
 										export lib=`ls -1 ./build/Arduino/`
 										export example=($(`ls -1 ./build/Arduino/${lib}/examples/`))
-										'''+linuxTools+'''/'''+inoCLI+'''/arduino-cli compile --fqbn arduino:avr:uno --libraries=./build/Arduino/${lib} build/Arduino/${lib}/examples/basicTest
+										for i in "${examples[@]}"
+										do
+											'''+linuxTools+'''/'''+inoCLI+'''/arduino-cli compile --fqbn arduino:avr:uno --libraries=./build/Arduino/${lib} build/Arduino/${lib}/examples/$i
+										done
 									''',
 									returnStdout: true
 								)
