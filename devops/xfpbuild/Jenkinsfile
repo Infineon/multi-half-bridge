@@ -209,8 +209,8 @@ pipeline {
 				 * Modus Toolbox
 				 *-----------------------------------------------------------------------------
 				 */
-				stage('ModusToolbox') {
-					stages('mtp') {
+				stage('MTB') {
+					stages('ModusToolbox') {
 
 						stage('MTB setup') {
 							agent {
@@ -254,8 +254,8 @@ pipeline {
 				 * Raspberry PI
 				 *-----------------------------------------------------------------------------
 				 */
-				stage('Raspbarry PI') {
-					stages('rpi') {
+				stage('RPi') {
+					stages('RaspberryPi') {
 
 						stage('RPi setup') {
 							agent {
@@ -301,7 +301,7 @@ pipeline {
 										export PYTHONPATH=/opt/python/3.9/linux//RHEL60//../pyperl/python/lib/python3.9/site-packages:/home/xfpjenki/tools/python3
 										rm -rf ./build/Arduino
 										mkdir -p ./build/Arduino
-										${linuxTools}/xfp-dev arduino lib-pack --path=./build/Arduino
+										'''+linuxTools+'''/xfp-dev arduino lib-pack --path=./build/Arduino
 									''',
 									returnStdout: true
 								)
