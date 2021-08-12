@@ -154,13 +154,13 @@ pipeline {
 				 */
 				stage('Arduino') {
 					stages('ino') {
-						agent {
-							node {
-								label 'epelinux1'
-							}
-						}
 
 						stage('Arduino CLI') {
+							agent {
+								node {
+									label 'epelinux1'
+								}
+							}
 							//when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
 							steps {
 								rtDownload (
@@ -211,13 +211,13 @@ pipeline {
 				 */
 				stage('ModusToolbox') {
 					stages('mtp') {
-						agent {
-							node {
-								label 'epewin'
-							}
-						}
 
 						stage('MTB setup') {
+							agent {
+								node {
+									label 'epewin'
+								}
+							}
 							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
 							steps {
 								echo "MTP setup"
@@ -233,13 +233,13 @@ pipeline {
 				 */
 				stage('WiCED') {
 					stages('wcd') {
-						agent {
-							node {
-								label 'epewin'
-							}
-						}
 
 						stage('WiCED setup') {
+							agent {
+								node {
+									label 'epewin'
+								}
+							}
 							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
 							steps {
 								echo "WiCED setup"
@@ -256,13 +256,13 @@ pipeline {
 				 */
 				stage('Raspbarry PI') {
 					stages('rpi') {
-						agent {
-							node {
-								label 'epelinux'
-							}
-						}
 
 						stage('RPi setup') {
+							agent {
+								node {
+									label 'epewin'
+								}
+							}
 							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
 							steps {
 								echo "RPi setup"
