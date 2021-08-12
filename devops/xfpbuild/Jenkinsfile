@@ -310,10 +310,15 @@ pipeline {
 
 						stage('CLI Build') {
 							steps {
-								echo "Arduino"
-								//sh ("${linuxTools}/${inoCLI}/arduino-cli config init;${linuxTools}/${inoCLI}/${inoVER}/arduino-cli board list")
-								//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
-							}
+								echo "Compile"
+								sh(
+									script: '''
+										cd ./
+										'''+linuxTools+'''/'''+${inoCLI}+'''/arduino-cli compile --fqbn arduino:avr:uno --libraries=./build/Arduino/multi-half-bridge/ Arduino/multi-half-bridge/examples/basicTest
+									''',
+									returnStdout: true
+								)
+							} // end CLI Build
 						}
 
 					}
