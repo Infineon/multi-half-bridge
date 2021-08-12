@@ -199,7 +199,16 @@ pipeline {
 										}
 									"""
 								)
-								sh ("shopt -s globstar;chmod u+x /home/xfpjenki/.arduino15/**/*.sh;chmod u+x /home/xfpjenki/.arduino15/**/bin/*")
+								sh(
+									script: '''
+										shopt -s globstar;
+										chmod u+x /home/xfpjenki/.arduino15/**/*.sh;
+										chmod u+x /home/xfpjenki/.arduino15/**/bin/*;
+										find /home/xfpjenki/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/libexec -f -exec chmod u+x \{\} \;
+									''',
+									returnStdout: true
+								)
+								sh ("")
 							}
 						}
 
