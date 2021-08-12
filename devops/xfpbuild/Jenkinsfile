@@ -101,34 +101,66 @@ pipeline {
 			} // end steps
 		} // end DevCI Trigger
 
-		/*-----------------------------------------------------------------------------
-		 * unit test
-		 *-----------------------------------------------------------------------------
-		 */
-		stage('unit test') {
-			steps {
-				echo "unit test"
-				//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
-			}
-		}
+		stage('Check') {
+			parallel {
 
-		stage('build') {
+				/*-----------------------------------------------------------------------------
+				 * cppcheck
+				 *-----------------------------------------------------------------------------
+				 */
+				stage('CPP') {
+					agent {
+						node {
+							label 'epelinux3'
+						}
+					}
+					steps {
+						echo "cppcheck"
+						script {
+							def result = sh(
+								script: '''
+									cd ./
+									export PATH=/opt/sofit/cppcheck/1.76.1/bin:$PATH
+									mkdir -p build
+									/opt/sofit/cppcheck/1.76.1/bin/cppcheck -v --enable=all --xml-version=2 -I src test 2> build/cppcheck-report.xml
+								''',
+								returnStdout: true
+							).trim()
+							echo "$result"
+						}
+					} // end steps
+				} // end cppcheck
+
+				/*-----------------------------------------------------------------------------
+				* unit test
+				*-----------------------------------------------------------------------------
+				*/
+				stage('unit test') {
+					steps {
+						echo "unit test"
+						//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
+					}
+				}
+
+			} // parallel
+		} // end stage
+
+		stage('Artifactory') {
 			parallel {
 
 				/*-----------------------------------------------------------------------------
 				 * Arduino Linux CLI
 				 *-----------------------------------------------------------------------------
 				 */
-				stage('ino') {
-					agent {
-						node {
-							label 'epelinux1'
+				stage('Arduino') {
+					stages('ino') {
+						agent {
+							node {
+								label 'epelinux1'
+							}
 						}
-					}
 
-					stages('Arduino') {
-
-						stage('Artifactory CLI') {
+						stage('Arduino CLI') {
 							//when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
 							steps {
 								rtDownload (
@@ -149,7 +181,7 @@ pipeline {
 							}
 						}
 
-						stage('Artifactory Board') {
+						stage('Board package') {
 							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
 							steps {
 								rtDownload (
@@ -170,10 +202,110 @@ pipeline {
 							}
 						}
 
+					} // end stages
+				} // end stage
+
+				/*-----------------------------------------------------------------------------
+				 * Modus Toolbox
+				 *-----------------------------------------------------------------------------
+				 */
+				stage('ModusToolbox') {
+					stages('mtp') {
+						agent {
+							node {
+								label 'epewin'
+							}
+						}
+
+						stage('MTB setup') {
+							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
+							steps {
+								echo "MTP setup"
+							}
+						}
+
+					} // end stages
+				} // end stage
+
+				/*-----------------------------------------------------------------------------
+				 * WiCED Toolbox
+				 *-----------------------------------------------------------------------------
+				 */
+				stage('WiCED') {
+					stages('wcd') {
+						agent {
+							node {
+								label 'epewin'
+							}
+						}
+
+						stage('WiCED setup') {
+							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
+							steps {
+								echo "WiCED setup"
+							}
+						}
+
+					} // end stages
+				} // end stage
+
+
+				/*-----------------------------------------------------------------------------
+				 * Raspberry PI
+				 *-----------------------------------------------------------------------------
+				 */
+				stage('Raspbarry PI') {
+					stages('rpi') {
+						agent {
+							node {
+								label 'epelinux'
+							}
+						}
+
+						stage('RPi setup') {
+							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
+							steps {
+								echo "RPi setup"
+							}
+						}
+
+					} // end stages
+				} // end stage
+
+			} // end parallel
+		} // end stage
+
+		stage('build') {
+			parallel {
+
+				/*-----------------------------------------------------------------------------
+				 * Arduino Linux CLI
+				 *-----------------------------------------------------------------------------
+				 */
+				stage('Arduino Linux') {
+					agent {
+						node {
+							label 'epelinux'
+						}
+					}
+
+					stages('Arduino') {
+
 						stage('Generate INO') {
 							steps {
-								echo "Generate INo"
-							}
+								echo "xfp-dev"
+								sh(
+									script: '''
+										cd ./
+										export PATH=/opt/python/3.9/linux/RHEL60/bin:$PATH
+										export PYTHONPATH=/opt/python/3.9/linux//RHEL60//../pyperl/python/lib/python3.9/site-packages:/home/xfpjenki/tools/python3
+										rm -rf ./build/Arduino
+										mkdir -p ./build/Arduino
+										${linuxTools}/xfp-dev arduino lib-pack --path=./build/Arduino
+									''',
+									returnStdout: true
+								)
+							} // end xfp-dev
 						}
 
 						stage('CLI Build') {
@@ -277,50 +409,6 @@ pipeline {
 
 			} // end parallel
 		} // end docu build
-
-		stage('Check') {
-			parallel {
-
-				/*-----------------------------------------------------------------------------
-				 * cppcheck
-				 *-----------------------------------------------------------------------------
-				 */
-				stage('CPP') {
-					agent {
-						node {
-							label 'epelinux3'
-						}
-					}
-					steps {
-						echo "cppcheck"
-						script {
-							def result = sh(
-								script: '''
-									cd ./
-									export PATH=/opt/sofit/cppcheck/1.76.1/bin:$PATH
-									mkdir -p build
-									/opt/sofit/cppcheck/1.76.1/bin/cppcheck -v --enable=all --xml-version=2 -I src test 2> build/cppcheck-report.xml
-								''',
-								returnStdout: true
-							).trim()
-							echo "$result"
-						}
-					} // end steps
-				} // end cppcheck
-
-				/*-----------------------------------------------------------------------------
-				 * cli
-				 *-----------------------------------------------------------------------------
-				 */
-				stage('CLI') {
-					steps {
-						echo "Compile"
-						//sh ("cd ${env.WORKSPACE};/usr/bin/make all")
-					} // end steps
-				} // end stage
-
-			} // parallel
-		} // end stage
 
 		/*-----------------------------------------------------------------------------
 		 * SonarQube stage runs the sonar scanner and collects all reports
