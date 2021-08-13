@@ -9,6 +9,21 @@
  * - doxygen build and deploy on internal server
  *
  */
+library("jenkins-pipeline-ifx-library")
+
+def projectName = 'eden-artifactory-demo'
+def artifactoryServer = 'Artifactory'
+def artifactoryRepo = 'gen-des-epe-sw-development-local'
+def artifactoryTarget = 'gen-des-tools-prod-eden-local'
+def artifactorySW = 'https://artifactory.intra.infineon.com/artifactory/gen-des-epe-sw-development-local/'
+
+def inoVER = '0.18.3'
+def inoCLI   = 'arduinoCLI/0.18.3'
+def inoTGZ   = 'arduino-cli_0.18.3_Linux_64bit.tar.gz'
+def inoBoard = 'arduinoBoardPackage/0.18.3/arduino-board-package_0.18.3_Linux_64bit.tar.gz'
+def brdTGZ = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
+
+def linuxTools = '/home/xfpjenki/tools'
 
 pipeline {
 	/**
@@ -37,8 +52,8 @@ pipeline {
 		TIER             = "${params.TIER}"
 		WEB_ROOT         = "/home/razweb/htdocs-${params.SERVER}"
 		REPO_NAME	     = "${GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
-		DOCS_TARGET      = "${env.WEB_ROOT}/itec/xfp/${REPO_NAME}/${env.BRANCH_NAME}"
-		DOCS_SOURCE      = "${WORKSPACE}/docs/doxygen/build"
+		DOCS_TARGET      = "${env.WEB_ROOT}/itec/xfp/${env.REPO_NAME}/${env.BRANCH_NAME}"
+		DOCS_SOURCE      = "${env.WORKSPACE}/docs/doxygen/build"
 		ROOT_URL         = "https://${params.SERVER}.vih.infineon.com"
 		SONARINSTANCE    = "${params.SONARINSTANCE}"
 	}
@@ -87,54 +102,275 @@ pipeline {
 			} // end steps
 		} // end DevCI Trigger
 
-		/*-----------------------------------------------------------------------------
-		 * unit test
-		 *-----------------------------------------------------------------------------
-		 */
-		stage('unit test') {
-			steps {
-				echo "unit test"
-				//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
-			}
-		}
+		stage('Check') {
+			parallel {
+
+				/*-----------------------------------------------------------------------------
+				 * cppcheck
+				 *-----------------------------------------------------------------------------
+				 */
+				stage('CPP') {
+					agent {
+						node {
+							label 'epelinux3'
+						}
+					}
+					steps {
+						echo "cppcheck"
+						script {
+							def result = sh(
+								script: '''
+									cd ./
+									export PATH=/opt/sofit/cppcheck/1.76.1/bin:$PATH
+									mkdir -p build
+									/opt/sofit/cppcheck/1.76.1/bin/cppcheck -v --enable=all --xml-version=2 -I src test 2> build/cppcheck-report.xml
+								''',
+								returnStdout: true
+							).trim()
+							echo "$result"
+						}
+					} // end steps
+				} // end cppcheck
+
+				/*-----------------------------------------------------------------------------
+				* unit test
+				*-----------------------------------------------------------------------------
+				*/
+				stage('unit test') {
+					steps {
+						echo "unit test"
+						//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
+					}
+				}
+
+			} // parallel
+		} // end stage
+
+		stage('Artifactory') {
+			parallel {
+
+				/*-----------------------------------------------------------------------------
+				 * Arduino Linux CLI
+				 *-----------------------------------------------------------------------------
+				 */
+				stage('Arduino') {
+					stages('ino') {
+
+						stage('Arduino CLI') {
+							agent {
+								node {
+									label 'epelinux1'
+								}
+							}
+							when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
+							steps {
+								rtDownload (
+									serverId: artifactoryServer,
+									spec: """
+										{
+											"files": [
+														{
+															"pattern": "${artifactoryRepo}/${inoCLI}/${inoTGZ}",
+															"target": "${linuxTools}/",
+															"explode": "true"
+														}
+													]
+										}
+									"""
+								)
+								sh ("chmod 750 ${linuxTools}/${inoCLI}/arduino-cli")
+							}
+						}
+
+						stage('Board package') {
+							when { expression { return fileExists ('~/.arduino15/library-index.json') } }
+							steps {
+								rtDownload (
+									serverId: artifactoryServer,
+									spec: """
+										{
+											"files": [
+														{
+															"pattern": "${artifactoryRepo}/${inoBoard}",
+															"target": "/home/xfpjenki/",
+															"flat": "true"
+														}
+													]
+										}
+									"""
+								)
+								sh(
+									script: '''
+										cd /home/xfpjenki
+										tar -xf '''+brdTGZ+'''
+										rm '''+brdTGZ+'''
+										shopt -s globstar;
+										chmod u+x /home/xfpjenki/.arduino15/**/*.sh;
+										chmod u+x /home/xfpjenki/.arduino15/**/bin/*;
+										find /home/xfpjenki/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/libexec -type f -exec chmod u+x {} ";"
+									''',
+									returnStdout: true
+								)
+								sh ("")
+							}
+						}
+
+					} // end stages
+				} // end stage
+
+				/*-----------------------------------------------------------------------------
+				 * Modus Toolbox
+				 *-----------------------------------------------------------------------------
+				 */
+				stage('MTB') {
+					stages('ModusToolbox') {
+
+						stage('MTB setup') {
+							agent {
+								node {
+									label 'epewin'
+								}
+							}
+							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
+							steps {
+								echo "MTP setup"
+							}
+						}
+
+					} // end stages
+				} // end stage
+
+				/*-----------------------------------------------------------------------------
+				 * WiCED Toolbox
+				 *-----------------------------------------------------------------------------
+				 */
+				stage('WiCED') {
+					stages('wcd') {
+
+						stage('WiCED setup') {
+							agent {
+								node {
+									label 'epewin'
+								}
+							}
+							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
+							steps {
+								echo "WiCED setup"
+							}
+						}
+
+					} // end stages
+				} // end stage
+
+
+				/*-----------------------------------------------------------------------------
+				 * Raspberry PI
+				 *-----------------------------------------------------------------------------
+				 */
+				stage('RPi') {
+					stages('RaspberryPi') {
+
+						stage('RPi setup') {
+							agent {
+								node {
+									label 'epewin'
+								}
+							}
+							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
+							steps {
+								echo "RPi setup"
+							}
+						}
+
+					} // end stages
+				} // end stage
+
+			} // end parallel
+		} // end stage
 
 		stage('build') {
 			parallel {
 
 				/*-----------------------------------------------------------------------------
-				 * html
+				 * Arduino Linux CLI
 				 *-----------------------------------------------------------------------------
 				 */
-				stage('ARD') {
-					steps {
-						echo "Arduino"
-						//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
+				stage('Arduino Linux') {
+					agent {
+						node {
+							label 'epelinux'
+						}
 					}
+
+					stages('Arduino') {
+
+						stage('Generate INO') {
+							steps {
+								echo "xfp-dev"
+								sh(
+									script: '''
+										cd ./
+										export PATH=/opt/python/3.9/linux/RHEL60/bin:$PATH
+										export PYTHONPATH=/opt/python/3.9/linux//RHEL60//../pyperl/python/lib/python3.9/site-packages:/home/xfpjenki/tools/python3
+										rm -rf ./build/Arduino
+										mkdir -p ./build/Arduino
+										'''+linuxTools+'''/python3/bin/xfp-dev arduino lib-pack --path=./build/Arduino
+									''',
+									returnStdout: true
+								)
+							} // end xfp-dev
+						}
+
+						stage('CLI Build') {
+							steps {
+								echo "Compile"
+								script {
+									def result = sh(
+										script: '''
+											cd ./
+											export lib=`ls -1 ./build/Arduino/`
+											export examples=(`ls -1 ./build/Arduino/${lib}/examples/`)
+											echo $examples
+											for i in "${examples[@]}"
+											do
+												echo $i;
+												'''+linuxTools+'''/'''+inoCLI+'''/arduino-cli compile --verbose --fqbn arduino:avr:uno --libraries=./build/Arduino/${lib} build/Arduino/${lib}/examples/$i
+											done
+										''',
+										returnStdout: true
+									).trim()
+									echo "$result"
+								}
+							} // end CLI Build
+						}
+
+					}
+
 				}
 
-				/*-----------------------------------------------------------------------------
-				 * PlatformIO build
-				 *-----------------------------------------------------------------------------
-				 */
-				stage('PIO') {
-					steps {
-						echo "PlatformIO"
-						/*
-						sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make pdf")
-						build(
-							job: 'dev/doxy_maker_pdf',
-							propagate: true,
-							parameters: [
-								[
-									$class: 'StringParameterValue',
-									name: 'WORKSPACE',
-									value: "${env.WORKSPACE}"
-								],
-							]
-						)
-						*/
-					}
-				}
+				// /*-----------------------------------------------------------------------------
+				//  * PlatformIO build
+				//  *-----------------------------------------------------------------------------
+				//  */
+				// stage('PIO') {
+				// 	steps {
+				// 		echo "PlatformIO"
+				// 		/*
+				// 		sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make pdf")
+				// 		build(
+				// 			job: 'dev/doxy_maker_pdf',
+				// 			propagate: true,
+				// 			parameters: [
+				// 				[
+				// 					$class: 'StringParameterValue',
+				// 					name: 'WORKSPACE',
+				// 					value: "${env.WORKSPACE}"
+				// 				],
+				// 			]
+				// 		)
+				// 		*/
+				// 	}
+				// }
 
 				/*-----------------------------------------------------------------------------
 				 * doxygen
@@ -143,7 +379,7 @@ pipeline {
 				stage('docu') {
 					agent {
 						node {
-							label 'epelinux'
+							label 'epelinux2'
 						}
 					}
 
@@ -202,50 +438,6 @@ pipeline {
 			} // end parallel
 		} // end docu build
 
-		stage('Check') {
-			parallel {
-
-				/*-----------------------------------------------------------------------------
-				 * cppcheck
-				 *-----------------------------------------------------------------------------
-				 */
-				stage('CPP') {
-					agent {
-						node {
-							label 'epelinux'
-						}
-					}
-					steps {
-						echo "cppcheck"
-						script {
-							def result = sh(
-								script: '''
-									cd ./
-									export PATH=/opt/sofit/cppcheck/1.76.1/bin:$PATH
-									mkdir -p build
-									/opt/sofit/cppcheck/1.76.1/bin/cppcheck -v --enable=all --xml-version=2 -I src test 2> build/cppcheck-report.xml
-								''',
-								returnStdout: true
-							).trim()
-							echo "$result"
-						}
-					} // end steps
-				} // end cppcheck
-
-				/*-----------------------------------------------------------------------------
-				 * cli
-				 *-----------------------------------------------------------------------------
-				 */
-				stage('CLI') {
-					steps {
-						echo "Compile"
-						//sh ("cd ${env.WORKSPACE};/usr/bin/make all")
-					} // end steps
-				} // end stage
-
-			} // parallel
-		} // end stage
-
 		/*-----------------------------------------------------------------------------
 		 * SonarQube stage runs the sonar scanner and collects all reports
 		 *-----------------------------------------------------------------------------
@@ -261,7 +453,7 @@ pipeline {
 							if (isUnix()) {
 								env.scannerHome = tool 'sonar-scanner-cli-4.2.0.1873-linux'
 							}else{
-								env.scannerHome = 'd:/slave/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner-cli-4.2.0.1873/sonar-scanner-4.2.0.1873'
+								env.scannerHome = tool 'sonar-scanner-4.2.0.1873'
 							}
 							def result = sh(
 								script: '''
