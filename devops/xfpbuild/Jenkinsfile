@@ -17,13 +17,19 @@ def artifactoryRepo = 'gen-des-epe-sw-development-local'
 def artifactoryTarget = 'gen-des-tools-prod-eden-local'
 def artifactorySW = 'https://artifactory.intra.infineon.com/artifactory/gen-des-epe-sw-development-local/'
 
-def inoVER = '0.18.3'
+def inoVER   = '0.18.3'
 def inoCLI   = 'arduinoCLI/0.18.3'
 def inoTGZ   = 'arduino-cli_0.18.3_Linux_64bit.tar.gz'
 def inoBoard = 'arduinoBoardPackage/0.18.3/arduino-board-package_0.18.3_Linux_64bit.tar.gz'
-def brdTGZ = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
+def brdTGZ   = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
+
+def mtbVER   = '2.3.1'
+def mtbTools = 'ModusToolbox/2.3.1'
+def mtbTtgz  = 'ModusToolbox_tools_2.3.1_Linux_64bit.tar.gz'
+def mtbmake  = 'ModusToolbox/tools_2.3/make/make'
 
 def linuxTools = '/home/xfpjenki/tools'
+
 
 pipeline {
 	/**
@@ -211,7 +217,6 @@ pipeline {
 									''',
 									returnStdout: true
 								)
-								sh ("")
 							}
 						}
 
@@ -226,14 +231,45 @@ pipeline {
 					stages('ModusToolbox') {
 
 						stage('MTB setup') {
+							// agent {
+							// 	node {
+							// 		label 'epewin'
+							// 	}
+							// }
+							// //when { expression { return fileExists ('./.arduino15/library-index.json') } }
+							// steps {
+							// 	echo "MTP setup"
+							// }
+
 							agent {
 								node {
-									label 'epewin'
+									label 'epelinux3'
 								}
 							}
-							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
+							when { expression { return fileExists ('${linuxTools}/${mtbmake}') } }
 							steps {
-								echo "MTP setup"
+								rtDownload (
+									serverId: artifactoryServer,
+									spec: """
+										{
+											"files": [
+														{
+															"pattern": "${artifactoryRepo}/${mtbTools}/${mtbTtgz}",
+															"target": "${linuxTools}/",
+															"explode": "true"
+														}
+													]
+										}
+									"""
+								)
+								sh(
+									script: '''
+										cd /home/xfpjenki/tools
+										tar -xf '''+brdTtgz+'''
+										rm '''+brdTtgz+'''
+									''',
+									returnStdout: true
+								)
 							}
 						}
 
