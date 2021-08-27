@@ -293,6 +293,7 @@ pipeline {
 							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
 							steps {
 								echo "WiCED setup"
+								script {
 									def result = sh(
 										script: '''
 											cd D:tools
@@ -301,6 +302,7 @@ pipeline {
 										returnStdout: true
 									).trim()
 									echo '$result'
+								}
 							}
 						}
 
