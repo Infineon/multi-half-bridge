@@ -366,6 +366,14 @@ pipeline {
 
 					stages('Arduino') {
 
+						script {
+							if (isUnix()) {
+								env.tools = linuxTools
+							}else{
+								env.tools = winTools
+							}
+						}
+
 						stage('Generate INO') {
 							steps {
 								echo "xfp-dev"
