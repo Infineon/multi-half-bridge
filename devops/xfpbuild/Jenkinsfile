@@ -174,9 +174,9 @@ pipeline {
 
 							steps {
 								if (isUnix()) {
-									env.tools = ${linuxTools}
+									env.tools = 'Loinux'
 								}else{
-									env.tools = ${winTools}
+									env.tools = 'winTools'
 								}
 								echo "${env.tools}"
 								rtDownload (
