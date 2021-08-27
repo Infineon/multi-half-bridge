@@ -301,7 +301,7 @@ pipeline {
 										''',
 										returnStdout: true
 									).trim()
-									echo '$result'
+									echo "$result"
 								}
 							}
 						}
