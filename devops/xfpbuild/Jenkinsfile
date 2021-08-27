@@ -202,7 +202,7 @@ pipeline {
 											"files": [
 														{
 															"pattern": "${artifactoryRepo}/${inoBoard}",
-															"target": "${env.tools}/,
+															"target": "${env.tools}/",
 															"flat": "true"
 														}
 													]
