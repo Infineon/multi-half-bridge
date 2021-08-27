@@ -31,6 +31,9 @@ def mtbmake  = 'ModusToolbox/tools_2.3/make/make'
 def linuxTools = '/home/xfpjenki/tools'
 def winTools   = 'D:/tools'
 
+def linuxHome  = '/home/xfpjenki/'
+def winHome    = ''
+
 pipeline {
 	/**
 	 * node where to run on
@@ -176,7 +179,7 @@ pipeline {
 										env.tools = winTools
 									}
 								}
-
+								// ArduinoCLI package
 								rtDownload (
 									serverId: artifactoryServer,
 									spec: """
@@ -184,22 +187,14 @@ pipeline {
 											"files": [
 														{
 															"pattern": "${artifactoryRepo}/${inoCLI}/${inoTGZ}",
-															"target": "${linuxTools}/",
-															"explode": "true"
+															"target": "${env.tools}/",
+															"flat": "true"
 														}
 													]
 										}
 									"""
 								)
-								sh ("chmod 750 ${linuxTools}/${inoCLI}/arduino-cli")
-								echo "${env.tools}"
-
-							}
-						}
-
-						stage('Board package') {
-							when { expression { return fileExists ('~/.arduino15/library-index.json') } }
-							steps {
+								// Arduino Board package
 								rtDownload (
 									serverId: artifactoryServer,
 									spec: """
@@ -207,21 +202,26 @@ pipeline {
 											"files": [
 														{
 															"pattern": "${artifactoryRepo}/${inoBoard}",
-															"target": "/home/xfpjenki/",
+															"target": "${env.tools}/,
 															"flat": "true"
 														}
 													]
 										}
 									"""
 								)
+								// unpacking
 								sh(
 									script: '''
-										cd /home/xfpjenki
+										cd ${env.tools}/
 										tar -xf '''+brdTGZ+'''
 										rm '''+brdTGZ+'''
+										tar -xf '''+inoTGZ+'''
+										rm '''+inoTGZ+'''
 									''',
 									returnStdout: true
 								)
+								echo "${env.tools}"
+
 							}
 						}
 
