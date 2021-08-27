@@ -29,7 +29,7 @@ def mtbTtgz  = 'ModusToolbox_tools_2.3.1_Linux_64bit.tar.gz'
 def mtbmake  = 'ModusToolbox/tools_2.3/make/make'
 
 def linuxTools = '/home/xfpjenki/tools'
-
+def winTools   = 'D:/tools'
 
 pipeline {
 	/**
@@ -168,8 +168,17 @@ pipeline {
 									label 'epelinux1'
 								}
 							}
+
+								if (isUnix()) {
+									env.tools = ${linuxTools}
+								}else{
+									env.tools = ${winTools}
+								}
+
 							when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
+
 							steps {
+								echo "${env.tools}"
 								rtDownload (
 									serverId: artifactoryServer,
 									spec: """
