@@ -168,7 +168,7 @@ pipeline {
 									label 'epelinux1'
 								}
 							}
-							//when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
+							when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
 							steps {
 								rtDownload (
 									serverId: artifactoryServer,
@@ -189,7 +189,7 @@ pipeline {
 						}
 
 						stage('Board package') {
-							//when { expression { return fileExists ('~/.arduino15/library-index.json') } }
+							when { expression { return fileExists ('~/.arduino15/library-index.json') } }
 							steps {
 								rtDownload (
 									serverId: artifactoryServer,
@@ -205,6 +205,8 @@ pipeline {
 										}
 									"""
 								)
+								env.inoCLI = tool 'arduino-cli'
+								echo "${inoCLI}"
 								sh(
 									script: '''
 										cd /home/xfpjenki
@@ -227,45 +229,41 @@ pipeline {
 					stages('ModusToolbox') {
 
 						stage('MTB setup') {
-							// agent {
-							// 	node {
-							// 		label 'epewin'
-							// 	}
-							// }
-							// //when { expression { return fileExists ('./.arduino15/library-index.json') } }
-							// steps {
-							// 	echo "MTP setup"
-							// }
 
 							agent {
 								node {
 									label 'epelinux3'
 								}
 							}
-							//when { expression { return fileExists ('${linuxTools}/${mtbmake}') } }
-							steps {
-								rtDownload (
-									serverId: artifactoryServer,
-									spec: """
-										{
-											"files": [
-														{
-															"pattern": "${artifactoryRepo}/${mtbTools}/${mtbTtgz}",
-															"target": "${linuxTools}/",
-															"flat": "true"
-														}
-													]
-										}
-									"""
-								)
-								sh(
-									script: '''
-										cd /home/xfpjenki/tools
-										tar -xf '''+mtbTtgz+'''
-										rm '''+mtbTtgz+'''
-									''',
-									returnStdout: true
-								)
+							if (isUnix()) {
+								/* Linux Artifactory setting */
+								when { expression { return fileExists ('${linuxTools}/${mtbmake}') } }
+								steps {
+									rtDownload (
+										serverId: artifactoryServer,
+										spec: """
+											{
+												"files": [
+															{
+																"pattern": "${artifactoryRepo}/${mtbTools}/${mtbTtgz}",
+																"target": "${linuxTools}/",
+																"flat ": "true"
+															}
+														]
+											}
+										"""
+									)
+									sh(
+										script: '''
+											cd /home/xfpjenki/tools
+											tar -xf '''+mtbTtgz+'''
+											rm '''+mtbTtgz+'''
+										''',
+										returnStdout: true
+									)
+								}
+							}else{
+								echo "Windows yet not implemented"
 							}
 						}
 
@@ -288,6 +286,13 @@ pipeline {
 							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
 							steps {
 								echo "WiCED setup"
+									sh(
+										script: '''
+											cd /
+											ls -Rla
+										''',
+										returnStdout: true
+									)
 							}
 						}
 
