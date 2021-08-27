@@ -176,13 +176,12 @@ pipeline {
 								rtDownload (
 									serverId: artifactoryServer,
 									spec: """
-										{
-											"files": [
-														{
-															"pattern": "${artifactoryRepo}/${inoCLI}/${inoTGZ}",
-															"target": "${env.tools}/"
-														}
-													]
+										{ "files": [
+												{
+													"pattern": "${artifactoryRepo}/${inoCLI}/${inoTGZ}",
+													"target": "${env.tools}/"
+												}
+											]
 										}
 									"""
 								)
@@ -190,14 +189,13 @@ pipeline {
 								rtDownload (
 									serverId: artifactoryServer,
 									spec: """
-										{
-											"files": [
-														{
-															"pattern": "${artifactoryRepo}/${inoBoard}/${brdTGZ}",
-															"target": "${env.tools}/",
-															"flat": "true"
-														}
-													]
+										{ "files": [
+												{
+													"pattern": "${artifactoryRepo}/${inoBoard}/${brdTGZ}",
+													"target": "${env.tools}/",
+													"flat": "true"
+												}
+											]
 										}
 									"""
 								)
@@ -245,14 +243,13 @@ pipeline {
 								rtDownload (
 									serverId: artifactoryServer,
 									spec: """
-										{
-											"files": [
-														{
-															"pattern": "${artifactoryRepo}/${mtbTools}/${mtbTtgz}",
-															"target": "${env.tools}/",
-															"flat ": "true"
-														}
-													]
+										{ "files": [
+												{
+													"pattern": "${artifactoryRepo}/${mtbTools}/${mtbTtgz}",
+													"target": "${env.tools}/",
+													"flat": "true"
+												}
+											]
 										}
 									"""
 								)
