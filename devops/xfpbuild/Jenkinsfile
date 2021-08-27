@@ -169,15 +169,15 @@ pipeline {
 								}
 							}
 
+
+							when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
+
+							steps {
 								if (isUnix()) {
 									env.tools = ${linuxTools}
 								}else{
 									env.tools = ${winTools}
 								}
-
-							when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
-
-							steps {
 								echo "${env.tools}"
 								rtDownload (
 									serverId: artifactoryServer,
@@ -295,7 +295,7 @@ pipeline {
 								echo "WiCED setup"
 									sh(
 										script: '''
-											cd /
+											cd D:
 											ls -Rla
 										''',
 										returnStdout: true
