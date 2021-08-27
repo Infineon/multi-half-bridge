@@ -212,7 +212,7 @@ pipeline {
 								// unpacking
 								sh(
 									script: '''
-										cd ${env.tools}
+										cd ${tools}
 										tar -xf '''+brdTGZ+'''
 										rm '''+brdTGZ+'''
 										tar -xf '''+inoTGZ+'''
