@@ -210,10 +210,6 @@ pipeline {
 										cd /home/xfpjenki
 										tar -xf '''+brdTGZ+'''
 										rm '''+brdTGZ+'''
-										shopt -s globstar;
-										chmod u+x /home/xfpjenki/.arduino15/**/*.sh;
-										chmod u+x /home/xfpjenki/.arduino15/**/bin/*;
-										find /home/xfpjenki/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/libexec -type f -exec chmod u+x {} ";"
 									''',
 									returnStdout: true
 								)
@@ -265,8 +261,8 @@ pipeline {
 								sh(
 									script: '''
 										cd /home/xfpjenki/tools
-										tar -xf '''+brdTtgz+'''
-										rm '''+brdTtgz+'''
+										tar -xf '''+mtbTtgz+'''
+										rm '''+mtbTtgz+'''
 									''',
 									returnStdout: true
 								)
