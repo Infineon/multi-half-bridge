@@ -184,10 +184,12 @@ pipeline {
 									"""
 								)
 								sh ("chmod 750 ${linuxTools}/${inoCLI}/arduino-cli")
-																if (isUnix()) {
+								script {
+								if (isUnix()) {
 									env.tools = 'Loinux'
 								}else{
 									env.tools = 'winTools'
+								}
 								}
 								echo "${env.tools}"
 
