@@ -205,8 +205,8 @@ pipeline {
 										cd ${tools}
 										tar -xf '''+brdTGZ+'''
 										rm '''+brdTGZ+'''
-										tar -xf '''+inoTGZ+'''
-										rm '''+inoTGZ+'''
+										tar -xf '''+inoCLI+'''/'''+inoTGZ+'''
+										rm '''+inoCLI+'''/'''+inoTGZ+'''
 									'''
 								)
 
