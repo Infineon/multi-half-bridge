@@ -168,7 +168,7 @@ pipeline {
 									label 'epelinux1'
 								}
 							}
-							when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
+							//when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
 							steps {
 								rtDownload (
 									serverId: artifactoryServer,
@@ -189,7 +189,7 @@ pipeline {
 						}
 
 						stage('Board package') {
-							when { expression { return fileExists ('~/.arduino15/library-index.json') } }
+							//when { expression { return fileExists ('~/.arduino15/library-index.json') } }
 							steps {
 								rtDownload (
 									serverId: artifactoryServer,
@@ -242,7 +242,7 @@ pipeline {
 									label 'epelinux3'
 								}
 							}
-							when { expression { return fileExists ('${linuxTools}/${mtbmake}') } }
+							//when { expression { return fileExists ('${linuxTools}/${mtbmake}') } }
 							steps {
 								rtDownload (
 									serverId: artifactoryServer,
@@ -252,7 +252,7 @@ pipeline {
 														{
 															"pattern": "${artifactoryRepo}/${mtbTools}/${mtbTtgz}",
 															"target": "${linuxTools}/",
-															"explode": "true"
+															"flat": "true"
 														}
 													]
 										}
