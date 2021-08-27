@@ -20,7 +20,7 @@ def artifactorySW = 'https://artifactory.intra.infineon.com/artifactory/gen-des-
 def inoVER   = '0.18.3'
 def inoCLI   = 'arduinoCLI/0.18.3'
 def inoTGZ   = 'arduino-cli_0.18.3_Linux_64bit.tar.gz'
-def inoBoard = 'arduinoBoardPackage/0.18.3/arduino-board-package_0.18.3_Linux_64bit.tar.gz'
+def inoBoard = 'arduinoBoardPackage/0.18.3'
 def brdTGZ   = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
 
 def mtbVER   = '2.3.1'
@@ -168,9 +168,6 @@ pipeline {
 								}
 							}
 
-
-							//when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
-
 							steps {
 								script {
 									if (isUnix()) {
@@ -187,8 +184,7 @@ pipeline {
 											"files": [
 														{
 															"pattern": "${artifactoryRepo}/${inoCLI}/${inoTGZ}",
-															"target": "${env.tools}/",
-															"flat": "true"
+															"target": "${env.tools}/"
 														}
 													]
 										}
@@ -201,7 +197,7 @@ pipeline {
 										{
 											"files": [
 														{
-															"pattern": "${artifactoryRepo}/${inoBoard}",
+															"pattern": "${artifactoryRepo}/${inoBoard}/${brdTGZ}",
 															"target": "${env.tools}/",
 															"flat": "true"
 														}
@@ -220,9 +216,10 @@ pipeline {
 									''',
 									returnStdout: true
 								)
-								echo "${env.tools}"
 
 							}
+							when { expression { return fileExists ('${env.tools}/${inoCLI}/arduino-cli') } }
+
 						}
 
 					} // end stages
