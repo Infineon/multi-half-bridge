@@ -205,8 +205,6 @@ pipeline {
 										}
 									"""
 								)
-								env.inoCLI = tool 'arduino-cli'
-								echo "${inoCLI}"
 								sh(
 									script: '''
 										cd /home/xfpjenki
