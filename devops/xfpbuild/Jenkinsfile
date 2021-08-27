@@ -169,6 +169,14 @@ pipeline {
 							//when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
 
 							steps {
+								script {
+									if (isUnix()) {
+										env.tools = linuxTools
+									}else{
+										env.tools = winTools
+									}
+								}
+
 								rtDownload (
 									serverId: artifactoryServer,
 									spec: """
@@ -184,13 +192,6 @@ pipeline {
 									"""
 								)
 								sh ("chmod 750 ${linuxTools}/${inoCLI}/arduino-cli")
-								script {
-								if (isUnix()) {
-									env.tools = 'Loinux'
-								}else{
-									env.tools = 'winTools'
-								}
-								}
 								echo "${env.tools}"
 
 							}
@@ -292,13 +293,14 @@ pipeline {
 							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
 							steps {
 								echo "WiCED setup"
-									sh(
+									def result = sh(
 										script: '''
 											cd D:tools
 											ls -la
 										''',
 										returnStdout: true
-									)
+									).trim()
+									echo '$result'
 							}
 						}
 
