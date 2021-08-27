@@ -35,11 +35,7 @@ pipeline {
 	/**
 	 * node where to run on
 	 */
-	agent {
-		node {
-			label 'epe'
-		}
-	}
+	agent any
 
 	/**
 	 * Parameter choice settings for manual start 
@@ -173,12 +169,6 @@ pipeline {
 							when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
 
 							steps {
-								if (isUnix()) {
-									env.tools = 'Loinux'
-								}else{
-									env.tools = 'winTools'
-								}
-								echo "${env.tools}"
 								rtDownload (
 									serverId: artifactoryServer,
 									spec: """
@@ -194,6 +184,13 @@ pipeline {
 									"""
 								)
 								sh ("chmod 750 ${linuxTools}/${inoCLI}/arduino-cli")
+																if (isUnix()) {
+									env.tools = 'Loinux'
+								}else{
+									env.tools = 'winTools'
+								}
+								echo "${env.tools}"
+
 							}
 						}
 
