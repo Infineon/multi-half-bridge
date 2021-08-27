@@ -19,9 +19,11 @@ def artifactorySW = 'https://artifactory.intra.infineon.com/artifactory/gen-des-
 
 def inoVER   = '0.18.3'
 def inoCLI   = 'arduinoCLI/0.18.3'
-def inoTGZ   = 'arduino-cli_0.18.3_Linux_64bit.tar.gz'
+def inoLTGZ  = 'arduino-cli_0.18.3_Linux_64bit.tar.gz'
+def inoWTGZ  = 'arduino-cli_0.18.3_Windows_64bit.zip'
 def inoBoard = 'arduinoBoardPackage/0.18.3'
-def brdTGZ   = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
+def brdLTGZ  = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
+def brdWTGZ  = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
 
 def mtbVER   = '2.3.1'
 def mtbTools = 'ModusToolbox/2.3.1'
@@ -168,8 +170,12 @@ pipeline {
 								script {
 									if (isUnix()) {
 										env.tools = linuxTools
+										env.cli   = inoLTGZ
+										env.board = brdLTGZ
 									}else{
 										env.tools = winTools
+										env.cli   = inoWTGZ
+										env.board = brdWTGZ
 									}
 								}
 								// ArduinoCLI package
@@ -178,7 +184,7 @@ pipeline {
 									spec: """
 										{ "files": [
 												{
-													"pattern": "${artifactoryRepo}/${inoCLI}/${inoTGZ}",
+													"pattern": "${artifactoryRepo}/${inoCLI}/${env.cli}",
 													"target": "${env.tools}/"
 												}
 											]
@@ -191,7 +197,7 @@ pipeline {
 									spec: """
 										{ "files": [
 												{
-													"pattern": "${artifactoryRepo}/${inoBoard}/${brdTGZ}",
+													"pattern": "${artifactoryRepo}/${inoBoard}/${env.board}",
 													"target": "${env.tools}/",
 													"flat": "true"
 												}
@@ -203,14 +209,15 @@ pipeline {
 								sh(
 									script: '''
 										cd ${tools}
-										tar -xf '''+brdTGZ+'''
-										rm '''+brdTGZ+'''
-										tar -xf '''+inoCLI+'''/'''+inoTGZ+'''
-										rm '''+inoCLI+'''/'''+inoTGZ+'''
+										tar -xf ${board}
+										rm ${board}
+										tar -xf '''+inoCLI+'''/${cli}
+										rm '''+inoCLI+'''/${cli}
 									'''
 								)
 
 							}
+							echo "${env.tools}"
 							//when { expression { return fileExists ('${env.tools}/${inoCLI}/arduino-cli') } }
 
 						}
@@ -392,7 +399,6 @@ pipeline {
 										env.tools = winTools
 									}
 								}
-								echo "Compile"
 								script {
 									def result = sh(
 										script: '''
