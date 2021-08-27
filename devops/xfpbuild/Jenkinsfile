@@ -383,15 +383,15 @@ pipeline {
 						}
 
 						stage('CLI Build') {
-							script {
-								if (isUnix()) {
-									env.tools = linuxTools
-								}else{
-									env.tools = winTools
-								}
-							}
 
 							steps {
+								script {
+									if (isUnix()) {
+										env.tools = linuxTools
+									}else{
+										env.tools = winTools
+									}
+								}
 								echo "Compile"
 								script {
 									def result = sh(
