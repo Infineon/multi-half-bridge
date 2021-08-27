@@ -166,7 +166,7 @@ pipeline {
 							}
 
 
-							when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
+							//when { expression { return fileExists ('${linuxTools}/${inoCLI}/arduino-cli') } }
 
 							steps {
 								rtDownload (
@@ -294,8 +294,8 @@ pipeline {
 								echo "WiCED setup"
 									sh(
 										script: '''
-											cd D:
-											ls -Rla
+											cd D:tools
+											ls -la
 										''',
 										returnStdout: true
 									)
