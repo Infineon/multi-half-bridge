@@ -233,7 +233,7 @@ pipeline {
 									label 'epelinux3'
 								}
 							}
-							if (isUnix()) {
+//							if (isUnix()) {
 								/* Linux Artifactory setting */
 								when { expression { return fileExists ('${linuxTools}/${mtbmake}') } }
 								steps {
@@ -260,9 +260,9 @@ pipeline {
 										returnStdout: true
 									)
 								}
-							}else{
-								echo "Windows yet not implemented"
-							}
+							// }else{
+							// 	echo "Windows yet not implemented"
+							// }
 						}
 
 					} // end stages
