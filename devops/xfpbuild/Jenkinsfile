@@ -233,11 +233,11 @@ pipeline {
 
 						stage('MTB setup') {
 
-							agent {
-								node {
-									label 'epelinux3'
-								}
-							}
+							// agent {
+							// 	node {
+							// 		label 'epelinux3'
+							// 	}
+							// }
 							steps {
 								script {
 									if (isUnix()) {
