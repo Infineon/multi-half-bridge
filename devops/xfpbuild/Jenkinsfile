@@ -267,6 +267,7 @@ pipeline {
 								sh(
 									script: '''
 										cd ${tools}
+										ls -la
 										tar -xf ${mtb}
 										rm {$mtb}
 									'''
