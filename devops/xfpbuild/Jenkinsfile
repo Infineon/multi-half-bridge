@@ -158,11 +158,6 @@ pipeline {
 				 */
 
 				stage('Arduino CLI') {
-					agent {
-						node {
-							label 'epelinux1'
-						}
-					}
 
 					steps {
 						script {
