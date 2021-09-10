@@ -156,221 +156,197 @@ pipeline {
 				 * Arduino Linux CLI
 				 *-----------------------------------------------------------------------------
 				 */
-				stage('Arduino') {
-					stages('ino') {
 
-						stage('Arduino CLI') {
-							agent {
-								node {
-									label 'epelinux1'
-								}
-							}
-
-							steps {
-								script {
-									if (isUnix()) {
-										env.tools = linuxTools
-										env.cli   = inoLTGZ
-										env.board = brdLTGZ
-										echo "Linux"
-									}else{
-										env.tools = winTools
-										env.cli   = inoWTGZ
-										env.board = brdWTGZ
-										echo "Windows"
-									}
-								}
-								// ArduinoCLI package
-								rtDownload (
-									serverId: artifactoryServer,
-									spec: """
-										{ "files": [
-												{
-													"pattern": "${artifactoryRepo}/${inoCLI}/${env.cli}",
-													"target": "${env.tools}/"
-												}
-											]
-										}
-									"""
-								)
-								// Arduino Board package
-								rtDownload (
-									serverId: artifactoryServer,
-									spec: """
-										{ "files": [
-												{
-													"pattern": "${artifactoryRepo}/${inoBoard}/${env.board}",
-													"target": "${env.tools}/",
-													"flat": "true"
-												}
-											]
-										}
-									"""
-								)
-								// Arduino library package
-								rtDownload (
-									serverId: artifactoryServer,
-									spec: """
-										{ "files": [
-												{
-													"pattern": "${artifactoryRepo}/arduino/libraries/",
-													"target": "${env.tools}/arduino/libraries/",
-													"flat": "true",
-													"explode": "true"
-												}
-											]
-										}
-									"""
-								)
-								// unpacking
-								sh(
-									script: '''
-										cd ${tools}
-										tar -xf ${board}
-										rm ${board}
-										tar -xf '''+inoCLI+'''/${cli} --directory '''+inoCLI+'''
-										rm '''+inoCLI+'''/${cli}
-									'''
-								)
-
-							}
-							//when { expression { return fileExists ('${env.tools}/${inoCLI}/arduino-cli') } }
-
+				stage('Arduino CLI') {
+					agent {
+						node {
+							label 'epelinux1'
 						}
+					}
 
-					} // end stages
-				} // end stage
+					steps {
+						script {
+							if (isUnix()) {
+								env.tools = linuxTools
+								env.cli   = inoLTGZ
+								env.board = brdLTGZ
+								echo "Linux"
+							}else{
+								env.tools = winTools
+								env.cli   = inoWTGZ
+								env.board = brdWTGZ
+								echo "Windows"
+							}
+						}
+						// ArduinoCLI package
+						rtDownload (
+							serverId: artifactoryServer,
+							spec: """
+								{ "files": [
+										{
+											"pattern": "${artifactoryRepo}/${inoCLI}/${env.cli}",
+											"target": "${env.tools}/"
+										}
+									]
+								}
+							"""
+						)
+						// Arduino Board package
+						rtDownload (
+							serverId: artifactoryServer,
+							spec: """
+								{ "files": [
+										{
+											"pattern": "${artifactoryRepo}/${inoBoard}/${env.board}",
+											"target": "${env.tools}/",
+											"flat": "true"
+										}
+									]
+								}
+							"""
+						)
+						// Arduino library package
+						rtDownload (
+							serverId: artifactoryServer,
+							spec: """
+								{ "files": [
+										{
+											"pattern": "${artifactoryRepo}/arduino/libraries/",
+											"target": "${env.tools}/arduino/libraries/",
+											"flat": "true",
+											"explode": "true"
+										}
+									]
+								}
+							"""
+						)
+						// unpacking
+						sh(
+							script: '''
+								cd ${tools}
+								tar -xf ${board}
+								rm ${board}
+								tar -xf '''+inoCLI+'''/${cli} --directory '''+inoCLI+'''
+								rm '''+inoCLI+'''/${cli}
+							'''
+						)
+
+					}
+					//when { expression { return fileExists ('${env.tools}/${inoCLI}/arduino-cli') } }
+
+				}
 
 				/*-----------------------------------------------------------------------------
 				 * Modus Toolbox
 				 *-----------------------------------------------------------------------------
 				 */
-				stage('MTB') {
-					stages('ModusToolbox') {
+				stage('MTB setup') {
 
-						stage('MTB setup') {
-
-							agent {
-								node {
-									label 'epelinux3'
-								}
-							}
-							steps {
-								script {
-									if (isUnix()) {
-										env.tools = linuxTools
-										echo "Linux"
-									}else{
-										env.tools = winTools
-										echo "Windows"
-									}
-								}
-								rtDownload (
-									serverId: artifactoryServer,
-									spec: """
-										{ "files": [
-												{
-													"pattern": "${artifactoryRepo}/${mtbTools}/${mtbTtgz}",
-													"target": "${env.tools}/",
-													"flat": "true"
-												}
-											]
-										}
-									"""
-								)
-								sh(
-									script: '''
-										cd ${tools}
-										tar -xf '''+mtbTtgz+'''
-										rm '''+mtbTtgz+'''
-									'''
-								)
-							}
-
-							//when { expression { return fileExists ('${linuxTools}/ModusToolbox/') } }
-
+					agent {
+						node {
+							label 'epelinux3'
 						}
+					}
+					steps {
+						script {
+							if (isUnix()) {
+								env.tools = linuxTools
+								echo "Linux"
+							}else{
+								env.tools = winTools
+								echo "Windows"
+							}
+						}
+						rtDownload (
+							serverId: artifactoryServer,
+							spec: """
+								{ "files": [
+										{
+											"pattern": "${artifactoryRepo}/${mtbTools}/${mtbTtgz}",
+											"target": "${env.tools}/",
+											"flat": "true"
+										}
+									]
+								}
+							"""
+						)
+						sh(
+							script: '''
+								cd ${tools}
+								tar -xf '''+mtbTtgz+'''
+								rm '''+mtbTtgz+'''
+							'''
+						)
+					}
 
-					} // end stages
-				} // end stage
+					//when { expression { return fileExists ('${linuxTools}/ModusToolbox/') } }
+
+				}
 
 				/*-----------------------------------------------------------------------------
 				 * WiCED Toolbox
 				 *-----------------------------------------------------------------------------
 				 */
-				stage('WiCED') {
-					stages('wcd') {
-
-						stage('WiCED setup') {
-							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
-							steps {
-								echo "WiCED setup"
-								script {
-									if (isUnix()) {
-										env.tools = linuxTools
-									}else{
-										env.tools = winTools
-									}
-								}
-								// rtDownload (
-								// 	serverId: artifactoryServer,
-								// 	spec: """
-								// 		{
-								// 			"files": [
-								// 						{
-								// 							"pattern": "${artifactoryRepo}/${wicedIDE}/${wicedTgz}",
-								// 							"target": "${env.tools}/",
-								// 							"flat ": "true"
-								// 						}
-								// 					]
-								// 		}
-								// 	"""
-								// )
-								// sh(
-								// 	script: '''
-								// 		cd ${tools}
-								// 		tar -xf '''+wicedTgz+'''
-								// 		rm '''+wicedTgz+'''
-								// 	'''
-								// )
-								script {
-									def result = sh(
-										script: '''
-											cd ${tools}
-											ls -la
-										''',
-										returnStdout: true
-									).trim()
-									echo "$result"
-								}
+				stage('WiCED setup') {
+					//when { expression { return fileExists ('./.arduino15/library-index.json') } }
+					steps {
+						echo "WiCED setup"
+						script {
+							if (isUnix()) {
+								env.tools = linuxTools
+							}else{
+								env.tools = winTools
 							}
 						}
-
-					} // end stages
-				} // end stage
-
+						// rtDownload (
+						// 	serverId: artifactoryServer,
+						// 	spec: """
+						// 		{
+						// 			"files": [
+						// 						{
+						// 							"pattern": "${artifactoryRepo}/${wicedIDE}/${wicedTgz}",
+						// 							"target": "${env.tools}/",
+						// 							"flat ": "true"
+						// 						}
+						// 					]
+						// 		}
+						// 	"""
+						// )
+						// sh(
+						// 	script: '''
+						// 		cd ${tools}
+						// 		tar -xf '''+wicedTgz+'''
+						// 		rm '''+wicedTgz+'''
+						// 	'''
+						// )
+						script {
+							def result = sh(
+								script: '''
+									cd ${tools}
+									ls -la
+								''',
+								returnStdout: true
+							).trim()
+							echo "$result"
+						}
+					}
+				}
 
 				/*-----------------------------------------------------------------------------
 				 * Raspberry PI
 				 *-----------------------------------------------------------------------------
 				 */
-				stage('RPi') {
-					stages('RaspberryPi') {
-
-						stage('RPi setup') {
-							agent {
-								node {
-									label 'epewin'
-								}
-							}
-							//when { expression { return fileExists ('./.arduino15/library-index.json') } }
-							steps {
-								echo "RPi setup"
-							}
+				stage('RPi setup') {
+					agent {
+						node {
+							label 'epewin'
 						}
-
-					} // end stages
-				} // end stage
+					}
+					//when { expression { return fileExists ('./.arduino15/library-index.json') } }
+					steps {
+						echo "RPi setup"
+					}
+				}
 
 			} // end parallel
 		} // end stage
