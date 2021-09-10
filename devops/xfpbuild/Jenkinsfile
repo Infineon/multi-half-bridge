@@ -470,18 +470,18 @@ pipeline {
 		// 		// 	}
 		// 		// }
 
-		// 		/*-----------------------------------------------------------------------------
-		// 		 * doxygen
-		// 		 *-----------------------------------------------------------------------------
-		// 		 */
-		// 		stage('docu') {
-		// 			agent {
-		// 				node {
-		// 					label 'epelinux2'
-		// 				}
-		// 			}
+				/*-----------------------------------------------------------------------------
+				 * doxygen
+				 *-----------------------------------------------------------------------------
+				 */
+				stage('docu') {
+					agent {
+						node {
+							label 'epelinux2'
+						}
+					}
 
-		// 			stages {
+					stages {
 
 						stage('doxygen') {
 							steps {
@@ -532,13 +532,12 @@ pipeline {
 		// 							).trim()
 		// 							echo "$result"
 		// 						}
+						// 	} // end ReadTheDocs
+						// } // end sphinx
 
-		// 					} // end ReadTheDocs
-		// 				} // end sphinx
+					 } // end stages
 
-		// 			 } // end stages
-
-		// 		} // end docu
+				} // end docu
 
 			} // end parallel
 		} // end docu build
