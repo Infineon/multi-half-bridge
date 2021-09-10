@@ -217,6 +217,9 @@ pipeline {
 							"""
 						)
 						// unpacking
+						echo "${env.tools}"
+						echo "${env.board}"
+						echo "${env.cli}"
 						sh(
 							script: '''
 								cd ${tools}
