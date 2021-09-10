@@ -163,12 +163,12 @@ pipeline {
 					steps {
 						script {
 							if (isUnix()) {
-								env.tools = linuxTools
+								env.toolsA = linuxTools
 								env.cli   = inoLTGZ
 								env.board = brdLTGZ
 								echo "Linux"
 							}else{
-								env.tools = winTools
+								env.toolsA = winTools
 								env.cli   = inoWTGZ
 								env.board = brdWTGZ
 								echo "Windows"
@@ -181,7 +181,7 @@ pipeline {
 								{ "files": [
 										{
 											"pattern": "${artifactoryRepo}/${inoCLI}/${env.cli}",
-											"target": "${env.tools}/"
+											"target": "${env.toolsA}/"
 										}
 									]
 								}
@@ -194,7 +194,7 @@ pipeline {
 								{ "files": [
 										{
 											"pattern": "${artifactoryRepo}/${inoBoard}/${env.board}",
-											"target": "${env.tools}/",
+											"target": "${env.toolsA}/",
 											"flat": "true"
 										}
 									]
@@ -208,7 +208,7 @@ pipeline {
 								{ "files": [
 										{
 											"pattern": "${artifactoryRepo}/arduino/libraries/",
-											"target": "${env.tools}/arduino/libraries/",
+											"target": "${env.toolsA}/arduino/libraries/",
 											"flat": "true",
 											"explode": "true"
 										}
@@ -217,12 +217,12 @@ pipeline {
 							"""
 						)
 						// unpacking
-						echo "${env.tools}"
+						echo "${env.toolsA}"
 						echo "${env.board}"
 						echo "${env.cli}"
 						sh(
 							script: '''
-								cd ${tools}
+								cd ${toolsA}
 								tar -xf ${board}
 								rm ${board}
 								tar -xf '''+inoCLI+'''/${cli} --directory '''+inoCLI+'''
@@ -231,7 +231,7 @@ pipeline {
 						)
 
 					}
-					//when { expression { return fileExists ('${env.tools}/${inoCLI}/arduino-cli') } }
+					//when { expression { return fileExists ('${env.toolsA}/${inoCLI}/arduino-cli') } }
 
 				}
 
@@ -249,11 +249,11 @@ pipeline {
 					steps {
 						script {
 							if (isUnix()) {
-								env.tools = linuxTools
+								env.toolsM = linuxTools
 								env.mtb = mtbLtgz
 								echo "Linux"
 							}else{
-								env.tools = winTools
+								env.toolsM = winTools
 								env.mtb = mtbWtgz
 								echo "Windows"
 							}
@@ -264,7 +264,7 @@ pipeline {
 								{ "files": [
 										{
 											"pattern": "${artifactoryRepo}/${mtbTools}/${env.mtb}",
-											"target": "${env.tools}/",
+											"target": "${env.toolsM}/",
 											"flat": "true"
 										}
 									]
@@ -273,14 +273,14 @@ pipeline {
 						)
 						sh(
 							script: '''
-								cd ${tools}
+								cd ${toolsM}
 								tar -xf ${mtb}
 								rm ${mtb}
 							'''
 						)
 					}
 
-					//when { expression { return fileExists ('${linuxTools}/ModusToolbox/') } }
+					//when { expression { return fileExists ('${env.toolsM}/ModusToolbox/') } }
 
 				}
 
@@ -294,9 +294,9 @@ pipeline {
 						echo "WiCED setup"
 						script {
 							if (isUnix()) {
-								env.tools = linuxTools
+								env.toolsW = linuxTools
 							}else{
-								env.tools = winTools
+								env.toolsW = winTools
 							}
 						}
 						// rtDownload (
@@ -306,7 +306,7 @@ pipeline {
 						// 			"files": [
 						// 						{
 						// 							"pattern": "${artifactoryRepo}/${wicedIDE}/${wicedTgz}",
-						// 							"target": "${env.tools}/",
+						// 							"target": "${env.toolsW}/",
 						// 							"flat ": "true"
 						// 						}
 						// 					]
@@ -315,7 +315,7 @@ pipeline {
 						// )
 						// sh(
 						// 	script: '''
-						// 		cd ${tools}
+						// 		cd ${toolsW}
 						// 		tar -xf '''+wicedTgz+'''
 						// 		rm '''+wicedTgz+'''
 						// 	'''
@@ -323,7 +323,7 @@ pipeline {
 						script {
 							def result = sh(
 								script: '''
-									cd ${tools}
+									cd ${toolsW}
 									ls -la
 								''',
 								returnStdout: true
@@ -394,9 +394,9 @@ pipeline {
 		// 						// examples  with the arduino-cli tool
 		// 						script {
 		// 							if (isUnix()) {
-		// 								env.tools = linuxTools
+		// 								env.toolsC = linuxTools
 		// 							}else{
-		// 								env.tools = winTools
+		// 								env.toolsC = winTools
 		// 							}
 		// 						}
 		// 						script {
@@ -409,7 +409,7 @@ pipeline {
 		// 									for i in "${examples[@]}"
 		// 									do
 		// 										echo $i;
-		// 										${tools}/'''+inoCLI+'''/arduino-cli compile --config-file ${tools}/.arduino15/arduino-cli.yaml --verbose --fqbn arduino:avr:uno --libraries=./build/Arduino/${lib} build/Arduino/${lib}/examples/$i
+		// 										${toolsC}/'''+inoCLI+'''/arduino-cli compile --config-file ${toolsC}/.arduino15/arduino-cli.yaml --verbose --fqbn arduino:avr:uno --libraries=./build/Arduino/${lib} build/Arduino/${lib}/examples/$i
 		// 									done
 		// 								''',
 		// 								returnStdout: true
