@@ -226,9 +226,8 @@ pipeline {
 								ls -la
 								tar -xf ${board}
 								rm ${board}
-								mkdir -P '''+inoCLI+'''
 								tar -xf '''+inoCLI+'''/${cli} --directory '''+inoCLI+'''
-								rm '''+inoCLI+'''/${cli}
+								rm ${cli}
 							'''
 						)
 
