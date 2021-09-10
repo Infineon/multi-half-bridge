@@ -172,10 +172,12 @@ pipeline {
 										env.tools = linuxTools
 										env.cli   = inoLTGZ
 										env.board = brdLTGZ
+										echo "Linux"
 									}else{
 										env.tools = winTools
 										env.cli   = inoWTGZ
 										env.board = brdWTGZ
+										echo "Windows"
 									}
 								}
 								// ArduinoCLI package
@@ -257,8 +259,10 @@ pipeline {
 								script {
 									if (isUnix()) {
 										env.tools = linuxTools
+										echo "Linux"
 									}else{
 										env.tools = winTools
+										echo "Windows"
 									}
 								}
 								rtDownload (
