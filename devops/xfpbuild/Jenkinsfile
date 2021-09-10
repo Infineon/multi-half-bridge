@@ -23,11 +23,12 @@ def inoLTGZ  = 'arduino-cli_0.18.3_Linux_64bit.tar.gz'
 def inoWTGZ  = 'arduino-cli_0.18.3_Windows_64bit.zip'
 def inoBoard = 'arduinoBoardPackage/0.18.3'
 def brdLTGZ  = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
-def brdWTGZ  = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
+def brdWTGZ  = 'arduino-board-package_0.18.3_Windows_64bit.tar.gz'
 
 def mtbVER   = '2.3.1'
 def mtbTools = 'ModusToolbox/2.3.1'
-def mtbTtgz  = 'ModusToolbox_tools_2.3.1_Linux_64bit.tar.gz'
+def mtbLtgz  = 'ModusToolbox_tools_2.3.1_Linux_64bit.tar.gz'
+def mtbWtgz  = 'ModusToolbox_tools_2.3.1_Windows_64bit.tar.gz'
 
 def linuxTools = '/home/xfpjenki/tools'
 def winTools   = 'D:/tools'
@@ -246,9 +247,11 @@ pipeline {
 						script {
 							if (isUnix()) {
 								env.tools = linuxTools
+								env.mtb = mtbLtgz
 								echo "Linux"
 							}else{
 								env.tools = winTools
+								env.mtb = mtbWtgz
 								echo "Windows"
 							}
 						}
@@ -257,7 +260,7 @@ pipeline {
 							spec: """
 								{ "files": [
 										{
-											"pattern": "${artifactoryRepo}/${mtbTools}/${mtbTtgz}",
+											"pattern": "${artifactoryRepo}/${mtbTools}/${env.mtb}",
 											"target": "${env.tools}/",
 											"flat": "true"
 										}
@@ -268,8 +271,8 @@ pipeline {
 						sh(
 							script: '''
 								cd ${tools}
-								tar -xf '''+mtbTtgz+'''
-								rm '''+mtbTtgz+'''
+								tar -xf ${mtb}
+								rm ${mtb}
 							'''
 						)
 					}
