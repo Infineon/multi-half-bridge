@@ -375,8 +375,8 @@ pipeline {
 			} // end parallel
 		} // end stage
 
-		// stage('build') {
-		// 	parallel {
+		stage('build') {
+			parallel {
 
 		// 		/*-----------------------------------------------------------------------------
 		// 		 * Arduino Linux CLI
@@ -483,33 +483,33 @@ pipeline {
 
 		// 			stages {
 
-		// 				stage('doxygen') {
-		// 					steps {
-		// 						echo "doxygen"
-		// 						// doxygen runs always, therefore it
-		// 						// 1. removes the documentation target directory
-		// 						// 2. generates it new
-		// 						// 3. copies the doxygen build directory into the target directory
-		// 						script {
-		// 							def result = sh(
-		// 								script: '''
-		// 									cd ./
-		// 									export DOCS_SOURCE=${WORKSPACE}/docs/doxygen/build
-		// 									export PATH=/opt/doxygen/1.8.14/bin:/opt/python/anaconda/4.2.0/py3.5.2:$PATH
-		// 									rm -rf infineondoxygenerator
-		// 									git clone https://bitbucket.vih.infineon.com/scm/ghmm/infineondoxygenerator.git;
-		// 									cd ./infineondoxygenerator;
-		// 									python3 doxyifx.py html
-		// 									rm -rf ${DOCS_TARGET}
-		// 									mkdir -p ${DOCS_TARGET}
-		// 									cp -R ${DOCS_SOURCE}/ ${DOCS_TARGET}/.
-		// 								''',
-		// 								returnStdout: true
-		// 							).trim()
-		// 							echo "$result"
-		// 						}
-		// 					} // end doxygen
-		// 				} // end stage
+						stage('doxygen') {
+							steps {
+								echo "doxygen"
+								// doxygen runs always, therefore it
+								// 1. removes the documentation target directory
+								// 2. generates it new
+								// 3. copies the doxygen build directory into the target directory
+								script {
+									def result = sh(
+										script: '''
+											cd ./
+											export DOCS_SOURCE=${WORKSPACE}/docs/doxygen/build
+											export PATH=/opt/doxygen/1.8.14/bin:/opt/python/anaconda/4.2.0/py3.5.2:$PATH
+											rm -rf infineondoxygenerator
+											git clone https://bitbucket.vih.infineon.com/scm/ghmm/infineondoxygenerator.git
+											cd ./infineondoxygenerator
+											python3 doxyifx.py html
+											rm -rf ${DOCS_TARGET}
+											mkdir -p ${DOCS_TARGET}
+											cp -R ${DOCS_SOURCE}/ ${DOCS_TARGET}/.
+										''',
+										returnStdout: true
+									).trim()
+									echo "$result"
+								}
+							} // end doxygen
+						} // end stage
 
 		// 				stage('Sphinx') {
 		// 					when { expression { return fileExists ('./docs/index.rst') } }
@@ -540,8 +540,8 @@ pipeline {
 
 		// 		} // end docu
 
-		// 	} // end parallel
-		// } // end docu build
+			} // end parallel
+		} // end docu build
 
 		/*-----------------------------------------------------------------------------
 		 * SonarQube stage runs the sonar scanner and collects all reports
