@@ -28,7 +28,6 @@ def brdWTGZ  = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
 def mtbVER   = '2.3.1'
 def mtbTools = 'ModusToolbox/2.3.1'
 def mtbTtgz  = 'ModusToolbox_tools_2.3.1_Linux_64bit.tar.gz'
-def mtbWtgz  = 'ModusToolbox_tools_2.3.1_Windows_64bit.tar.gz'
 
 def linuxTools = '/home/xfpjenki/tools'
 def winTools   = 'D:/tools'
@@ -55,7 +54,8 @@ pipeline {
 	environment {
 		TIER             = "${params.TIER}"
 		WEB_ROOT         = "/home/razweb/htdocs-${params.SERVER}"
-		REPO_NAME	     = "${GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
+		//REPO_NAME        = "${GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
+		REPO_NAME        = "${JOB_NAME.replaceFirst(/^.*\/XFP (.*)\/.*$/, '$1')}"
 		DOCS_TARGET      = "${env.WEB_ROOT}/itec/xfp/${env.REPO_NAME}/${env.BRANCH_NAME}"
 		DOCS_SOURCE      = "${env.WORKSPACE}/docs/doxygen/build"
 		ROOT_URL         = "https://${params.SERVER}.vih.infineon.com"
@@ -67,6 +67,7 @@ pipeline {
 	 * locking massive amount of disk space. The number should <= 5.
 	 */
 	options {
+		ansiColor('xterm')
 		buildDiscarder(
 			logRotator(
 				numToKeepStr: '2',
@@ -92,26 +93,24 @@ pipeline {
 		// *
 		stage('Vars') {
 			steps {
-				echo "TIER:          ${params.TIER}"
-				echo "WEB_ROOT:      ${env.WEB_ROOT}"
-				echo "ROOT_URL:      ${env.ROOT_URL}"
-				echo "BRANCH_NAME:   ${env.BRANCH_NAME}"
-				echo "BUILD_NUMBER:  ${env.BUILD_NUMBER}"
-				echo "WORKSPACE:     ${WORKSPACE}"
-				echo "SONARINSTANCE: ${env.SONARINSTANCE}"
-				echo "SERVER:        ${env.SERVER}/${params.SERVER}"
-				echo "REPO_NAME:     ${env.REPO_NAME}"
-				echo "DOCS_SOURCE:   ${env.DOCS_SOURCE}"
-				echo "DOCS_TARGET:   ${env.DOCS_TARGET}"
+				sh(script: "echo ${params.TIER}",       label: "TIER         :")
+				sh(script: "echo ${env.WEB_ROOT}",      label: "WEB_ROOT     :")
+				sh(script: "echo ${env.ROOT_URL}",      label: "ROOT_URL     :")
+				sh(script: "echo ${env.BRANCH_NAME}",   label: "BRANCH_NAME  :")
+				sh(script: "echo ${env.BUILD_NUMBER}",  label: "BUILD_NUMBER :")
+				sh(script: "echo ${WORKSPACE}",         label: "WORKSPACE    :")
+				sh(script: "echo ${env.SONARINSTANCE}", label: "SONARINSTANCE:")
+				sh(script: "echo ${params.SERVER}",     label: "SERVER       :")
+				sh(script: "echo ${env.REPO_NAME}",     label: "REPO_NAME    :")
+				sh(script: "echo ${env.DOCS_SOURCE}",   label: "DOCS_SOURCE  :")
+				sh(script: "echo ${env.DOCS_TARGET}",   label: "DOCS_TARGET  :")
 			} // end steps
-		} // end DevCI Trigger
-
+		} // end DevCI trigger
 		stage('Check') {
 			parallel {
-
 				/*-----------------------------------------------------------------------------
 				 * cppcheck
-				 *-----------------------------------------------------------------------------
+				 * -----------------------------------------------------------------------------
 				 */
 				stage('CPP') {
 					agent {
@@ -206,13 +205,28 @@ pipeline {
 										}
 									"""
 								)
+								// Arduino library package
+								rtDownload (
+									serverId: artifactoryServer,
+									spec: """
+										{ "files": [
+												{
+													"pattern": "${artifactoryRepo}/arduino/libraries/",
+													"target": "${env.tools}/arduino/libraries/",
+													"flat": "true",
+													"explode": "true"
+												}
+											]
+										}
+									"""
+								)
 								// unpacking
 								sh(
 									script: '''
 										cd ${tools}
 										tar -xf ${board}
 										rm ${board}
-										tar -xf '''+inoCLI+'''/${cli}
+										tar -xf '''+inoCLI+'''/${cli} --directory '''+inoCLI+'''
 										rm '''+inoCLI+'''/${cli}
 									'''
 								)
@@ -234,20 +248,17 @@ pipeline {
 
 						stage('MTB setup') {
 
-							// agent {
-							// 	node {
-							// 		label 'epelinux3'
-							// 	}
-							// }
+							agent {
+								node {
+									label 'epelinux3'
+								}
+							}
 							steps {
 								script {
 									if (isUnix()) {
 										env.tools = linuxTools
-										env.mtb = mtbTtgz
-
 									}else{
 										env.tools = winTools
-										env.mtb = mtbWtgz
 									}
 								}
 								rtDownload (
@@ -255,7 +266,7 @@ pipeline {
 									spec: """
 										{ "files": [
 												{
-													"pattern": "${artifactoryRepo}/${mtbTools}/${env.mtb}",
+													"pattern": "${artifactoryRepo}/${mtbTools}/${mtbTtgz}",
 													"target": "${env.tools}/",
 													"flat": "true"
 												}
@@ -263,18 +274,16 @@ pipeline {
 										}
 									"""
 								)
-								echo "${env.tools}"
 								sh(
 									script: '''
 										cd ${tools}
-										ls -la
-										tar -xf ${mtb}
-										rm {$mtb}
+										tar -xf '''+mtbTtgz+'''
+										rm '''+mtbTtgz+'''
 									'''
 								)
 							}
 
-							//when { expression { return fileExists ('${linuxTools}/${mtbmake}') } }
+							when { expression { return fileExists ('${linuxTools}/ModusToolbox/') } }
 
 						}
 
@@ -372,7 +381,7 @@ pipeline {
 				stage('Arduino Linux') {
 					agent {
 						node {
-							label 'epelinux'
+							label 'epelinux3'
 						}
 					}
 
@@ -380,6 +389,8 @@ pipeline {
 						stage('Generate INO') {
 							steps {
 								echo "xfp-dev"
+								// prepares the build directory and runs
+								// xfp-dev to generate the arduino only directory structure
 								sh(
 									script: '''
 										cd ./
@@ -397,6 +408,9 @@ pipeline {
 						stage('CLI Build') {
 
 							steps {
+								echo "cli"
+								// checks for OS system and than compiles all
+								// examples  with the arduino-cli tool
 								script {
 									if (isUnix()) {
 										env.tools = linuxTools
@@ -468,6 +482,10 @@ pipeline {
 						stage('doxygen') {
 							steps {
 								echo "doxygen"
+								// doxygen runs always, therefore it
+								// 1. removes the documentation target directory
+								// 2. generates it new
+								// 3. copies the doxygen build directory into the target directory
 								script {
 									def result = sh(
 										script: '''
@@ -490,17 +508,20 @@ pipeline {
 						} // end stage
 
 						stage('Sphinx') {
-							when { expression { return fileExists ('./docs/config.py') } }
+							when { expression { return fileExists ('./docs/index.rst') } }
 							steps {
 								echo "ReadTheDocs"
+								// Sphinx runs only if the index.rst exists and it
+								// 1. removes the documentation directory below the target directory
+								// 2. copies the new Sphinx documentation into new documentation directory
 								script {
 									def result = sh(
 										script: '''
 											export PATH=/opt/python/3.9/linux/RHEL60/bin:$PATH
 											cd docs
 											sphinx-build ./ ./documentation
-											rm -rf ${DOCS_TARGET}
 											mkdir -p ${DOCS_TARGET}
+											rm -rf ${DOCS_TARGET}/documentation
 											cp -R ./documentation ${DOCS_TARGET}/.
 										''',
 										returnStdout: true
