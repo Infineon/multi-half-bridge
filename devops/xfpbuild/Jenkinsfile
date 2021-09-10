@@ -223,6 +223,7 @@ pipeline {
 						sh(
 							script: '''
 								cd ${toolsA}
+								ls -la
 								tar -xf ${board}
 								rm ${board}
 								tar -xf '''+inoCLI+'''/${cli} --directory '''+inoCLI+'''
