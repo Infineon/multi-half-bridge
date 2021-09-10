@@ -475,15 +475,15 @@ pipeline {
 				 *-----------------------------------------------------------------------------
 				 */
 				stage('docu') {
+
+					stages {
+
+						stage('doxygen') {
 					agent {
 						node {
 							label 'epelinux2'
 						}
 					}
-
-					stages {
-
-						stage('doxygen') {
 							steps {
 								echo "doxygen"
 								// doxygen runs always, therefore it
