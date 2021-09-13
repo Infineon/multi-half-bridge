@@ -23,10 +23,9 @@ def cliWindows  = 'arduino-cli_0.18.3_Windows_64bit.tar.gz'
 def brdLTGZ  = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
 def brdWTGZ  = 'arduino-board-package_0.18.3_Windows_64bit.tar.gz'
 
-def mtbVER   = '2.3.1'
-def mtbTools = 'ModusToolbox/2.3.1'
-def mtbLtgz  = 'ModusToolbox_tools_2.3.1_Linux_64bit.tar.gz'
-def mtbWtgz  = 'ModusToolbox_tools_2.3.1_Windows_64bit.tar.gz'
+def mtbVER      = '2.3.1'
+def mtbLinux    = 'ModusToolbox_tools_2.3.1_Linux_64bit.tar.gz'
+def mtbWindows  = 'ModusToolbox_tools_2.3.1_Windows_64bit.tar.gz'
 
 def linuxTools = '/home/xfpjenki/tools'
 def winTools   = 'D:/tools'
@@ -62,7 +61,7 @@ pipeline {
 
 		cliPath          = "arduinoCLI/${-> inoVER}"
 		boardPath        = "arduinoBoardPackage/${-> inoVER}"
-
+		mtbPath          = "ModusToolbox/${-> mtbVER}"
 	}
 
 	/**
@@ -176,10 +175,6 @@ pipeline {
 								echo "Windows"
 							}
 						}
-
-						echo "${env.cli}"
-						echo "${env.cliPath}"
-
 						// ArduinoCLI package
 						rtDownload (
 							serverId: artifactoryServer,
@@ -223,21 +218,19 @@ pipeline {
 							"""
 						)
 						// unpacking
-						echo "${env.cli}"
 						sh(
 							script: '''
 								cd ${toolsA}
 								ls -la
 								tar -xf ${board}
 								tar -xf ${cliPath}/${cli} --directory ${cliPath}
-
 								rm *.tar.gz
 								ls -la
 							'''
 						)
 
 					}
-					//when { expression { return fileExists ('${env.toolsA}/${inoCLI}/arduino-cli') } }
+					//when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli') } }
 
 				}
 
@@ -247,20 +240,15 @@ pipeline {
 				 */
 				stage('MTB setup') {
 
-					agent {
-						node {
-							label 'epelinux1'
-						}
-					}
 					steps {
 						script {
 							if (isUnix()) {
 								env.toolsM = linuxTools
-								env.mtb = mtbLtgz
+								env.mtb = mtbLinux
 								echo "Linux"
 							}else{
 								env.toolsM = winTools
-								env.mtb = mtbWtgz
+								env.mtb = mtbWindows
 								echo "Windows"
 							}
 						}
@@ -269,7 +257,7 @@ pipeline {
 							spec: """
 								{ "files": [
 										{
-											"pattern": "${artifactoryRepo}/${mtbTools}/${env.mtb}",
+											"pattern": "${artifactoryRepo}/${env.mtbPath}/${env.mtb}",
 											"target": "${env.toolsM}/",
 											"flat": "true"
 										}
