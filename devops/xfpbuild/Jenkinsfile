@@ -271,7 +271,9 @@ pipeline {
 								ls -la
 								rm -rf ${mtbPath}
 								ls -la
-								tar -xf ${mtb} --directory ${mtbPath}
+								tar -xf ${mtb}
+								unzip ${mtb} -d ${mtbPath}
+								ls -la ${mtbPath}
 								rm ${mtb}
 							'''
 						)
