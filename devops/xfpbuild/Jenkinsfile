@@ -275,7 +275,7 @@ pipeline {
 								then
 									tar -xf ${mtb}
 								else
-									unzip ${mtb} -q -d ${mtbPath}
+									unzip -q ${mtb} -d ${mtbPath}
 								fi
 								ls -la ${mtbPath}
 								rm ${mtb}
