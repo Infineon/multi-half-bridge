@@ -61,8 +61,8 @@ pipeline {
 		ROOT_URL         = "https://${params.SERVER}.vih.infineon.com"
 		SONARINSTANCE    = "${params.SONARINSTANCE}"
 
-		cliPath          = "arduinoCLI/"+inoVER
-		boardPath        = "arduinoBoardPackage/"+inoVER
+		cliPath          = "arduinoCLI/${-> inoVER}"
+		boardPath        = "arduinoBoardPackage/${-> inoVER}"
 	}
 
 	/**
