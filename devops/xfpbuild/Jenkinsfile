@@ -267,6 +267,8 @@ pipeline {
 							script: '''
 								cd ${toolsM}
 								ls -la
+								ls -la ./ModusToolbox
+								ls -la ./ModusToolbox/tools_2.3/modus-shell
 								tar -xf ${mtb}
 								rm ${mtb}
 							'''
