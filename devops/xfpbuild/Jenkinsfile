@@ -223,7 +223,6 @@ pipeline {
 								cd ${toolsA}
 								tar -xf ${board}
 								tar -xf ${cliPath}/${cli} --directory ${cliPath}
-								ls -la 
 								rm ${cliPath}/${cli}
 								rm ${board}
 							'''
@@ -252,6 +251,7 @@ pipeline {
 								echo "Windows"
 							}
 						}
+						// ModusToolbox tools directory only
 						rtDownload (
 							serverId: artifactoryServer,
 							spec: """
@@ -265,19 +265,18 @@ pipeline {
 								}
 							"""
 						)
+						// unpacking OS sensitive
 						sh(
 							script: '''
 								cd ${toolsM}
-								ls -la
 								rm -rf ${mtbPath}
-								ls -la
 								if [[ ${mtb} == Linux ]]
 								then
 									tar -xf ${mtb}
 								else
 									unzip -q ${mtb} -d ${mtbPath}
 								fi
-								ls -la ${mtbPath}
+								ls -la ${mtbPath}/tools_2.3
 								rm ${mtb}
 							'''
 						)
