@@ -258,7 +258,7 @@ pipeline {
 								{ "files": [
 										{
 											"pattern": "${artifactoryRepo}/${env.mtbPath}/${env.mtb}",
-											"target": "${env.toolsM}/ModusToolbox",
+											"target": "${env.toolsM}/",
 											"flat": "true"
 										}
 									]
@@ -269,10 +269,9 @@ pipeline {
 							script: '''
 								cd ${toolsM}
 								ls -la
-								ls -la ./ModusToolbox
 								rm -rf ${mtbPath}
 								ls -la
-								tar -xf ModusToolbox/${mtb} --directory ${mtbPath}
+								tar -xf ${mtb} --directory ${mtbPath}
 								rm ${mtb}
 							'''
 						)
