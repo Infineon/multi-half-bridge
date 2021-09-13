@@ -276,7 +276,6 @@ pipeline {
 								else
 									unzip -q ${mtb} -d ${mtbPath}
 								fi
-								ls -la ${mtbPath}/tools_2.3
 								rm ${mtb}
 							'''
 						)
