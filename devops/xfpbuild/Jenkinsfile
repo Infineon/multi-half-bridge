@@ -223,8 +223,9 @@ pipeline {
 								cd ${toolsA}
 								tar -xf ${board}
 								tar -xf ${cliPath}/${cli} --directory ${cliPath}
-								rm ${cli}
-								rm ${board}
+								ls -la 
+								#rm ${cli}
+								#rm ${board}
 							'''
 						)
 
