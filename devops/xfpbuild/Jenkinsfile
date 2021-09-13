@@ -224,8 +224,8 @@ pipeline {
 								tar -xf ${board}
 								tar -xf ${cliPath}/${cli} --directory ${cliPath}
 								ls -la 
-								#rm ${cli}
-								#rm ${board}
+								rm ${cliPath}/${cli}
+								rm ${board}
 							'''
 						)
 
@@ -270,7 +270,8 @@ pipeline {
 								cd ${toolsM}
 								ls -la
 								ls -la ./ModusToolbox
-								ls -Rla ./ModusToolbox/tools_2.3/modus-shell
+								rm -rf ${mtbPath}
+								ls -la
 								tar -xf ${mtb}
 								rm ${mtb}
 							'''
