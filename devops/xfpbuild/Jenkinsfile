@@ -20,7 +20,6 @@ def artifactorySW = 'https://artifactory.intra.infineon.com/artifactory/gen-des-
 def inoVER      = '0.18.3'
 def cliLinux    = 'arduino-cli_0.18.3_Linux_64bit.tar.gz'
 def cliWindows  = 'arduino-cli_0.18.3_Windows_64bit.tar.gz'
-def inoBoard = 'arduinoBoardPackage/0.18.3'
 def brdLTGZ  = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
 def brdWTGZ  = 'arduino-board-package_0.18.3_Windows_64bit.tar.gz'
 
@@ -63,6 +62,7 @@ pipeline {
 
 		cliPath          = "arduinoCLI/${-> inoVER}"
 		boardPath        = "arduinoBoardPackage/${-> inoVER}"
+
 	}
 
 	/**
@@ -199,7 +199,7 @@ pipeline {
 							spec: """
 								{ "files": [
 										{
-											"pattern": "${artifactoryRepo}/${inoBoard}/${env.board}",
+											"pattern": "${artifactoryRepo}/${env.boardPath}/${env.board}",
 											"target": "${env.toolsA}/",
 											"flat": "true"
 										}
@@ -229,9 +229,8 @@ pipeline {
 								cd ${toolsA}
 								ls -la
 								tar -xf ${board}
-								rm ${board}
-								tar -xf ${env.cliPath}/${cli} --directory ${env.cliPath}
-								rm ${cli}
+								tar -xf ${cliPath}/${cli} --directory ${cliPath}
+
 								rm *.tar.gz
 								ls -la
 							'''
