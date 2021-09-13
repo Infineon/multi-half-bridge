@@ -271,8 +271,12 @@ pipeline {
 								ls -la
 								rm -rf ${mtbPath}
 								ls -la
-								#tar -xf ${mtb}
-								unzip ${mtb} -d ${mtbPath}
+								if [[ ${mtb} == Linux ]]
+								then
+									tar -xf ${mtb}
+								else
+									unzip ${mtb} -q -d ${mtbPath}
+								fi
 								ls -la ${mtbPath}
 								rm ${mtb}
 							'''
