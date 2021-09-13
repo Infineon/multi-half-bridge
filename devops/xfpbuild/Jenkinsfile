@@ -17,10 +17,9 @@ def artifactoryRepo = 'gen-des-epe-sw-development-local'
 def artifactoryTarget = 'gen-des-tools-prod-eden-local'
 def artifactorySW = 'https://artifactory.intra.infineon.com/artifactory/gen-des-epe-sw-development-local/'
 
-def inoVER   = '0.18.3'
-def inoCLI   = 'arduinoCLI/0.18.3'
-def inoLTGZ  = 'arduino-cli_0.18.3_Linux_64bit.tar.gz'
-def inoWTGZ  = 'arduino-cli_0.18.3_Windows_64bit.zip'
+def inoVER      = '0.18.3'
+def cliLinux    = 'arduino-cli_0.18.3_Linux_64bit.tar.gz'
+def cliWindows  = 'arduino-cli_0.18.3_Windows_64bit.tar.gz'
 def inoBoard = 'arduinoBoardPackage/0.18.3'
 def brdLTGZ  = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
 def brdWTGZ  = 'arduino-board-package_0.18.3_Windows_64bit.tar.gz'
@@ -61,6 +60,9 @@ pipeline {
 		DOCS_SOURCE      = "${env.WORKSPACE}/docs/doxygen/build"
 		ROOT_URL         = "https://${params.SERVER}.vih.infineon.com"
 		SONARINSTANCE    = "${params.SONARINSTANCE}"
+
+		cliPath          = "arduinoCLI/"+inoVER
+		boardPath        = "arduinoBoardPackage/"+inoVER
 	}
 
 	/**
@@ -164,23 +166,27 @@ pipeline {
 						script {
 							if (isUnix()) {
 								env.toolsA = linuxTools
-								env.cli   = inoLTGZ
+								env.cli   = cliLinux
 								env.board = brdLTGZ
 								echo "Linux"
 							}else{
 								env.toolsA = winTools
-								env.cli   = inoWTGZ
+								env.cli   = cliWindows
 								env.board = brdWTGZ
 								echo "Windows"
 							}
 						}
+
+						echo "${env.cli}"
+						echo "${env.cliPath}"
+
 						// ArduinoCLI package
 						rtDownload (
 							serverId: artifactoryServer,
 							spec: """
 								{ "files": [
 										{
-											"pattern": "${artifactoryRepo}/${inoCLI}/${env.cli}",
+											"pattern": "${artifactoryRepo}/${env.cliPath}/${env.cli}",
 											"target": "${env.toolsA}/"
 										}
 									]
@@ -217,8 +223,6 @@ pipeline {
 							"""
 						)
 						// unpacking
-						echo "${env.toolsA}"
-						echo "${env.board}"
 						echo "${env.cli}"
 						sh(
 							script: '''
@@ -226,8 +230,10 @@ pipeline {
 								ls -la
 								tar -xf ${board}
 								rm ${board}
-								tar -xf '''+inoCLI+'''/${cli} --directory '''+inoCLI+'''
+								tar -xf ${env.cliPath}/${cli} --directory ${env.cliPath}
 								rm ${cli}
+								rm *.tar.gz
+								ls -la
 							'''
 						)
 
