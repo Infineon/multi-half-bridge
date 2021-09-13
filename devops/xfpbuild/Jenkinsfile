@@ -25,7 +25,7 @@ def brdWTGZ  = 'arduino-board-package_0.18.3_Windows_64bit.tar.gz'
 
 def mtbVER      = '2.3.1'
 def mtbLinux    = 'ModusToolbox_tools_2.3.1_Linux_64bit.tar.gz'
-def mtbWindows  = 'ModusToolbox_tools_2.3.1_Windows_64bit.tar.gz'
+def mtbWindows  = 'ModusToolbox_tools_2.3.1_Windows_64bit.zip'
 
 def linuxTools = '/home/xfpjenki/tools'
 def winTools   = 'D:/tools'
@@ -258,7 +258,7 @@ pipeline {
 								{ "files": [
 										{
 											"pattern": "${artifactoryRepo}/${env.mtbPath}/${env.mtb}",
-											"target": "${env.toolsM}/",
+											"target": "${env.toolsM}/ModusToolbox",
 											"flat": "true"
 										}
 									]
@@ -272,7 +272,7 @@ pipeline {
 								ls -la ./ModusToolbox
 								rm -rf ${mtbPath}
 								ls -la
-								tar -xf ${mtb}
+								tar -xf ModusToolbox/${mtb} --directory ${mtbPath}
 								rm ${mtb}
 							'''
 						)
