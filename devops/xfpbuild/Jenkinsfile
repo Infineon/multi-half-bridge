@@ -364,18 +364,19 @@ pipeline {
 							label 'epelinux2'
 						}
 					}
-					script {
-						if (isUnix()) {
-							env.toolsW = linuxTools
-							echo "Linux"
-						}else{
-							env.toolsW = winTools
-							echo "Windows"
-						}
-					}
 
 					stages('Arduino') {
 						stage('Generate INO') {
+							script {
+								if (isUnix()) {
+									env.toolsW = linuxTools
+									echo "Linux"
+								}else{
+									env.toolsW = winTools
+									echo "Windows"
+								}
+							}
+
 							steps {
 								echo "xfp-dev"
 								// prepares the build directory and runs
