@@ -230,7 +230,7 @@ pipeline {
 						)
 
 					}
-					when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli') || param.ARTIFACTORY == true } }
+					when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli') || param.ARTIFACTORY == 'true' } }
 
 				}
 
