@@ -44,6 +44,7 @@ pipeline {
 		choice(name: 'SERVER',        choices:['vihlarazweb3','vihlarazweb2'],        description: 'server')
 		choice(name: 'SONARINSTANCE', choices:['Sonar-Dev','Sonar-Prod'],             description: 'SonarQube instance')
 		string(name: 'TESTBRANCH',    defaultValue: 'develop',                        description: 'e.g. DESMAKERS-990')
+		booleanParam(name: 'ARTIFACTORY', defaultValue: false,                        description: 'fetch data from Artifactory')
 	}
 
 	/**
@@ -280,7 +281,6 @@ pipeline {
 							'''
 						)
 					}
-
 					//when { expression { return fileExists ('${env.toolsM}/ModusToolbox/') } }
 
 				}
@@ -453,15 +453,15 @@ pipeline {
 				 *-----------------------------------------------------------------------------
 				 */
 				stage('docu') {
-
-					stages {
-
-						stage('doxygen') {
 					agent {
 						node {
 							label 'epelinux2'
 						}
 					}
+
+					stages {
+
+						stage('doxygen') {
 							steps {
 								echo "doxygen"
 								// doxygen runs always, therefore it
@@ -489,29 +489,29 @@ pipeline {
 							} // end doxygen
 						} // end stage
 
-		// 				stage('Sphinx') {
-		// 					when { expression { return fileExists ('./docs/index.rst') } }
-		// 					steps {
-		// 						echo "ReadTheDocs"
-		// 						// Sphinx runs only if the index.rst exists and it
-		// 						// 1. removes the documentation directory below the target directory
-		// 						// 2. copies the new Sphinx documentation into new documentation directory
-		// 						script {
-		// 							def result = sh(
-		// 								script: '''
-		// 									export PATH=/opt/python/3.9/linux/RHEL60/bin:$PATH
-		// 									cd docs
-		// 									sphinx-build ./ ./documentation
-		// 									mkdir -p ${DOCS_TARGET}
-		// 									rm -rf ${DOCS_TARGET}/documentation
-		// 									cp -R ./documentation ${DOCS_TARGET}/.
-		// 								''',
-		// 								returnStdout: true
-		// 							).trim()
-		// 							echo "$result"
-		// 						}
-						// 	} // end ReadTheDocs
-						// } // end sphinx
+						stage('Sphinx') {
+							when { expression { return fileExists ('./docs/index.rst') } }
+							steps {
+								echo "ReadTheDocs"
+								// Sphinx runs only if the index.rst exists and it
+								// 1. removes the documentation directory below the target directory
+								// 2. copies the new Sphinx documentation into new documentation directory
+								script {
+									def result = sh(
+										script: '''
+											export PATH=/opt/python/3.9/linux/RHEL60/bin:$PATH
+											cd docs
+											sphinx-build ./ ./documentation
+											mkdir -p ${DOCS_TARGET}
+											rm -rf ${DOCS_TARGET}/documentation
+											cp -R ./documentation ${DOCS_TARGET}/.
+										''',
+										returnStdout: true
+									).trim()
+									echo "$result"
+								}
+							} // end ReadTheDocs
+						} // end sphinx
 
 					 } // end stages
 
