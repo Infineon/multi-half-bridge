@@ -230,7 +230,7 @@ pipeline {
 						)
 
 					}
-					when { expression { param.ARTIFACTORY == 'true' } }
+					when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli')} }
 
 				}
 
@@ -279,12 +279,7 @@ pipeline {
 							'''
 						)
 					}
-					when {
-						//anyOf {
-						//	environment name: 'ARTIFACTORY' value: true
-							expression { return fileExists ('${env.toolsM}/ModusToolbox/') }
-						//}
-					}
+					when { expression { return fileExists ('${env.toolsM}/ModusToolbox/') } }
 
 				}
 
