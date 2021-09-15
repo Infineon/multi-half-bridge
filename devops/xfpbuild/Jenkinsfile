@@ -230,7 +230,12 @@ pipeline {
 						)
 
 					}
-					//when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli') } }
+					when {
+						anyOf {
+							ARTIFACTORY true
+							expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli') } 
+						}
+					}
 
 				}
 
@@ -279,7 +284,12 @@ pipeline {
 							'''
 						)
 					}
-					//when { expression { return fileExists ('${env.toolsM}/ModusToolbox/') } }
+					when {
+						anyOf {
+							ARTIFACTORY true
+							expression { return fileExists ('${env.toolsM}/ModusToolbox/') }
+						}
+					}
 
 				}
 
@@ -377,6 +387,7 @@ pipeline {
 										echo "Windows"
 									}
 								}
+								echo "NODE_NAME = ${env.NODE_NAME}"
 
 								echo "xfp-dev"
 								// prepares the build directory and runs
