@@ -371,7 +371,7 @@ pipeline {
 				stage('Arduino Linux') {
 					agent {
 						node {
-							label 'epelinux2'
+							label 'epelinux1'
 						}
 					}
 
