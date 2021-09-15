@@ -44,7 +44,7 @@ pipeline {
 		choice(name: 'SERVER',        choices:['vihlarazweb3','vihlarazweb2'],        description: 'server')
 		choice(name: 'SONARINSTANCE', choices:['Sonar-Dev','Sonar-Prod'],             description: 'SonarQube instance')
 		string(name: 'TESTBRANCH',    defaultValue: 'develop',                        description: 'e.g. DESMAKERS-990')
-		booleanParam(name: 'ARTIFACTORY', defaultValue: false,                        description: 'fetch data from Artifactory')
+		booleanParam(name: 'NOARTIFACTORY', defaultValue: true,                       description: 'do not fetch data from Artifactory')
 	}
 
 	/**
@@ -230,7 +230,7 @@ pipeline {
 						)
 
 					}
-					when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli') || '${param.ARTIFACTORY}' } }
+					when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli') || '${param.NOARTIFACTORY}' } }
 
 				}
 
@@ -424,7 +424,7 @@ pipeline {
 											for i in "${examples[@]}"
 											do
 												echo $i;
-												${toolsA2}/'''+inoCLI+'''/arduino-cli compile --config-file ${toolsA2}/.arduino15/arduino-cli.yaml --verbose --fqbn arduino:avr:uno --libraries=./build/Arduino/${lib} build/Arduino/${lib}/examples/$i
+												${toolsA2}/${cliPath}/arduino-cli compile --config-file ${toolsA2}/.arduino15/arduino-cli.yaml --verbose --fqbn arduino:avr:uno --libraries=./build/Arduino/${lib} build/Arduino/${lib}/examples/$i
 											done
 										''',
 										returnStdout: true
