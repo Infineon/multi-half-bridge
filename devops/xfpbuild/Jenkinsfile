@@ -232,7 +232,7 @@ pipeline {
 					}
 					when {
 						anyOf {
-							environment {name: 'ARTIFACTORY' value: 'true'}
+							environment {name: "$param.ARTIFACTORY" value: true}
 							expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli') } 
 						}
 					}
