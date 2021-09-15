@@ -358,7 +358,7 @@ pipeline {
 				 * Arduino Linux CLI
 				 *-----------------------------------------------------------------------------
 				 */
-				stage('Arduino Linux') {
+				stage('INO') {
 					agent {
 						node {
 							label 'epelinux2'
@@ -368,6 +368,8 @@ pipeline {
 					stages('Arduino') {
 						stage('Generate INO') {
 							steps {
+								// prepares the build directory and runs
+								// xfp-dev to generate the arduino only directory structure
 								script {
 									if (isUnix()) {
 										env.toolsA1 = linuxTools
@@ -378,28 +380,25 @@ pipeline {
 									}
 								}
 								echo "NODE_NAME = ${env.NODE_NAME}"
-
-								echo "xfp-dev"
-								// prepares the build directory and runs
-								// xfp-dev to generate the arduino only directory structure
-								sh(
-									script: '''
-										cd ./
-										export PATH=/opt/python/3.9/linux/RHEL60/bin:$PATH
-										export PYTHONPATH=/opt/python/3.9/linux//RHEL60//../pyperl/python/lib/python3.9/site-packages:/home/xfpjenki/tools/python3
-										rm -rf ./build/Arduino
-										mkdir -p ./build/Arduino
-										${toolsA1}/python3/bin/xfp-dev arduino lib-pack --path=./build/Arduino
-									''',
-									returnStdout: true
-								)
+								script {
+									def result = sh(
+										script: '''
+											cd ./
+											export PATH=/opt/python/3.9/linux/RHEL60/bin:$PATH
+											export PYTHONPATH=/opt/python/3.9/linux//RHEL60//../pyperl/python/lib/python3.9/site-packages:/home/xfpjenki/tools/python3
+											rm -rf ./build/Arduino
+											mkdir -p ./build/Arduino
+											${toolsA1}/python3/bin/xfp-dev arduino lib-pack --path=./build/Arduino
+										''',
+										returnStdout: true
+									).trim()
+									echo "$result"
+								}
 							} // end xfp-dev
 						}
 
 						stage('CLI Build') {
-
 							steps {
-								echo "cli"
 								// checks for OS system and than compiles all
 								// examples  with the arduino-cli tool
 								script {
@@ -426,6 +425,76 @@ pipeline {
 													echo "===================="
 												done
 											done
+										''',
+										returnStdout: true
+									).trim()
+									echo "$result"
+								}
+							} // end CLI Build
+						}
+
+					}
+
+				}
+
+
+				/*-----------------------------------------------------------------------------
+				 * ModusToolbox Build
+				 *-----------------------------------------------------------------------------
+				 */
+				stage('MTB') {
+					agent {
+						node {
+							label 'epelinux2'
+						}
+					}
+
+					stages('ModusToolbox') {
+						stage('Generate MTB') {
+							steps {
+								script {
+									if (isUnix()) {
+										env.toolsM1 = linuxTools
+										echo "Linux"
+									}else{
+										env.toolsM1 = winTools
+										echo "Windows"
+									}
+								}
+								echo "NODE_NAME = ${env.NODE_NAME}"
+
+								script {
+									def result = sh(
+										script: '''
+											cd ./
+											export PATH=/opt/python/3.9/linux/RHEL60/bin:$PATH
+											export PYTHONPATH=/opt/python/3.9/linux//RHEL60//../pyperl/python/lib/python3.9/site-packages:/home/xfpjenki/tools/python3
+											#rm -rf ./build/Arduino
+											#mkdir -p ./build/Arduino
+											#${toolsA1}/python3/bin/xfp-dev arduino lib-pack --path=./build/Arduino
+										''',
+										returnStdout: true
+									).trim()
+									echo "$result"
+								}
+							} // end xfp-dev
+						}
+
+						stage('MTB Build') {
+							steps {
+								// checks for OS system and than compiles all
+								// examples  with the arduino-cli tool
+								script {
+									if (isUnix()) {
+										env.toolsM2 = linuxTools
+									}else{
+										env.toolsM2 = winTools
+									}
+								}
+								script {
+									def result = sh(
+										script: '''
+											cd ./
 										''',
 										returnStdout: true
 									).trim()
