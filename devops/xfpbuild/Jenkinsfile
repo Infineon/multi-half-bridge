@@ -44,7 +44,7 @@ pipeline {
 		choice(name: 'SERVER',        choices:['vihlarazweb3','vihlarazweb2'],        description: 'server')
 		choice(name: 'SONARINSTANCE', choices:['Sonar-Dev','Sonar-Prod'],             description: 'SonarQube instance')
 		string(name: 'TESTBRANCH',    defaultValue: 'develop',                        description: 'e.g. DESMAKERS-990')
-		booleanParam(name: 'NOARTIFACTORY', defaultValue: true,                       description: 'do not fetch data from Artifactory')
+		booleanParam(name: 'ARTIFACTORY', defaultValue: true,                         description: 'do not fetch data from Artifactory')
 	}
 
 	/**
@@ -230,7 +230,7 @@ pipeline {
 						)
 
 					}
-					when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli') || '${param.NOARTIFACTORY}' } }
+					when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli') || param.ARTIFACTORY == true } }
 
 				}
 
