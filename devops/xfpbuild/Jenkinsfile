@@ -230,14 +230,7 @@ pipeline {
 						)
 
 					}
-					when {
-						anyOf {
-							environment {name: "$param.ARTIFACTORY" value: true}
-							allOf {
-								expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli') }
-							}
-						}
-					}
+					when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli') || ${param.ARTIFACTORY} } }
 
 				}
 
