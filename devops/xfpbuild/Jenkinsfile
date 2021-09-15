@@ -231,10 +231,10 @@ pipeline {
 
 					}
 					when {
-						//anyOf {
-						//	environment {name: 'ARTIFACTORY' value: true}
+						anyOf {
+							environment {name: 'ARTIFACTORY' value: 'true'}
 							expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli') } 
-						//}
+						}
 					}
 
 				}
@@ -371,7 +371,7 @@ pipeline {
 				stage('Arduino Linux') {
 					agent {
 						node {
-							label 'epelinux4'
+							label 'epelinux2'
 						}
 					}
 
@@ -380,10 +380,10 @@ pipeline {
 							steps {
 								script {
 									if (isUnix()) {
-										env.toolsW = linuxTools
+										env.toolsA1 = linuxTools
 										echo "Linux"
 									}else{
-										env.toolsW = winTools
+										env.toolsA1 = winTools
 										echo "Windows"
 									}
 								}
@@ -399,45 +399,45 @@ pipeline {
 										export PYTHONPATH=/opt/python/3.9/linux//RHEL60//../pyperl/python/lib/python3.9/site-packages:/home/xfpjenki/tools/python3
 										rm -rf ./build/Arduino
 										mkdir -p ./build/Arduino
-										'''+linuxTools+'''/python3/bin/xfp-dev arduino lib-pack --path=./build/Arduino
+										${toolsA1}/python3/bin/xfp-dev arduino lib-pack --path=./build/Arduino
 									''',
 									returnStdout: true
 								)
 							} // end xfp-dev
 						}
 
-		// 				stage('CLI Build') {
+						stage('CLI Build') {
 
-		// 					steps {
-		// 						echo "cli"
-		// 						// checks for OS system and than compiles all
-		// 						// examples  with the arduino-cli tool
-		// 						script {
-		// 							if (isUnix()) {
-		// 								env.toolsC = linuxTools
-		// 							}else{
-		// 								env.toolsC = winTools
-		// 							}
-		// 						}
-		// 						script {
-		// 							def result = sh(
-		// 								script: '''
-		// 									cd ./
-		// 									export lib=`ls -1 ./build/Arduino/`
-		// 									export examples=(`ls -1 ./build/Arduino/${lib}/examples/`)
-		// 									echo $examples
-		// 									for i in "${examples[@]}"
-		// 									do
-		// 										echo $i;
-		// 										${toolsC}/'''+inoCLI+'''/arduino-cli compile --config-file ${toolsC}/.arduino15/arduino-cli.yaml --verbose --fqbn arduino:avr:uno --libraries=./build/Arduino/${lib} build/Arduino/${lib}/examples/$i
-		// 									done
-		// 								''',
-		// 								returnStdout: true
-		// 							).trim()
-		// 							echo "$result"
-		// 						}
-		// 					} // end CLI Build
-		// 				}
+							steps {
+								echo "cli"
+								// checks for OS system and than compiles all
+								// examples  with the arduino-cli tool
+								script {
+									if (isUnix()) {
+										env.toolsA2 = linuxTools
+									}else{
+										env.toolsA2 = winTools
+									}
+								}
+								script {
+									def result = sh(
+										script: '''
+											cd ./
+											export lib=`ls -1 ./build/Arduino/`
+											export examples=(`ls -1 ./build/Arduino/${lib}/examples/`)
+											echo $examples
+											for i in "${examples[@]}"
+											do
+												echo $i;
+												${toolsA2}/'''+inoCLI+'''/arduino-cli compile --config-file ${toolsA2}/.arduino15/arduino-cli.yaml --verbose --fqbn arduino:avr:uno --libraries=./build/Arduino/${lib} build/Arduino/${lib}/examples/$i
+											done
+										''',
+										returnStdout: true
+									).trim()
+									echo "$result"
+								}
+							} // end CLI Build
+						}
 
 					}
 
