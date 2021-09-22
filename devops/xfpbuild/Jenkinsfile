@@ -464,7 +464,7 @@ pipeline {
 
 						stage('Tigger MTB') {
 							steps {
-								build job: 'mtb-example-psoc6-multi-half-bridge/DESMAKERS-1917',
+								build job: 'MTB example pipelines/mtb-example-psoc6-multi-half-bridge/DESMAKERS-1917',
 									parameters: [
 										string(name: 'TESTBRANCH', value: "DESMAKERS-1917")
 									]
