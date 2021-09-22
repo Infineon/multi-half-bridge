@@ -92,11 +92,15 @@ pipeline {
 	stages {
 
 
-stage('CleanWorkspace') {
-	steps {
-		cleanWs()
-	}
-}
+		// *
+		// * ************************************************************CLEANWS
+		// *
+		stage('CleanWorkspace') {
+			steps {
+				cleanWs()
+			}
+		}
+
 		// *
 		// * ************************************************************DevCI TRIGGER
 		// *
