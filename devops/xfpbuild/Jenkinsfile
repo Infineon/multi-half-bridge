@@ -538,7 +538,7 @@ pipeline {
 				stage('docu') {
 					agent {
 						node {
-							label 'epelinux2'
+							label 'epelinux4'
 						}
 					}
 
