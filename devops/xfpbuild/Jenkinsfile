@@ -11,26 +11,28 @@
  */
 library("jenkins-pipeline-ifx-library")
 
-def projectName = 'eden-artifactory-demo'
+// Artifactory settings
 def artifactoryServer = 'Artifactory'
-def artifactoryRepo = 'gen-des-epe-sw-development-local'
+def artifactoryRepo   = 'gen-des-epe-sw-development-local'
 def artifactoryTarget = 'gen-des-tools-prod-eden-local'
-def artifactorySW = 'https://artifactory.intra.infineon.com/artifactory/gen-des-epe-sw-development-local/'
-
+def artifactorySW     = 'https://artifactory.intra.infineon.com/artifactory/gen-des-epe-sw-development-local/'
+// Arduino settings
 def inoVER      = '0.18.3'
 def cliLinux    = 'arduino-cli_0.18.3_Linux_64bit.tar.gz'
 def cliWindows  = 'arduino-cli_0.18.3_Windows_64bit.tar.gz'
-def brdLTGZ  = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
-def brdWTGZ  = 'arduino-board-package_0.18.3_Windows_64bit.tar.gz'
-
+def brdLTGZ     = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
+def brdWTGZ     = 'arduino-board-package_0.18.3_Windows_64bit.tar.gz'
+// ModusToolbox settings
 def mtbVER      = '2.3.1'
 def mtbLinux    = 'ModusToolbox_tools_2.3.1_Linux_64bit.tar.gz'
 def mtbWindows  = 'ModusToolbox_tools_2.3.1_Windows_64bit.zip'
+// Common settings
+def linuxTools  = '/home/xfpjenki/tools'
+def winTools    = 'D:/tools'
 
-def linuxTools = '/home/xfpjenki/tools'
-def winTools   = 'D:/tools'
+https://bitbucket.vih.infineon.com/scm/xfpmtb/mtb-example-psoc6-multi-half-bridge.git
 
-pipeline {
+pipeline 
 	/**
 	 * node where to run on
 	 */
@@ -44,7 +46,7 @@ pipeline {
 		choice(name: 'SERVER',        choices:['vihlarazweb3','vihlarazweb2'],        description: 'server')
 		choice(name: 'SONARINSTANCE', choices:['Sonar-Dev','Sonar-Prod'],             description: 'SonarQube instance')
 		string(name: 'TESTBRANCH',    defaultValue: 'develop',                        description: 'e.g. DESMAKERS-990')
-		booleanParam(name: 'ARTIFACTORY', defaultValue: true,                         description: 'do not fetch data from Artifactory')
+		booleanParam(name: 'ATF',     defaultValue: true,                             description: 'do not fetch data from Artifactory')
 	}
 
 	/**
@@ -53,7 +55,6 @@ pipeline {
 	environment {
 		TIER             = "${params.TIER}"
 		WEB_ROOT         = "/home/razweb/htdocs-${params.SERVER}"
-		//REPO_NAME        = "${GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
 		REPO_NAME        = "${JOB_NAME.replaceFirst(/^.*\/XFP (.*)\/.*$/, '$1')}"
 		DOCS_TARGET      = "${env.WEB_ROOT}/itec/xfp/${env.REPO_NAME}/${env.BRANCH_NAME}"
 		DOCS_SOURCE      = "${env.WORKSPACE}/docs/doxygen/build"
@@ -558,6 +559,7 @@ pipeline {
 						stage('doxygen') {
 							steps {
 								echo "doxygen"
+								echo "NODE_NAME = ${env.NODE_NAME}"
 								// doxygen runs always, therefore it
 								// 1. removes the documentation target directory
 								// 2. generates it new
