@@ -426,7 +426,8 @@ pipeline {
 											cd ./
 											export lib=`ls -1 ./build/Arduino/`
 											export examples=(`ls -1 ./build/Arduino/${lib}/examples/`)
-											export fqbn=(arduino:avr:uno Infineon:arm:XMC1100_Boot_Kit Infineon:arm:XMC4700_Relax_Kit)
+											#export fqbn=(arduino:avr:uno Infineon:arm:XMC1100_Boot_Kit Infineon:arm:XMC4700_Relax_Kit)
+											export fqbn=(arduino:avr:uno)
 											echo $examples
 											for a in "${fqbn[@]}"
 											do
