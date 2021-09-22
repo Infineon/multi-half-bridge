@@ -32,7 +32,7 @@ def winTools    = 'D:/tools'
 
 https://bitbucket.vih.infineon.com/scm/xfpmtb/mtb-example-psoc6-multi-half-bridge.git
 
-pipeline 
+pipeline {
 	/**
 	 * node where to run on
 	 */
