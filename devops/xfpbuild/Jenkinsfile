@@ -372,7 +372,7 @@ pipeline {
 				stage('INO') {
 					agent {
 						node {
-							label 'epelinux2'
+							label 'epelinux1'
 						}
 					}
 
@@ -456,7 +456,7 @@ pipeline {
 				stage('MTB') {
 					agent {
 						node {
-							label 'epelinux2'
+							label 'epelinux3'
 						}
 					}
 
@@ -549,7 +549,7 @@ pipeline {
 				stage('docu') {
 					agent {
 						node {
-							label 'epelinux2'
+							label 'epelinux4'
 						}
 					}
 
