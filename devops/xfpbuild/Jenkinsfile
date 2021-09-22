@@ -91,22 +91,18 @@ pipeline {
 
 	stages {
 
-		// *
-		// * DO NOT REMOVE THIS. this cleans the workspace, otherwise you might get git errors
-		// * master clean plugin is missing.
-		// *
-		stage('CleanWorkspace') {
-			steps {
-				cleanWs()
-			}
-		}
 
+stage('CleanWorkspace') {
+	steps {
+		cleanWs()
+	}
+}
 		// *
 		// * ************************************************************DevCI TRIGGER
 		// *
 		stage('Vars') {
 			steps {
-
+				
 				sh(script: "echo ${params.TIER}",       label: "TIER         :")
 				sh(script: "echo ${env.WEB_ROOT}",      label: "WEB_ROOT     :")
 				sh(script: "echo ${env.ROOT_URL}",      label: "ROOT_URL     :")
