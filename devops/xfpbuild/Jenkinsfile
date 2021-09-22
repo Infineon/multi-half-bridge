@@ -91,6 +91,12 @@ pipeline {
 
 	stages {
 
+
+stage('CleanWorkspace') {
+	steps {
+		cleanWs()
+	}
+}
 		// *
 		// * ************************************************************DevCI TRIGGER
 		// *
@@ -351,11 +357,6 @@ pipeline {
 			} // end parallel
 		} // end stage
 
-stage('CleanWorkspace') {
-	steps {
-		cleanWs()
-	}
-}
 		stage('build') {
 			parallel {
 
