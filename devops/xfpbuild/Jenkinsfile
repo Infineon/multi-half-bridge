@@ -462,7 +462,7 @@ pipeline {
 
 					stages('ModusToolbox') {
 
-						stage('Generate MTB') {
+						stage('Tigger MTB') {
 							steps {
 								build job: 'mtb-example-psoc6-multi-half-bridge/DESMAKERS-1917',
 									parameters: [
