@@ -91,17 +91,12 @@ pipeline {
 
 	stages {
 
-
-stage('CleanWorkspace') {
-	steps {
-		cleanWs()
-	}
-}
 		// *
 		// * ************************************************************DevCI TRIGGER
 		// *
 		stage('Vars') {
 			steps {
+				cleanWs() // DO NOT REMOVE THIS. this cleans the workspace, otherwise you might get git errors
 				sh(script: "echo ${params.TIER}",       label: "TIER         :")
 				sh(script: "echo ${env.WEB_ROOT}",      label: "WEB_ROOT     :")
 				sh(script: "echo ${env.ROOT_URL}",      label: "ROOT_URL     :")
