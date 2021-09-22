@@ -351,6 +351,11 @@ pipeline {
 			} // end parallel
 		} // end stage
 
+stage('CleanWorkspace') {
+	steps {
+		cleanWs()
+	}
+}
 		stage('build') {
 			parallel {
 
