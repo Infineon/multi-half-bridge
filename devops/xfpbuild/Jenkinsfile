@@ -286,8 +286,7 @@ pipeline {
 						sh(
 							script: '''
 								cd ${toolsM}
-								rm -rf ${mtbPath}
-								echo ${mtbPath}
+								rm -rf ModusToolbox
 								mkdir -p ModusToolbox
 								if [[ ${mtb} == Linux ]]
 								then
@@ -295,8 +294,6 @@ pipeline {
 								else
 									unzip -q ${mtb} -d ModusToolbox
 								fi
-								ls -la
-								ls -la ${toolsM}/ModusToolbox/
 								rm ${mtb}
 							'''
 						)
