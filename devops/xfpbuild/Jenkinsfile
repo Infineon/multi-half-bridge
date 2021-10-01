@@ -249,6 +249,11 @@ pipeline {
 				 *-----------------------------------------------------------------------------
 				 */
 				stage('MTB setup') {
+					agent {
+						node {
+							label 'epewin'
+						}
+					}
 
 					steps {
 						script {
@@ -289,7 +294,7 @@ pipeline {
 							'''
 						)
 					}
-					when { expression { return fileExists ('${env.toolsM}/ModusToolbox/') } }
+					//when { expression { return fileExists ('${env.toolsM}/ModusToolbox/') } }
 
 				}
 
