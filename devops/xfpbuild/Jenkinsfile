@@ -298,7 +298,7 @@ pipeline {
 							'''
 						)
 					}
-					//when { expression { return fileExists ('${env.toolsM}/ModusToolbox/') } }
+					when { expression { return fileExists ('${env.toolsM}/ModusToolbox/') } }
 
 				}
 
