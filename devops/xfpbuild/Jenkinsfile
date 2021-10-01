@@ -286,6 +286,7 @@ pipeline {
 							script: '''
 								cd ${toolsM}
 								rm -rf ${mtbPath}
+								mkdir ModusToolbox
 								ls -la
 
 								if [[ ${mtb} == Linux ]]
