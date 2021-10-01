@@ -287,7 +287,8 @@ pipeline {
 							script: '''
 								cd ${toolsM}
 								rm -rf ${mtbPath}
-								mkdir ModusToolbox
+								echo ${mtbPath}
+								mkdir -p ModusToolbox
 								if [[ ${mtb} == Linux ]]
 								then
 									tar -xf ${mtb}
