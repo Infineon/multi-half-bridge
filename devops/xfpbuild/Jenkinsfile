@@ -240,7 +240,7 @@ pipeline {
 						)
 
 					}
-					when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli')} }
+					//when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli')} }
 
 				}
 
@@ -260,9 +260,11 @@ pipeline {
 							if (isUnix()) {
 								env.toolsM = linuxTools
 								env.mtb = mtbLinux
+								echo "Linux"
 							}else{
 								env.toolsM = winTools
 								env.mtb = mtbWindows
+								echo "Windows"
 							}
 						}
 						// ModusToolbox tools directory only
@@ -284,6 +286,8 @@ pipeline {
 							script: '''
 								cd ${toolsM}
 								rm -rf ${mtbPath}
+								ls -la
+
 								if [[ ${mtb} == Linux ]]
 								then
 									tar -xf ${mtb}
