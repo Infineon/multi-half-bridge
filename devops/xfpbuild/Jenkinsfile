@@ -244,63 +244,6 @@ pipeline {
 
 				}
 
-				/*-----------------------------------------------------------------------------
-				 * Modus Toolbox
-				 *-----------------------------------------------------------------------------
-				 */
-				stage('MTB setup') {
-					agent {
-						node {
-							label 'epe83'
-						}
-					}
-
-					steps {
-						// Check for OS
-						script {
-							if (isUnix()) {
-								env.toolsM = linuxTools
-								env.mtb = mtbLinux
-								echo "Linux"
-							}else{
-								env.toolsM = winTools
-								env.mtb = mtbWindows
-								echo "Windows"
-							}
-						}
-						// ModusToolbox tools directory only
-						rtDownload (
-							serverId: artifactoryServer,
-							spec: """
-								{ "files": [
-										{
-											"pattern": "${artifactoryRepo}/${env.mtbPath}/${env.mtb}",
-											"target": "${env.toolsM}/",
-											"flat": "true"
-										}
-									]
-								}
-							"""
-						)
-						// unpacking OS sensitive
-						sh(
-							script: '''
-								cd ${toolsM}
-								rm -rf ModusToolbox
-								mkdir -p ModusToolbox
-								if [[ ${mtb} == Linux ]]
-								then
-									tar -xf ${mtb}
-								else
-									unzip -q ${mtb} -d ModusToolbox
-								fi
-								rm ${mtb}
-							'''
-						)
-					}
-					when { expression { return fileExists ('${env.toolsM}/ModusToolbox/') } }
-
-				}
 
 				/*-----------------------------------------------------------------------------
 				 * WiCED Toolbox
