@@ -251,7 +251,7 @@ pipeline {
 				stage('MTB setup') {
 					agent {
 						node {
-							label 'epewin'
+							label 'epewin2'
 						}
 					}
 
