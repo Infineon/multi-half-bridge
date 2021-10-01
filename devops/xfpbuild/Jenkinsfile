@@ -294,11 +294,13 @@ pipeline {
 								else
 									unzip -q ${mtb} -d ${mtbPath}
 								fi
+								ls -la
+								ls -la ${toolsM}/ModusToolbox/
 								rm ${mtb}
 							'''
 						)
 					}
-					when { expression { return fileExists ('${env.toolsM}/ModusToolbox/') } }
+					//when { expression { return fileExists ('${env.toolsM}/ModusToolbox/') } }
 
 				}
 
