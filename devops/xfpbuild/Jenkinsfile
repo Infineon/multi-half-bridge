@@ -293,7 +293,7 @@ pipeline {
 								then
 									tar -xf ${mtb}
 								else
-									unzip -q ${mtb} -d ${mtbPath}
+									unzip -q ${mtb} -d ModusToolbox
 								fi
 								ls -la
 								ls -la ${toolsM}/ModusToolbox/
