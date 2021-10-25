@@ -44,7 +44,51 @@ pipeline {
         disableConcurrentBuilds()
     }
 
-    stages {
+    stages { // one stages combines all action
+
+        stage('Test1') { // runs on slave
+            agent {
+
+            }
+            steps('S1') { // one action first executor
+
+            }
+
+            steps('S2') { // one action second executor
+
+            }
+
+        }
+
+        stage('Test2') {
+
+        }
+
+        stage('Parallel1') {
+            parallel{
+
+                stages{ //first slave
+                    agent {}
+                    stage('P1'){
+                        steps('SP1'){
+
+                        }
+                    }
+                }
+
+                stages{ // second slave
+                    stage('P1'){
+                        steps('SP1'){
+                            
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        stage('Test3'){}
 
     }
 

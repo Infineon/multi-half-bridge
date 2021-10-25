@@ -430,11 +430,11 @@ pipeline {
 									echo "$result"
 								}
 
-								build job: 'https://pssswgov-jenkins.icp.infineon.com/job/PSSDevOps/job/MTB%20Code%20Example%20validator/job/master/buildWithParameters',
-									parameters: [
-										string(name: 'CE_REPO',   value: "git@devops-git.aus.cypress.com:wpp/ce/mtb/mtb-example-psoc6-multi-half-bridge.git"),
-										string(name: 'CE_BRANCH', value: "develop")
-									]
+								// build job: 'https://pssswgov-jenkins.icp.infineon.com/job/PSSDevOps/job/MTB%20Code%20Example%20validator/job/master/buildWithParameters',
+								// 	parameters: [
+								// 		string(name: 'CE_REPO',   value: "git@devops-git.aus.cypress.com:wpp/ce/mtb/mtb-example-psoc6-multi-half-bridge.git"),
+								// 		string(name: 'CE_BRANCH', value: "develop")
+								// 	]
 
 							}
 						}
