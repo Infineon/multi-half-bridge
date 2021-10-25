@@ -170,79 +170,6 @@ pipeline {
 				 *-----------------------------------------------------------------------------
 				 */
 
-				stage('Arduino CLI') {
-
-					steps {
-						script {
-							if (isUnix()) {
-								env.toolsA = linuxTools
-								env.cli   = cliLinux
-								env.board = brdLTGZ
-								echo "Linux"
-							}else{
-								env.toolsA = winTools
-								env.cli   = cliWindows
-								env.board = brdWTGZ
-								echo "Windows"
-							}
-						}
-						// ArduinoCLI package
-						rtDownload (
-							serverId: artifactoryServer,
-							spec: """
-								{ "files": [
-										{
-											"pattern": "${artifactoryRepo}/${env.cliPath}/${env.cli}",
-											"target": "${env.toolsA}/"
-										}
-									]
-								}
-							"""
-						)
-						// Arduino Board package
-						rtDownload (
-							serverId: artifactoryServer,
-							spec: """
-								{ "files": [
-										{
-											"pattern": "${artifactoryRepo}/${env.boardPath}/${env.board}",
-											"target": "${env.toolsA}/",
-											"flat": "true"
-										}
-									]
-								}
-							"""
-						)
-						// Arduino library package
-						rtDownload (
-							serverId: artifactoryServer,
-							spec: """
-								{ "files": [
-										{
-											"pattern": "${artifactoryRepo}/arduino/libraries/",
-											"target": "${env.toolsA}/arduino/libraries/",
-											"flat": "true",
-											"explode": "true"
-										}
-									]
-								}
-							"""
-						)
-						// unpacking
-						sh(
-							script: '''
-								cd ${toolsA}
-								tar -xf ${board}
-								tar -xf ${cliPath}/${cli} --directory ${cliPath}
-								rm ${cliPath}/${cli}
-								rm ${board}
-							'''
-						)
-
-					}
-					when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli')} }
-
-				}
 
 
 				/*-----------------------------------------------------------------------------
@@ -328,6 +255,83 @@ pipeline {
 					}
 
 					stages('Arduino') {
+
+						// Artifactory
+						stage('Arduino CLI') {
+
+							steps {
+								script {
+									if (isUnix()) {
+										env.toolsA = linuxTools
+										env.cli   = cliLinux
+										env.board = brdLTGZ
+										echo "Linux"
+									}else{
+										env.toolsA = winTools
+										env.cli   = cliWindows
+										env.board = brdWTGZ
+										echo "Windows"
+									}
+								}
+								// ArduinoCLI package
+								rtDownload (
+									serverId: artifactoryServer,
+									spec: """
+										{ "files": [
+												{
+													"pattern": "${artifactoryRepo}/${env.cliPath}/${env.cli}",
+													"target": "${env.toolsA}/"
+												}
+											]
+										}
+									"""
+								)
+								// Arduino Board package
+								rtDownload (
+									serverId: artifactoryServer,
+									spec: """
+										{ "files": [
+												{
+													"pattern": "${artifactoryRepo}/${env.boardPath}/${env.board}",
+													"target": "${env.toolsA}/",
+													"flat": "true"
+												}
+											]
+										}
+									"""
+								)
+								// Arduino library package
+								rtDownload (
+									serverId: artifactoryServer,
+									spec: """
+										{ "files": [
+												{
+													"pattern": "${artifactoryRepo}/arduino/libraries/",
+													"target": "${env.toolsA}/arduino/libraries/",
+													"flat": "true",
+													"explode": "true"
+												}
+											]
+										}
+									"""
+								)
+								// unpacking
+								sh(
+									script: '''
+										cd ${toolsA}
+										tar -xf ${board}
+										tar -xf ${cliPath}/${cli} --directory ${cliPath}
+										rm ${cliPath}/${cli}
+										rm ${board}
+									'''
+								)
+
+							}
+							when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli')} }
+
+						}
+
+						// INO generation
 						stage('Generate INO') {
 							steps {
 								// prepares the build directory and runs
@@ -359,6 +363,7 @@ pipeline {
 							} // end xfp-dev
 						}
 
+						// example compilation
 						stage('CLI Build') {
 							steps {
 								// checks for OS system and than compiles all
@@ -406,73 +411,17 @@ pipeline {
 				 *-----------------------------------------------------------------------------
 				 */
 				stage('MTB') {
-					agent {
-						node {
-							label 'epelinux2'
-						}
-					}
 
 					stages('ModusToolbox') {
 
 						stage('Tigger MTB') {
 							steps {
-								build job: 'MTB example pipelines/mtb-example-psoc6-multi-half-bridge/DESMAKERS-1917',
+								build job: 'https://pssswgov-jenkins.icp.infineon.com/job/PSSDevOps/job/MTB Code Example validator',
 									parameters: [
-										string(name: 'TESTBRANCH', value: "DESMAKERS-1917")
+										string(name: 'CE_REPO',   value: "git@devops-git.aus.cypress.com:wpp/ce/mtb/mtb-example-psoc6-multi-half-bridge.git")
+										string(name: 'CE_BRANCH', value: "develop")
 									]
 							}
-						}
-
-						stage('Generate MTB') {
-							steps {
-								script {
-									if (isUnix()) {
-										env.toolsM1 = linuxTools
-										echo "Linux"
-									}else{
-										env.toolsM1 = winTools
-										echo "Windows"
-									}
-								}
-								echo "NODE_NAME = ${env.NODE_NAME}"
-
-								script {
-									def result = sh(
-										script: '''
-											cd ./
-											export PATH=/opt/python/3.9/linux/RHEL60/bin:$PATH
-											export PYTHONPATH=/opt/python/3.9/linux//RHEL60//../pyperl/python/lib/python3.9/site-packages:/home/xfpjenki/tools/python3
-											#rm -rf ./build/Arduino
-											#mkdir -p ./build/Arduino
-											#${toolsA1}/python3/bin/xfp-dev arduino lib-pack --path=./build/Arduino
-										''',
-										returnStdout: true
-									).trim()
-									echo "$result"
-								}
-							} // end xfp-dev
-						}
-						stage('MTB Build') {
-							steps {
-								// checks for OS system and than compiles all
-								// examples  with the arduino-cli tool
-								script {
-									if (isUnix()) {
-										env.toolsM2 = linuxTools
-									}else{
-										env.toolsM2 = winTools
-									}
-								}
-								script {
-									def result = sh(
-										script: '''
-											cd ./
-										''',
-										returnStdout: true
-									).trim()
-									echo "$result"
-								}
-							} // end CLI Build
 						}
 
 					}
