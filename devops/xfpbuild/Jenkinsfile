@@ -423,7 +423,7 @@ pipeline {
 											JOB_NAME=PSSDevOps/job/MTB%20Code%20Example%20validator/job/master
 											COOKIEJAR="$(mktemp)"
 											crumb=$(curl --cookie-jar "$COOKIEJAR" "https://$SERVER/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb)")
-											curl -v --cookie "$COOKIEJAR" -H $crumb -X POST https://$SERVER/job/$JOB_NAME/buildWithParameters
+											curl -v --cookie "$COOKIEJAR" -H $crumb -X POST "https://$SERVER/job/$JOB_NAME/buildWithParameters?CE_REPO=git@devops-git.aus.cypress.com:wpp/ce/mtb/mtb-example-psoc6-multi-half-bridge.git&CE_BRANCH=develop"
 										''',
 										returnStdout: true
 									).trim()
