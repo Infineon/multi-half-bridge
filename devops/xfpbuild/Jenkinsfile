@@ -416,13 +416,16 @@ pipeline {
 
 						stage('Tigger MTB') {
 							steps {
-								build job: 'https://pssswgov-jenkins.icp.infineon.com/job/PSSDevOps/job/MTB Code Example validator',
+								build job: 'https://pssswgov-jenkins.icp.infineon.com/job/PSSDevOps/job/MTB Code Example validator/buildWithParameters',
 									parameters: [
 										string(name: 'CE_REPO',   value: "git@devops-git.aus.cypress.com:wpp/ce/mtb/mtb-example-psoc6-multi-half-bridge.git"),
 										string(name: 'CE_BRANCH', value: "develop")
 									]
 							}
 						}
+
+//url --request POST --url 'https://pssswgov-jenkins.icp.infineon.com/job/PSSDevOps/job/MTB Code Example validator/buildWithParameters?token=kks9sHsvzxz8bs8vsaC7' --header 'cache-control: no-cache' --header 'content-type: application/x-www-form-urlencoded' --data 'CE_REPO=git@devops-git.aus.cypress.com:wpp/ce/mtb/mtb-example-psoc6-multi-half-bridge.git&CE_BRANCH=develop'
+
 
 					}
 
