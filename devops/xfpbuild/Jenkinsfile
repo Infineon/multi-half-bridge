@@ -416,11 +416,25 @@ pipeline {
 
 						stage('Tigger MTB') {
 							steps {
+								script {
+									def result = sh(
+										script: '''
+											SERVER=pssswgov-jenkins.icp.infineon.com
+											JOB_NAME=PSSDevOps/job/MTB%20Code%20Example%20validator/job/master
+											COOKIEJAR="$(mktemp)"
+											crumb=$(curl --cookie-jar "$COOKIEJAR" "https://$SERVER/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb)")
+											curl -v --cookie "$COOKIEJAR" -H $crumb -X POST https://$SERVER/job/$JOB_NAME/buildWithParameters
+										''',
+										returnStdout: true
+									).trim()
+									echo "$result"
+/*
 								build job: 'https://pssswgov-jenkins.icp.infineon.com/job/PSSDevOps/job/MTB Code Example validator/buildWithParameters',
 									parameters: [
 										string(name: 'CE_REPO',   value: "git@devops-git.aus.cypress.com:wpp/ce/mtb/mtb-example-psoc6-multi-half-bridge.git"),
 										string(name: 'CE_BRANCH', value: "develop")
 									]
+*/
 							}
 						}
 
