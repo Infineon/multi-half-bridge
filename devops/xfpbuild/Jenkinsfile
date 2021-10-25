@@ -428,6 +428,7 @@ pipeline {
 										returnStdout: true
 									).trim()
 									echo "$result"
+								}
 /*
 								build job: 'https://pssswgov-jenkins.icp.infineon.com/job/PSSDevOps/job/MTB Code Example validator/buildWithParameters',
 									parameters: [
