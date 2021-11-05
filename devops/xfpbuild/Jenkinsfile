@@ -11,6 +11,12 @@
  */
 library("jenkins-pipeline-ifx-library")
 
+def send_email(email_subject, email_body) {
+	providers = [culprits(), developers(), requestor()]
+	emailext attachLog: true, compressLog: true, body: email_body, recipientProviders: providers, subject: email_subject
+}
+
+
 // Artifactory settings
 def artifactoryServer = 'Artifactory'
 def artifactoryRepo   = 'gen-des-epe-sw-development-local'
@@ -22,10 +28,6 @@ def cliLinux    = 'arduino-cli_0.18.3_Linux_64bit.tar.gz'
 def cliWindows  = 'arduino-cli_0.18.3_Windows_64bit.tar.gz'
 def brdLTGZ     = 'arduino-board-package_0.18.3_Linux_64bit.tar.gz'
 def brdWTGZ     = 'arduino-board-package_0.18.3_Windows_64bit.tar.gz'
-// ModusToolbox settings
-def mtbVER      = '2.3.1'
-def mtbLinux    = 'ModusToolbox_tools_2.3.1_Linux_64bit.tar.gz'
-def mtbWindows  = 'ModusToolbox_tools_2.3.1_Windows_64bit.zip'
 // Common settings
 def linuxTools  = '/home/xfpjenki/tools'
 def winTools    = 'D:/tools'
@@ -40,18 +42,22 @@ pipeline {
 	 * Parameter choice settings for manual start 
 	 */
 	parameters {
-		choice(name: 'TIER',          choices:['development','staging','production'], description: 'tier setting')
-		choice(name: 'SERVER',        choices:['vihlarazweb3','vihlarazweb2'],        description: 'server')
-		choice(name: 'SONARINSTANCE', choices:['Sonar-Dev','Sonar-Prod'],             description: 'SonarQube instance')
-		string(name: 'TESTBRANCH',    defaultValue: 'develop',                        description: 'e.g. DESMAKERS-990')
-		booleanParam(name: 'ATF',     defaultValue: true,                             description: 'do not fetch data from Artifactory')
+		choice(name: 'SERVER',            choices:['vihlarazweb3','vihlarazweb2'], description: 'server')
+		choice(name: 'SONARINSTANCE',     choices:['Sonar-Dev','Sonar-Prod'],      description: 'SonarQube instance')
+
+		booleanParam(name: 'ARDUINO',     defaultValue: true,                      description: 'should we do a Arduino compilation?')
+		booleanParam(name: 'PLATFORMIO',  defaultValue: false,                     description: 'should we do a PlatformIO compilation?')
+		booleanParam(name: 'MTB',         defaultValue: false,                     description: 'should we do a ModusToolbox compilation?')
+		booleanParam(name: 'RASPBERRYPI', defaultValue: false,                     description: 'should we do a RaspberryPI compilation?')
+		booleanParam(name: 'WICED',       defaultValue: false,                     description: 'should we do a WiCED compilation?')
+
+		booleanParam(name: 'ALLHARDWARE', defaultValue: false,                     description: 'should we do a compilation for all availabe or default hardware platforms?')
 	}
 
 	/**
 	 * Environment settings for shell calls
 	 */
 	environment {
-		TIER             = "${params.TIER}"
 		WEB_ROOT         = "/home/razweb/htdocs-${params.SERVER}"
 		REPO_NAME        = "${JOB_NAME.replaceFirst(/^.*\/XFP (.*)\/.*$/, '$1')}"
 		DOCS_TARGET      = "${env.WEB_ROOT}/itec/xfp/${env.REPO_NAME}/${env.BRANCH_NAME}"
@@ -61,7 +67,6 @@ pipeline {
 
 		cliPath          = "arduinoCLI/${-> inoVER}"
 		boardPath        = "arduinoBoardPackage/${-> inoVER}"
-		mtbPath          = "ModusToolbox/${-> mtbVER}"
 	}
 
 	/**
@@ -92,33 +97,58 @@ pipeline {
 
 
 		// *
-		// * ************************************************************CLEANWS
-		// *
-		stage('CleanWorkspace') {
-			steps {
-				cleanWs()
-			}
-		}
-
-		// *
 		// * ************************************************************DevCI TRIGGER
 		// *
 		stage('Vars') {
 			steps {
-				
-				sh(script: "echo ${params.TIER}",       label: "TIER         :")
-				sh(script: "echo ${env.WEB_ROOT}",      label: "WEB_ROOT     :")
-				sh(script: "echo ${env.ROOT_URL}",      label: "ROOT_URL     :")
-				sh(script: "echo ${env.BRANCH_NAME}",   label: "BRANCH_NAME  :")
-				sh(script: "echo ${env.BUILD_NUMBER}",  label: "BUILD_NUMBER :")
-				sh(script: "echo ${WORKSPACE}",         label: "WORKSPACE    :")
-				sh(script: "echo ${env.SONARINSTANCE}", label: "SONARINSTANCE:")
-				sh(script: "echo ${params.SERVER}",     label: "SERVER       :")
-				sh(script: "echo ${env.REPO_NAME}",     label: "REPO_NAME    :")
-				sh(script: "echo ${env.DOCS_SOURCE}",   label: "DOCS_SOURCE  :")
-				sh(script: "echo ${env.DOCS_TARGET}",   label: "DOCS_TARGET  :")
+				cleanWs()
+				script {
+					def result = sh(
+						script: '''
+							echo "TIER                 :" ${params.TIER}
+							echo "WEB_ROOT             :" ${env.WEB_ROOT}
+							echo "ROOT_URL             :" ${env.ROOT_URL}
+							echo "BRANCH_NAME          :" ${env.BRANCH_NAME}
+							echo "BUILD_NUMBER         :" ${env.BUILD_NUMBER}
+							echo "WORKSPACE            :" ${WORKSPACE}
+							echo "SONARINSTANCE        :" ${env.SONARINSTANCE}
+							echo "SERVER               :" ${params.SERVER}
+							echo "REPO_NAME            :" ${env.REPO_NAME}
+							echo "DOCS_SOURCE          :" ${env.DOCS_SOURCE}
+							echo "DOCS_TARGET          :" ${env.DOCS_TARGET}
+							echo "BOOLEAN ARDUINO      :" ${env.ARDUINO}
+							echo "BOOLEAN PLATFORMIO   :" ${env.PLATFORMIO}
+							echo "BOOLEAN MTB          :" ${env.MTB}
+							echo "BOOLEAN RASPBERRYPI  :" ${env.RASPBERRYPI}
+							echo "BOOLEAN WICED        :" ${env.WICED}
+						''',
+						returnStdout: true
+					).trim()
+					echo "$result"
+				}
+
+				sh(script: "echo ${params.TIER}",       label: "TIER                 :")
+				sh(script: "echo ${env.WEB_ROOT}",      label: "WEB_ROOT             :")
+				sh(script: "echo ${env.ROOT_URL}",      label: "ROOT_URL             :")
+				sh(script: "echo ${env.BRANCH_NAME}",   label: "BRANCH_NAME          :")
+				sh(script: "echo ${env.BUILD_NUMBER}",  label: "BUILD_NUMBER         :")
+				sh(script: "echo ${WORKSPACE}",         label: "WORKSPACE            :")
+				sh(script: "echo ${env.SONARINSTANCE}", label: "SONARINSTANCE        :")
+				sh(script: "echo ${params.SERVER}",     label: "SERVER               :")
+				sh(script: "echo ${env.REPO_NAME}",     label: "REPO_NAME            :")
+				sh(script: "echo ${env.DOCS_SOURCE}",   label: "DOCS_SOURCE          :")
+				sh(script: "echo ${env.DOCS_TARGET}",   label: "DOCS_TARGET          :")
+				sh(script: "echo ${env.ARDUINO}",       label: "BOOLEAN ARDUINO      :")
+				sh(script: "echo ${env.PLATFORMIO}",    label: "BOOLEAN PLATFORMIO   :")
+				sh(script: "echo ${env.MTB}",           label: "BOOLEAN MTB          :")
+				sh(script: "echo ${env.RASPBERRYPI}",   label: "BOOLEAN RASPBERRYPI  :")
+				sh(script: "echo ${env.WICED}",         label: "BOOLEAN WICED        :")
 			} // end steps
 		} // end DevCI trigger
+
+		// *
+		// * ************************************************************DevCI UNITTEST
+		// *
 		stage('Check') {
 			parallel {
 				/*-----------------------------------------------------------------------------
@@ -162,83 +192,8 @@ pipeline {
 			} // parallel
 		} // end stage
 
-		stage('Artifactory') {
-			parallel {
-
-				/*-----------------------------------------------------------------------------
-				 * Arduino Linux CLI
-				 *-----------------------------------------------------------------------------
-				 */
 
 
-
-				/*-----------------------------------------------------------------------------
-				 * WiCED Toolbox
-				 *-----------------------------------------------------------------------------
-				 */
-				stage('WiCED setup') {
-					//when { expression { return fileExists ('./.arduino15/library-index.json') } }
-					steps {
-						echo "WiCED setup"
-						script {
-							if (isUnix()) {
-								env.toolsW = linuxTools
-							}else{
-								env.toolsW = winTools
-							}
-						}
-						// rtDownload (
-						// 	serverId: artifactoryServer,
-						// 	spec: """
-						// 		{
-						// 			"files": [
-						// 						{
-						// 							"pattern": "${artifactoryRepo}/${wicedIDE}/${wicedTgz}",
-						// 							"target": "${env.toolsW}/",
-						// 							"flat ": "true"
-						// 						}
-						// 					]
-						// 		}
-						// 	"""
-						// )
-						// sh(
-						// 	script: '''
-						// 		cd ${toolsW}
-						// 		tar -xf '''+wicedTgz+'''
-						// 		rm '''+wicedTgz+'''
-						// 	'''
-						// )
-						script {
-							def result = sh(
-								script: '''
-									cd ${toolsW}
-									ls -la
-								''',
-								returnStdout: true
-							).trim()
-							echo "$result"
-						}
-					}
-				}
-
-				/*-----------------------------------------------------------------------------
-				 * Raspberry PI
-				 *-----------------------------------------------------------------------------
-				 */
-				stage('RPi setup') {
-					agent {
-						node {
-							label 'epewin'
-						}
-					}
-					//when { expression { return fileExists ('./.arduino15/library-index.json') } }
-					steps {
-						echo "RPi setup"
-					}
-				}
-
-			} // end parallel
-		} // end stage
 
 		stage('build') {
 			parallel {
@@ -248,10 +203,14 @@ pipeline {
 				 *-----------------------------------------------------------------------------
 				 */
 				stage('INO') {
-					agent {
-						node {
-							label 'epelinux2'
-						}
+					// agent {
+					// 	node {
+					// 		label 'epelinux2'
+					// 	}
+					// }
+					when {
+						beforeAgent true
+						expression { params.ARDUINO }
 					}
 
 					stages('Arduino') {
@@ -263,13 +222,13 @@ pipeline {
 								script {
 									if (isUnix()) {
 										env.toolsA = linuxTools
-										env.cli   = cliLinux
-										env.board = brdLTGZ
+										env.cli    = cliLinux
+										env.board  = brdLTGZ
 										echo "Linux"
 									}else{
 										env.toolsA = winTools
-										env.cli   = cliWindows
-										env.board = brdWTGZ
+										env.cli    = cliWindows
+										env.board  = brdWTGZ
 										echo "Windows"
 									}
 								}
@@ -327,7 +286,10 @@ pipeline {
 								)
 
 							}
-							when { expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli')} }
+							when {
+								beforeAgent true
+								expression { return fileExists ('${env.toolsA}/${env.boardPath}/arduino-cli')}
+							}
 
 						}
 
@@ -381,8 +343,10 @@ pipeline {
 											cd ./
 											export lib=`ls -1 ./build/Arduino/`
 											export examples=(`ls -1 ./build/Arduino/${lib}/examples/`)
+
 											#export fqbn=(arduino:avr:uno Infineon:arm:XMC1100_Boot_Kit Infineon:arm:XMC4700_Relax_Kit)
 											export fqbn=(arduino:avr:uno)
+
 											echo $examples
 											for a in "${fqbn[@]}"
 											do
@@ -412,6 +376,11 @@ pipeline {
 				 */
 				stage('MTB') {
 
+					when {
+						beforeAgent true
+						expression { params.MTB }
+					}
+
 					stages('ModusToolbox') {
 
 						stage('Tigger MTB') {
@@ -430,12 +399,6 @@ pipeline {
 									echo "$result"
 								}
 
-								// build job: 'https://pssswgov-jenkins.icp.infineon.com/job/PSSDevOps/job/MTB%20Code%20Example%20validator/job/master/buildWithParameters',
-								// 	parameters: [
-								// 		string(name: 'CE_REPO',   value: "git@devops-git.aus.cypress.com:wpp/ce/mtb/mtb-example-psoc6-multi-half-bridge.git"),
-								// 		string(name: 'CE_BRANCH', value: "develop")
-								// 	]
-
 							}
 						}
 
@@ -443,29 +406,40 @@ pipeline {
 
 				}
 
-		// 		// /*-----------------------------------------------------------------------------
-		// 		//  * PlatformIO build
-		// 		//  *-----------------------------------------------------------------------------
-		// 		//  */
-		// 		// stage('PIO') {
-		// 		// 	steps {
-		// 		// 		echo "PlatformIO"
-		// 		// 		/*
-		// 		// 		sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make pdf")
-		// 		// 		build(
-		// 		// 			job: 'dev/doxy_maker_pdf',
-		// 		// 			propagate: true,
-		// 		// 			parameters: [
-		// 		// 				[
-		// 		// 					$class: 'StringParameterValue',
-		// 		// 					name: 'WORKSPACE',
-		// 		// 					value: "${env.WORKSPACE}"
-		// 		// 				],
-		// 		// 			]
-		// 		// 		)
-		// 		// 		*/
-		// 		// 	}
-		// 		// }
+				// /*-----------------------------------------------------------------------------
+				//  * PlatformIO build
+				//  *-----------------------------------------------------------------------------
+				//  */
+				stage('PIO') {
+					agent {
+						node {
+							label 'epelinux3'
+						}
+					}
+
+					when {
+						beforeAgent true
+						expression { params.PLATFORMIO }
+					}
+
+					steps {
+						echo "PlatformIO"
+						/*
+						sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make pdf")
+						build(
+							job: 'dev/doxy_maker_pdf',
+							propagate: true,
+							parameters: [
+								[
+									$class: 'StringParameterValue',
+									name: 'WORKSPACE',
+									value: "${env.WORKSPACE}"
+								],
+							]
+						)
+						*/
+					}
+				}
 
 				/*-----------------------------------------------------------------------------
 				 * doxygen
@@ -586,13 +560,7 @@ pipeline {
 	
 	post {
 		failure {
-			
-			mail(
-				to: 'Olaf.Filies@infineon.com',
-				subject: "[EPE JENKINS] pipeline: ${env.BRANCH_NAME}",
-				body: "Something during Jenkins pipeline run went wrong."
-			)
-			
+			send_email('[XFPBUILD] build failing on branch "' + env.BRANCH_NAME + '"', '''Something during Jenkins pipeline run went wrong''')
 		}
 	}
 
