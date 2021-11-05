@@ -13,7 +13,7 @@ library("jenkins-pipeline-ifx-library")
 
 def send_email(email_subject, email_body) {
 	providers = [culprits(), developers(), requestor()]
-	emailext attachLog: true, compressLog: true, body: email_body, recipientProviders: providers, subject: email_subject
+	emailext attachLog: true, compressLog: true, body: email_body, recipientProviders: providers, subject: email_subject, to: '$DEFAULT_RECIPIENTS'
 }
 
 
@@ -95,7 +95,6 @@ pipeline {
 
 	stages {
 
-
 		// *
 		// * ************************************************************DevCI TRIGGER
 		// *
@@ -125,22 +124,6 @@ pipeline {
 					).trim()
 					echo "$result"
 				}
-
-				sh(script: "echo ${env.WEB_ROOT}",      label: "WEB_ROOT             :")
-				sh(script: "echo ${env.ROOT_URL}",      label: "ROOT_URL             :")
-				sh(script: "echo ${env.BRANCH_NAME}",   label: "BRANCH_NAME          :")
-				sh(script: "echo ${env.BUILD_NUMBER}",  label: "BUILD_NUMBER         :")
-				sh(script: "echo ${WORKSPACE}",         label: "WORKSPACE            :")
-				sh(script: "echo ${env.SONARINSTANCE}", label: "SONARINSTANCE        :")
-				sh(script: "echo ${params.SERVER}",     label: "SERVER               :")
-				sh(script: "echo ${env.REPO_NAME}",     label: "REPO_NAME            :")
-				sh(script: "echo ${env.DOCS_SOURCE}",   label: "DOCS_SOURCE          :")
-				sh(script: "echo ${env.DOCS_TARGET}",   label: "DOCS_TARGET          :")
-				sh(script: "echo ${env.ARDUINO}",       label: "BOOLEAN ARDUINO      :")
-				sh(script: "echo ${env.PLATFORMIO}",    label: "BOOLEAN PLATFORMIO   :")
-				sh(script: "echo ${env.MTB}",           label: "BOOLEAN MTB          :")
-				sh(script: "echo ${env.RASPBERRYPI}",   label: "BOOLEAN RASPBERRYPI  :")
-				sh(script: "echo ${env.WICED}",         label: "BOOLEAN WICED        :")
 			} // end steps
 		} // end DevCI trigger
 
