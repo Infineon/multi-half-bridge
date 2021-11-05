@@ -547,10 +547,9 @@ pipeline {
 		failure {
 			send_email('[XFPBUILD] build failing on branch "' + env.BRANCH_NAME + '"', '''Something during Jenkins pipeline run went wrong''')
 		}
-		success {
-			send_email('[XFPBUILD] build on branch "' + env.BRANCH_NAME + '" OK', '''Build and test runs smoothly''')
-
-		}
+		// success {
+		// 	send_email('[XFPBUILD] build on branch "' + env.BRANCH_NAME + '" OK', '''Build and test runs smoothly''')
+		// }
 	}
 
 }
