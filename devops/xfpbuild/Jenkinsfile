@@ -105,7 +105,6 @@ pipeline {
 				script {
 					def result = sh(
 						script: '''
-							echo "TIER                 :" ${params.TIER}
 							echo "WEB_ROOT             :" ${env.WEB_ROOT}
 							echo "ROOT_URL             :" ${env.ROOT_URL}
 							echo "BRANCH_NAME          :" ${env.BRANCH_NAME}
@@ -127,7 +126,6 @@ pipeline {
 					echo "$result"
 				}
 
-				sh(script: "echo ${params.TIER}",       label: "TIER                 :")
 				sh(script: "echo ${env.WEB_ROOT}",      label: "WEB_ROOT             :")
 				sh(script: "echo ${env.ROOT_URL}",      label: "ROOT_URL             :")
 				sh(script: "echo ${env.BRANCH_NAME}",   label: "BRANCH_NAME          :")
