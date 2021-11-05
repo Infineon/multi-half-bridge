@@ -111,7 +111,7 @@ pipeline {
 							echo "BUILD_NUMBER         :" ${BUILD_NUMBER}
 							echo "WORKSPACE            :" ${WORKSPACE}
 							echo "SONARINSTANCE        :" ${SONARINSTANCE}
-							echo "SERVER               :" ${params.SERVER}
+							echo "SERVER               :" ${SERVER}
 							echo "REPO_NAME            :" ${REPO_NAME}
 							echo "DOCS_SOURCE          :" ${DOCS_SOURCE}
 							echo "DOCS_TARGET          :" ${DOCS_TARGET}
