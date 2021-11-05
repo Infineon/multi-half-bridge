@@ -403,22 +403,27 @@ pipeline {
 						expression { params.PLATFORMIO }
 					}
 
-					steps {
-						echo "PlatformIO"
-						/*
-						sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make pdf")
-						build(
-							job: 'dev/doxy_maker_pdf',
-							propagate: true,
-							parameters: [
-								[
-									$class: 'StringParameterValue',
-									name: 'WORKSPACE',
-									value: "${env.WORKSPACE}"
-								],
-							]
-						)
-						*/
+					stages('PlatformIO') {
+
+						stage('Tigger PIO') {
+							steps {
+								echo "PlatformIO"
+								/*
+								sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make pdf")
+								build(
+									job: 'dev/doxy_maker_pdf',
+									propagate: true,
+									parameters: [
+										[
+											$class: 'StringParameterValue',
+											name: 'WORKSPACE',
+											value: "${env.WORKSPACE}"
+										],
+									]
+								)
+								*/
+							}
+						}
 					}
 				}
 
@@ -542,6 +547,10 @@ pipeline {
 	post {
 		failure {
 			send_email('[XFPBUILD] build failing on branch "' + env.BRANCH_NAME + '"', '''Something during Jenkins pipeline run went wrong''')
+		}
+		success {
+			send_email('[XFPBUILD] build on branch "' + env.BRANCH_NAME + '" OK', '''Build and test runs smoothly''')
+
 		}
 	}
 
