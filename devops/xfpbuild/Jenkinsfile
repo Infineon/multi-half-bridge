@@ -183,11 +183,11 @@ pipeline {
 				 *-----------------------------------------------------------------------------
 				 */
 				stage('INO') {
-					// agent {
-					// 	node {
-					// 		label 'epelinux2'
-					// 	}
-					// }
+					agent {
+						node {
+							label 'epelinux2'
+						}
+					}
 					when {
 						beforeAgent true
 						expression { params.ARDUINO }
