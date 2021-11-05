@@ -16,7 +16,6 @@ def send_email(email_subject, email_body) {
 	emailext attachLog: true, compressLog: true, body: email_body, recipientProviders: providers, subject: email_subject, to: '$DEFAULT_RECIPIENTS'
 }
 
-
 // Artifactory settings
 def artifactoryServer = 'Artifactory'
 def artifactoryRepo   = 'gen-des-epe-sw-development-local'
@@ -364,7 +363,7 @@ pipeline {
 
 					stages('ModusToolbox') {
 
-						stage('Tigger MTB') {
+						stage('Trigger MTB') {
 							steps {
 								script {
 									def result = sh(
@@ -405,7 +404,7 @@ pipeline {
 
 					stages('PlatformIO') {
 
-						stage('Tigger PIO') {
+						stage('Trigger PIO') {
 							steps {
 								echo "PlatformIO"
 								/*
