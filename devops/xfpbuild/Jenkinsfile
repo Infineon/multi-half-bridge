@@ -317,6 +317,7 @@ pipeline {
 										env.toolsA2 = winTools
 									}
 								}
+								echo "NODE_NAME = ${env.NODE_NAME}"
 								script {
 									def result = sh(
 										script: '''
