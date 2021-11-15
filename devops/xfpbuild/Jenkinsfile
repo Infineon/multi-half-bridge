@@ -11,9 +11,9 @@
  */
 library("jenkins-pipeline-ifx-library")
 
-def send_email(email_subject, email_body) {
+def send_email(email_subject, email_to, email_body) {
 	providers = [culprits(), developers(), requestor()]
-	emailext attachLog: true, compressLog: true, body: email_body, recipientProviders: providers, subject: email_subject, to: '$DEFAULT_RECIPIENTS'
+	emailext recipientProviders: providers, body: email_body, subject: email_subject, to: email_to, compressLog: true, attachLog: true
 }
 
 // Artifactory settings
@@ -49,6 +49,7 @@ pipeline {
 		booleanParam(name: 'MTB',         defaultValue: false,                     description: 'should we do a ModusToolbox compilation?')
 		booleanParam(name: 'RASPBERRYPI', defaultValue: false,                     description: 'should we do a RaspberryPI compilation?')
 		booleanParam(name: 'WICED',       defaultValue: false,                     description: 'should we do a WiCED compilation?')
+		booleanParam(name: 'DOCU',        defaultValue: true,                      description: 'should we generate the documentation?')
 
 		booleanParam(name: 'ALLHARDWARE', defaultValue: false,                     description: 'should we do a compilation for all availabe or default hardware platforms?')
 	}
@@ -118,6 +119,12 @@ pipeline {
 							echo "BOOLEAN MTB          :" ${MTB}
 							echo "BOOLEAN RASPBERRYPI  :" ${RASPBERRYPI}
 							echo "BOOLEAN WICED        :" ${WICED}
+							echo "BOOLEAN DOCUMETATION :" ${DOCU}
+							echo "/"${REPO_NAME}"/"${BRANCH_NAME}"/"
+							echo "/"${REPO_NAME}"/"${BRANCH_NAME}"/documentation"
+							echo "/"${REPO_NAME}"/"${BRANCH_NAME}"/build/html"
+							echo "/"${REPO_NAME}"/"${BRANCH_NAME}"/build/doxygen-log.txt"
+							echo "_"${REPO_NAME}
 						''',
 						returnStdout: true
 					).trim()
@@ -438,6 +445,11 @@ pipeline {
 						}
 					}
 
+					when {
+						beforeAgent true
+						expression { params.DOCU }
+					}
+
 					stages {
 
 						stage('doxygen') {
@@ -505,8 +517,15 @@ pipeline {
 		 *-----------------------------------------------------------------------------
 		 */
 		stage('SonarQube') {
+			agent {
+				node {
+					label 'epelinux2'
+				}
+			}
+
 			steps {
 				echo "SonarQube"
+
 				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
 					withSonarQubeEnv(
 						installationName: "${params.SONARINSTANCE}"
@@ -517,6 +536,7 @@ pipeline {
 							}else{
 								env.scannerHome = tool 'sonar-scanner-4.2.0.1873'
 							}
+								echo "NODE_NAME = ${env.NODE_NAME}"
 							def result = sh(
 								script: '''
 									cp ./devops/xfpbuild/sonar-project.properties ./.;
@@ -546,11 +566,65 @@ pipeline {
 	
 	post {
 		failure {
-			send_email('[XFPBUILD] build failing on branch "' + env.BRANCH_NAME + '"', '''Something during Jenkins pipeline run went wrong''')
+			send_email('[XFPBUILD] build failing on branch "' + env.BRANCH_NAME + '"','$DEFAULT_RECIPIENTS',
+				'''
+					${SCRIPT}
+					<BODY>
+					<!-- LINKS -->
+					<table class="section">
+						<tr class="tr-title">
+							<td class="td-title-main" colspan=2>LINKS</td>
+						</tr>
+						<tr>
+							<td>SonarQube results:</td>
+							<td>https://sonardev.vih.infineon.com/dashboard?id=XFP_Build${BUILD_LOG_REGEX, regex="^_.*$",showTruncatedLines=false}</td>
+						</tr>
+						<tr>
+							<td>Documentation all:</td>
+							<td>https://vihlarazweb3.vih.infineon.com/itec/xfp${BUILD_LOG_REGEX, regex="^/.*/$",showTruncatedLines=false}</td>
+						</tr>
+						<tr>
+							<td>Doxygen:</td>
+							<td>https://vihlarazweb3.vih.infineon.com/itec/xfp${BUILD_LOG_REGEX, regex="^/.*html$",showTruncatedLines=false}</td>
+						</tr>
+						<tr>
+							<td>Sphinx (if availabe):</td>
+							<td>https://vihlarazweb3.vih.infineon.com/itec/xfp${BUILD_LOG_REGEX, regex="^/.*documentation$",showTruncatedLines=false}</td>
+						</tr>
+					</table>
+					</body>
+				''')
 		}
-		// success {
-		// 	send_email('[XFPBUILD] build on branch "' + env.BRANCH_NAME + '" OK', '''Build and test runs smoothly''')
-		// }
+		success {
+			send_email('[XFPBUILD] build on branch "' + env.BRANCH_NAME + '" OK', '$DEFAULT_RECIPIENTS' ,
+				'''
+					${SCRIPT}
+					<BODY>
+					<!-- LINKS -->
+					<table class="section">
+						<tr class="tr-title">
+							<td class="td-title-main" colspan=2>LINKS</td>
+						</tr>
+						<tr>
+							<td>SonarQube results:</td>
+							<td>https://sonardev.vih.infineon.com/dashboard?id=XFP_Build${BUILD_LOG_REGEX, regex="^_.*$",showTruncatedLines=false}</td>
+						</tr>
+						<tr>
+							<td>Documentation all:</td>
+							<td>https://vihlarazweb3.vih.infineon.com/itec/xfp${BUILD_LOG_REGEX, regex="^/.*/$",showTruncatedLines=false}</td>
+						</tr>
+						<tr>
+							<td>Doxygen:</td>
+							<td>https://vihlarazweb3.vih.infineon.com/itec/xfp${BUILD_LOG_REGEX, regex="^/.*html$",showTruncatedLines=false}</td>
+						</tr>
+						<tr>
+							<td>Sphinx (if availabe):</td>
+							<td>https://vihlarazweb3.vih.infineon.com/itec/xfp${BUILD_LOG_REGEX, regex="^/.*documentation$",showTruncatedLines=false}</td>
+						</tr>
+					</table>
+					</body>
+				''')
+		}
 	}
 
 }
