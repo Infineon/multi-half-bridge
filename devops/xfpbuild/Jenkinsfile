@@ -16,6 +16,9 @@ def send_email(email_subject, email_to, email_body) {
 	emailext recipientProviders: providers, body: email_body, subject: email_subject, to: email_to, compressLog: true, attachLog: true
 }
 
+// Path to XML-Report workspace
+def pathToUnit = " "
+
 // Artifactory settings
 def artifactoryServer = 'Artifactory'
 def artifactoryRepo   = 'gen-des-epe-sw-development-local'
@@ -38,7 +41,7 @@ pipeline {
 	agent any
 
 	/**
-	 * Parameter choice settings for manual start 
+	 * Parameter choice settings for manual start
 	 */
 	parameters {
 		choice(name: 'SERVER',            choices:['vihlarazweb3','vihlarazweb2'], description: 'server')
@@ -145,7 +148,7 @@ pipeline {
 				stage('CPP') {
 					agent {
 						node {
-							label 'epelinux3'
+							label 'epelinux1_7'
 						}
 					}
 					steps {
@@ -170,17 +173,36 @@ pipeline {
 				*-----------------------------------------------------------------------------
 				*/
 				stage('unit test') {
+					agent {
+						node {
+							label 'epelinux1_7'
+						}
+					}
 					steps {
 						echo "unit test"
-						//sh ("export DOXY_BIN_PATH=/usr/local/bin/;cd ${env.WORKSPACE}/docs;/usr/bin/make html")
+						echo "${pathToUnit}"
+						sh(
+							script:'''
+								cd ./
+								export PATH=/opt/gcc_10.3.0/linux70_64/bin:/home/xfpjenki/tools/python3/bin:/opt/sofit/cppcheck/1.76.1/bin:$PATH
+								export LD_LIBRARY_PATH=/opt/gcc_10.3.0/linux70_64/lib:/opt/gcc_10.3.0/linux70_64/lib64:$LD_LIBRARY_PATH
+
+								rm -rf googletest/
+								git clone https://github.com/google/googletest
+
+								/opt/cmake/3.14.5/linux/bin/cmake --no-warn-unused-cli -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER:FILEPATH=/opt/gcc_10.3.0/linux70_64/bin/gcc -DCMAKE_CXX_COMPILER:FILEPATH=/opt/gcc_10.3.0/linux70_64/bin/g++ -H. -B./build -G "Unix Makefiles"
+								/opt/cmake/3.14.5/linux/bin/cmake --build ./build --config Debug --target unit-test -j 6 --
+								/opt/cmake/3.14.5/linux/bin/cmake --build ./build --config Debug --target gcov -j 6 --
+							'''
+						)
+						script {
+							pathToUnit = "${env.WORKSPACE}"
+							echo "pathToUnit = ${pathToUnit}"
+						}
 					}
 				}
-
 			} // parallel
 		} // end stage
-
-
-
 
 		stage('build') {
 			parallel {
@@ -352,11 +374,8 @@ pipeline {
 								}
 							} // end CLI Build
 						}
-
 					}
-
 				}
-
 
 				/*-----------------------------------------------------------------------------
 				 * ModusToolbox Build
@@ -386,12 +405,9 @@ pipeline {
 									).trim()
 									echo "$result"
 								}
-
 							}
 						}
-
 					}
-
 				}
 
 				// /*-----------------------------------------------------------------------------
@@ -441,7 +457,7 @@ pipeline {
 				stage('docu') {
 					agent {
 						node {
-							label 'epelinux2'
+							label 'epelinux3'
 						}
 					}
 
@@ -504,11 +520,8 @@ pipeline {
 								}
 							} // end ReadTheDocs
 						} // end sphinx
-
 					 } // end stages
-
 				} // end docu
-
 			} // end parallel
 		} // end docu build
 
@@ -519,14 +532,14 @@ pipeline {
 		stage('SonarQube') {
 			agent {
 				node {
-					label 'epelinux2'
+					label 'epelinux1_7'
 				}
 			}
 
 			steps {
 				echo "SonarQube"
 
-				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+				catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
 					withSonarQubeEnv(
 						installationName: "${params.SONARINSTANCE}"
 					){
@@ -536,34 +549,33 @@ pipeline {
 							}else{
 								env.scannerHome = tool 'sonar-scanner-4.2.0.1873'
 							}
-								echo "NODE_NAME = ${env.NODE_NAME}"
+							echo "NODE_NAME = ${env.NODE_NAME}"
 							def result = sh(
-								script: '''
+								script: """
+									cd ${pathToUnit}
 									cp ./devops/xfpbuild/sonar-project.properties ./.;
 									${scannerHome}/bin/sonar-scanner -X
-								''',
+								""",
 								returnStdout: true
 							).trim()
 							echo "$result"
 						}
 					}
 				} // end catch
-				catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+				catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
 					timeout(time: 200, unit: 'MINUTES') {
 						waitForQualityGate abortPipeline: true
 					}
 				} // end catch
 			} // end steps
-
 		} // end SonarQube
-
 	} // end stages
 
 	/*-----------------------------------------------------------------------------
 	 * post
 	 *-----------------------------------------------------------------------------
 	 */
-	
+
 	post {
 		failure {
 			send_email('[XFPBUILD] build failing on branch "' + env.BRANCH_NAME + '"','$DEFAULT_RECIPIENTS',
@@ -626,5 +638,4 @@ pipeline {
 				''')
 		}
 	}
-
 }

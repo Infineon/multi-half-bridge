@@ -1,16 +1,12 @@
 cmake_minimum_required(VERSION 3.12.4)
 
-set(prjtest multi-half-bridge-test)
+set(prjtest unit-test)
 
-# Test Sources 
-set(Sources
-    test_tle94112.cpp
-    test_tle94112-motor.cpp
-)
+file(GLOB Sources CONFIGURE_DEPENDS "*.cpp")
 
-# GCOV Coverage Targets 
+# GCOV Coverage Targets
 set(CMAKE_CXX_OUTPUT_EXTENSION_REPLACE ON)
-set(GCOV_FILES_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/multi-half-bridge-corelib.dir/src)
+set(GCOV_FILES_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/${mhbcore}.dir/src)
 
 # Binary and Output Coverage Files
 file(GLOB_RECURSE GCOV_GNNO_GCDA_FILES ${CMAKE_BINARY_DIR}/*.gc??)
@@ -25,7 +21,10 @@ add_custom_target(gcov
 # Coverage Command
 add_custom_command(TARGET gcov
     COMMAND ${CMAKE_COMMAND} -E echo "=================== GCOVR ===================="
-    COMMAND gcovr -r ${CMAKE_SOURCE_DIR}/src/corelib/ ${GCOV_FILES_DIR}/corelib -b -k --gcov-ignore-parse-errors --html --html-details -o ${CMAKE_BINARY_DIR}/coverage/coverage.html 
+    COMMAND ${CMAKE_COMMAND} -E echo ${CMAKE_SOURCE_DIR}
+    COMMAND ${CMAKE_COMMAND} -E echo ${GCOV_FILES_DIR}
+
+    COMMAND gcovr -r ${CMAKE_SOURCE_DIR} ${GCOV_FILES_DIR}/corelib -b -k --gcov-ignore-parse-errors --sonarqube -o ${CMAKE_BINARY_DIR}/coverage/coverage.xml
     COMMAND ${CMAKE_COMMAND} -E echo "-- Coverage files have been output to ${CMAKE_BINARY_DIR}/coverage"
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/coverage
     )
