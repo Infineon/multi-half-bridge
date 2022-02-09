@@ -50,7 +50,7 @@ C++ library of Infineon's Multi Half-Bridge IC controllers.
         <td><img src="https://github.com/infineon/multi-half-bridge/wiki/img/cross-platform.png" width=200></td>
     </tr>
     <tr>
-        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/PSoc-API">PSoc API</a></td>
+        <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/PSoc-API">ModusToolbox API</a></td>
         <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/TLE94112-API/">TLE94112 API</a><br><a href="https://github.com/Infineon/multi-half-bridge/wiki/TLE94112Motor-API">TLE94112Motor API</a></td>
     </tr>
     <tr>
