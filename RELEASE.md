@@ -9,11 +9,7 @@ This version of the Multi Half Bridge Middleware was validated for the compatibi
 | Software and Tools                            | Version   |
 | :---                                          | :----:    |
 | ModusToolBox Software environment             | 2.4       |
-<!--
-| MTB CAT2 Peripheral Driver Library (PDL)      | 1.1.0     |
 | GCC Compiler                                  | 9.3.1     |
-| IAR Compiler                                  | 8.42.2    |
-| ARM Compiler 6                                | 6.13      |
 
 This has to be checked, but this is standard which is provided in all the RELEASE.md
 -->
