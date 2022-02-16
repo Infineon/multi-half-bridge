@@ -16,7 +16,7 @@
 using namespace tle94112;
 
 /**
- * @brief Logger ModusToolbox HAL PAL constructor
+ * @brief       Logger ModusToolbox HAL PAL constructor
  */
 LoggerMtb::LoggerMtb()
 {
@@ -24,7 +24,7 @@ LoggerMtb::LoggerMtb()
 }
 
 /**
- * @brief Logger ModusToolbox HAL PAL destructor
+ * @brief       Logger ModusToolbox HAL PAL destructor
  */
 LoggerMtb::~LoggerMtb()
 {
@@ -38,9 +38,9 @@ LoggerMtb::~LoggerMtb()
  * @return      TLE94112 error code
  * @retval      OK always
  */
-Error_t  LoggerMtb::init()
+Error_t LoggerMtb::init()
 {
-  return tle94112::OK;
+    return tle94112::OK;
 }
 
 /**
@@ -48,15 +48,13 @@ Error_t  LoggerMtb::init()
  * @return      TLE94112 error code
  * @retval      OK always
  */
-Error_t   LoggerMtb::deinit()
+Error_t LoggerMtb::deinit()
 {
-  return tle94112::OK;
+    return tle94112::OK;
 }
 
 /**
  * @brief       Writes in the logger ModusToolbox HAL PAL
- *
- * @note        RETARGETTING IS DONE IN MAIN... THIS COULD BE ALSO ADDED TO INIT...
  *
  * @param[in]   *logData    Pointer to the array holding the data to be logged
  * @param[in]   length      Length in bytes of the data to be written
@@ -64,25 +62,25 @@ Error_t   LoggerMtb::deinit()
  * @retval      OK always
  *
  */
-Error_t   LoggerMtb::write(const uint8_t * log_data, uint32_t length)
+Error_t LoggerMtb::write(const uint8_t * log_data, uint32_t length)
 {
-  uint8_t log_data_copy[length + 1 ] = {0};
-  memcpy(log_data_copy, log_data, length);
-  log_data_copy[length] = '\0';
+    uint8_t log_data_copy[length + 1 ] = {0};
+    memcpy(log_data_copy, log_data, length);
+    log_data_copy[length] = '\0';
 
-  printf("%s",log_data_copy);
+    printf("%s",log_data_copy);
 
-  return tle94112::OK;
+    return tle94112::OK;
 }
 
 /**
- * @brief Library Logger
+ * @brief       Library Logger
  */
 LoggerMtb logpalmtb;
 
 namespace tle94112
 {
-Logger    tle_log(static_cast<LoggerPAL*>(&logpalmtb));
+Logger tle_log(static_cast<LoggerPAL*>(&logpalmtb));
 }
 
 #endif /* TLE94112_LOGGER_ENABLED */
