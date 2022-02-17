@@ -61,7 +61,8 @@ C++ library of Infineon's Multi Half-Bridge IC controllers.
 
 ## More Information
 
-The complete library and project documentation can be found in the [Wiki](https://github.com/Infineon/multi-half-bridge/wiki/Home).
+* [Wiki](https://github.com/Infineon/multi-half-bridge/wiki/Home) - A complete library documentation
+* [API Reference Guide](https://infineon.github.io/multi-half-bridge/index.html) - A detailed explanation of the API
 
 ## License
 

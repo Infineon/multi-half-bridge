@@ -15,6 +15,7 @@ This has to be checked, but this is standard which is provided in all the RELEAS
 -->
 ### More information
 For more information, refer to the following documents:
+* [API Reference Guide](https://infineon.github.io/multi-half-bridge/index.html)
 * [Multi Half Bridge Middleware README.md](./README.md)
 * [Cypress Semiconductor](http://www.cypress.com)
 
