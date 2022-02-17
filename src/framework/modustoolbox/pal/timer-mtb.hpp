@@ -38,8 +38,8 @@ class TimerMtb: virtual public Timer
 		Error_t delayMicro(uint32_t timeout);
 
 	private:
-		cyhal_timer_t     timerHandle;  /**< Timer handle */
-		cyhal_timer_cfg_t timerConf;    /**< Timer configuration handle */
+					 cyhal_timer_t     timerHandle; /**< Timer handle */
+		static const cyhal_timer_cfg_t timerConf;  	/**< Timer configuration handle */
 };
 
 /** @} */

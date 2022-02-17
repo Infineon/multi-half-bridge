@@ -9,6 +9,19 @@
 #include "timer-mtb.hpp"
 
 /**
+ * @brief ModusToolbox Timer configuration
+ */
+const TimerMtb::timerConf = 
+{
+	.compare_value = 0,
+	.period        = 0xFFFFFFFFUL,
+	.direction     = CYHAL_TIMER_DIR_UP,
+	.is_compare    = false,
+	.is_continuous = false,
+	.value         = 0
+};
+
+/**
  * @brief Constructor of the ModusToolbox Timer class
  *
  */
@@ -36,9 +49,28 @@ Error_t TimerMtb::init()
 {
 	Error_t err = OK;
 
-	cy_rslt_t cyErr = cyhal_timer_init(&timerHandle, NC, NULL);
-	if(CY_RSLT_SUCCESS != cyErr)
-		err = INTF_ERROR;
+	do
+	{
+		cy_rslt_t cyErr = cyhal_timer_init(&timerHandle, NC, NULL);
+		if(CY_RSLT_SUCCESS != cyErr)
+		{
+			err = INTF_ERROR;
+			break;
+		}
+
+		cyErr = cyhal_timer_configure(&timerHandle, &timerConf);
+		if(CY_RSLT_SUCCESS != cyErr)
+		{
+			err = INTF_ERROR;
+			break;
+		}
+
+		cyErr = cyhal_timer_set_frequency(&timerHandle, 1000);
+		if(CY_RSLT_SUCCESS != cyErr)
+		{
+			err = INTF_ERROR;
+		}
+	} while (0);
 
 	return err;
 }
@@ -68,23 +100,9 @@ Error_t TimerMtb::start()
 {
 	Error_t err = OK;
 
-	timerConf.compare_value = 0;
-	timerConf.period        = 0xFFFFFFFFUL;
-	timerConf.direction     = CYHAL_TIMER_DIR_UP;
-	timerConf.is_compare 	= false;
-	timerConf.is_continuous = false;
-	timerConf.value         = 0;
-
 	do
 	{
-		cy_rslt_t cyErr = cyhal_timer_configure(&timerHandle, &timerConf);
-		if(CY_RSLT_SUCCESS != cyErr)
-		{
-			err = INTF_ERROR;
-			break;
-		}
-
-		cyErr = cyhal_timer_set_frequency(&timerHandle, 1000000);
+		cy_rslt_t cyErr = cyhal_timer_reset(&timerHandle);
 		if(CY_RSLT_SUCCESS != cyErr)
 		{
 			err = INTF_ERROR;
@@ -93,8 +111,9 @@ Error_t TimerMtb::start()
 
 		cyErr = cyhal_timer_start(&timerHandle);
 		if(CY_RSLT_SUCCESS != cyErr)
+		{
 			err = INTF_ERROR;
-
+		}
 	} while (0);
 
 	return err;
@@ -112,7 +131,7 @@ Error_t TimerMtb::start()
  */
 Error_t TimerMtb::elapsed(uint32_t &elapsed)
 {
-	elapsed = (uint32_t)(cyhal_timer_read(&timerHandle)/1000);
+	elapsed = cyhal_timer_read(&timerHandle);
 	return OK;
 }
 
@@ -153,7 +172,6 @@ Error_t TimerMtb::delayMilli(uint32_t timeout)
 		err = INTF_ERROR;
 
 	return err;
-	return OK;
 }
 
 /**
@@ -169,7 +187,7 @@ Error_t TimerMtb::delayMicro(uint32_t timeout)
 {
 	Error_t err = OK;
 
-	cy_rslt_t cyErr = cyhal_system_delay_ms(timeout*1000);
+	cy_rslt_t cyErr = cyhal_system_delay_ms(timeout/1000);
 	if(CY_RSLT_SUCCESS != cyErr)
 		err = INTF_ERROR;
 
