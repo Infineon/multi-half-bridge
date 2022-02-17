@@ -25,7 +25,7 @@ Tle94112Mtb::Tle94112Mtb(void)
 
 /**
  * @brief Construct a new Tle94112Mtb object
- * This constructor calls with default pinsetting for the PSCO6 SPI
+ * This constructor calls with default pinsetting for the SPI
  * except for the chip select pin. Keep in mind that we do not set the chipselect pin with
  * the SPI class, as we need a constant signal during multiple transfers.
  *
