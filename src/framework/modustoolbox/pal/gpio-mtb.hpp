@@ -6,7 +6,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-
 #ifndef GPIO_MTB_HPP_
 #define GPIO_MTB_HPP_
 
@@ -24,7 +23,6 @@ using namespace tle94112;
 
 /**
  * @brief ModusToolbox GPIO wrapper class
- *
  */
 class GPIOMtb : virtual public GPIOC
 {

@@ -20,13 +20,13 @@ GPIOMtb::GPIOMtb( cyhal_gpio_t              pin,
 				  cyhal_gpio_direction_t    dir,
 				  cyhal_gpio_drive_mode_t   driveMode,
 				  VLogic_t                  logic)
-		: pin(pin), dir(dir), driveMode(driveMode), logic(logic)
+: pin(pin), dir(dir), driveMode(driveMode), logic(logic)
 {
 
 }
 
 /**
- * @brief GPIO ModusToolbox destructor
+ * @brief 		GPIO ModusToolbox destructor
  */
 GPIOMtb::~GPIOMtb()
 {
@@ -35,16 +35,27 @@ GPIOMtb::~GPIOMtb()
 }
 
 /**
- * @brief   Initializes the ModusToolbox GPIO
- * @return  GPIO error code
- * @retval  OK if success
- * @retval  ERROR if initialization error
+ * @brief   	Initializes the ModusToolbox GPIO
+ * @return  	GPIO error code
+ * @retval  	OK if success
+ * @retval  	ERROR if initialization error
  */
 inline Error_t GPIOMtb::init()
 {
 	Error_t err = OK;
+	bool initVal;
 
-	cy_rslt_t cyErr = cyhal_gpio_init(this->pin, this->dir, this->driveMode, 0);
+	/* Initialize according to logic */
+	if(POSITIVE == logic)
+	{
+		initVal = 0;
+	}
+	else if(NEGATIVE == logic)
+	{	
+		initVal = 1;
+	}
+
+	cy_rslt_t cyErr = cyhal_gpio_init(this->pin, this->dir, this->driveMode, initVal);
 	if(CY_RSLT_SUCCESS != cyErr)
 		err = INTF_ERROR;
 
@@ -52,10 +63,10 @@ inline Error_t GPIOMtb::init()
 }
 
 /**
- * @brief   Initializes the ModusToolbox GPIO
- * @return  GPIO error code
- * @retval  OK if success
- * @retval  ERROR if deinitialization error
+ * @brief   	Initializes the ModusToolbox GPIO
+ * @return  	GPIO error code
+ * @retval  	OK if success
+ * @retval  	ERROR if deinitialization error
  */
 inline Error_t GPIOMtb::deinit()
 {
@@ -65,14 +76,14 @@ inline Error_t GPIOMtb::deinit()
 }
 
 /**
- * @brief       Reads the ModusToolbox GPIO voltage level
- * @return      GPIO voltage level
- * @retval      GPIO_LOW if voltage low
- * @retval      GPIO_HIGH if voltage high
+ * @brief 		Reads the ModusToolbox GPIO voltage level
+ * @return		GPIO voltage level
+ * @retval		GPIO_LOW if voltage low
+ * @retval 		GPIO_HIGH if voltage high
  */
 inline GPIOMtb::VLevel_t GPIOMtb::read()
 {
-	return (VLevel_t) (VLevel_t) cyhal_gpio_read(this->pin);
+	return (VLevel_t) cyhal_gpio_read(this->pin);
 }
 
 /**
@@ -107,6 +118,7 @@ inline Error_t GPIOMtb::enable()
 	{
 		cyhal_gpio_write(this->pin, GPIO_LOW);
 	}
+
 	return OK;
 }
 
@@ -128,5 +140,6 @@ inline Error_t GPIOMtb::disable()
 	{
 		cyhal_gpio_write(this->pin, GPIO_HIGH);
 	}
+
 	return OK;
 }
