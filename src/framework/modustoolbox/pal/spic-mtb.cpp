@@ -9,16 +9,16 @@
 #include "spic-mtb.hpp"
 
 /**
- * @brief Construct a new SPICMtb object
+ * @brief		Construct a new SPICMtb object
  *
- * This function allows to set all parameters of the SPI master.
+ * @details 	This function allows to set all parameters of the SPI master.
  *
- * @param csPin    Number of the desired ChipSelect pin
- * @param misoPin  Number of the desired MISO pin
- * @param mosiPin  Number of the desired MOSI pin
- * @param sckPin   Number of the desired SystemClock pin
+ * @param[in] 	csPin    	Number of the desired ChipSelect pin
+ * @param[in] 	misoPin  	Number of the desired MISO pin
+ * @param[in] 	mosiPin  	Number of the desired MOSI pin
+ * @param[in] 	sckPin   	Number of the desired SystemClock pin
  *
- * @attention This does not set the platform_spi_peripherals structure yet
+ * @attention 	This does not set the platform_spi_peripherals structure yet
  */
 SPICMtb::SPICMtb(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t mosiPin, cyhal_gpio_t sckPin)
 {
@@ -29,7 +29,7 @@ SPICMtb::SPICMtb(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t mosiPin,
 }
 
 /**
- * @brief Destructor of the SPICMtb class
+ * @brief		Destructor of the SPICMtb class
  *
  */
 SPICMtb::~SPICMtb()
@@ -37,24 +37,26 @@ SPICMtb::~SPICMtb()
 	deinit();
 }
 /**
- * @brief Initialize the SPIC
+ * @brief  		Initialize the SPIC
  *
- * This function is initializing the chosen spi channel
- * with the given values for lsb,clock and mode
+ * @details		This function is initializing the chosen spi channel
+ * 				with the given values for lsb,clock and mode
  *
- * @return Error_t
+ * @return 		Error_t
  */
 Error_t SPICMtb::init()
 {
 	Error_t err = OK;
 
 	cy_rslt_t cyErr = cyhal_spi_init( &this->spi, this->mosiPin, this->misoPin, this->sckPin, this->csPin, NULL, 8, CYHAL_SPI_MODE_00_LSB, false);
-	if(CY_RSLT_SUCCESS != cyErr) {
-		err = INTF_ERROR;
+	if(CY_RSLT_SUCCESS != cyErr) 
+	{
+		return INTF_ERROR;
 	}
 
 	cyErr = cyhal_spi_set_frequency( &this->spi, SPI_FREQ_HZ);
-	if(CY_RSLT_SUCCESS != cyErr){
+	if(CY_RSLT_SUCCESS != cyErr)
+	{
 		err = INTF_ERROR;
 	}
 
@@ -62,11 +64,11 @@ Error_t SPICMtb::init()
 }
 
 /**
- * @brief Deinitialize the SPIC
+ * @brief 		Deinitialize the SPIC
  *
- * This function is deinitializing the chosen spi channel.
+ * @details 	This function is deinitializing the chosen spi channel.
  *
- * @return Error_t
+ * @return 		Error_t
  */
 Error_t SPICMtb::deinit()
 {
@@ -75,19 +77,18 @@ Error_t SPICMtb::deinit()
 }
 
 /**
- * @brief Transfers a data package via the spi bus
- * @attention __enable_irq() must be used in the main.c file otherwise the transfer function
- * will be pending for ever, as the SPI subsystem is not started
+ * @brief 		Transfers a data package via the spi bus
+ * @attention 	__enable_irq() must be used in the main.c file otherwise the transfer function
+ * 				will be pending for ever, as the SPI subsystem is not started
  *
- * @param send         address and/or command to send
- * @param received     received data from spi bus
- * @return             Error_t
+ * @param[in]	send         address and/or command to send
+ * @param[out] 	received     received data from spi bus
+ * @return		Error_t
  */
 Error_t SPICMtb::transfer(uint8_t send, uint8_t &received)
 {
 	Error_t err = OK;
 
-	receiveBuffer[0] = received;
 	cy_rslt_t cyErr = cyhal_spi_transfer( &this->spi, &send, 1u, &received, 1u, 0x0);
 	if(CY_RSLT_SUCCESS != cyErr)
 		err = INTF_ERROR;
@@ -96,13 +97,13 @@ Error_t SPICMtb::transfer(uint8_t send, uint8_t &received)
 }
 
 /**
- * @brief Transfers a data package via the spi bus
- * @attention __enable_irq() must be used in the main.c file otherwise the transfer function
- * will be pending for ever, as the SPI subsystem is not started
+ * @brief 		Transfers a data package via the spi bus
+ * @attention	__enable_irq() must be used in the main.c file otherwise the transfer function
+ * 				will be pending for ever, as the SPI subsystem is not started
  *
- * @param send         address and/or command to send as 16bit
- * @param received     received data from spi bus as 16bit
- * @return             Error_t
+ * @param[in] 	send         address and/or command to send as 16bit
+ * @param[out] 	received     received data from spi bus as 16bit
+ * @return    	Error_t
  */
 Error_t SPICMtb::transfer16(uint16_t send, uint16_t &received)
 {
