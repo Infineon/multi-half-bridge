@@ -11,15 +11,6 @@
 /**
  * @brief ModusToolbox Timer configuration
  */
-const TimerMtb::timerConf = 
-{
-	.compare_value = 0,
-	.period        = 0xFFFFFFFFUL,
-	.direction     = CYHAL_TIMER_DIR_UP,
-	.is_compare    = false,
-	.is_continuous = false,
-	.value         = 0
-};
 
 /**
  * @brief Constructor of the ModusToolbox Timer class
@@ -48,6 +39,17 @@ TimerMtb::~TimerMtb()
 Error_t TimerMtb::init()
 {
 	Error_t err = OK;
+
+	const cyhal_timer_cfg_t timerConf = 
+	{
+		.is_continuous = false,
+		.direction     = CYHAL_TIMER_DIR_UP,
+		.is_compare    = false,
+		.period        = 0xFFFFFFFFUL,
+		.compare_value = 0,
+		.value         = 0
+	};
+
 
 	do
 	{

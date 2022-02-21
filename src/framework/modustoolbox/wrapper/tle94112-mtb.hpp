@@ -11,6 +11,7 @@
 
 #include "tle94112.hpp"
 #include "tle94112-platf-mtb.hpp"
+#include "cyhal_gpio.h"
 
 /**
  * @addtogroup mtbApi

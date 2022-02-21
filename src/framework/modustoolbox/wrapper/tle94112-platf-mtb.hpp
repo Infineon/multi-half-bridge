@@ -18,8 +18,8 @@
  * @brief Different SPI pinsettings for different ModusToolbox supported boards
  *
  */
-#ifndef defined (KIT_SPI_MASTER_MOSI) || defined (KIT_SPI_MASTER_MISO) || \
-		defined (KIT_SPI_MASTER_SCLK) || defined (KIT_SPI_MASTER_SS)
+#if	!defined (KIT_SPI_MASTER_MOSI) || !defined (KIT_SPI_MASTER_MISO) || \
+	!defined (KIT_SPI_MASTER_SCLK) || !defined (KIT_SPI_MASTER_SS)
 
 #if defined (TARGET_CY8CKIT_062_BLE) || defined (TARGET_CYW9P62S1_43438EVB_01) || \
 	defined (TARGET_CY8CKIT_062_WIFI_BT) || defined (TARGET_CY8CKIT_062S2_43012) || \
