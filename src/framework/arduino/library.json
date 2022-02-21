@@ -12,7 +12,7 @@
       "url":"https://www.infineon.com/cms/en/product/evaluation-boards/tle94112el_shield/",
       "maintainer": true
    },
-   "version":"3.0.3",
+   "version":"5.0.0",
    "license":"MIT",
    "frameworks":"arduino",
    "platforms":[  
