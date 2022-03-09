@@ -27,22 +27,23 @@ using namespace tle94112;
 class SPICMtb: virtual public SPIC
 {
 	private:
-		cyhal_gpio_t         csPin;
-		cyhal_gpio_t         misoPin;
-		cyhal_gpio_t         mosiPin;
-		cyhal_gpio_t         sckPin;
-		cyhal_spi_t          spi;
+		cyhal_gpio_t	csPin;
+		cyhal_gpio_t	misoPin;
+		cyhal_gpio_t 	mosiPin;
+		cyhal_gpio_t 	sckPin;
+		cyhal_spi_t  	spi;
 
-		uint8_t sendBuffer[2];
-		uint8_t receiveBuffer[2];
+		uint8_t 		sendBuffer[2];
+		uint8_t 		receiveBuffer[2];
 
 	public:
-		SPICMtb(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t mosiPin, cyhal_gpio_t sckPin);
-		~SPICMtb();
-		Error_t     init();
-		Error_t     deinit();
-		Error_t     transfer(uint8_t send, uint8_t &received);
-		Error_t     transfer16(uint16_t send, uint16_t &received);
+	
+					SPICMtb 	(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t mosiPin, cyhal_gpio_t sckPin);
+					~SPICMtb	();
+		Error_t     init		();
+		Error_t     deinit		();
+		Error_t     transfer	(uint8_t send, uint8_t &received);
+		Error_t     transfer16	(uint16_t send, uint16_t &received);
 
 		static const cyhal_gpio_t   unusedPin = CYHAL_NC_PIN_VALUE;      /**< Unused pin */
 

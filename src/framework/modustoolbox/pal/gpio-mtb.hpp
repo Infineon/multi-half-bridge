@@ -35,17 +35,14 @@ class GPIOMtb : virtual public GPIOC
 	public:
 		static const cyhal_gpio_t   unusedPin = CYHAL_NC_PIN_VALUE;      /**< Unused pin */
 
-					GPIOMtb(cyhal_gpio_t              pin,
-							cyhal_gpio_direction_t    dir,
-							cyhal_gpio_drive_mode_t   driveMode,
-							VLogic_t                  logic);
-					~GPIOMtb();
-		Error_t     init();
-		Error_t     deinit();
-		VLevel_t    read();
-		Error_t     write(VLevel_t level);
-		Error_t     enable();
-		Error_t     disable();
+				 GPIOMtb	(cyhal_gpio_t pin, cyhal_gpio_direction_t dir, cyhal_gpio_drive_mode_t driveMode, VLogic_t logic);
+				 ~GPIOMtb	();
+		Error_t  init		();
+		Error_t  deinit		();
+		VLevel_t read		();
+		Error_t  write		(VLevel_t level);
+		Error_t  enable		();
+		Error_t  disable	();
 };
 
 /** @} */

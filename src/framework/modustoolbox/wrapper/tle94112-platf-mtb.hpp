@@ -21,9 +21,8 @@
 #if	!defined (KIT_SPI_MASTER_MOSI) || !defined (KIT_SPI_MASTER_MISO) || \
 	!defined (KIT_SPI_MASTER_SCLK) || !defined (KIT_SPI_MASTER_SS)
 
-#if defined (TARGET_CY8CKIT_062_BLE) || defined (TARGET_CYW9P62S1_43438EVB_01) || \
-	defined (TARGET_CY8CKIT_062_WIFI_BT) || defined (TARGET_CY8CKIT_062S2_43012) || \
-	defined (TARGET_CYW9P62S1_43012EVB_01) || defined (TARGET_CY8CKIT_064B0S2_4343W)
+#if defined (CYBSP_SPI_MOSI) && defined (CYBSP_SPI_MISO) || \
+	defined (CYBSP_SPI_CLK)  && defined (CYBSP_SPI_CS) 
 	#define KIT_SPI_MASTER_MOSI               (CYBSP_SPI_MOSI)
 	#define KIT_SPI_MASTER_MISO               (CYBSP_SPI_MISO)
 	#define KIT_SPI_MASTER_SCLK               (CYBSP_SPI_CLK)

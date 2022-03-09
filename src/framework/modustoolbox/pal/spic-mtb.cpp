@@ -112,7 +112,7 @@ Error_t SPICMtb::transfer16(uint16_t send, uint16_t &received)
 	sendBuffer[0] = (uint8_t)((send >> 8) & 0xFF);
 	sendBuffer[1] = (uint8_t)(send & 0xFF);
 
-	cy_rslt_t cyErr = cyhal_spi_transfer( &this->spi, sendBuffer, 2, receiveBuffer, 2, 0xF);
+	cy_rslt_t cyErr = cyhal_spi_transfer( &this->spi, sendBuffer, 2, receiveBuffer, 2, 0x0);
 	if(CY_RSLT_SUCCESS != cyErr)
 		err = INTF_ERROR;
 	received = (uint16_t)(((uint16_t)receiveBuffer[0] << 8) | (receiveBuffer[1]));

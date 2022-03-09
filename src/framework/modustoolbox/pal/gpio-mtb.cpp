@@ -48,11 +48,11 @@ inline Error_t GPIOMtb::init()
 	/* Initialize according to logic */
 	if(POSITIVE == logic)
 	{
-		initVal = 0;
+		initVal = GPIO_LOW;
 	}
 	else if(NEGATIVE == logic)
 	{	
-		initVal = 1;
+		initVal = GPIO_HIGH;
 	}
 
 	cy_rslt_t cyErr = cyhal_gpio_init(this->pin, this->dir, this->driveMode, initVal);
@@ -83,7 +83,20 @@ inline Error_t GPIOMtb::deinit()
  */
 inline GPIOMtb::VLevel_t GPIOMtb::read()
 {
-	return (VLevel_t) cyhal_gpio_read(this->pin);
+	VLevel_t valLevel;
+
+	bool val = cyhal_gpio_read(this->pin);
+	
+	if(true == val)
+	{
+		valLevel = GPIO_HIGH;
+	}
+	else if(false == val)
+	{
+		valLevel = GPIO_LOW;
+	}
+
+	return valLevel; 
 }
 
 /**
