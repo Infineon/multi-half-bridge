@@ -9,10 +9,10 @@ This version of the Multi Half Bridge Middleware was validated for the compatibi
 | Software and Tools                            | Version   |
 | :---                                          | :----:    |
 | ModusToolBox Software environment             | 2.4       |
-| GCC Compiler                                  | 9.3.1     |
+| GCC Compiler                                  | 10.3.1    |
+| IAR Compiler                                  | 8.50.6    |
+| ARM Compiler                                  | 6.16      |
 
-This has to be checked, but this is standard which is provided in all the RELEASE.md
--->
 ### More information
 For more information, refer to the following documents:
 * [API Reference Guide](https://infineon.github.io/multi-half-bridge/index.html)
