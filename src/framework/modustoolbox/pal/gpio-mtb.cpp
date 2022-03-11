@@ -43,7 +43,7 @@ GPIOMtb::~GPIOMtb()
 inline Error_t GPIOMtb::init()
 {
 	Error_t err = OK;
-	bool initVal;
+	bool initVal = GPIO_LOW;
 
 	/* Initialize according to logic */
 	if(POSITIVE == logic)

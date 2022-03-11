@@ -187,11 +187,7 @@ Error_t TimerMtb::delayMilli(uint32_t timeout)
  */
 Error_t TimerMtb::delayMicro(uint32_t timeout)
 {
-	Error_t err = OK;
+    cyhal_system_delay_us(timeout);
 
-	cy_rslt_t cyErr = cyhal_system_delay_us(timeout);
-	if(CY_RSLT_SUCCESS != cyErr)
-		err = INTF_ERROR;
-
-	return err;
+	return OK;
 }
