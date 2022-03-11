@@ -31,17 +31,12 @@
     /** @} */
 
     /**
-     * @defgroup tle94112mtb        ModusToolbox
+     * @defgroup Tle94112Mtb        ModusToolbox
      * @{
      */
-        /*
-         * @defgroup tle94112psoc6hal     PSOC6 HAL
-         * @{
-         */
-            /** @defgroup psoc6Api        TLE94112 API */
-            /** @defgroup psoc6Pal        PAL  */
-            /** @defgroup platfPsoc6      HW Platforms */
-        /** @} */
+        /** @defgroup mtbApi        TLE94112 API */
+        /** @defgroup mtbPal        PAL  */
+        /** @defgroup mtbPlatf      HW Platforms */
     /** @} */
 
     /**
@@ -52,6 +47,5 @@
         /** @defgroup wicedPal      PAL */
         /** @defgroup platfWiced    HW Platform */
     /** @} */
-
 /** @} */
 
