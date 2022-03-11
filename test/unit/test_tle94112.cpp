@@ -20,6 +20,15 @@ class Tle94112_Test: public ::testing::Test
 };
 
 /**
+ * Constructor call
+ */
+TEST_F(Tle94112_Test, defaultConstructor_Success)
+{
+    /* No test, just pretty coverage */
+    Tle94112 mhb;
+}
+
+/**
  * begin() tests
  */
 TEST_F(Tle94112_Test, begin_Success)
@@ -54,6 +63,14 @@ TEST_F(Tle94112_Test, begin_Success)
     .WillOnce(Return(OK));
 
     Tle94112 mhb(&sbus, &cs, &en, &timer);
+    
+    /* No test, just pretty coverage */
+    mhb.begin();
+}
+
+TEST_F(Tle94112_Test, beginNullptrInstances_Success)
+{
+    Tle94112 mhb(nullptr, nullptr, nullptr, nullptr);
     
     /* No test, just pretty coverage */
     mhb.begin();
@@ -98,6 +115,14 @@ TEST_F(Tle94112_Test, end_Success)
     .WillOnce(Return(OK));
 
     Tle94112 mhb(&sbus, &cs, &en, &timer);
+    
+    /* No test, just pretty coverage */
+    mhb.end();
+}
+
+TEST_F(Tle94112_Test, endNullptrInstances_Success)
+{
+    Tle94112 mhb(nullptr, nullptr, nullptr, nullptr);
     
     /* No test, just pretty coverage */
     mhb.end();
@@ -175,6 +200,40 @@ TEST_F(Tle94112_Test, configPWM_Success)
     
     /* No test, just pretty coverage */
     mhb.configPWM(pwmChan, freq, dutyCycle);
+}
+
+/**
+ * setLedMode() tests
+ */
+TEST_F(Tle94112_Test, setLedMode_Success)
+{
+    MockSPIC   sbus;
+    MockGPIOC  en;
+    MockGPIOC  cs;
+    MockTimer  timer;
+
+    EXPECT_CALL(cs, disable())
+    .Times(2)
+    .WillRepeatedly(Return(OK));
+
+    EXPECT_CALL(cs, enable())
+    .Times(2)
+    .WillRepeatedly(Return(OK));
+
+    EXPECT_CALL(sbus, transfer(_,_))
+    .Times(4)
+    .WillRepeatedly(Return(OK));
+
+    EXPECT_CALL(timer, delayMilli(_))
+    .Times(2)
+    .WillRepeatedly(Return(OK));
+
+    Tle94112 mhb(&sbus, &cs, &en, &timer);
+    
+    /* No test, just pretty coverage */
+    mhb.setLedMode(Tle94112::TLE_HB1, 0);
+    mhb.setLedMode(Tle94112::TLE_HB2, 0);
+    mhb.setLedMode(Tle94112::TLE_HB3, 0);
 }
 
 /**
