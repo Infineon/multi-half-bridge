@@ -1,0 +1,7 @@
+<map id="Tle94112::readStatusReg" name="Tle94112::readStatusReg">
+<area shape="rect" id="node1" title="reads some bits from a status register of the TLE94112" alt="" coords="5,81,191,108"/>
+<area shape="rect" id="node2" href="$d3/d5d/group__pal.html#a03f2756f97eed3d5eaabb93ea6627db7" title="Introduces a delay during the specified time." alt="" coords="239,5,436,32"/>
+<area shape="rect" id="node3" href="$d3/d5d/group__pal.html#aacea90c9389fba78d927132bd3a546cc" title="Disables the GPIO output according to the GPIO logic." alt="" coords="246,56,429,83"/>
+<area shape="rect" id="node4" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="247,107,427,133"/>
+<area shape="rect" id="node5" href="$d3/d5d/group__pal.html#a0ef16bcb393e15a5010f0ec50b867e33" title="Send/receives data from SPI bus." alt="" coords="250,157,425,184"/>
+</map>

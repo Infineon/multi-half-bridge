@@ -1,0 +1,7 @@
+<map id="tle94112::Timer" name="tle94112::Timer">
+<area shape="rect" id="node1" title=" " alt="" coords="143,5,268,32"/>
+<area shape="rect" id="node2" href="$d1/d0a/group__arduinoPal.html#dd/d9b/classTimerIno" title=" " alt="" coords="5,80,85,107"/>
+<area shape="rect" id="node3" href="$d4/d84/group__mtbPal.html#de/de4/classTimerMtb" title="MoudusToolbox timer wrapper." alt="" coords="109,80,195,107"/>
+<area shape="rect" id="node4" href="$d4/d89/group__rpiPal.html#d5/d68/classTimerRpi" title=" " alt="" coords="219,80,301,107"/>
+<area shape="rect" id="node5" href="$d2/d6a/group__wicedPal.html#da/d9e/classTimerWiced" title="WiCED timer wrapper." alt="" coords="325,80,425,107"/>
+</map>

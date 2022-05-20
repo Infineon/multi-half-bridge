@@ -1,0 +1,9 @@
+<map id="Tle94112::configPWM" name="Tle94112::configPWM">
+<area shape="rect" id="node1" title="sets the frequency and duty cycle for a PWM channel" alt="" coords="5,81,168,108"/>
+<area shape="rect" id="node2" href="$d5/dd0/group__tle94112api.html#ae81da08f80a439295811f774713e6590" title="sets the frequency and duty cycle for a PWM channel automatically called by the public version of con..." alt="" coords="216,81,385,108"/>
+<area shape="rect" id="node3" href="$d5/dd0/group__tle94112api.html#a68607ddf951e75fc8dc9137881a05a3b" title="writes data bits to a control register of the TLE94112" alt="" coords="433,81,581,108"/>
+<area shape="rect" id="node4" href="$d3/d5d/group__pal.html#a03f2756f97eed3d5eaabb93ea6627db7" title="Introduces a delay during the specified time." alt="" coords="629,5,827,32"/>
+<area shape="rect" id="node5" href="$d3/d5d/group__pal.html#aacea90c9389fba78d927132bd3a546cc" title="Disables the GPIO output according to the GPIO logic." alt="" coords="637,56,819,83"/>
+<area shape="rect" id="node6" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="638,107,818,133"/>
+<area shape="rect" id="node7" href="$d3/d5d/group__pal.html#a0ef16bcb393e15a5010f0ec50b867e33" title="Send/receives data from SPI bus." alt="" coords="641,157,815,184"/>
+</map>

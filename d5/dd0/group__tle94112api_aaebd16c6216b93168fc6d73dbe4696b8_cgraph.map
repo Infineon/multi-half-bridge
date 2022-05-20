@@ -1,0 +1,4 @@
+<map id="Tle94112::getSysDiagnosis" name="Tle94112::getSysDiagnosis">
+<area shape="rect" id="node1" title="returns a diagnosis value for error detection" alt="" coords="5,5,204,32"/>
+<area shape="rect" id="node2" href="$d5/dd0/group__tle94112api.html#a5ad39746c9a78d4ac384c6be78aa8cd0" title="reads one byte from a status register of the TLE94112" alt="" coords="252,5,437,32"/>
+</map>

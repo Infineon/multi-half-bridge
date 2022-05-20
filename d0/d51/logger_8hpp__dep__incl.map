@@ -1,0 +1,11 @@
+<map id="logger.hpp" name="logger.hpp">
+<area shape="rect" id="node1" title="TLE94112 Logger Platform Abstraction Layer." alt="" coords="262,5,353,32"/>
+<area shape="rect" id="node2" href="$da/d62/logger-arduino_8hpp.html" title="TLE94112 Logger Arduino PAL." alt="" coords="5,80,151,107"/>
+<area shape="rect" id="node4" href="$d7/d6f/logger-mtb_8hpp.html" title="TLE94112 Logger ModusToolbox HAL PAL." alt="" coords="175,80,298,107"/>
+<area shape="rect" id="node6" href="$d4/d48/logger-rpi_8hpp.html" title="TLE94112 Logger Raspberry Pi PAL." alt="" coords="323,80,436,107"/>
+<area shape="rect" id="node8" href="$df/d31/logger-wiced_8hpp.html" title="TLE94112 Logger WICED PAL." alt="" coords="460,80,595,107"/>
+<area shape="rect" id="node3" href="$de/d46/logger-arduino_8cpp.html" title="TLE94112 Logger Arduino PAL." alt="" coords="6,155,150,181"/>
+<area shape="rect" id="node5" href="$d8/db8/logger-mtb_8cpp.html" title="TLE94112 Logger ModusToolbox HAL PAL." alt="" coords="176,155,297,181"/>
+<area shape="rect" id="node7" href="$d2/ded/logger-rpi_8cpp.html" title="TLE94112 Logger Raspberry Pi PAL." alt="" coords="323,155,435,181"/>
+<area shape="rect" id="node9" href="$dd/dfe/logger-wiced_8cpp.html" title="TLE94112 Logger WICED PAL." alt="" coords="461,155,594,181"/>
+</map>

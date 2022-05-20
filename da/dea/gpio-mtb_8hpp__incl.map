@@ -1,0 +1,8 @@
+<map id="gpio&#45;mtb.hpp" name="gpio&#45;mtb.hpp">
+<area shape="rect" id="node1" title="TLE94112 GPIO ModusToolbox HAL PAL." alt="" coords="100,5,209,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="60,155,131,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="23,80,147,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="172,80,276,107"/>
+<area shape="rect" id="node5" href="$d1/d2c/gpio_8hpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="300,80,379,107"/>
+<area shape="rect" id="node6" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="266,155,414,181"/>
+</map>

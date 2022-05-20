@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$d5/dd0/group__tle94112api.html#de/dfb/classTle94112" title="represents a basic TLE94112" alt="" coords="5,81,88,108"/>
+<area shape="rect" id="node2" href="$dc/d65/group__inoApi.html#d9/dc2/classTle94112Ino" title="Arduino Tle94112Ino constructor." alt="" coords="146,5,249,32"/>
+<area shape="rect" id="node3" href="$d7/d21/group__mtbApi.html#d4/d8f/classTle94112Mtb" title=" " alt="" coords="144,56,251,83"/>
+<area shape="rect" id="node4" href="$d2/d1d/group__rpiApi.html#df/d0c/classTle94112Rpi" title=" " alt="" coords="146,107,249,133"/>
+<area shape="rect" id="node5" href="$de/d02/group__wicedApi.html#d5/d1c/classTle94112Wiced" title=" " alt="" coords="136,157,259,184"/>
+</map>

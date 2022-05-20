@@ -1,0 +1,17 @@
+<map id="tle94112&#45;rpi.cpp" name="tle94112&#45;rpi.cpp">
+<area shape="rect" id="node1" title="TLE94112 Raspberry Pi API." alt="" coords="379,5,507,32"/>
+<area shape="rect" id="node2" href="$dc/de3/tle94112-rpi_8hpp.html" title="TLE94112 Raspberry Pi API." alt="" coords="5,80,135,107"/>
+<area shape="rect" id="node11" href="$d6/d0a/tle94112-platf-rpi_8hpp.html" title="TLE94112 Raspberry Pi Hardware Platforms." alt="" coords="283,80,446,107"/>
+<area shape="rect" id="node12" href="$d0/d9f/gpio-rpi_8hpp.html" title="TLE94112 GPIO Raspberry Pi API." alt="" coords="159,80,259,107"/>
+<area shape="rect" id="node13" href="$d8/d2e/spic-rpi_8hpp.html" title="TLE94112 SPI Raspberry Pi PAL." alt="" coords="601,80,699,107"/>
+<area shape="rect" id="node14" title=" " alt="" coords="662,155,723,181"/>
+<area shape="rect" id="node15" href="$da/df3/timer-rpi_8hpp.html" title="TLE94112 Timer Raspberry Pi PAL." alt="" coords="470,80,577,107"/>
+<area shape="rect" id="node3" href="$d4/d9b/tle94112_8hpp.html" title="TLE94112 Core API." alt="" coords="97,155,203,181"/>
+<area shape="rect" id="node10" title=" " alt="" coords="317,155,412,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="212,304,283,331"/>
+<area shape="rect" id="node5" title=" " alt="" coords="113,229,184,256"/>
+<area shape="rect" id="node6" href="$df/d05/timer_8hpp.html" title="TLE94112 Timer Platform Abstraction Layer." alt="" coords="311,229,395,256"/>
+<area shape="rect" id="node8" href="$d1/d2c/gpio_8hpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="208,229,287,256"/>
+<area shape="rect" id="node9" href="$d8/df0/spic_8hpp.html" title="TLE94112 SPI Platform Abstraction Layer." alt="" coords="419,229,495,256"/>
+<area shape="rect" id="node7" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="307,304,455,331"/>
+</map>

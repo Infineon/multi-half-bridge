@@ -1,0 +1,10 @@
+<map id="tle94112&#45;motor.hpp" name="tle94112&#45;motor.hpp">
+<area shape="rect" id="node1" title="TLE94112 Motor Control API." alt="" coords="95,5,246,32"/>
+<area shape="rect" id="node2" href="$d4/d9b/tle94112_8hpp.html" title="TLE94112 Core API." alt="" coords="117,80,224,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="30,229,101,256"/>
+<area shape="rect" id="node4" title=" " alt="" coords="334,155,405,181"/>
+<area shape="rect" id="node5" href="$df/d05/timer_8hpp.html" title="TLE94112 Timer Platform Abstraction Layer." alt="" coords="23,155,107,181"/>
+<area shape="rect" id="node7" href="$d1/d2c/gpio_8hpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="131,155,210,181"/>
+<area shape="rect" id="node8" href="$d8/df0/spic_8hpp.html" title="TLE94112 SPI Platform Abstraction Layer." alt="" coords="234,155,310,181"/>
+<area shape="rect" id="node6" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="125,229,273,256"/>
+</map>
