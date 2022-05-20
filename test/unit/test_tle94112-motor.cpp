@@ -387,7 +387,7 @@ TEST_F(Tle94112Motor_Test, start_NoHighSideConenctorSuccess)
 /**
  * stop() tests
  */
-TEST_F(Tle94112Motor_Test, stop_NoHighSideConenctorSuccess)
+TEST_F(Tle94112Motor_Test, stop_NoHighSideConnectorSuccess)
 {
     Tle94112 mhb(&sbus, &cs, &en, &timer);
     Tle94112Motor motor(mhb);
@@ -397,13 +397,13 @@ TEST_F(Tle94112Motor_Test, stop_NoHighSideConenctorSuccess)
     motor.stop(127);
 }
 
-TEST_F(Tle94112Motor_Test, stop_HighSideConenctorSuccess)
+TEST_F(Tle94112Motor_Test, stop_HighSideConnectorSuccess)
 {
     Tle94112 mhb(&sbus, &cs, &en, &timer);
     Tle94112Motor motor(mhb);
     
-    /* No test, just pretty coverage */
-    motor.initConnector(motor.HIGHSIDE, mhb.TLE_NOPWM, mhb.TLE_HB1, mhb.TLE_HB2, mhb.TLE_NOHB, mhb.TLE_NOHB);
+//     /* No test, just pretty coverage */
+//     motor.initConnector(motor.HIGHSIDE, mhb.TLE_NOPWM, mhb.TLE_HB1, mhb.TLE_HB2, mhb.TLE_NOHB, mhb.TLE_NOHB);
     motor.begin();
     motor.stop(127);
 }
@@ -414,6 +414,7 @@ TEST_F(Tle94112Motor_Test, stop_NotmEnabled)
     Tle94112Motor motor(mhb);
     
     /* No test, just pretty coverage */
+    motor.begin();
     motor.stop(127);
 }
 
@@ -461,6 +462,7 @@ TEST_F(Tle94112Motor_Test, rampSpeed_NotmEnabled)
     Tle94112Motor motor(mhb);
     
     /* No test, just pretty coverage */
+    motor.begin();
     motor.rampSpeed(127, 5000);
 }
 

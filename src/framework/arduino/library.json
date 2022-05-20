@@ -12,7 +12,7 @@
       "url":"https://www.infineon.com/cms/en/product/power/motor-control-ics/brushed-dc-motor-driver-ics/multi-half-bridge-ics/",
       "maintainer": true
    },
-   "version":"5.0.0",
+   "version":"5.0.1",
    "license":"MIT",
    "frameworks":"arduino",
    "platforms":[  

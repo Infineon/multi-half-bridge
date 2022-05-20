@@ -159,7 +159,7 @@ TEST_F(Tle94112_Test, configHB_Success)
     Tle94112::HalfBridge  hb       = Tle94112::TLE_HB1;
     Tle94112::HBState     hbState  = Tle94112::TLE_LOW;
     Tle94112::PWMChannel  pwmChan  = Tle94112::TLE_PWM1;
-    uint8_t               activeFW = 1;
+    // uint8_t               activeFW = 1;
     
     /* No test, just pretty coverage */
     mhb.configHB(hb, hbState, pwmChan);

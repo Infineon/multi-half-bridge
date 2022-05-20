@@ -21,12 +21,12 @@
  * @param sckPin  system clock pin for the SPIC
  */
 Tle94112Mtb::Tle94112Mtb(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t mosiPin, cyhal_gpio_t sckPin)
-:Tle94112(new SPICMtb(SPICMtb::unusedPin, misoPin, mosiPin, sckPin),
-		 new GPIOMtb(csPin, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, GPIOMtb::POSITIVE),
-		 new GPIOMtb(TLE94112_PIN_EN, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, GPIOMtb::POSITIVE),
-		 new TimerMtb())
+:Tle94112()
 {
-
+	Tle94112::en = new GPIOMtb(TLE94112_PIN_EN, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, GPIOMtb::POSITIVE);
+	Tle94112::cs = new GPIOMtb(csPin, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, GPIOMtb::POSITIVE);
+	Tle94112::timer = new TimerMtb();
+	Tle94112::sBus = new SPICMtb(SPICMtb::unusedPin, misoPin, mosiPin, sckPin);
 }
 
 /**
@@ -37,8 +37,12 @@ Tle94112Mtb::Tle94112Mtb(cyhal_gpio_t csPin, cyhal_gpio_t misoPin, cyhal_gpio_t 
  *
  */
 Tle94112Mtb::Tle94112Mtb(void)
+:Tle94112()
 {
-	Tle94112Mtb(TLE94112_PIN_CS1, KIT_SPI_MASTER_MISO, KIT_SPI_MASTER_MOSI, KIT_SPI_MASTER_SCLK);
+	Tle94112::en = new GPIOMtb(TLE94112_PIN_EN, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, GPIOMtb::POSITIVE );
+	Tle94112::cs = new GPIOMtb(TLE94112_PIN_CS1, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, GPIOMtb::POSITIVE );
+	Tle94112::timer = new TimerMtb();
+	Tle94112::sBus = new SPICMtb(SPICMtb::unusedPin,KIT_SPI_MASTER_MISO,KIT_SPI_MASTER_MOSI,KIT_SPI_MASTER_SCLK);
 }
 
 /**
@@ -50,6 +54,10 @@ Tle94112Mtb::Tle94112Mtb(void)
  * @param csPin   chipselect pin for the wrapping GPIO
  */
 Tle94112Mtb::Tle94112Mtb(cyhal_gpio_t csPin)
+:Tle94112()
 {
-	Tle94112Mtb(csPin, KIT_SPI_MASTER_MISO, KIT_SPI_MASTER_MOSI, KIT_SPI_MASTER_SCLK);
+	Tle94112::en = new GPIOMtb(TLE94112_PIN_EN, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, GPIOMtb::POSITIVE );
+	Tle94112::cs = new GPIOMtb(csPin, CYHAL_GPIO_DIR_OUTPUT, CYHAL_GPIO_DRIVE_STRONG, GPIOMtb::POSITIVE );
+	Tle94112::timer = new TimerMtb();
+	Tle94112::sBus = new SPICMtb(SPICMtb::unusedPin,KIT_SPI_MASTER_MISO,KIT_SPI_MASTER_MOSI,KIT_SPI_MASTER_SCLK);
 }
