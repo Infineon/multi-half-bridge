@@ -24,9 +24,22 @@ set(Sources
     )
 
 # add_subdirectory(tools/pybind11)
+
+# Dynamische Erkennung von pybind11
+execute_process(
+    COMMAND python3 -c "import pybind11; print(pybind11.get_cmake_dir())"
+    OUTPUT_VARIABLE pybind11_DIR
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
+# Pfad zu pybind11 zu CMAKE_PREFIX_PATH hinzufuegen
+list(APPEND CMAKE_PREFIX_PATH ${pybind11_DIR})
+
+# Suchen und Einbinden von pybind11
 find_package(pybind11 REQUIRED)
 
-pybind11_add_module(multi_half_bridge_py ${Sources} ${Headers})
+# pybind11-Modul hinzufuegen
+pybind11_add_module(multi_half_bridge_py ${Sources})
 
 # Adding RPI bcm library dependency
 find_library(bcm2835_dir NAMES  libbcm2835.a)
