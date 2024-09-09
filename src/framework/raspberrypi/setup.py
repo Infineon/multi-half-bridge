@@ -15,7 +15,6 @@ PLAT_TO_CMAKE = {
     "win-arm64": "ARM64",
 }
 
-
 # A CMakeExtension needs a sourcedir instead of a file list.
 # The name must be the _single_ output extension from the CMake build.
 # If you need multiple extensions, see scikit-build.
@@ -23,7 +22,6 @@ class CMakeExtension(Extension):
     def __init__(self, name, sourcedir=""):
         Extension.__init__(self, name, sources=[])
         self.sourcedir = os.path.abspath(sourcedir)
-
 
 class CMakeBuild(build_ext):
     def build_extension(self, ext):
@@ -88,17 +86,19 @@ class CMakeBuild(build_ext):
                 # CMake 3.12+ only.
                 build_args += ["-j{}".format(self.parallel)]
 
-        if not os.path.exists(self.build_temp):
-            os.makedirs(self.build_temp)
+        if os.path.exists(self.build_temp):
+            # Remove the build directory to ensure a clean build
+            subprocess.check_call(["rm", "-rf", self.build_temp])
+        
+        os.makedirs(self.build_temp, exist_ok=True)
 
-        sourcedir = os.path.abspath(os.path.join(ext.sourcedir, '../../..'))
+        sourcedir = os.path.abspath(os.path.join(ext.sourcedir, '../..'))
         subprocess.check_call(
             ["cmake", sourcedir] + cmake_args, cwd=self.build_temp
         )
         subprocess.check_call(
-            ["cmake", "--build", ".", "--target", "multi_half_bridge_py"] + build_args, cwd=self.build_temp
+            ["cmake", "--build", ".", "--target", "multi-half-bridge-corelib"] + build_args, cwd=self.build_temp
         )
-
 
 # The information here can also be placed in setup.cfg - better separation of
 # logic and declaration, and simpler if you include description/version in a file.
@@ -124,3 +124,4 @@ setup(
     ],
     zip_safe=False,
 )
+#check :)
