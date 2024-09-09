@@ -1,5 +1,5 @@
-
 # -*- coding: utf-8 -*-
+
 import os
 import sys
 import subprocess
@@ -60,7 +60,6 @@ class CMakeBuild(build_ext):
                 cmake_args += ["-GNinja"]
 
         else:
-
             # Single config generators are handled "normally"
             single_config = any(x in cmake_generator for x in {"NMake", "Ninja"})
 
@@ -92,12 +91,14 @@ class CMakeBuild(build_ext):
         if not os.path.exists(self.build_temp):
             os.makedirs(self.build_temp)
 
+        sourcedir = os.path.abspath(os.path.join(ext.sourcedir, '../../..'))
         subprocess.check_call(
-            ["cmake", ext.sourcedir] + cmake_args, cwd=self.build_temp
+            ["cmake", sourcedir] + cmake_args, cwd=self.build_temp
         )
         subprocess.check_call(
             ["cmake", "--build", ".", "--target", "multi_half_bridge_py"] + build_args, cwd=self.build_temp
         )
+
 
 # The information here can also be placed in setup.cfg - better separation of
 # logic and declaration, and simpler if you include description/version in a file.
@@ -108,18 +109,18 @@ setup(
     description="Python Library for Infineon's multi half-bridge IC drivers",
     long_description="Python library for Infineons multi half-bridge IC drivers",
     project_urls={
-        'Source' : 'https://github.com/Infineon/multi-half-bridge',
+        'Source': 'https://github.com/Infineon/multi-half-bridge',
         'Wiki': 'https://github.com/Infineon/multi-half-bridge/wiki',
-        'IC Prodcuts Page' : 'https://www.infineon.com/cms/de/product/power/motor-control-ics/brushed-dc-motor-driver-ics/multi-half-bridge-ics/'
+        'IC Products Page': 'https://www.infineon.com/cms/de/product/power/motor-control-ics/brushed-dc-motor-driver-ics/multi-half-bridge-ics/'
     },
     ext_modules=[CMakeExtension("multi_half_bridge_py")],
     cmdclass={"build_ext": CMakeBuild},
     license='MIT',
     url='https://pypi.org/project/multi-half-bridge/',
     classifiers=[
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
     ],
     zip_safe=False,
 )

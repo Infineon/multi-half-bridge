@@ -1,3 +1,0 @@
-/home/pi/Desktop/new/multi-half-bridge_raspberry_pi_python_fixes/src/framework/raspberrypi/build/temp.linux-aarch64-cpython-311/CMakeFiles/multi_half_bridge_py.dir
-/home/pi/Desktop/new/multi-half-bridge_raspberry_pi_python_fixes/src/framework/raspberrypi/build/temp.linux-aarch64-cpython-311/CMakeFiles/edit_cache.dir
-/home/pi/Desktop/new/multi-half-bridge_raspberry_pi_python_fixes/src/framework/raspberrypi/build/temp.linux-aarch64-cpython-311/CMakeFiles/rebuild_cache.dir
