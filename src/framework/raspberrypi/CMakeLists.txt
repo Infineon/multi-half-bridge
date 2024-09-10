@@ -32,8 +32,8 @@ set(Headers
     wrapper/
 )
 
+# List source files
 set(Sources
-    # List source files
     ../../corelib/tle94112-logger.cpp
     ../../corelib/tle94112.cpp
     ../../corelib/tle94112-motor.cpp
