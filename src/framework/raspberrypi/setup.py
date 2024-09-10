@@ -42,6 +42,7 @@ class CMakeBuild(build_ext):
         ).strip().decode()
         os.environ["CMAKE_PREFIX_PATH"] = cmake_prefix_path
 
+        # Define the CMake arguments
         cmake_args = [
             "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={}".format(extdir),
             "-DPYTHON_EXECUTABLE={}".format(sys.executable),
