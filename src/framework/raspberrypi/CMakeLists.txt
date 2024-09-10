@@ -1,59 +1,91 @@
-cmake_minimum_required(VERSION 3.4...3.18)
+cmake_minimum_required(VERSION 3.12.4)
 
-project(multi_half_bridge_py)
+# Project name and languages
+set(mhbcore multi-half-bridge-corelib)
+project(${mhbcore} CXX C)
 
-# Search for include Files
+# Compiler settings
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(CMAKE_CXX_OUTPUT_EXTENSION_REPLACE ON)
+set(CMAKE_C_OUTPUT_EXTENSION_REPLACE ON)
+
+# Manually add Pybind11 path if not found automatically
+if (NOT DEFINED PYBIND11_INCLUDE_DIRS)
+    find_package(pybind11 REQUIRED)
+    set(PYBIND11_INCLUDE_DIRS ${pybind11_INCLUDE_DIRS})
+endif()
+
+# Include directories
 include_directories(
+    ../../config/
+    ../../corelib/
+    ../../pal/
+    pal/
+    wrapper/
+    ${PYBIND11_INCLUDE_DIRS}
+)
+
+# Set header and source files
+set(Headers
     pal/
     wrapper/
 )
 
-
-set(Headers
-    pal/
-    wrapper/
-    )
-
 set(Sources
+    # List source files
+    ../../corelib/tle94112-logger.cpp
+    ../../corelib/tle94112.cpp
+    ../../corelib/tle94112-motor.cpp
+    ../../pal/gpio.cpp
+    ../../pal/spic.cpp
     pal/gpio-rpi.cpp
     pal/logger-rpi.cpp
     pal/spic-rpi.cpp
     pal/timer-rpi.cpp
     wrapper/tle94112-rpi.cpp
     wrapper/tle94112-pybind.cpp
-    )
-
-# add_subdirectory(tools/pybind11)
-
-# Dynamische Erkennung von pybind11
-execute_process(
-    COMMAND python3 -c "import pybind11; print(pybind11.get_cmake_dir())"
-    OUTPUT_VARIABLE pybind11_DIR
-    OUTPUT_STRIP_TRAILING_WHITESPACE
 )
 
-# Pfad zu pybind11 zu CMAKE_PREFIX_PATH hinzufuegen
-list(APPEND CMAKE_PREFIX_PATH ${pybind11_DIR})
+# Add library
+add_library(${mhbcore} ${Sources})
 
-# Suchen und Einbinden von pybind11
+# pybind11 integration
 find_package(pybind11 REQUIRED)
 
-# pybind11-Modul hinzufuegen
-pybind11_add_module(multi_half_bridge_py ${Sources})
+pybind11_add_module(multi_half_bridge_py
+    pal/gpio-rpi.cpp
+    pal/logger-rpi.cpp
+    pal/spic-rpi.cpp
+    pal/timer-rpi.cpp
+    wrapper/tle94112-rpi.cpp
+    wrapper/tle94112-pybind.cpp
+)
 
-# Adding RPI bcm library dependency
-find_library(bcm2835_dir NAMES  libbcm2835.a)
+# Add Raspberry Pi bcm library dependency
+find_library(bcm2835_dir NAMES libbcm2835.a)
 message(STATUS ${bcm2835_dir})
 
 add_library(bcm2835 STATIC IMPORTED)
 set_target_properties(bcm2835 PROPERTIES IMPORTED_LOCATION ${bcm2835_dir})
 
-# Required Libraries
+# Link libraries
 target_link_libraries(multi_half_bridge_py PUBLIC
-multi-half-bridge-corelib
-bcm2835
+    ${mhbcore}
+    bcm2835
 )
 
-# EXAMPLE_VERSION_INFO is defined by setup.py and passed into the C++ code as a
-# define (VERSION_INFO) here.
-target_compile_definitions(multi_half_bridge_py PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
+# Compile definitions
+if (DEFINED EXAMPLE_VERSION_INFO)
+    target_compile_definitions(multi_half_bridge_py PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
+endif()
+
+# Test integration
+if (EXISTS ${CMAKE_SOURCE_DIR}/googletest)
+    set(CMAKE_CXX_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage -DMHB_ENABLED=0 -DTLE94112_LOGGER_ENABLED=0")
+    set(CMAKE_C_FLAGS "-g -O0 -Wall -fprofile-arcs -ftest-coverage")
+
+    enable_testing()
+    add_subdirectory(googletest)
+    add_subdirectory(test/unit)
+endif()
