@@ -1,9 +1,0 @@
-CMakeLists.txt
-MANIFEST.in
-pyproject.toml
-setup.py
-multi_half_bridge.egg-info/PKG-INFO
-multi_half_bridge.egg-info/SOURCES.txt
-multi_half_bridge.egg-info/dependency_links.txt
-multi_half_bridge.egg-info/not-zip-safe
-multi_half_bridge.egg-info/top_level.txt

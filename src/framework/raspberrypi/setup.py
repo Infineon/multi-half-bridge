@@ -94,7 +94,8 @@ class CMakeBuild(build_ext):
 
         subprocess.check_call(["cmake", ext.sourcedir] + cmake_args, cwd=self.build_temp)
         subprocess.check_call(
-           ["cmake", "--build", ".", "--target", "multi_half_bridge_py"] + build_args, cwd=self.build_temp
+            ["cmake", "--build", "."] + build_args,
+            cwd=self.build_temp
         )
 # The information here can also be placed in setup.cfg - better separation of
 # logic and declaration, and simpler if you include description/version in a file.
