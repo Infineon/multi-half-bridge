@@ -9,7 +9,6 @@
 #ifndef TLE94112_PLATF_INO_HPP_
 #define TLE94112_PLATF_INO_HPP_
 
-// Do not reduce the ussage to this boards, all other with SPI will work too
 
 /**
  * @addtogroup platfIno
