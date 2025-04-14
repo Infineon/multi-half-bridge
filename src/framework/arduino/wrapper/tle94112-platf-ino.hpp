@@ -9,7 +9,6 @@
 #ifndef TLE94112_PLATF_INO_HPP_
 #define TLE94112_PLATF_INO_HPP_
 
-#if defined(ARDUINO_AVR_UNO) || defined(XMC1100_Boot_Kit) || defined(XMC4700_Relax_Kit) /**< Arduino Uno, XMC1100 Boot Kit or XMC4700 Relax Kit */
 
 /**
  * @addtogroup platfIno
@@ -43,5 +42,4 @@
 
 /** @} */
 
-#endif /** #ifdef **/
 #endif /** TLE94112_PLATF_INO_HPP_ **/

@@ -14,7 +14,7 @@
  * This function is setting the basics for a SPIC and the default spi.
  *
  */
-SPICIno::SPICIno() : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
+SPICIno::SPICIno() : lsb(LSBFIRST), mode(SPI_MODE1), clock(ARDUINO_SPI_CLOCK)
 {
 	spi = &SPI;
 }
@@ -28,7 +28,7 @@ SPICIno::SPICIno() : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
  * @param mode   SPI mode
  * @param clock  SPI clock divider
  */
-SPICIno::SPICIno(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
+SPICIno::SPICIno(uint8_t lsb, uint8_t mode, uint32_t clock) : lsb(LSBFIRST), mode(SPI_MODE1), clock(ARDUINO_SPI_CLOCK)
 {
 	this->lsb = lsb;
 	this->mode = mode;
@@ -48,7 +48,7 @@ SPICIno::SPICIno(uint8_t lsb, uint8_t mode, uint8_t clock) : lsb(LSBFIRST), mode
  * @param mosiPin  mosi pin number
  * @param sckPin   systemclock pin number
  */
-SPICIno::SPICIno(SPIClass &port, uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin) : lsb(LSBFIRST), mode(SPI_MODE1), clock(SPI_CLOCK_DIV16)
+SPICIno::SPICIno(SPIClass &port, uint8_t csPin, uint8_t misoPin, uint8_t mosiPin, uint8_t sckPin) : lsb(LSBFIRST), mode(SPI_MODE1), clock(ARDUINO_SPI_CLOCK)
 {
 	this->csPin = csPin;
 	this->misoPin = misoPin;
@@ -68,9 +68,7 @@ SPICIno::SPICIno(SPIClass &port, uint8_t csPin, uint8_t misoPin, uint8_t mosiPin
 Error_t SPICIno::init()
 {
 	spi->begin();
-	spi->setBitOrder(this->lsb);
-	spi->setClockDivider(this->clock);
-	spi->setDataMode(this->mode);
+	spi->beginTransaction(SPISettings(SPEED, this->lsb, this->mode));
 	return OK;
 }
 
