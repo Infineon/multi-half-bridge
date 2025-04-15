@@ -26,6 +26,8 @@ using namespace tle94112;
  * @brief Arduino SPIC class
  *
  */
+
+#define SPEED 1000000
 class SPICIno: virtual public SPIC
 {
 	private:
