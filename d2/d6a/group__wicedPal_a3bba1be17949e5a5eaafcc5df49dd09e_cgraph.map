@@ -1,0 +1,6 @@
+<map id="SPICWiced::SPICWiced" name="SPICWiced::SPICWiced">
+<area shape="rect" id="Node000001" title="Construct a new SPICWiced::SPICWiced object." alt="" coords="5,29,173,55"/>
+<area shape="rect" id="Node000002" href="$d2/d6a/group__wicedPal.html#a7c610af1feac03d6f1f9e50844f90459" title="Initialize the SPIC." alt="" coords="221,29,341,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,39,207,39,207,45,174,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="250,31,243,21,246,11,260,5,281,3,308,6,319,15,315,19,306,11,281,8,261,10,250,15,248,20,254,28"/>
+</map>

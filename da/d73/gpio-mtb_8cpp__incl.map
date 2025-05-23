@@ -1,0 +1,16 @@
+<map id="gpio&#45;mtb.cpp" name="gpio&#45;mtb.cpp">
+<area shape="rect" id="Node000001" title="TLE94112 GPIO ModusToolbox HAL PAL." alt="" coords="100,5,208,31"/>
+<area shape="rect" id="Node000002" href="$db/dc3/gpio-mtb_8hpp.html" title="TLE94112 GPIO ModusToolbox HAL PAL." alt="" coords="100,79,209,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,31,157,65,152,65,152,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="60,225,131,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="100,103,52,120,30,135,13,153,9,162,8,171,18,188,35,204,58,217,55,221,32,208,13,191,3,172,3,161,8,151,26,130,49,115,98,98"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="23,152,147,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="145,106,108,144,104,140,141,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="172,152,276,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="168,102,205,140,201,144,164,106"/>
+<area shape="rect" id="Node000006" href="$d1/d2c/gpio_8hpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="300,152,379,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="185,102,298,145,296,149,183,107"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="301,180,145,225,143,220,300,175"/>
+<area shape="rect" id="Node000007" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="266,225,414,251"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="342,178,342,212,337,212,337,178"/>
+</map>

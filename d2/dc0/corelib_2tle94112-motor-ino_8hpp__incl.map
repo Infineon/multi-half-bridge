@@ -1,0 +1,29 @@
+<map id="tle94112&#45;motor&#45;ino.hpp" name="tle94112&#45;motor&#45;ino.hpp">
+<area shape="rect" id="Node000001" title="TLE94112 Motor Arduino API." alt="" coords="163,5,339,31"/>
+<area shape="rect" id="Node000002" href="$d9/def/tle94112-ino_8hpp.html" title="TLE94112 Arduino API." alt="" coords="267,79,399,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="266,29,311,67,308,72,262,33"/>
+<area shape="rect" id="Node000011" href="$d3/dd8/tle94112-motor_8hpp.html" title="TLE94112 Motor Control API." alt="" coords="93,79,243,104"/>
+<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="239,33,194,72,190,67,236,29"/>
+<area shape="rect" id="Node000003" href="$d4/d9b/tle94112_8hpp.html" title="TLE94112 Core API." alt="" coords="117,152,224,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="308,106,211,149,209,144,306,102"/>
+<area shape="rect" id="Node000010" href="$de/d65/tle94112-platf-ino_8hpp.html" title="TLE94112 Arduino Hardware Platforms." alt="" coords="250,152,417,177"/>
+<area shape="poly" id="edge14_Node000002_Node000010" title=" " alt="" coords="336,104,336,138,331,138,331,104"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="30,299,101,324"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="118,173,89,179,60,190,34,205,13,227,8,242,13,258,25,274,39,288,36,292,21,277,8,260,3,242,8,224,30,201,58,185,88,174,117,168"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="334,225,405,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="203,175,325,218,323,223,202,180"/>
+<area shape="rect" id="Node000006" href="$df/d05/timer_8hpp.html" title="TLE94112 Timer Platform Abstraction Layer." alt="" coords="23,225,107,251"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="155,180,95,220,92,215,152,175"/>
+<area shape="rect" id="Node000008" href="$d1/d2c/gpio_8hpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="131,225,210,251"/>
+<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="173,178,173,212,168,212,168,178"/>
+<area shape="rect" id="Node000009" href="$d8/df0/spic_8hpp.html" title="TLE94112 SPI Platform Abstraction Layer." alt="" coords="234,225,310,251"/>
+<area shape="poly" id="edge11_Node000003_Node000009" title=" " alt="" coords="188,175,246,215,243,219,185,180"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="68,251,68,285,63,285,63,251"/>
+<area shape="rect" id="Node000007" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="125,299,273,324"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="88,248,166,290,164,294,85,253"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="155,253,95,293,92,289,152,248"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="178,250,192,285,187,287,173,252"/>
+<area shape="poly" id="edge12_Node000009_Node000004" title=" " alt="" coords="240,253,113,297,111,292,238,248"/>
+<area shape="poly" id="edge13_Node000009_Node000007" title=" " alt="" coords="262,253,222,291,219,287,258,249"/>
+<area shape="poly" id="edge16_Node000011_Node000003" title=" " alt="" coords="171,104,172,138,167,139,166,104"/>
+</map>

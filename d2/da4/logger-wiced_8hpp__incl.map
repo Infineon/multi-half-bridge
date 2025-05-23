@@ -1,0 +1,11 @@
+<map id="logger&#45;wiced.hpp" name="logger&#45;wiced.hpp">
+<area shape="rect" id="Node000001" title="TLE94112 Logger WICED PAL." alt="" coords="119,5,253,31"/>
+<area shape="rect" id="Node000002" href="$d6/da3/logger_8hpp.html" title="TLE94112 Logger Platform Abstraction Layer." alt="" coords="141,79,231,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,31,189,65,183,65,183,31"/>
+<area shape="rect" id="Node000003" href="$de/dfc/tle94112-conf_8hpp.html" title="TLE94112 Library Configuration." alt="" coords="117,152,255,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="189,104,189,138,183,138,183,104"/>
+<area shape="rect" id="Node000004" href="$d8/d9c/tle94112-conf-opts_8hpp.html" title="TLE94112 Library Configuration Options." alt="" coords="5,225,177,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="172,179,119,219,116,215,169,175"/>
+<area shape="rect" id="Node000005" href="$d7/d7a/tle94112-conf-dfl_8hpp.html" title="TLE94112 Default Library Configuration." alt="" coords="202,225,362,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="203,175,257,215,254,219,200,180"/>
+</map>

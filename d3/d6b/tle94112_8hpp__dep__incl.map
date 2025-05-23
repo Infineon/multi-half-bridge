@@ -1,0 +1,35 @@
+<map id="tle94112.hpp" name="tle94112.hpp">
+<area shape="rect" id="Node000001" title="TLE94112 Core API." alt="" coords="860,5,967,31"/>
+<area shape="rect" id="Node000002" href="$d9/def/tle94112-ino_8hpp.html" title="TLE94112 Arduino API." alt="" coords="282,79,414,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="847,30,415,84,414,79,846,25"/>
+<area shape="rect" id="Node000006" href="$d3/dd8/tle94112-motor_8hpp.html" title="TLE94112 Motor Control API." alt="" coords="559,79,710,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="856,37,680,81,679,76,855,31"/>
+<area shape="rect" id="Node000008" href="$d7/d9a/tle94112-pybind_8cpp.html" title="TLE94112 Raspberry Pi Python Wrapper API." alt="" coords="733,152,888,177"/>
+<area shape="poly" id="edge12_Node000001_Node000008" title=" " alt="" coords="882,40,859,58,838,80,821,118,814,152,809,151,816,117,834,77,855,54,879,36"/>
+<area shape="rect" id="Node000009" href="$d8/dae/tle94112-mtb_8hpp.html" title="TLE94112 ModusToolbox HAL API." alt="" coords="1003,79,1141,104"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="952,34,1047,76,1045,81,950,39"/>
+<area shape="rect" id="Node000011" href="$dc/de3/tle94112-rpi_8hpp.html" title="TLE94112 Raspberry Pi API." alt="" coords="849,79,978,104"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="916,44,916,79,911,79,911,44"/>
+<area shape="rect" id="Node000013" href="$d8/d3c/tle94112-wiced_8hpp.html" title="TLE94112 WICED API." alt="" coords="1166,79,1317,104"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="980,31,1189,76,1188,81,979,36"/>
+<area shape="rect" id="Node000015" href="$d3/d0a/tle94112_8cpp.html" title="TLE94112 Core API." alt="" coords="1341,79,1448,104"/>
+<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="981,26,1330,76,1342,78,1341,83,1329,81,981,31"/>
+<area shape="rect" id="Node000003" href="$d3/d34/tle94112-ino_8cpp.html" title="TLE94112 Arduino API." alt="" coords="5,152,136,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="291,110,116,154,115,149,289,105"/>
+<area shape="rect" id="Node000004" href="$dd/ddf/corelib_2tle94112-motor-ino_8hpp.html" title="TLE94112 Motor Arduino API." alt="" coords="160,152,336,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="322,114,266,154,263,150,319,110"/>
+<area shape="rect" id="Node000005" href="$d2/db2/framework_2arduino_2wrapper_2tle94112-motor-ino_8hpp.html" title="TLE94112 Motor Arduino API." alt="" coords="360,152,536,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="377,110,433,150,430,154,374,114"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="559,109,311,155,310,149,559,104"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="593,111,479,154,478,149,591,106"/>
+<area shape="rect" id="Node000007" href="$db/dc4/tle94112-motor_8cpp.html" title="TLE94112 Motor Control API." alt="" coords="560,152,709,177"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="637,118,637,152,632,152,632,118"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="677,107,783,149,781,154,675,112"/>
+<area shape="rect" id="Node000010" href="$d8/d38/tle94112-mtb_8cpp.html" title="TLE94112 ModusToolbox HAL API." alt="" coords="1065,152,1202,177"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="1093,113,1125,150,1121,154,1089,116"/>
+<area shape="poly" id="edge14_Node000011_Node000008" title=" " alt="" coords="887,114,829,154,826,150,884,110"/>
+<area shape="rect" id="Node000012" href="$da/d01/tle94112-rpi_8cpp.html" title="TLE94112 Raspberry Pi API." alt="" coords="912,152,1040,177"/>
+<area shape="poly" id="edge15_Node000011_Node000012" title=" " alt="" coords="935,113,968,150,964,154,931,116"/>
+<area shape="rect" id="Node000014" href="$d8/d67/tle94112-wiced_8cpp.html" title="TLE94112 WICED API." alt="" coords="1227,152,1376,177"/>
+<area shape="poly" id="edge17_Node000013_Node000014" title=" " alt="" coords="1262,113,1294,150,1290,154,1258,116"/>
+</map>

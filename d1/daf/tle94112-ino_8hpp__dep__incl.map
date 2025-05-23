@@ -1,0 +1,9 @@
+<map id="tle94112&#45;ino.hpp" name="tle94112&#45;ino.hpp">
+<area shape="rect" id="Node000001" title="TLE94112 Arduino API." alt="" coords="182,5,314,31"/>
+<area shape="rect" id="Node000002" href="$d3/d34/tle94112-ino_8cpp.html" title="TLE94112 Arduino API." alt="" coords="5,79,136,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,38,101,81,99,76,206,33"/>
+<area shape="rect" id="Node000003" href="$dd/ddf/corelib_2tle94112-motor-ino_8hpp.html" title="TLE94112 Motor Arduino API." alt="" coords="160,79,336,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="251,44,251,79,245,79,245,44"/>
+<area shape="rect" id="Node000004" href="$d2/db2/framework_2arduino_2wrapper_2tle94112-motor-ino_8hpp.html" title="TLE94112 Motor Arduino API." alt="" coords="360,79,536,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="294,33,416,76,414,81,292,38"/>
+</map>

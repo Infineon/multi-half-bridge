@@ -1,0 +1,15 @@
+<map id="Tle94112::configPWM" name="Tle94112::configPWM">
+<area shape="rect" id="Node000001" title="sets the frequency and duty cycle for a PWM channel" alt="" coords="5,80,168,105"/>
+<area shape="rect" id="Node000002" href="$d5/dd0/group__tle94112api.html#ae81da08f80a439295811f774713e6590" title="sets the frequency and duty cycle for a PWM channel automatically called by the public version of con..." alt="" coords="216,80,385,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,90,202,90,202,95,168,95"/>
+<area shape="rect" id="Node000003" href="$d5/dd0/group__tle94112api.html#a68607ddf951e75fc8dc9137881a05a3b" title="writes data bits to a control register of the TLE94112" alt="" coords="433,80,581,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="386,90,419,90,419,95,386,95"/>
+<area shape="rect" id="Node000004" href="$d3/d5d/group__pal.html#a03f2756f97eed3d5eaabb93ea6627db7" title="Introduces a delay during the specified time." alt="" coords="629,5,827,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="535,77,628,39,655,32,656,37,630,45,537,82"/>
+<area shape="rect" id="Node000005" href="$d3/d5d/group__pal.html#aacea90c9389fba78d927132bd3a546cc" title="Disables the GPIO output according to the GPIO logic." alt="" coords="637,55,819,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="582,82,623,77,624,82,582,87"/>
+<area shape="rect" id="Node000006" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="638,104,818,129"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="582,98,624,103,624,108,582,103"/>
+<area shape="rect" id="Node000007" href="$d3/d5d/group__pal.html#a0ef16bcb393e15a5010f0ec50b867e33" title="Send/receives data from SPI bus." alt="" coords="641,153,815,179"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="539,103,630,138,661,147,659,152,628,143,537,108"/>
+</map>
