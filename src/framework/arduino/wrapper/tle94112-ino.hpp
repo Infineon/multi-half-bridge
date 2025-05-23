@@ -26,6 +26,7 @@ class Tle94112Ino: virtual public Tle94112
 	public:
 		Tle94112Ino(void);
 		Tle94112Ino(uint8_t csPin);
+		Tle94112Ino(uint8_t csPin, uint8_t enPin);
 };
 /** @} */
 
