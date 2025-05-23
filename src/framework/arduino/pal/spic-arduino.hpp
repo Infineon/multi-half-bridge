@@ -36,13 +36,11 @@ class SPICIno: virtual public SPIC
 		uint8_t     mosiPin;
 		uint8_t     sckPin;
 		SPIClass    *spi;
-		uint8_t     lsb;
-		uint8_t     mode;
 		uint32_t    clock;
 
 	public:
 					SPICIno();
-					SPICIno(uint8_t lsb, uint8_t mode, uint32_t clock);
+					SPICIno(uint32_t clock);
 					SPICIno(SPIClass &port, uint8_t csPin, uint8_t misoPin=MISO, uint8_t mosiPin=MOSI, uint8_t sckPin=SCK);
 					~SPICIno();
 		Error_t     init();

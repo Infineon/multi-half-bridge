@@ -26,7 +26,7 @@
 /*!
  * Standard chip select pin for first TLE94112 shield
  */
-#define TLE94112_PIN_CS1     10
+#define TLE94112_PIN_CS1     SS
 
 /*!
  * Standard chip select pin for second TLE94112 shield
