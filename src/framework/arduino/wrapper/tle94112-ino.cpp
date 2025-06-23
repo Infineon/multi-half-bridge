@@ -25,13 +25,27 @@ Tle94112Ino::Tle94112Ino(void):Tle94112()
 }
 
 /**
- * @brief constructor with individual pin assignment
+ * @brief constructor with individual pin assignment for CS pin
  *
- * @param csPin  pin number of the CS pin
+ * @param csPin  pin number of the CS (chip select) pin
  */
 Tle94112Ino::Tle94112Ino(uint8_t csPin):Tle94112()
 {
 	Tle94112::en = new GPIOIno( TLE94112_PIN_EN, OUTPUT, GPIOIno::POSITIVE );
+	Tle94112::cs = new GPIOIno( csPin, OUTPUT, GPIOIno::POSITIVE );
+	Tle94112::timer = new TimerIno();
+	Tle94112::sBus = new SPICIno();
+}
+
+/**
+ * @brief constructor with individual pin assignment for CS and EN pin.
+ *
+ * @param csPin  pin number of the CS (chip select) pin
+ * @param enPin  pin number of the EN (enable) pin
+ */
+Tle94112Ino::Tle94112Ino(uint8_t csPin, uint8_t enPin):Tle94112()
+{
+	Tle94112::en = new GPIOIno( enPin, OUTPUT, GPIOIno::POSITIVE );
 	Tle94112::cs = new GPIOIno( csPin, OUTPUT, GPIOIno::POSITIVE );
 	Tle94112::timer = new TimerIno();
 	Tle94112::sBus = new SPICIno();

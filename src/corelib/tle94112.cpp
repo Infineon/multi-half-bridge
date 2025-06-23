@@ -13,7 +13,18 @@
 
 using namespace tle94112;
 
+/*! \brief SPI address commands */
+#define TLE94112_CMD_WRITE          0x80;
+#define TLE94112_CMD_CLEAR          0x80;
+
 #define TLE94112_STATUS_INV_MASK    (Tle94112::TLE_POWER_ON_RESET)
+
+/*! \brief time in milliseconds to wait for chipselect signal raised */
+#define TLE94112_CS_RISETIME        2
+
+/*! \brief micro rise time to wait for chipselect signal raised */
+#define TLE94112_CS_MICRO_RISETIME  250
+
 
 Tle94112::Tle94112(void)
 {
@@ -114,20 +125,9 @@ void Tle94112::_configHB(uint8_t hb, uint8_t state, uint8_t pwm, uint8_t activeF
 
     TLE94112_LOG_MSG(__FUNCTION__);
 
-	uint8_t reg = mHalfBridges[hb].stateReg;
-	uint8_t mask = mHalfBridges[hb].stateMask;
-	uint8_t shift = mHalfBridges[hb].stateShift;
-	writeReg(reg, mask, shift, state);
-
-	reg = mHalfBridges[hb].pwmReg;
-	mask = mHalfBridges[hb].pwmMask;
-	shift = mHalfBridges[hb].pwmShift;
-	writeReg(reg, mask, shift, pwm);
-
-	reg = mHalfBridges[hb].fwReg;
-	mask = mHalfBridges[hb].fwMask;
-	shift = mHalfBridges[hb].fwShift;
-	writeReg(reg, mask, shift, activeFW);
+	writeReg(mHalfBridges[hb].stateReg, mHalfBridges[hb].stateMask, mHalfBridges[hb].stateShift, state);
+	writeReg(mHalfBridges[hb].pwmReg,   mHalfBridges[hb].pwmMask,   mHalfBridges[hb].pwmShift,   pwm);
+	writeReg(mHalfBridges[hb].fwReg,    mHalfBridges[hb].fwMask,    mHalfBridges[hb].fwShift,    activeFW);
 }
 
 void Tle94112::configPWM(PWMChannel pwm, PWMFreq freq, uint8_t dutyCycle)
@@ -140,15 +140,8 @@ void Tle94112::_configPWM(uint8_t pwm, uint8_t freq, uint8_t dutyCycle)
 
     TLE94112_LOG_MSG(__FUNCTION__);
 
-	uint8_t reg = mPwmChannels[pwm].freqReg;
-	uint8_t mask = mPwmChannels[pwm].freqMask;
-	uint8_t shift = mPwmChannels[pwm].freqShift;
-	writeReg(reg, mask, shift, freq);
-
-	reg = mPwmChannels[pwm].dcReg;
-	mask = mPwmChannels[pwm].dcMask;
-	shift = mPwmChannels[pwm].dcShift;
-	writeReg(reg, mask, shift, dutyCycle);
+	writeReg(mPwmChannels[pwm].freqReg, mPwmChannels[pwm].freqMask, mPwmChannels[pwm].freqShift, freq);
+	writeReg(mPwmChannels[pwm].dcReg,   mPwmChannels[pwm].dcMask,   mPwmChannels[pwm].dcShift,   dutyCycle);
 }
 
 uint8_t Tle94112::setLedMode(HalfBridge hb, uint8_t active)
@@ -196,10 +189,7 @@ uint8_t Tle94112::_getHBOverCurrent(uint8_t hb)
 {
     TLE94112_LOG_MSG(__FUNCTION__);
 
-	uint8_t reg = mHalfBridges[hb].ocReg;
-	uint8_t mask = mHalfBridges[hb].ocMask;
-	uint8_t shift = mHalfBridges[hb].ocShift;
-	return readStatusReg(reg, mask, shift);
+	return readStatusReg(mHalfBridges[hb].ocReg, mHalfBridges[hb].ocMask, mHalfBridges[hb].ocShift);
 }
 
 uint8_t Tle94112::getHBOpenLoad(HalfBridge hb)
@@ -211,10 +201,7 @@ uint8_t Tle94112::_getHBOpenLoad(uint8_t hb)
 {
 	TLE94112_LOG_MSG(__FUNCTION__);
 
-	uint8_t reg = mHalfBridges[hb].olReg;
-	uint8_t mask = mHalfBridges[hb].olMask;
-	uint8_t shift = mHalfBridges[hb].olShift;
-	return readStatusReg(reg, mask, shift);
+	return readStatusReg(mHalfBridges[hb].olReg, mHalfBridges[hb].olMask, mHalfBridges[hb].olShift);
 }
 
 void Tle94112::clearErrors()
@@ -235,39 +222,39 @@ void Tle94112::init(void)
     TLE94112_LOG_MSG(__FUNCTION__);
 
 	//!< initial control register configuration
-	mCtrlRegAddresses[static_cast<int>(Tle94112::HB_ACT_1_CTRL)] = 0x03;
+	mCtrlRegAddresses[HB_ACT_1_CTRL]    = REG_ACT_1;
+	mCtrlRegAddresses[HB_ACT_2_CTRL]    = REG_ACT_2;
+	mCtrlRegAddresses[HB_ACT_3_CTRL]    = REG_ACT_3;
+	mCtrlRegAddresses[HB_MODE_1_CTRL]   = REG_MODE_1;
+	mCtrlRegAddresses[HB_MODE_2_CTRL]   = REG_MODE_2;
+	mCtrlRegAddresses[HB_MODE_3_CTRL]   = REG_MODE_3;
+	mCtrlRegAddresses[PWM_CH_FREQ_CTRL] = REG_PWM_CH_FREQ;
+	mCtrlRegAddresses[PWM1_DC_CTRL]     = REG_PWM_DC_1;
+	mCtrlRegAddresses[PWM2_DC_CTRL]     = REG_PWM_DC_2;
+	mCtrlRegAddresses[PWM3_DC_CTRL]     = REG_PWM_DC_3;
+	mCtrlRegAddresses[FW_OL_CTRL]       = REG_FW_OL;
+	mCtrlRegAddresses[FW_CTRL]          = REG_FW_CTRL;
 	mCtrlRegData[HB_ACT_1_CTRL]         = 0;
-	mCtrlRegAddresses[HB_ACT_2_CTRL]    = 0x43;
 	mCtrlRegData[HB_ACT_2_CTRL]         = 0;
-	mCtrlRegAddresses[HB_ACT_3_CTRL]    = 0x23;
 	mCtrlRegData[HB_ACT_3_CTRL]         = 0;
-	mCtrlRegAddresses[HB_MODE_1_CTRL]   = 0x63;
 	mCtrlRegData[HB_MODE_1_CTRL]        = 0;
-	mCtrlRegAddresses[HB_MODE_2_CTRL]   = 0x13;
 	mCtrlRegData[HB_MODE_2_CTRL]        = 0;
-	mCtrlRegAddresses[HB_MODE_3_CTRL]   = 0x53;
 	mCtrlRegData[HB_MODE_3_CTRL]        = 0;
-	mCtrlRegAddresses[PWM_CH_FREQ_CTRL] = 0x33;
 	mCtrlRegData[PWM_CH_FREQ_CTRL]      = 0;
-	mCtrlRegAddresses[PWM1_DC_CTRL]     = 0x73;
 	mCtrlRegData[PWM1_DC_CTRL]          = 0;
-	mCtrlRegAddresses[PWM2_DC_CTRL]     = 0x0B;
 	mCtrlRegData[PWM2_DC_CTRL]          = 0;
-	mCtrlRegAddresses[PWM3_DC_CTRL]     = 0x4B;
 	mCtrlRegData[PWM3_DC_CTRL]          = 0;
-	mCtrlRegAddresses[FW_OL_CTRL]       = 0x2B;
 	mCtrlRegData[FW_OL_CTRL]            = 0;
-	mCtrlRegAddresses[FW_CTRL]          = 0x6B;
 	mCtrlRegData[FW_CTRL]               = 0;
 
 	//!< status register configuration
-	mStatusRegAddresses[SYS_DIAG1]       = 0x1B;
-	mStatusRegAddresses[OP_ERROR_1_STAT] = 0x5B;
-	mStatusRegAddresses[OP_ERROR_2_STAT] = 0x3B;
-	mStatusRegAddresses[OP_ERROR_3_STAT] = 0x7B;
-	mStatusRegAddresses[OP_ERROR_4_STAT] = 0x07;
-	mStatusRegAddresses[OP_ERROR_5_STAT] = 0x47;
-	mStatusRegAddresses[OP_ERROR_6_STAT] = 0x27;
+	mStatusRegAddresses[SYS_DIAG1]       = REG_SYS_DIAG;
+	mStatusRegAddresses[OP_ERROR_1_STAT] = REG_ERR1;
+	mStatusRegAddresses[OP_ERROR_2_STAT] = REG_ERR2;
+	mStatusRegAddresses[OP_ERROR_3_STAT] = REG_ERR3;
+	mStatusRegAddresses[OP_ERROR_4_STAT] = REG_ERR4;
+	mStatusRegAddresses[OP_ERROR_5_STAT] = REG_ERR5;
+	mStatusRegAddresses[OP_ERROR_6_STAT] = REG_ERR6;
 
 	//!< bit masking for all halfbridges
 	mHalfBridges[TLE_NOHB] = { HB_ACT_1_CTRL, 0x00, 0, HB_MODE_1_CTRL, 0x00, 0, FW_OL_CTRL, 0x00, 0, OP_ERROR_1_STAT, 0x00, 0, OP_ERROR_4_STAT, 0x00, 0 };
@@ -292,14 +279,21 @@ void Tle94112::init(void)
 
 }
 
-/*! \brief SPI address commands */
-#define TLE94112_CMD_WRITE          0x80;
-#define TLE94112_CMD_CLEAR          0x80;
 
-#define TLE94112_STATUS_INV_MASK    (Tle94112::TLE_POWER_ON_RESET)
+void Tle94112::directWriteReg(uint8_t reg, uint8_t data)
+{
+	TLE94112_LOG_MSG(__FUNCTION__);
+	
+	uint8_t address = reg | TLE94112_CMD_WRITE;
+	uint8_t byte0;
+	uint8_t byte1;
 
-/*! \brief time in milliseconds to wait for chipselect signal raised */
-#define TLE94112_CS_RISETIME        2
+	cs->disable();
+	sBus->transfer(address, byte0);
+	sBus->transfer(data, byte1);
+	cs->enable();
+	timer->delayMicro(TLE94112_CS_MICRO_RISETIME);
+}
 
 void Tle94112::writeReg(uint8_t reg, uint8_t mask, uint8_t shift, uint8_t data)
 {

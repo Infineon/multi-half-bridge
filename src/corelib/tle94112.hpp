@@ -227,6 +227,28 @@ class Tle94112
 		//! \brief clears all clearable error flags
 		void clearErrors();
 
+		/*! \brief writes data bits directly to a register of the TLE94112
+		 *
+		 * \param reg   address of the register to be written to.
+		 * \param data  the data byte that has to be written.
+		 *
+		 * \see mCtrlRegAddresses
+		 * \see mCtrlRegData
+		 */
+		void directWriteReg(uint8_t reg, uint8_t data);
+
+		/*! \brief reads one byte from a status register of the TLE94112
+		 *
+		 * \param reg status register number(mapping array index / StatusRegisters constant) of the register
+		 *
+		 * \return data byte that has been read
+		 *
+		 * \see StatusRegisters
+		 * \see TLE94112_NUM_STATUS_REGS
+		 * \see mStatusRegAddresses
+		 */
+		uint8_t readStatusReg(uint8_t reg);
+
 		SPIC     *sBus;      //<! \brief SPI cover class as representation of the SPI bus
 		GPIOC    *cs;        //<! \brief shield enable GPIO to switch chipselect on/off
 		GPIOC    *en;        //<! \brief shield enable GPIO to switch shield on/off
@@ -362,18 +384,6 @@ class Tle94112
 		 * \see mCtrlRegData
 		 */
 		void writeReg(uint8_t reg, uint8_t mask, uint8_t shift, uint8_t data);
-
-		/*! \brief reads one byte from a status register of the TLE94112
-		 *
-		 * \param reg status register number(mapping array index / StatusRegisters constant) of the register
-		 *
-		 * \return data byte that has been read
-		 *
-		 * \see StatusRegisters
-		 * \see TLE94112_NUM_STATUS_REGS
-		 * \see mStatusRegAddresses
-		 */
-		uint8_t readStatusReg(uint8_t reg);
 
 		/*! \brief reads some bits from a status register of the TLE94112
 		 *
