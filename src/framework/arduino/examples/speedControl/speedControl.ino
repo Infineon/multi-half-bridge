@@ -47,7 +47,7 @@ void loop() {
   controller.configHB(controller.TLE_HB2, controller.TLE_HIGH, controller.TLE_PWM1);
 
   /* Ramp up duty cycle from 0% to 100%. */
-  for (uint8_t speed = 0; speed < 255; speed++)
+  for (uint8_t speed = 0; speed < 256; speed++)
   {
     controller.configPWM(controller.TLE_PWM1, controller.TLE_FREQ80HZ, 255-speed);
     delay(10);
