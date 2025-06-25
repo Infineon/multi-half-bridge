@@ -1,0 +1,18 @@
+<map id="Tle94112Motor::coast" name="Tle94112Motor::coast">
+<area shape="rect" id="Node000001" title="releases the motor without driving or active breaking" alt="" coords="5,117,168,143"/>
+<area shape="rect" id="Node000002" href="$d5/dd0/group__tle94112api.html#a788102cec501e8d2532798c2107d0626" title="clears all clearable error flags" alt="" coords="216,80,376,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,115,211,105,212,110,159,120"/>
+<area shape="rect" id="Node000008" href="$d5/dd0/group__tle94112api.html#aba359ba70b241189e8f94a2285a55b0a" title="sets the output state and the PWM channel for a halfbridge (only for passive freewheeling)" alt="" coords="222,153,370,179"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="161,140,209,148,208,154,160,145"/>
+<area shape="rect" id="Node000003" href="$d5/dd0/group__tle94112api.html#ad9db86ef0229b3edd760dbf4a38444ec" title="clears a status register by writing 0x00 to it" alt="" coords="424,80,612,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="377,90,410,90,410,95,377,95"/>
+<area shape="rect" id="Node000004" href="$d3/d5d/group__pal.html#a03f2756f97eed3d5eaabb93ea6627db7" title="Introduces a delay during the specified time." alt="" coords="660,5,857,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="551,77,659,39,688,31,689,37,661,45,553,82"/>
+<area shape="rect" id="Node000005" href="$d3/d5d/group__pal.html#aacea90c9389fba78d927132bd3a546cc" title="Disables the GPIO output according to the GPIO logic." alt="" coords="667,55,850,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="612,80,654,76,654,81,612,85"/>
+<area shape="rect" id="Node000006" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="669,104,849,129"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="612,99,655,104,655,109,612,105"/>
+<area shape="rect" id="Node000007" href="$d3/d5d/group__pal.html#a0ef16bcb393e15a5010f0ec50b867e33" title="Send/receives data from SPI bus." alt="" coords="671,153,846,179"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="555,103,661,138,693,147,692,152,659,143,554,108"/>
+<area shape="poly" id="edge8_Node000008_Node000008" title=" " alt="" coords="262,155,255,145,258,135,273,129,296,127,325,130,336,139,333,144,323,135,296,132,274,134,262,139,260,144,266,152"/>
+</map>

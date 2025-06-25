@@ -1,0 +1,46 @@
+<map id="tle94112&#45;wiced.cpp" name="tle94112&#45;wiced.cpp">
+<area shape="rect" id="Node000001" title="TLE94112 WICED API." alt="" coords="375,5,525,31"/>
+<area shape="rect" id="Node000002" href="$d8/d3c/tle94112-wiced_8hpp.html" title="TLE94112 WICED API." alt="" coords="5,79,156,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="391,33,154,79,153,73,390,28"/>
+<area shape="rect" id="Node000011" href="$df/d6d/tle94112-platf-wiced_8hpp.html" title="TLE94112 WICED Hardware Platforms." alt="" coords="181,79,365,104"/>
+<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="422,33,315,76,313,71,421,28"/>
+<area shape="rect" id="Node000012" href="$d2/d39/gpio-wiced_8hpp.html" title="TLE94112 GPIO WICED PAL." alt="" coords="389,79,511,104"/>
+<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="453,31,453,65,447,65,447,31"/>
+<area shape="rect" id="Node000013" href="$da/dee/spic-wiced_8hpp.html" title="TLE94112 SPI WICED PAL." alt="" coords="535,79,653,104"/>
+<area shape="poly" id="edge20_Node000001_Node000013" title=" " alt="" coords="474,28,559,70,557,75,472,33"/>
+<area shape="rect" id="Node000015" href="$d8/d76/timer-wiced_8hpp.html" title="TLE94112 Timer WICED PAL." alt="" coords="678,79,806,104"/>
+<area shape="poly" id="edge24_Node000001_Node000015" title=" " alt="" coords="498,28,682,73,681,78,496,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="264,152,399,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="122,101,278,146,277,151,120,107"/>
+<area shape="rect" id="Node000004" href="$d4/d9b/tle94112_8hpp.html" title="TLE94112 Core API." alt="" coords="133,152,239,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="99,102,159,142,156,147,96,106"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="265,299,336,324"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="196,176,251,249,283,287,279,290,247,252,192,179"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="115,225,185,251"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="182,179,164,214,160,212,178,176"/>
+<area shape="rect" id="Node000007" href="$df/d05/timer_8hpp.html" title="TLE94112 Timer Platform Abstraction Layer." alt="" coords="464,225,548,251"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="238,175,451,222,450,227,237,180"/>
+<area shape="rect" id="Node000009" href="$d1/d2c/gpio_8hpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="261,225,340,251"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="206,175,272,216,269,220,203,180"/>
+<area shape="rect" id="Node000010" href="$d8/df0/spic_8hpp.html" title="TLE94112 SPI Platform Abstraction Layer." alt="" coords="364,225,440,251"/>
+<area shape="poly" id="edge12_Node000004_Node000010" title=" " alt="" coords="222,175,355,218,353,223,220,180"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="474,253,348,297,346,292,472,248"/>
+<area shape="rect" id="Node000008" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="360,299,508,324"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="496,253,457,291,454,287,492,249"/>
+<area shape="poly" id="edge10_Node000009_Node000005" title=" " alt="" coords="303,251,303,285,298,285,298,251"/>
+<area shape="poly" id="edge11_Node000009_Node000008" title=" " alt="" coords="323,248,401,290,399,294,321,253"/>
+<area shape="poly" id="edge13_Node000010_Node000005" title=" " alt="" coords="387,253,330,293,327,288,384,248"/>
+<area shape="poly" id="edge14_Node000010_Node000008" title=" " alt="" coords="410,250,426,285,421,287,405,252"/>
+<area shape="poly" id="edge16_Node000011_Node000003" title=" " alt="" coords="284,103,315,140,311,143,280,106"/>
+<area shape="poly" id="edge19_Node000012_Node000003" title=" " alt="" coords="432,106,364,147,361,142,430,102"/>
+<area shape="poly" id="edge18_Node000012_Node000009" title=" " alt="" coords="450,105,437,141,426,161,412,179,381,204,347,222,344,218,378,200,408,175,421,158,432,138,444,103"/>
+<area shape="poly" id="edge23_Node000013_Node000003" title=" " alt="" coords="552,107,388,151,386,146,551,101"/>
+<area shape="poly" id="edge21_Node000013_Node000010" title=" " alt="" coords="598,104,596,140,590,161,579,179,562,189,531,200,454,225,453,220,529,195,559,184,575,175,585,159,590,139,592,104"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="474,152,565,177"/>
+<area shape="poly" id="edge22_Node000013_Node000014" title=" " alt="" coords="584,106,543,144,540,141,580,102"/>
+<area shape="poly" id="edge25_Node000015_Node000007" title=" " alt="" coords="724,106,538,220,535,216,722,102"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="818,152,927,177"/>
+<area shape="poly" id="edge26_Node000015_Node000016" title=" " alt="" coords="764,102,841,143,838,148,762,106"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="690,152,794,177"/>
+<area shape="poly" id="edge27_Node000015_Node000017" title=" " alt="" coords="745,104,745,138,739,138,739,104"/>
+</map>

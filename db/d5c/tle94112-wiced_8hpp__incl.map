@@ -1,0 +1,24 @@
+<map id="tle94112&#45;wiced.hpp" name="tle94112&#45;wiced.hpp">
+<area shape="rect" id="Node000001" title="TLE94112 WICED API." alt="" coords="69,5,220,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,140,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,33,96,71,92,67,131,29"/>
+<area shape="rect" id="Node000003" href="$d4/d9b/tle94112_8hpp.html" title="TLE94112 Core API." alt="" coords="165,79,271,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,29,198,67,194,71,155,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="77,225,148,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="171,107,104,128,77,140,60,153,56,169,61,185,72,200,87,215,83,219,68,204,56,187,50,169,56,151,74,136,102,123,169,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="381,152,452,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="251,102,372,145,370,150,249,107"/>
+<area shape="rect" id="Node000006" href="$df/d05/timer_8hpp.html" title="TLE94112 Timer Platform Abstraction Layer." alt="" coords="71,152,155,177"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="203,106,142,147,140,142,200,102"/>
+<area shape="rect" id="Node000008" href="$d1/d2c/gpio_8hpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="179,152,257,177"/>
+<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="221,104,221,138,215,138,215,104"/>
+<area shape="rect" id="Node000009" href="$d8/df0/spic_8hpp.html" title="TLE94112 SPI Platform Abstraction Layer." alt="" coords="281,152,357,177"/>
+<area shape="poly" id="edge11_Node000003_Node000009" title=" " alt="" coords="236,102,293,142,290,146,233,106"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="115,178,115,212,110,212,110,178"/>
+<area shape="rect" id="Node000007" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="172,225,320,251"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="135,175,213,216,211,221,133,180"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="203,180,142,220,140,215,200,175"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="225,177,239,212,234,214,220,179"/>
+<area shape="poly" id="edge12_Node000009_Node000004" title=" " alt="" coords="287,180,160,223,158,218,285,175"/>
+<area shape="poly" id="edge13_Node000009_Node000007" title=" " alt="" coords="309,180,270,218,266,214,305,176"/>
+</map>

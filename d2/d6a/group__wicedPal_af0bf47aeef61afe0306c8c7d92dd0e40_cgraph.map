@@ -1,0 +1,6 @@
+<map id="SPICWiced::transfer" name="SPICWiced::transfer">
+<area shape="rect" id="Node000001" title="transfers a data package via the spi bus" alt="" coords="5,29,156,55"/>
+<area shape="rect" id="Node000002" href="$d2/d6a/group__wicedPal.html#a7c610af1feac03d6f1f9e50844f90459" title="Initialize the SPIC." alt="" coords="204,29,324,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,39,190,39,190,45,156,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="234,31,228,21,231,11,243,5,264,3,289,6,299,15,296,19,287,11,264,8,245,10,235,15,233,20,238,28"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="logger&#45;arduino.cpp" name="logger&#45;arduino.cpp">
+<area shape="rect" id="Node000001" title="TLE94112 Logger Arduino PAL." alt="" coords="114,5,258,31"/>
+<area shape="rect" id="Node000002" href="$da/d62/logger-arduino_8hpp.html" title="TLE94112 Logger Arduino PAL." alt="" coords="113,79,259,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,31,189,65,183,65,183,31"/>
+<area shape="rect" id="Node000003" href="$de/dfc/tle94112-conf_8hpp.html" title="TLE94112 Library Configuration." alt="" coords="117,225,255,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="184,105,173,152,173,183,180,212,175,213,168,184,167,152,179,104"/>
+<area shape="rect" id="Node000006" href="$d6/da3/logger_8hpp.html" title="TLE94112 Logger Platform Abstraction Layer." alt="" coords="182,152,273,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="195,103,216,139,211,141,191,106"/>
+<area shape="rect" id="Node000004" href="$d8/d9c/tle94112-conf-opts_8hpp.html" title="TLE94112 Library Configuration Options." alt="" coords="5,299,177,324"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="172,253,119,292,116,288,169,249"/>
+<area shape="rect" id="Node000005" href="$d7/d7a/tle94112-conf-dfl_8hpp.html" title="TLE94112 Default Library Configuration." alt="" coords="202,299,362,324"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="203,249,257,288,254,292,200,253"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="223,179,202,215,197,212,218,176"/>
+</map>

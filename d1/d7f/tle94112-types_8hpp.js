@@ -1,0 +1,35 @@
+var tle94112_types_8hpp =
+[
+    [ "REG_ACT_1", "d5/dd0/group__tle94112api.html#ga8773760f6f3b3bab0d17640d00f57c50", null ],
+    [ "REG_ACT_2", "d5/dd0/group__tle94112api.html#ga3a0a41b8309dedfc11168267e6a01cf1", null ],
+    [ "REG_ACT_3", "d5/dd0/group__tle94112api.html#gac276a964137d496db5b76e912c83442f", null ],
+    [ "REG_MODE_1", "d5/dd0/group__tle94112api.html#ga2ea56a3321ee97dc145ec8e401c67a8c", null ],
+    [ "REG_MODE_2", "d5/dd0/group__tle94112api.html#gabf00acfc3d00cb6075e66606dc814303", null ],
+    [ "REG_MODE_3", "d5/dd0/group__tle94112api.html#ga2b1568e07e05cee427bb96fa40266260", null ],
+    [ "REG_PWM_CH_FREQ", "d5/dd0/group__tle94112api.html#gac7cfeb8d8f6c2583d58600535059e82b", null ],
+    [ "REG_PWM_DC_1", "d5/dd0/group__tle94112api.html#ga43feb608f7f6f5eb53a0921e7981fe6a", null ],
+    [ "REG_PWM_DC_2", "d5/dd0/group__tle94112api.html#gafd15b22da70ef60169879c29483e34a7", null ],
+    [ "REG_PWM_DC_3", "d5/dd0/group__tle94112api.html#ga61691fe7ad760d3c8d4add09606a3a15", null ],
+    [ "REG_SYS_DIAG", "d5/dd0/group__tle94112api.html#ga4b933488473ee182c8c3437715e1b23d", null ],
+    [ "REG_ERR1", "d5/dd0/group__tle94112api.html#gabdc925f395212c222627bdd195295262", null ],
+    [ "REG_ERR2", "d5/dd0/group__tle94112api.html#ga4992230e8dfe4dfee86b70794995ccff", null ],
+    [ "REG_ERR3", "d5/dd0/group__tle94112api.html#ga0a6b1f7488d0645db5c08be488b5c7b0", null ],
+    [ "REG_ERR4", "d5/dd0/group__tle94112api.html#ga5e82f41861ba2aabbfaa141908694ad2", null ],
+    [ "REG_ERR5", "d5/dd0/group__tle94112api.html#ga535a5c234220227b35f306a6b1578e20", null ],
+    [ "REG_ERR6", "d5/dd0/group__tle94112api.html#ga2b55493275db8a02b101a05552358319", null ],
+    [ "REG_FW_OL", "d5/dd0/group__tle94112api.html#ga0c740bb8ff1a2d4bc1081db1127eef91", null ],
+    [ "REG_FW_CTRL", "d5/dd0/group__tle94112api.html#ga1d5d39314bf943e8fede73065201d0e0", null ],
+    [ "HL_HL", "d5/dd0/group__tle94112api.html#ga66ac0d8a3b0597796d11ec21f435dc8e", null ],
+    [ "HL_LH", "d5/dd0/group__tle94112api.html#gaa0e028e3b782f8124c47b61ca8d90ea0", null ],
+    [ "LH_HL", "d5/dd0/group__tle94112api.html#gaf4eed37cfdb84c9186086af6da1539dd", null ],
+    [ "LH_LH", "d5/dd0/group__tle94112api.html#ga33692feb6d4558c54f6e4b8b2aefecb4", null ],
+    [ "HH_LL", "d5/dd0/group__tle94112api.html#gad2000dc4f314fda526d4104169f77ac6", null ],
+    [ "LL_HH", "d5/dd0/group__tle94112api.html#gac2a06b86570b683f254ae7ef54073d68", null ],
+    [ "Error_t", "d1/d7f/tle94112-types_8hpp.html#ga2191617695c236304a528c0b1e3d2a85", [
+      [ "OK", "d1/d7f/tle94112-types_8hpp.html#gga2191617695c236304a528c0b1e3d2a85aa4ba08f111108e06b8c3662a1960d7c8", null ],
+      [ "INTF_ERROR", "d1/d7f/tle94112-types_8hpp.html#gga2191617695c236304a528c0b1e3d2a85afebdf5e06e70ab49117e64da5b2e0e0d", null ],
+      [ "CONF_ERROR", "d1/d7f/tle94112-types_8hpp.html#gga2191617695c236304a528c0b1e3d2a85a1e5d9407f43b88016fedb4b47c54ac5f", null ],
+      [ "READ_ERROR", "d1/d7f/tle94112-types_8hpp.html#gga2191617695c236304a528c0b1e3d2a85a7b5a65dece6d450b6171357b558d845a", null ],
+      [ "WRITE_ERROR", "d1/d7f/tle94112-types_8hpp.html#gga2191617695c236304a528c0b1e3d2a85af4ce3bafd1b79fb3c2a69f1934d23399", null ]
+    ] ]
+];

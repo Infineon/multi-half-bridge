@@ -1,0 +1,15 @@
+<map id="timer&#45;wiced.cpp" name="timer&#45;wiced.cpp">
+<area shape="rect" id="Node000001" title="TLE94112 Timer WICED PAL." alt="" coords="165,5,292,31"/>
+<area shape="rect" id="Node000002" href="$d8/d76/timer-wiced_8hpp.html" title="TLE94112 Timer WICED PAL." alt="" coords="165,79,293,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="231,31,231,65,226,65,226,31"/>
+<area shape="rect" id="Node000003" href="$df/d05/timer_8hpp.html" title="TLE94112 Timer Platform Abstraction Layer." alt="" coords="65,152,149,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="211,106,140,147,137,143,208,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="174,152,283,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="231,104,231,138,226,138,226,104"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="307,152,411,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="251,102,327,143,325,148,248,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,225,76,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="98,179,63,217,59,213,94,176"/>
+<area shape="rect" id="Node000005" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="100,225,248,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="120,176,156,213,152,217,116,179"/>
+</map>

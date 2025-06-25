@@ -1,0 +1,22 @@
+<map id="tle94112&#45;motor.hpp" name="tle94112&#45;motor.hpp">
+<area shape="rect" id="Node000001" title="TLE94112 Motor Control API." alt="" coords="95,5,246,31"/>
+<area shape="rect" id="Node000002" href="$d4/d9b/tle94112_8hpp.html" title="TLE94112 Core API." alt="" coords="117,79,224,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,31,173,65,168,65,168,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="30,225,101,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,100,89,106,60,116,34,132,13,153,8,169,13,185,25,200,39,215,36,219,21,204,8,187,3,169,8,151,30,128,58,112,88,101,117,94"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="334,152,405,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="203,102,325,145,323,150,202,107"/>
+<area shape="rect" id="Node000005" href="$df/d05/timer_8hpp.html" title="TLE94112 Timer Platform Abstraction Layer." alt="" coords="23,152,107,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="155,106,95,147,92,142,152,102"/>
+<area shape="rect" id="Node000007" href="$d1/d2c/gpio_8hpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="131,152,210,177"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="173,104,173,138,168,138,168,104"/>
+<area shape="rect" id="Node000008" href="$d8/df0/spic_8hpp.html" title="TLE94112 SPI Platform Abstraction Layer." alt="" coords="234,152,310,177"/>
+<area shape="poly" id="edge10_Node000002_Node000008" title=" " alt="" coords="188,102,246,142,243,146,185,106"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="68,178,68,212,63,212,63,178"/>
+<area shape="rect" id="Node000006" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="125,225,273,251"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="88,175,166,216,164,221,85,180"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="155,180,95,220,92,215,152,175"/>
+<area shape="poly" id="edge9_Node000007_Node000006" title=" " alt="" coords="178,177,192,212,187,214,173,179"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="240,180,113,223,111,218,238,175"/>
+<area shape="poly" id="edge12_Node000008_Node000006" title=" " alt="" coords="262,180,222,218,219,214,258,176"/>
+</map>
