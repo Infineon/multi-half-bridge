@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BCM_VERSION=1.68
+BCM_VERSION=1.73
 if [ "$EUID" -eq 0 ]
 then
 	echo "Please do not execute this script as root."
