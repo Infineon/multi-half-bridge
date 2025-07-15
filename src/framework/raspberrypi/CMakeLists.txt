@@ -64,6 +64,7 @@ set_target_properties(bcm2835 PROPERTIES IMPORTED_LOCATION ${bcm2835_dir})
 target_link_libraries(multi_half_bridge_py PUBLIC
     ${mhbcore}
     bcm2835
+    cap
 )
 
 # EXAMPLE_VERSION_INFO is defined by setup.py and passed into the C++ code as a
