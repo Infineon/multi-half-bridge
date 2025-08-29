@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.12.4)
 
-# Project name and languages
+# Set the correct module path
+set(CMAKE_MODULE_PATH  "${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake")
+
+# Define variables that would come from root CMakeLists.txt
 set(mhbcore multi-half-bridge-corelib)
+
+# Project name and languages
 project(${mhbcore} CXX C)
 
 
@@ -30,11 +35,6 @@ set(Headers
 
 # List source files
 set(Sources
-    ../../corelib/tle94112-logger.cpp
-    ../../corelib/tle94112.cpp
-    ../../corelib/tle94112-motor.cpp
-    ../../pal/gpio.cpp
-    ../../pal/spic.cpp
     pal/gpio-rpi.cpp
     pal/logger-rpi.cpp
     pal/spic-rpi.cpp
@@ -44,7 +44,7 @@ set(Sources
 )
 
 # Add library
-add_library(${mhbcore} ${Sources})
+#add_library(${mhbcore} ${Sources})
 
 # pybind11 integration
 find_package(pybind11 REQUIRED)
@@ -62,7 +62,6 @@ set_target_properties(bcm2835 PROPERTIES IMPORTED_LOCATION ${bcm2835_dir})
 
 # Link libraries
 target_link_libraries(multi_half_bridge_py PUBLIC
-    ${mhbcore}
     bcm2835
     cap
 )

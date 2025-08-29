@@ -32,7 +32,7 @@ message( STATUS "CMAKE_BUILD_TYPE : ${CMAKE_BUILD_TYPE}" )
 message( STATUS "CMAKE_SYSTEM_NAME : ${CMAKE_SYSTEM_NAME}" )
 message( STATUS "CMAKE_SOURCE_DIR : ${CMAKE_SOURCE_DIR}" )
 
-include( CompilerSettings )
+#include(CompilerSettings)
 
 # Search for include Files
 include_directories(
