@@ -1,6 +1,7 @@
 # Multi Half Bridge Library
 
 ![arduino build](https://github.com/Infineon/multi-half-bridge/actions/workflows/arduino_ci.yml/badge.svg)
+[![Check links](https://github.com/Infineon/multi-half-bridge/actions/workflows/check_links.yml/badge.svg)](https://github.com/Infineon/multi-half-bridge/actions/workflows/check_links.yml)
 
 C++ library of Infineon's Multi Half-Bridge IC controllers.
 
@@ -10,7 +11,7 @@ C++ library of Infineon's Multi Half-Bridge IC controllers.
     <tr>
         <td><img src="https://github.com/Infineon/Assets/raw/master/Pictures/TLE94112EL_Shield.png" width=200></td>
         <td><img src="https://github.com/Infineon/Assets/raw/master/Pictures/tle94112_hat_Raspberry_Pi.png" width=200></td>
-        <td><img src="https://www.infineon.com/export/sites/default/_images/product/power/motor_control_ics/TLE94112ES_TSDSO-24-51_Combi.jpg_1867607890.jpg" width=200></td>
+        <td><img src="/docs/img/tle94112_top.png" width=200></td>
     </tr>
     <tr>
         <td style="text-align: center"><a href="https://github.com/Infineon/multi-half-bridge/wiki/Ino-Getting-Started">DC motor control shield with TLE94112EL for Arduino</a></td>
