@@ -1,0 +1,31 @@
+<map id="Tle94112Motor::setSpeed" name="Tle94112Motor::setSpeed">
+<area shape="rect" id="Node000001" title="equivalent to start()" alt="" coords="5,89,193,115"/>
+<area shape="rect" id="Node000002" href="$dd/d03/group__tle94112motorapi.html#aca0d0d54d133002e724e4100c2cd3af8" title="releases the motor without driving or active breaking" alt="" coords="241,39,404,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,87,252,64,253,70,157,92"/>
+<area shape="rect" id="Node000009" href="$d5/dd0/group__tle94112api.html#aba359ba70b241189e8f94a2285a55b0a" title="sets the output state and the PWM channel for a halfbridge (only for passive freewheeling)" alt="" coords="463,91,611,116"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="193,100,449,100,449,106,193,105"/>
+<area shape="rect" id="Node000010" href="$d5/dd0/group__tle94112api.html#aec21a2a1434b0de208d33387c387043f" title="sets the frequency and duty cycle for a PWM channel" alt="" coords="241,140,404,165"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="157,112,253,134,252,140,156,117"/>
+<area shape="rect" id="Node000003" href="$d5/dd0/group__tle94112api.html#a788102cec501e8d2532798c2107d0626" title="clears all clearable error flags" alt="" coords="457,17,617,43"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="404,41,443,37,443,42,405,46"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="376,61,471,85,470,90,375,67"/>
+<area shape="rect" id="Node000004" href="$d5/dd0/group__tle94112api.html#ad9db86ef0229b3edd760dbf4a38444ec" title="clears a status register by writing 0x00 to it" alt="" coords="669,55,857,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="615,40,673,50,672,55,614,45"/>
+<area shape="rect" id="Node000005" href="$d3/d5d/group__pal.html#a03f2756f97eed3d5eaabb93ea6627db7" title="Introduces a delay during the specified time." alt="" coords="905,104,1103,129"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="826,77,928,99,927,104,825,83"/>
+<area shape="rect" id="Node000006" href="$d3/d5d/group__pal.html#aacea90c9389fba78d927132bd3a546cc" title="Disables the GPIO output according to the GPIO logic." alt="" coords="913,153,1095,179"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="833,78,859,89,874,102,884,114,892,127,907,138,923,146,920,151,904,143,888,130,879,118,870,105,856,94,831,83"/>
+<area shape="rect" id="Node000007" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="914,5,1094,31"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="825,52,927,31,928,36,826,57"/>
+<area shape="rect" id="Node000008" href="$d3/d5d/group__pal.html#a0ef16bcb393e15a5010f0ec50b867e33" title="Send/receives data from SPI bus." alt="" coords="917,55,1091,80"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="857,65,903,65,903,70,857,70"/>
+<area shape="poly" id="edge9_Node000009_Node000009" title=" " alt="" coords="502,92,494,82,498,72,513,66,537,64,566,68,578,77,575,81,564,73,537,69,514,71,502,76,499,82,506,89"/>
+<area shape="rect" id="Node000011" href="$d5/dd0/group__tle94112api.html#ae81da08f80a439295811f774713e6590" title="sets the frequency and duty cycle for a PWM channel automatically called by the public version of con..." alt="" coords="452,140,621,165"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="404,150,438,150,438,155,404,155"/>
+<area shape="rect" id="Node000012" href="$d5/dd0/group__tle94112api.html#a68607ddf951e75fc8dc9137881a05a3b" title="writes data bits to a control register of the TLE94112" alt="" coords="689,104,837,129"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="617,137,675,128,676,133,617,143"/>
+<area shape="poly" id="edge14_Node000012_Node000005" title=" " alt="" coords="837,114,892,114,892,119,837,119"/>
+<area shape="poly" id="edge15_Node000012_Node000006" title=" " alt="" coords="826,127,928,148,927,153,825,132"/>
+<area shape="poly" id="edge16_Node000012_Node000007" title=" " alt="" coords="828,102,856,89,870,77,879,65,888,52,904,40,918,33,920,38,907,44,892,56,883,68,874,81,859,94,830,106"/>
+<area shape="poly" id="edge17_Node000012_Node000008" title=" " alt="" coords="825,101,927,80,928,85,826,107"/>
+</map>
