@@ -8,12 +8,6 @@ include_directories(
     wrapper/
 )
 
-
-set(Headers
-    pal/
-    wrapper/
-    )
-
 set(Sources
     pal/gpio-rpi.cpp
     pal/logger-rpi.cpp
