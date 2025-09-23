@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4...3.18)
+cmake_minimum_required(VERSION 3.12.4)
 
 project(multi_half_bridge_py)
 
@@ -23,7 +23,7 @@ set(Sources
 # add_subdirectory(tools/pybind11)
 find_package(pybind11 REQUIRED)
 
-pybind11_add_module(multi_half_bridge_py ${Sources} ${Headers})
+pybind11_add_module(multi_half_bridge_py ${Sources})
 
 # Adding RPI bcm library dependency
 find_library(bcm2835_dir NAMES  libbcm2835.a)
@@ -36,6 +36,7 @@ set_target_properties(bcm2835 PROPERTIES IMPORTED_LOCATION ${bcm2835_dir})
 target_link_libraries(multi_half_bridge_py PUBLIC
 multi-half-bridge-corelib
 bcm2835
+cap
 )
 
 # EXAMPLE_VERSION_INFO is defined by setup.py and passed into the C++ code as a
