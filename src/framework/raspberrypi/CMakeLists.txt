@@ -15,9 +15,6 @@ set(Sources
     pal/timer-rpi.cpp
     wrapper/tle94112-rpi.cpp
     wrapper/tle94112-pybind.cpp
-    ../../corelib/tle94112.cpp
-    ../../corelib/tle94112-motor.cpp
-    ../../corelib/tle94112-logger.cpp
     )
 
 # add_subdirectory(tools/pybind11)
