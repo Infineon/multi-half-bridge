@@ -129,7 +129,7 @@ setup(
     project_urls={
         'Source' : 'https://github.com/Infineon/multi-half-bridge',
         'Wiki': 'https://github.com/Infineon/multi-half-bridge/wiki',
-        'IC Prodcuts Page' : 'https://www.infineon.com/cms/de/product/power/motor-control-ics/brushed-dc-motor-driver-ics/multi-half-bridge-ics/'
+        'IC Products Page' : 'https://www.infineon.com/cms/de/product/power/motor-control-ics/brushed-dc-motor-driver-ics/multi-half-bridge-ics/'
     },
     ext_modules=[CMakeExtension("multi_half_bridge_py", "../../..")],
     cmdclass={"build_ext": CMakeBuild},
