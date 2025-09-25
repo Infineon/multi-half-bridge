@@ -39,6 +39,13 @@ class CMakeBuild(build_ext):
         # Can be set with Conda-Build, for example.
         cmake_generator = os.environ.get("CMAKE_GENERATOR", "")
 
+        # Ensure necessary environment variables are set
+        cmake_prefix_path = subprocess.check_output(
+            [sys.executable, "-m", "pybind11", "--cmakedir"]
+        ).strip().decode()
+        os.environ["CMAKE_PREFIX_PATH"] = cmake_prefix_path
+       
+
         # Set Python_EXECUTABLE instead if you use PYBIND11_FINDPYTHON
         # EXAMPLE_VERSION_INFO shows you how to pass a value into the C++ code
         # from Python.
@@ -112,7 +119,7 @@ setup(
         'Wiki': 'https://github.com/Infineon/multi-half-bridge/wiki',
         'IC Prodcuts Page' : 'https://www.infineon.com/cms/de/product/power/motor-control-ics/brushed-dc-motor-driver-ics/multi-half-bridge-ics/'
     },
-    ext_modules=[CMakeExtension("multi_half_bridge_py")],
+    ext_modules=[CMakeExtension("multi_half_bridge_py", "../../..")],
     cmdclass={"build_ext": CMakeBuild},
     license='MIT',
     url='https://pypi.org/project/multi-half-bridge/',
