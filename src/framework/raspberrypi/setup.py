@@ -3,6 +3,7 @@
 import os
 import sys
 import subprocess
+import pybind11  # added: direct import to obtain CMake config dir
 
 from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
@@ -39,11 +40,8 @@ class CMakeBuild(build_ext):
         # Can be set with Conda-Build, for example.
         cmake_generator = os.environ.get("CMAKE_GENERATOR", "")
 
-        # Ensure necessary environment variables are set
-        cmake_prefix_path = subprocess.check_output(
-            [sys.executable, "-m", "pybind11", "--cmakedir"]
-        ).strip().decode()
-        os.environ["CMAKE_PREFIX_PATH"] = cmake_prefix_path
+        # Get pybind11 CMake package directory 
+        pybind11_dir = pybind11.get_cmake_dir()
        
 
         # Set Python_EXECUTABLE instead if you use PYBIND11_FINDPYTHON
@@ -54,6 +52,7 @@ class CMakeBuild(build_ext):
             "-DPYTHON_EXECUTABLE={}".format(sys.executable),
             "-DEXAMPLE_VERSION_INFO={}".format(self.distribution.get_version()),
             "-DCMAKE_BUILD_TYPE={}".format(cfg),  # not used on MSVC, but no harm
+            f"-Dpybind11_DIR={pybind11_dir}",
         ]
         build_args = []
 
