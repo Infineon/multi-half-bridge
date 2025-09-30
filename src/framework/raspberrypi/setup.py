@@ -3,6 +3,7 @@
 import os
 import sys
 import subprocess
+import pybind11  # added: direct import to obtain CMake config dir
 
 from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
@@ -39,6 +40,10 @@ class CMakeBuild(build_ext):
         # Can be set with Conda-Build, for example.
         cmake_generator = os.environ.get("CMAKE_GENERATOR", "")
 
+        # Get pybind11 CMake package directory 
+        pybind11_dir = pybind11.get_cmake_dir()
+       
+
         # Set Python_EXECUTABLE instead if you use PYBIND11_FINDPYTHON
         # EXAMPLE_VERSION_INFO shows you how to pass a value into the C++ code
         # from Python.
@@ -47,6 +52,7 @@ class CMakeBuild(build_ext):
             "-DPYTHON_EXECUTABLE={}".format(sys.executable),
             "-DEXAMPLE_VERSION_INFO={}".format(self.distribution.get_version()),
             "-DCMAKE_BUILD_TYPE={}".format(cfg),  # not used on MSVC, but no harm
+            f"-Dpybind11_DIR={pybind11_dir}",
         ]
         build_args = []
 
@@ -98,6 +104,21 @@ class CMakeBuild(build_ext):
         subprocess.check_call(
             ["cmake", "--build", ".", "--target", "multi_half_bridge_py"] + build_args, cwd=self.build_temp
         )
+        
+        # This is needed to find the built .so file and copy it to the expected location
+        # without that it would compile but you can not use the module
+
+        import glob
+        built_so_files = glob.glob(os.path.join(self.build_temp, "**", "*.so"), recursive=True)
+        if built_so_files:
+            # Get the expected output directory for this extension
+            expected_dir = os.path.dirname(self.get_ext_fullpath(ext.name))
+            if not os.path.exists(expected_dir):
+                os.makedirs(expected_dir)
+            
+            # Copy the .so file to the expected location
+            import shutil
+            shutil.copy2(built_so_files[0], self.get_ext_fullpath(ext.name))
 
 # The information here can also be placed in setup.cfg - better separation of
 # logic and declaration, and simpler if you include description/version in a file.
@@ -110,9 +131,9 @@ setup(
     project_urls={
         'Source' : 'https://github.com/Infineon/multi-half-bridge',
         'Wiki': 'https://github.com/Infineon/multi-half-bridge/wiki',
-        'IC Prodcuts Page' : 'https://www.infineon.com/cms/de/product/power/motor-control-ics/brushed-dc-motor-driver-ics/multi-half-bridge-ics/'
+        'IC Products Page' : 'https://www.infineon.com/cms/de/product/power/motor-control-ics/brushed-dc-motor-driver-ics/multi-half-bridge-ics/'
     },
-    ext_modules=[CMakeExtension("multi_half_bridge_py")],
+    ext_modules=[CMakeExtension("multi_half_bridge_py", "../../..")],
     cmdclass={"build_ext": CMakeBuild},
     license='MIT',
     url='https://pypi.org/project/multi-half-bridge/',
