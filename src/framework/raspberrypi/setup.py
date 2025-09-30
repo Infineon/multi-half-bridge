@@ -105,6 +105,9 @@ class CMakeBuild(build_ext):
             ["cmake", "--build", ".", "--target", "multi_half_bridge_py"] + build_args, cwd=self.build_temp
         )
         
+        # This is needed to find the built .so file and copy it to the expected location
+        # without that it would compile but you can not use the module
+
         import glob
         built_so_files = glob.glob(os.path.join(self.build_temp, "**", "*.so"), recursive=True)
         if built_so_files:
