@@ -1,0 +1,33 @@
+<map id="tle94112&#45;conf&#45;dfl.hpp" name="tle94112&#45;conf&#45;dfl.hpp">
+<area shape="rect" id="Node000001" title="TLE94112 Default Library Configuration." alt="" coords="233,5,393,31"/>
+<area shape="rect" id="Node000002" href="$de/dfc/tle94112-conf_8hpp.html" title="TLE94112 Library Configuration." alt="" coords="243,79,382,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="315,44,315,79,310,79,310,44"/>
+<area shape="rect" id="Node000003" href="$da/d62/logger-arduino_8hpp.html" title="TLE94112 Logger Arduino PAL." alt="" coords="5,225,151,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="284,113,98,227,96,223,281,109"/>
+<area shape="rect" id="Node000005" href="$d6/da3/logger_8hpp.html" title="TLE94112 Logger Platform Abstraction Layer." alt="" coords="267,152,358,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="315,118,315,152,310,152,310,118"/>
+<area shape="rect" id="Node000012" href="$df/d39/tle94112-logger_8hpp.html" title="TLE94112 Logger." alt="" coords="618,152,770,177"/>
+<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="388,104,633,149,632,155,387,109"/>
+<area shape="rect" id="Node000004" href="$de/d46/logger-arduino_8cpp.html" title="TLE94112 Logger Arduino PAL." alt="" coords="6,299,150,324"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="81,264,81,299,75,299,75,264"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="263,184,117,228,115,223,261,179"/>
+<area shape="rect" id="Node000006" href="$d7/d6f/logger-mtb_8hpp.html" title="TLE94112 Logger ModusToolbox HAL PAL." alt="" coords="175,225,298,251"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="292,189,251,227,247,223,289,185"/>
+<area shape="rect" id="Node000008" href="$d4/d48/logger-rpi_8hpp.html" title="TLE94112 Logger Raspberry Pi PAL." alt="" coords="481,225,595,251"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="363,179,502,223,501,228,361,184"/>
+<area shape="rect" id="Node000010" href="$df/d31/logger-wiced_8hpp.html" title="TLE94112 Logger WICED PAL." alt="" coords="323,225,457,251"/>
+<area shape="poly" id="edge10_Node000005_Node000010" title=" " alt="" coords="337,185,379,223,376,227,333,189"/>
+<area shape="rect" id="Node000007" href="$d8/db8/logger-mtb_8cpp.html" title="TLE94112 Logger ModusToolbox HAL PAL." alt="" coords="176,299,297,324"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="239,264,239,299,234,299,234,264"/>
+<area shape="rect" id="Node000009" href="$d2/ded/logger-rpi_8cpp.html" title="TLE94112 Logger Raspberry Pi PAL." alt="" coords="482,299,594,324"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="541,264,541,299,535,299,535,264"/>
+<area shape="rect" id="Node000011" href="$dd/dfe/logger-wiced_8cpp.html" title="TLE94112 Logger WICED PAL." alt="" coords="323,299,457,324"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="393,264,393,299,387,299,387,264"/>
+<area shape="poly" id="edge13_Node000012_Node000008" title=" " alt="" coords="658,185,565,228,562,223,655,181"/>
+<area shape="rect" id="Node000013" href="$d6/d4a/tle94112-logger_8cpp.html" title="TLE94112 Logger." alt="" coords="924,225,1075,251"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="757,178,950,223,949,228,756,183"/>
+<area shape="rect" id="Node000014" href="$db/dc4/tle94112-motor_8cpp.html" title="TLE94112 Motor Control API." alt="" coords="619,225,769,251"/>
+<area shape="poly" id="edge15_Node000012_Node000014" title=" " alt="" coords="697,191,697,225,691,225,691,191"/>
+<area shape="rect" id="Node000015" href="$d3/d0a/tle94112_8cpp.html" title="TLE94112 Core API." alt="" coords="793,225,899,251"/>
+<area shape="poly" id="edge16_Node000012_Node000015" title=" " alt="" coords="732,181,822,223,820,228,729,185"/>
+</map>

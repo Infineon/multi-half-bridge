@@ -1,0 +1,11 @@
+<map id="Tle94112::readStatusReg" name="Tle94112::readStatusReg">
+<area shape="rect" id="Node000001" title="reads some bits from a status register of the TLE94112" alt="" coords="5,80,191,105"/>
+<area shape="rect" id="Node000002" href="$d3/d5d/group__pal.html#a03f2756f97eed3d5eaabb93ea6627db7" title="Introduces a delay during the specified time." alt="" coords="239,5,436,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,77,238,39,266,31,268,37,239,45,133,82"/>
+<area shape="rect" id="Node000003" href="$d3/d5d/group__pal.html#aacea90c9389fba78d927132bd3a546cc" title="Disables the GPIO output according to the GPIO logic." alt="" coords="246,55,429,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="191,80,232,76,233,81,191,86"/>
+<area shape="rect" id="Node000004" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="247,104,427,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="191,99,234,104,233,109,191,105"/>
+<area shape="rect" id="Node000005" href="$d3/d5d/group__pal.html#a0ef16bcb393e15a5010f0ec50b867e33" title="Send/receives data from SPI bus." alt="" coords="250,153,425,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="135,103,239,138,272,147,270,152,238,143,133,108"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="Tle94112::clearErrors" name="Tle94112::clearErrors">
+<area shape="rect" id="Node000001" title="clears all clearable error flags" alt="" coords="5,80,165,105"/>
+<area shape="rect" id="Node000002" href="$d5/dd0/group__tle94112api.html#ad9db86ef0229b3edd760dbf4a38444ec" title="clears a status register by writing 0x00 to it" alt="" coords="213,80,401,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,90,200,90,200,95,166,95"/>
+<area shape="rect" id="Node000003" href="$d3/d5d/group__pal.html#a03f2756f97eed3d5eaabb93ea6627db7" title="Introduces a delay during the specified time." alt="" coords="449,5,647,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="340,77,449,39,477,31,479,37,450,45,342,82"/>
+<area shape="rect" id="Node000004" href="$d3/d5d/group__pal.html#aacea90c9389fba78d927132bd3a546cc" title="Disables the GPIO output according to the GPIO logic." alt="" coords="457,55,639,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="401,80,443,76,444,81,402,85"/>
+<area shape="rect" id="Node000005" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="458,104,638,129"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="402,99,444,104,444,109,401,105"/>
+<area shape="rect" id="Node000006" href="$d3/d5d/group__pal.html#a0ef16bcb393e15a5010f0ec50b867e33" title="Send/receives data from SPI bus." alt="" coords="461,153,635,179"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="345,103,450,138,483,147,481,152,449,143,343,108"/>
+</map>

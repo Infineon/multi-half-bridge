@@ -1,0 +1,15 @@
+<map id="spic&#45;arduino.cpp" name="spic&#45;arduino.cpp">
+<area shape="rect" id="Node000001" title="TLE94112 SPI Arduino PAL." alt="" coords="147,5,276,31"/>
+<area shape="rect" id="Node000002" href="$df/d2f/spic-arduino_8hpp.html" title="TLE94112 SPI Arduino PAL." alt="" coords="146,79,277,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,31,214,65,209,65,209,31"/>
+<area shape="rect" id="Node000003" href="$d8/df0/spic_8hpp.html" title="TLE94112 SPI Platform Abstraction Layer." alt="" coords="69,152,145,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="196,106,137,146,134,142,193,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="169,152,253,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="214,104,214,138,209,138,209,104"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="277,152,332,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="228,102,280,141,277,146,225,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,225,76,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="98,179,63,217,59,213,94,176"/>
+<area shape="rect" id="Node000005" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="100,225,248,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="120,176,156,213,152,217,116,179"/>
+</map>

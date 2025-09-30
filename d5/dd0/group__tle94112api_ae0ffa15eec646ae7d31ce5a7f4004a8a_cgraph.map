@@ -1,0 +1,13 @@
+<map id="Tle94112::_configHB" name="Tle94112::_configHB">
+<area shape="rect" id="Node000001" title="sets the output state and the PWM channel for a halfbridge automatically called by the public version..." alt="" coords="5,80,160,105"/>
+<area shape="rect" id="Node000002" href="$d5/dd0/group__tle94112api.html#a68607ddf951e75fc8dc9137881a05a3b" title="writes data bits to a control register of the TLE94112" alt="" coords="208,80,356,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,90,194,90,194,95,160,95"/>
+<area shape="rect" id="Node000003" href="$d3/d5d/group__pal.html#a03f2756f97eed3d5eaabb93ea6627db7" title="Introduces a delay during the specified time." alt="" coords="404,5,601,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="309,77,403,39,430,32,431,37,405,45,311,82"/>
+<area shape="rect" id="Node000004" href="$d3/d5d/group__pal.html#aacea90c9389fba78d927132bd3a546cc" title="Disables the GPIO output according to the GPIO logic." alt="" coords="411,55,594,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="356,82,398,77,398,82,357,87"/>
+<area shape="rect" id="Node000005" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="413,104,593,129"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="357,98,399,103,399,108,356,103"/>
+<area shape="rect" id="Node000006" href="$d3/d5d/group__pal.html#a0ef16bcb393e15a5010f0ec50b867e33" title="Send/receives data from SPI bus." alt="" coords="415,153,590,179"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="314,103,405,138,435,147,434,152,403,143,312,108"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="timer&#45;rpi.hpp" name="timer&#45;rpi.hpp">
+<area shape="rect" id="Node000001" title="TLE94112 Timer Raspberry Pi PAL." alt="" coords="55,5,162,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,100,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,33,72,69,68,66,97,29"/>
+<area shape="rect" id="Node000003" href="$df/d05/timer_8hpp.html" title="TLE94112 Timer Platform Abstraction Layer." alt="" coords="124,79,208,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="120,29,150,66,146,70,116,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="64,152,135,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="157,106,121,144,118,140,153,103"/>
+<area shape="rect" id="Node000005" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="159,152,307,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="179,103,214,140,211,144,175,106"/>
+</map>

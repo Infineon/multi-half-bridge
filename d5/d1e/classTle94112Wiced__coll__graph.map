@@ -1,0 +1,15 @@
+<map id="Tle94112Wiced" name="Tle94112Wiced">
+<area shape="rect" id="Node000001" title=" " alt="" coords="481,112,604,137"/>
+<area shape="rect" id="Node000002" href="$d5/dd0/group__tle94112api.html#de/dfb/classTle94112" title="represents a basic TLE94112" alt="" coords="349,112,432,137"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="446,122,481,122,481,127,446,127"/>
+<area shape="rect" id="Node000003" href="$d3/d5d/group__pal.html#de/d2f/classtle94112_1_1SPIC" title=" " alt="" coords="41,5,157,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="171,15,248,26,289,37,327,53,360,81,383,110,379,113,357,84,324,58,287,42,247,31,171,21"/>
+<area shape="rect" id="Node000004" href="$d3/d5d/group__pal.html#d7/d53/classtle94112_1_1GPIOC" title=" " alt="" coords="35,63,163,88"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="177,81,326,105,350,110,349,116,325,110,176,86"/>
+<area shape="rect" id="Node000005" href="$d3/d5d/group__pal.html#df/d67/classtle94112_1_1Timer" title=" " alt="" coords="36,112,161,137"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="175,122,349,122,349,127,175,127"/>
+<area shape="rect" id="Node000006" href="$d5/dd0/group__tle94112api.html#dc/db8/structTle94112_1_1HalfBridge__t" title="struct containing register locations for a single halfbridge" alt="" coords="13,161,184,187"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="197,162,325,142,352,135,353,140,326,147,198,168"/>
+<area shape="rect" id="Node000007" href="$d5/dd0/group__tle94112api.html#dd/dbe/structTle94112_1_1PWMchannel__t" title="struct containing register locations for a single PWM channel" alt="" coords="5,211,192,236"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="206,214,266,202,324,181,354,160,377,136,381,140,358,164,327,186,267,207,207,220"/>
+</map>

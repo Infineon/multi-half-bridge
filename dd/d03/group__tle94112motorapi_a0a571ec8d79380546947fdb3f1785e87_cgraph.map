@@ -1,0 +1,20 @@
+<map id="Tle94112Motor::begin" name="Tle94112Motor::begin">
+<area shape="rect" id="Node000001" title="finishes configuration and enables motor controls" alt="" coords="5,117,169,143"/>
+<area shape="rect" id="Node000002" href="$dd/d03/group__tle94112motorapi.html#aca0d0d54d133002e724e4100c2cd3af8" title="releases the motor without driving or active breaking" alt="" coords="217,117,380,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,127,204,127,204,133,169,133"/>
+<area shape="rect" id="Node000003" href="$d5/dd0/group__tle94112api.html#a788102cec501e8d2532798c2107d0626" title="clears all clearable error flags" alt="" coords="428,80,588,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="370,115,423,105,424,110,371,120"/>
+<area shape="rect" id="Node000009" href="$d5/dd0/group__tle94112api.html#aba359ba70b241189e8f94a2285a55b0a" title="sets the output state and the PWM channel for a halfbridge (only for passive freewheeling)" alt="" coords="434,153,582,179"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="373,140,421,148,420,154,372,145"/>
+<area shape="rect" id="Node000004" href="$d5/dd0/group__tle94112api.html#ad9db86ef0229b3edd760dbf4a38444ec" title="clears a status register by writing 0x00 to it" alt="" coords="636,80,824,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="589,90,622,90,622,95,589,95"/>
+<area shape="rect" id="Node000005" href="$d3/d5d/group__pal.html#a03f2756f97eed3d5eaabb93ea6627db7" title="Introduces a delay during the specified time." alt="" coords="872,5,1069,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="763,77,871,39,900,31,901,37,873,45,765,82"/>
+<area shape="rect" id="Node000006" href="$d3/d5d/group__pal.html#aacea90c9389fba78d927132bd3a546cc" title="Disables the GPIO output according to the GPIO logic." alt="" coords="879,55,1062,80"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="824,80,866,76,866,81,824,85"/>
+<area shape="rect" id="Node000007" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="881,104,1061,129"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="824,99,867,104,867,109,824,105"/>
+<area shape="rect" id="Node000008" href="$d3/d5d/group__pal.html#a0ef16bcb393e15a5010f0ec50b867e33" title="Send/receives data from SPI bus." alt="" coords="883,153,1058,179"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="767,103,873,138,905,147,904,152,871,143,766,108"/>
+<area shape="poly" id="edge9_Node000009_Node000009" title=" " alt="" coords="474,155,467,145,470,135,485,129,508,127,537,130,548,139,545,144,535,135,508,132,486,134,474,139,472,144,478,152"/>
+</map>

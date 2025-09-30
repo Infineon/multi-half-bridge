@@ -1,0 +1,8 @@
+<map id="Tle94112::getHBOpenLoad" name="Tle94112::getHBOpenLoad">
+<area shape="rect" id="Node000001" title="gets the openload error flag bit for a specific halfbridge" alt="" coords="5,29,200,55"/>
+<area shape="rect" id="Node000002" href="$d5/dd0/group__tle94112api.html#a0dc35515cdbf5183c59e816be52dc4c9" title="gets the openload error flag bit for a specific halfbridge automatically called by the public version..." alt="" coords="248,29,451,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,39,235,39,235,45,200,45"/>
+<area shape="rect" id="Node000003" href="$d5/dd0/group__tle94112api.html#a5ad39746c9a78d4ac384c6be78aa8cd0" title="reads one byte from a status register of the TLE94112" alt="" coords="499,29,684,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="451,39,485,39,485,45,451,45"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="552,31,544,21,548,11,564,5,591,3,625,7,638,16,635,20,623,11,591,8,566,10,552,15,549,20,556,27"/>
+</map>

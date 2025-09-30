@@ -1,0 +1,13 @@
+<map id="spic&#45;mtb.cpp" name="spic&#45;mtb.cpp">
+<area shape="rect" id="Node000001" title="TLE94112 SPI ModusToolbox HAL PAL." alt="" coords="35,5,141,31"/>
+<area shape="rect" id="Node000002" href="$da/dda/spic-mtb_8hpp.html" title="TLE94112 SPI ModusToolbox HAL PAL." alt="" coords="35,79,141,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,31,91,65,85,65,85,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,75,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="82,106,58,142,53,139,78,103"/>
+<area shape="rect" id="Node000004" href="$d8/df0/spic_8hpp.html" title="TLE94112 SPI Platform Abstraction Layer." alt="" coords="99,152,175,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="98,103,124,139,119,142,94,106"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="35,225,106,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="128,179,93,217,89,213,124,176"/>
+<area shape="rect" id="Node000006" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="130,225,278,251"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="150,176,186,213,182,217,146,179"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="gpio&#45;rpi.hpp" name="gpio&#45;rpi.hpp">
+<area shape="rect" id="Node000001" title="TLE94112 GPIO Raspberry Pi API." alt="" coords="112,5,212,31"/>
+<area shape="rect" id="Node000002" href="$d1/d2c/gpio_8hpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="68,79,147,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,33,127,69,122,66,151,29"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="171,79,265,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="173,29,203,66,198,69,169,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,76,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="98,106,63,144,59,140,94,103"/>
+<area shape="rect" id="Node000004" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="100,152,248,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="120,103,156,140,152,144,116,106"/>
+</map>

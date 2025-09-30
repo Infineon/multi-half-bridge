@@ -1,0 +1,11 @@
+<map id="Tle94112::writeReg" name="Tle94112::writeReg">
+<area shape="rect" id="Node000001" title="writes data bits to a control register of the TLE94112" alt="" coords="5,80,153,105"/>
+<area shape="rect" id="Node000002" href="$d3/d5d/group__pal.html#a03f2756f97eed3d5eaabb93ea6627db7" title="Introduces a delay during the specified time." alt="" coords="201,5,399,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,77,200,39,227,32,228,37,202,45,109,82"/>
+<area shape="rect" id="Node000003" href="$d3/d5d/group__pal.html#aacea90c9389fba78d927132bd3a546cc" title="Disables the GPIO output according to the GPIO logic." alt="" coords="209,55,391,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="154,82,195,77,196,82,154,87"/>
+<area shape="rect" id="Node000004" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="210,104,390,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="154,98,196,103,196,108,154,103"/>
+<area shape="rect" id="Node000005" href="$d3/d5d/group__pal.html#a0ef16bcb393e15a5010f0ec50b867e33" title="Send/receives data from SPI bus." alt="" coords="213,153,387,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="111,103,202,138,233,147,231,152,200,143,109,108"/>
+</map>
