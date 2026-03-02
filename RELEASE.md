@@ -17,7 +17,7 @@ This version of the Multi Half Bridge Middleware was validated for the compatibi
 For more information, refer to the following documents:
 * [API Reference Guide](https://infineon.github.io/multi-half-bridge/index.html)
 * [Multi Half Bridge Middleware README.md](./README.md)
-* [Cypress Semiconductor](http://www.cypress.com)
+* [Cypress Semiconductor](https://www.infineon.com/)
 
 ---
 © Infineon Technologies AG, 2022.
