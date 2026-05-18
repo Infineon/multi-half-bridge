@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['rampspeed_0',['rampSpeed',['../dd/d03/group__tle94112motorapi.html#ac242bfe5ddd083cd675db01a93988eb2',1,'Tle94112Motor']]],
+  ['raspberrypi_1',['RaspberryPi',['../df/d64/group__tle94112rpi.html',1,'']]],
+  ['read_2',['read',['../d4/d84/group__mtbPal.html#a454fba336d544203534f1377e47731c0',1,'GPIOMtb::read()'],['../d4/d89/group__rpiPal.html#abe80307d2a2cc4a2f22dd02f35669c0a',1,'GPIORpi::read()'],['../d2/d6a/group__wicedPal.html#ad79ab3f0d88c334335fb380b227c2eba',1,'GPIOWiced::read()'],['../d3/d5d/group__pal.html#af99ac8987acec53f9286d18b6cef486c',1,'tle94112::GPIOC::read()'],['../d1/d0a/group__arduinoPal.html#aa04da6642380e6ecb55861831ea45803',1,'GPIOIno::read()']]],
+  ['read_5ferror_3',['READ_ERROR',['../d5/dd0/group__tle94112api.html#gga2191617695c236304a528c0b1e3d2a85a7b5a65dece6d450b6171357b558d845a',1,'tle94112']]],
+  ['readme_2emd_4',['README.md',['../da/ddd/README_8md.html',1,'']]],
+  ['readstatusreg_5',['readstatusreg',['../d5/dd0/group__tle94112api.html#a8f86dd82172a51a36e9b502882ce8c92',1,'Tle94112::readStatusReg(uint8_t reg, uint8_t mask, uint8_t shift)'],['../d5/dd0/group__tle94112api.html#a5ad39746c9a78d4ac384c6be78aa8cd0',1,'Tle94112::readStatusReg(uint8_t reg)']]],
+  ['reg_5fact_5f1_6',['REG_ACT_1',['../d5/dd0/group__tle94112api.html#ga8773760f6f3b3bab0d17640d00f57c50',1,'tle94112-types.hpp']]],
+  ['reg_5fact_5f2_7',['REG_ACT_2',['../d5/dd0/group__tle94112api.html#ga3a0a41b8309dedfc11168267e6a01cf1',1,'tle94112-types.hpp']]],
+  ['reg_5fact_5f3_8',['REG_ACT_3',['../d5/dd0/group__tle94112api.html#gac276a964137d496db5b76e912c83442f',1,'tle94112-types.hpp']]],
+  ['reg_5ferr1_9',['REG_ERR1',['../d5/dd0/group__tle94112api.html#gabdc925f395212c222627bdd195295262',1,'tle94112-types.hpp']]],
+  ['reg_5ferr2_10',['REG_ERR2',['../d5/dd0/group__tle94112api.html#ga4992230e8dfe4dfee86b70794995ccff',1,'tle94112-types.hpp']]],
+  ['reg_5ferr3_11',['REG_ERR3',['../d5/dd0/group__tle94112api.html#ga0a6b1f7488d0645db5c08be488b5c7b0',1,'tle94112-types.hpp']]],
+  ['reg_5ferr4_12',['REG_ERR4',['../d5/dd0/group__tle94112api.html#ga5e82f41861ba2aabbfaa141908694ad2',1,'tle94112-types.hpp']]],
+  ['reg_5ferr5_13',['REG_ERR5',['../d5/dd0/group__tle94112api.html#ga535a5c234220227b35f306a6b1578e20',1,'tle94112-types.hpp']]],
+  ['reg_5ferr6_14',['REG_ERR6',['../d5/dd0/group__tle94112api.html#ga2b55493275db8a02b101a05552358319',1,'tle94112-types.hpp']]],
+  ['reg_5ffw_5fctrl_15',['REG_FW_CTRL',['../d5/dd0/group__tle94112api.html#ga1d5d39314bf943e8fede73065201d0e0',1,'tle94112-types.hpp']]],
+  ['reg_5ffw_5fol_16',['REG_FW_OL',['../d5/dd0/group__tle94112api.html#ga0c740bb8ff1a2d4bc1081db1127eef91',1,'tle94112-types.hpp']]],
+  ['reg_5fmode_5f1_17',['REG_MODE_1',['../d5/dd0/group__tle94112api.html#ga2ea56a3321ee97dc145ec8e401c67a8c',1,'tle94112-types.hpp']]],
+  ['reg_5fmode_5f2_18',['REG_MODE_2',['../d5/dd0/group__tle94112api.html#gabf00acfc3d00cb6075e66606dc814303',1,'tle94112-types.hpp']]],
+  ['reg_5fmode_5f3_19',['REG_MODE_3',['../d5/dd0/group__tle94112api.html#ga2b1568e07e05cee427bb96fa40266260',1,'tle94112-types.hpp']]],
+  ['reg_5fpwm_5fch_5ffreq_20',['REG_PWM_CH_FREQ',['../d5/dd0/group__tle94112api.html#gac7cfeb8d8f6c2583d58600535059e82b',1,'tle94112-types.hpp']]],
+  ['reg_5fpwm_5fdc_5f1_21',['REG_PWM_DC_1',['../d5/dd0/group__tle94112api.html#ga43feb608f7f6f5eb53a0921e7981fe6a',1,'tle94112-types.hpp']]],
+  ['reg_5fpwm_5fdc_5f2_22',['REG_PWM_DC_2',['../d5/dd0/group__tle94112api.html#gafd15b22da70ef60169879c29483e34a7',1,'tle94112-types.hpp']]],
+  ['reg_5fpwm_5fdc_5f3_23',['REG_PWM_DC_3',['../d5/dd0/group__tle94112api.html#ga61691fe7ad760d3c8d4add09606a3a15',1,'tle94112-types.hpp']]],
+  ['reg_5fsys_5fdiag_24',['REG_SYS_DIAG',['../d5/dd0/group__tle94112api.html#ga4b933488473ee182c8c3437715e1b23d',1,'tle94112-types.hpp']]]
+];

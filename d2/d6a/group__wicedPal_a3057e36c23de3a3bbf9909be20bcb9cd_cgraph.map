@@ -1,0 +1,8 @@
+<map id="SPICWiced::~SPICWiced" name="SPICWiced::~SPICWiced">
+<area shape="rect" id="Node000001" title="Destructor of the WICED SPIC class." alt="" coords="5,29,184,55"/>
+<area shape="rect" id="Node000002" href="$d2/d6a/group__wicedPal.html#aee234f033b9dea9af700018ec6c87da3" title="Deinitialize the SPIC." alt="" coords="232,29,368,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,39,219,39,219,45,184,45"/>
+<area shape="rect" id="Node000003" href="$d2/d6a/group__wicedPal.html#a7c610af1feac03d6f1f9e50844f90459" title="Initialize the SPIC." alt="" coords="416,29,536,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="368,39,402,39,402,45,368,45"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="447,31,441,21,444,11,456,5,476,3,500,6,510,15,507,19,498,11,476,8,457,10,448,15,446,20,451,28"/>
+</map>

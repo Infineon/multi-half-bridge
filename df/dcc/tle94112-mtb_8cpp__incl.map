@@ -1,0 +1,46 @@
+<map id="tle94112&#45;mtb.cpp" name="tle94112&#45;mtb.cpp">
+<area shape="rect" id="Node000001" title="TLE94112 ModusToolbox HAL API." alt="" coords="576,5,713,31"/>
+<area shape="rect" id="Node000002" href="$d8/dae/tle94112-mtb_8hpp.html" title="TLE94112 ModusToolbox HAL API." alt="" coords="246,79,385,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="592,33,382,78,381,73,591,28"/>
+<area shape="rect" id="Node000012" href="$da/dda/spic-mtb_8hpp.html" title="TLE94112 SPI ModusToolbox HAL PAL." alt="" coords="857,79,963,104"/>
+<area shape="poly" id="edge16_Node000001_Node000012" title=" " alt="" coords="688,28,854,72,853,78,687,33"/>
+<area shape="rect" id="Node000014" href="$db/dc3/gpio-mtb_8hpp.html" title="TLE94112 GPIO ModusToolbox HAL PAL." alt="" coords="470,79,579,104"/>
+<area shape="poly" id="edge19_Node000001_Node000014" title=" " alt="" coords="627,33,558,74,555,69,624,28"/>
+<area shape="rect" id="Node000016" href="$dc/ddb/timer-mtb_8hpp.html" title="TLE94112 Timer ModusToolbox HAL PAL." alt="" coords="656,79,772,104"/>
+<area shape="poly" id="edge24_Node000001_Node000016" title=" " alt="" coords="658,29,695,67,691,71,654,33"/>
+<area shape="rect" id="Node000003" href="$d4/d9b/tle94112_8hpp.html" title="TLE94112 Core API." alt="" coords="381,152,487,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="336,102,404,142,401,147,333,106"/>
+<area shape="rect" id="Node000010" href="$dd/d38/tle94112-platf-mtb_8hpp.html" title="TLE94112 ModusToolbox Hardware Platforms." alt="" coords="5,152,177,177"/>
+<area shape="poly" id="edge14_Node000002_Node000010" title=" " alt="" coords="280,107,141,150,140,145,279,101"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="202,152,306,177"/>
+<area shape="poly" id="edge15_Node000002_Node000011" title=" " alt="" coords="307,106,275,143,271,140,303,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="517,299,588,324"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="446,176,537,286,532,290,442,179"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="381,225,452,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="434,178,425,213,420,212,429,177"/>
+<area shape="rect" id="Node000006" href="$df/d05/timer_8hpp.html" title="TLE94112 Timer Platform Abstraction Layer." alt="" coords="631,225,715,251"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="473,175,622,219,620,224,472,180"/>
+<area shape="rect" id="Node000008" href="$d1/d2c/gpio_8hpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="528,225,607,251"/>
+<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="457,175,535,216,532,221,454,180"/>
+<area shape="rect" id="Node000009" href="$d8/df0/spic_8hpp.html" title="TLE94112 SPI Platform Abstraction Layer." alt="" coords="739,225,815,251"/>
+<area shape="poly" id="edge11_Node000003_Node000009" title=" " alt="" coords="488,174,726,223,725,228,487,179"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="655,253,586,294,583,289,652,248"/>
+<area shape="rect" id="Node000007" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="612,299,760,324"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="677,251,684,285,679,286,672,251"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="568,252,560,286,555,285,562,250"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="588,248,656,289,653,294,585,253"/>
+<area shape="poly" id="edge12_Node000009_Node000004" title=" " alt="" coords="741,253,602,297,600,292,740,248"/>
+<area shape="poly" id="edge13_Node000009_Node000007" title=" " alt="" coords="764,253,713,292,710,288,760,249"/>
+<area shape="poly" id="edge18_Node000012_Node000009" title=" " alt="" coords="906,106,887,140,857,179,833,201,808,220,805,216,830,197,853,176,882,137,902,103"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="947,152,1017,177"/>
+<area shape="poly" id="edge17_Node000012_Node000013" title=" " alt="" coords="924,102,962,140,959,144,920,106"/>
+<area shape="poly" id="edge20_Node000014_Node000004" title=" " alt="" coords="470,101,443,107,416,118,391,133,371,154,357,179,352,202,357,224,371,249,398,275,432,292,469,302,504,307,503,312,468,307,431,297,395,279,367,252,352,226,347,202,352,177,367,150,387,129,413,113,442,102,469,95"/>
+<area shape="poly" id="edge23_Node000014_Node000008" title=" " alt="" coords="531,104,563,211,557,213,526,105"/>
+<area shape="poly" id="edge22_Node000014_Node000011" title=" " alt="" coords="482,107,312,151,310,146,481,101"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="563,152,687,177"/>
+<area shape="poly" id="edge21_Node000014_Node000015" title=" " alt="" coords="542,102,599,142,596,146,539,106"/>
+<area shape="poly" id="edge27_Node000016_Node000006" title=" " alt="" coords="758,102,791,114,821,131,833,141,840,152,841,165,835,179,818,193,792,205,729,226,727,221,790,200,815,188,831,176,835,164,834,154,829,144,818,135,789,119,756,107"/>
+<area shape="poly" id="edge25_Node000016_Node000015" title=" " alt="" coords="701,106,652,145,648,141,698,102"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="711,152,821,177"/>
+<area shape="poly" id="edge26_Node000016_Node000017" title=" " alt="" coords="725,103,752,139,747,142,720,106"/>
+</map>

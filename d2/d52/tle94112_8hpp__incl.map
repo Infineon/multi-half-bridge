@@ -1,0 +1,20 @@
+<map id="tle94112.hpp" name="tle94112.hpp">
+<area shape="rect" id="Node000001" title="TLE94112 Core API." alt="" coords="117,5,224,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="30,152,101,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,26,89,33,60,43,34,59,13,80,8,95,13,111,25,127,39,141,36,145,21,131,8,114,3,95,8,77,30,54,58,38,88,28,117,21"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="334,79,405,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="203,28,325,71,323,76,202,33"/>
+<area shape="rect" id="Node000004" href="$df/d05/timer_8hpp.html" title="TLE94112 Timer Platform Abstraction Layer." alt="" coords="23,79,107,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="155,33,95,73,92,69,152,28"/>
+<area shape="rect" id="Node000006" href="$d1/d2c/gpio_8hpp.html" title="TLE94112 GPIO Platform Abstraction Layer." alt="" coords="131,79,210,104"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="173,31,173,65,168,65,168,31"/>
+<area shape="rect" id="Node000007" href="$d8/df0/spic_8hpp.html" title="TLE94112 SPI Platform Abstraction Layer." alt="" coords="234,79,310,104"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="188,28,246,68,243,73,185,33"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="68,104,68,138,63,138,63,104"/>
+<area shape="rect" id="Node000005" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="125,152,273,177"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="88,102,166,143,164,148,85,106"/>
+<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="155,106,95,147,92,142,152,102"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="178,103,192,138,187,140,173,105"/>
+<area shape="poly" id="edge10_Node000007_Node000002" title=" " alt="" coords="240,107,113,150,111,145,238,101"/>
+<area shape="poly" id="edge11_Node000007_Node000005" title=" " alt="" coords="262,106,222,144,219,140,258,102"/>
+</map>

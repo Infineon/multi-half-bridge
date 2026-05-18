@@ -1,0 +1,10 @@
+<map id="timer&#45;arduino.hpp" name="timer&#45;arduino.hpp">
+<area shape="rect" id="Node000001" title="TLE94112 Timer Arduino PAL." alt="" coords="38,7,177,32"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="151,4,186,5,198,10,203,19,200,27,191,32,165,36,164,30,189,27,196,24,198,20,195,14,185,10,151,9"/>
+<area shape="rect" id="Node000002" href="$df/d05/timer_8hpp.html" title="TLE94112 Timer Platform Abstraction Layer." alt="" coords="65,80,149,105"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="110,32,110,67,105,67,105,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,153,76,179"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="98,108,63,145,59,141,94,104"/>
+<area shape="rect" id="Node000004" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="100,153,248,179"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="120,104,156,141,152,145,116,108"/>
+</map>

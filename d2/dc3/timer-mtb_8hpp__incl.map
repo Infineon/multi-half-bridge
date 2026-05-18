@@ -1,0 +1,13 @@
+<map id="timer&#45;mtb.hpp" name="timer&#45;mtb.hpp">
+<area shape="rect" id="Node000001" title="TLE94112 Timer ModusToolbox HAL PAL." alt="" coords="151,5,267,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,129,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,33,104,75,101,70,185,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="153,79,264,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,31,211,65,206,65,206,31"/>
+<area shape="rect" id="Node000004" href="$df/d05/timer_8hpp.html" title="TLE94112 Timer Platform Abstraction Layer." alt="" coords="288,79,372,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="230,28,300,69,297,74,227,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="228,152,299,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="321,106,285,144,282,140,317,103"/>
+<area shape="rect" id="Node000006" href="$d1/d7f/tle94112-types_8hpp.html" title="TLE94112 Types." alt="" coords="323,152,471,177"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="343,103,378,140,375,144,339,106"/>
+</map>

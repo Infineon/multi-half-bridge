@@ -1,0 +1,9 @@
+<map id="Tle94112::end" name="Tle94112::end">
+<area shape="rect" id="Node000001" title="deactivates all outputs and disables the TLE94112" alt="" coords="5,55,120,80"/>
+<area shape="rect" id="Node000002" href="$d3/d5d/group__pal.html#ae2263e2a2b52de1f29934403d905e4fb" title="Deinitializes the SPIC." alt="" coords="179,5,340,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,52,194,31,196,37,115,57"/>
+<area shape="rect" id="Node000003" href="$d3/d5d/group__pal.html#aacea90c9389fba78d927132bd3a546cc" title="Disables the GPIO output according to the GPIO logic." alt="" coords="168,55,351,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="120,65,154,65,154,70,120,70"/>
+<area shape="rect" id="Node000004" href="$d3/d5d/group__pal.html#a7fd39939c1639ba002a1180070814292" title="Stops the timer." alt="" coords="179,104,340,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="115,77,196,98,194,103,113,83"/>
+</map>

@@ -1,0 +1,17 @@
+<map id="Tle94112Motor" name="Tle94112Motor">
+<area shape="rect" id="Node000001" title="represents a motor connected to a TLE94112" alt="" coords="695,87,815,112"/>
+<area shape="rect" id="Node000002" href="$dd/d03/group__tle94112motorapi.html#d2/deb/structTle94112Motor_1_1Connector__t" title="struct representing one motor connector" alt="" coords="349,63,556,88"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="570,82,695,92,694,97,570,87"/>
+<area shape="rect" id="Node000003" href="$d5/dd0/group__tle94112api.html#de/dfb/classTle94112" title="represents a basic TLE94112" alt="" coords="411,112,494,137"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="507,121,670,110,694,107,695,112,671,115,508,126"/>
+<area shape="rect" id="Node000004" href="$d3/d5d/group__pal.html#de/d2f/classtle94112_1_1SPIC" title=" " alt="" coords="41,5,157,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="171,14,209,17,249,24,290,37,327,57,336,67,340,78,343,88,351,97,380,112,412,119,410,125,378,117,348,101,339,91,335,80,332,70,324,61,288,42,248,29,208,22,170,19"/>
+<area shape="rect" id="Node000005" href="$d3/d5d/group__pal.html#d7/d53/classtle94112_1_1GPIOC" title=" " alt="" coords="35,63,163,88"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="177,83,411,116,411,122,176,89"/>
+<area shape="rect" id="Node000006" href="$d3/d5d/group__pal.html#df/d67/classtle94112_1_1Timer" title=" " alt="" coords="36,112,161,137"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="175,122,411,122,411,127,175,127"/>
+<area shape="rect" id="Node000007" href="$d5/dd0/group__tle94112api.html#dc/db8/structTle94112_1_1HalfBridge__t" title="struct containing register locations for a single halfbridge" alt="" coords="13,161,184,187"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="197,159,325,142,411,129,411,134,326,147,198,165"/>
+<area shape="rect" id="Node000008" href="$d5/dd0/group__tle94112api.html#dd/dbe/structTle94112_1_1PWMchannel__t" title="struct containing register locations for a single PWM channel" alt="" coords="5,211,192,236"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="201,206,263,193,325,177,379,156,425,135,427,140,381,161,326,182,264,198,202,211"/>
+</map>

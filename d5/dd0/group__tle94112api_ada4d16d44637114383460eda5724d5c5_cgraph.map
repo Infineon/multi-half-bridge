@@ -1,0 +1,13 @@
+<map id="Tle94112::begin" name="Tle94112::begin">
+<area shape="rect" id="Node000001" title="enables and initializes the TLE94112" alt="" coords="5,104,132,129"/>
+<area shape="rect" id="Node000002" href="$d3/d5d/group__pal.html#a4ebfd8fd08217f1cdfbc0425750bf350" title="Enables the GPIO output according to the GPIO logic." alt="" coords="180,5,360,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,102,125,71,179,40,196,33,198,38,181,44,128,75,87,106"/>
+<area shape="rect" id="Node000003" href="$d3/d5d/group__pal.html#a49d4ba83b8c1fc4184456c9c74df667a" title="Initializes the GPIO." alt="" coords="191,55,349,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="121,101,203,81,205,86,122,107"/>
+<area shape="rect" id="Node000004" href="$d3/d5d/group__pal.html#abba0a55befd79b70df445b563e9b68cd" title="Initializes the SPIC." alt="" coords="197,104,343,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="132,114,184,114,184,119,132,119"/>
+<area shape="rect" id="Node000005" href="$d3/d5d/group__pal.html#a6737b60f293a715a65d4c07101ea5668" title="Initialize the timer." alt="" coords="193,153,347,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="122,127,205,147,203,153,121,132"/>
+<area shape="rect" id="Node000006" href="$d5/dd0/group__tle94112api.html#aa61f625cddc7a067056e9c858ff954f2" title="initializes this object, automatically called by begin()" alt="" coords="215,203,325,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="87,127,129,157,181,188,202,196,200,201,179,192,126,162,84,132"/>
+</map>
